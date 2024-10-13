@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+
+// Import all project images
+import floridaGradeAndPave from "../assets/images/florida-grade-and-pave.png";
+import activeCareClinic from "../assets/images/active-care-clinic.png";
+import thePackersPost from "../assets/images/the-packers-post.png";
+import prestigeAcademia from "../assets/images/prestige-academia.png";
+import williamKerriganPainting from "../assets/images/william-kerrigan-painting.png";
+import lynchsLanding from "../assets/images/lynchs-landing-rv-park.png";
+
+const projects = [
+  {
+    title: "Florida Grade & Pave",
+    description:
+      "A paving company that handles both residential and commercial needs.",
+    image: floridaGradeAndPave,
+    category: "Asphalt Paving",
+    keyFeatures: ["Landing Page", "Services", "Book Directly"],
+    link: "https://floridagradeandpave.com/",
+  },
+  {
+    title: "Active Care Clinic",
+    description: "A well-known chiropractic and acupuncture clinic.",
+    image: activeCareClinic,
+    category: "Chiropractor",
+    keyFeatures: [
+      "Live Support",
+      "Mission Statement",
+      "Google Maps Integration",
+    ],
+    link: "https://activecareclinic.com/",
+  },
+  {
+    title: "The Packers Post",
+    description: "A Green Bay Packers-focused sports blog.",
+    image: thePackersPost,
+    category: "Blog",
+    keyFeatures: ["RSS Feed", "Blog Template", "Metadata"],
+    link: "https://thepackerspost.com/",
+  },
+  {
+    title: "Prestige Academia",
+    description: "An online academy that teaches English in Latin America.",
+    image: prestigeAcademia,
+    category: "Education",
+    keyFeatures: ["Language Translator", "Registration Form", "Brochure"],
+    link: "https://prestigeacademia.com/",
+  },
+  {
+    title: "William Kerrigan Painting",
+    description: "A locally-owned painting company.",
+    image: williamKerriganPainting,
+    category: "House Painting",
+    keyFeatures: ["Testimonials", "Services", "Bio"],
+    link: "https://williamkpainting.com/",
+  },
+  {
+    title: "Lynch's Landing",
+    description: "Popular hospitality business located in Florida.",
+    image: lynchsLanding,
+    category: "RV Park",
+    keyFeatures: ["Brochure", "Contact Form", "Live Cam"],
+    link: "https://lynchslandingrvpark.com/",
+  },
+];
+
+const pageTitle = "My Projects";
+const pageDescription = "All about my portfolio of work.";
+---
+
+<Layout title={pageTitle} description={pageDescription} fullWidth={true}>
+  <div class="horizontal-gradient-wrapper">
+    <!-- Hero Section -->
+    <section class="max-w-screen-2xl mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
+      <div class="mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-gray-800 dark:text-white"
+        >
+          {pageTitle}
+        </h1>
+        <p
+          class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300"
+        >
+          I'm proud to showcase some of the projects I've worked on. Each one
+          reflects my dedication to creating high-quality, user-friendly
+          websites.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section>
+      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl md:text-4xl text-blue-600 dark:text-gray-100 font-bold"
+          >
+            Featured Projects
+          </h2>
+          <p class="mt-6 sm:mt-8 text-gray-600 dark:text-gray-400">
+            Here are a few projects that I've recently worked on.
+          </p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {
+              projects.map((project) => (
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  category={project.category}
+                  keyFeatures={project.keyFeatures}
+                  link={project.link}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 md:py-20 lg:py-24 xl:py-32">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8"
+        >
+          Ready to Start Your Project?
+        </h2>
+        <p
+          class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8"
+        >
+          I'm excited to collaborate and bring your vision to life. Let's create
+          something amazing together!
+        </p>
+        <a
+          href="/contact"
+          class="btn btn-primary rounded-full py-2 px-4 sm:py-3 sm:px-6 text-sm sm:text-base shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Get In Touch
+          <svg
+            class="h-5 w-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .call-to-action {
+      position: relative;
+      overflow: hidden;
+    }
+    .call-to-action::before {
+      @apply opacity-5 sm:opacity-10;
+    }
+    .call-to-action > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects-container {
+      @apply mt-4 sm:mt-6 md:mt-8;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+    }
+
+    /* Dark mode gradient */
+    :global(.dark) .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
+    }
+  </style>
+
+  <script type="module" src="/scripts/fadeIn.js"></script>
+</Layout>
