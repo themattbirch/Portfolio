@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    # Proxy requests to the Astro server
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ http://127.0.0.1:3001/$1 [P,L]
+</IfModule>
+
+<IfModule mod_dir.c>
+    DirectoryIndex index.html
+</IfModule>

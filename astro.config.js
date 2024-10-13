@@ -1,20 +1,23 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import react from "@astrojs/react";
-import icon from "astro-icon";
-import vercel from "@astrojs/vercel/static";
-import { defineConfig } from "astro/config";
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  site: process.env.BASE_URL || 'https://mattbirch.co',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone',
+    host: process.env.HOST || '0.0.0.0',
+    port: process.env.PORT || 3001,
+  }),
   integrations: [
-    tailwind({
-      config: { path: "./tailwind.config.js" },
-    }),
     react(),
-    icon(),
+    tailwind({
+      config: { path: './tailwind.config.js' },
+    }),
   ],
-  site: "https://mattbirch.co",
-  output: "static",
-  adapter: vercel(),
+  build: {
+    inlineStylesheets: 'auto',
+  },
 });

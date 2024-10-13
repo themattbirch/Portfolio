@@ -15,12 +15,16 @@ export async function getStaticPaths() {
     const filteredPosts = allPosts.filter((post) =>
       post.data.categories.includes(category)
     );
+
     return {
       params: { slug: category.toLowerCase().replace(/\s+/g, "-") },
-      props: { category, posts: filteredPosts },
+      props: { category, posts: filteredPosts.length > 0 ? filteredPosts : [] }, // Ensure posts is at least an empty array
     };
   });
 }
+
+export const prerender = true;
+
 
 interface Props {
   category: string;
@@ -28,9 +32,11 @@ interface Props {
 }
 
 const { category, posts } = Astro.props;
-const sortedPosts = posts.sort(
-  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
-);
+
+// Safe check before sorting
+const sortedPosts = Array.isArray(posts)
+  ? posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+  : [];
 ---
 
 <Layout
@@ -53,8 +59,13 @@ const sortedPosts = posts.sort(
       <div
         class="grid gap-6 sm:gap-8 md:gap-12 mt-4 sm:mt-6 md:mt-8 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {sortedPosts.map((post) => <PostPreview post={post} />)}
+        {sortedPosts.length > 0 ? (
+          sortedPosts.map((post) => <PostPreview post={post} />)
+        ) : (
+          <p>No posts available for this category.</p>
+        )}
       </div>
+
       <div class="flex justify-center items-center mt-8 sm:mt-12">
         <a
           href="/blog"

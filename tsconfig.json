@@ -4,19 +4,22 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
-      "skipLibCheck": true,
+    "skipLibCheck": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-     "typeRoots": ["./src/types", "./node_modules/@types"],
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
     "types": ["astro/client"],
     "moduleResolution": "node",
-"esModuleInterop": true,
-"allowSyntheticDefaultImports": true
- },
-"include": ["src", "tests", "scripts"],
-"exclude": ["node_modules", "dist"]
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
+  "exclude": ["node_modules", "dist"]
 }

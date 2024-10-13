@@ -12,12 +12,17 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(allPosts, { pageSize: 6 });
 }
 
+export const prerender = true;
+
+
 type Props = {
-  page: Page;
+  page: Page | undefined;
 };
 
 const { page } = Astro.props;
-const posts = page.data as CollectionEntry<"posts">[];
+
+// Ensure `page` and its data are available before accessing properties
+const posts = page?.data as CollectionEntry<"posts">[] || [];
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 const pageTitle = "Matt Birch's Web Development Blog";
@@ -38,12 +43,19 @@ const blogDescription =
             {pageTitle}
           </h1>
         </header>
-        <div
-          class="flex flex-col sm:flex-row justify-between items-center sm:mb-6 md:mb-8"
-        >
-          <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
-          <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
-        </div>
+
+        <!-- Check if page exists and handle pagination URLs gracefully -->
+        {page && (
+          <div
+            class="flex flex-col sm:flex-row justify-between items-center sm:mb-6 md:mb-8"
+          >
+            <Breadcrumb current={`Page ${page?.currentPage || 1}`} parent="Blog" />
+            <Pagination
+              prevURL={page.url?.prev || null}
+              nextURL={page.url?.next || null}
+            />
+          </div>
+        )}
 
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 md:my-12"
