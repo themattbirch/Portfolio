@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import CategoryList from "@/components/CategoryList.astro";
 import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
+import Breadcrumb from "@/components/BreadCrumb.astro";
 
 const posts = (await getCollection("posts")).slice(0, 6);
 const allCategories = posts.flatMap((post) => post.data.categories);
@@ -32,6 +33,9 @@ const blogDescription =
           </p>
         </header>
         <CategoryList categories={categories} title="Categories" />
+        <div class="mb-6 sm:mb-8 md:mb-12">
+          <Breadcrumb current="Page 1" parent="Blog" />
+        </div>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-4 sm:mt-6 md:mt-8"
         >

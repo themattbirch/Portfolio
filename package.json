@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+  "start": "NODE_ENV=production node server.mjs",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
+    "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.2",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/tailwind": "^5.1.0",
