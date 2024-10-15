@@ -104,32 +104,31 @@ const pageDescription =
     </section>
   </div>
 
-  <!-- Combined CTA and Background Image Section  -->
   <section
-    class="relative w-full bg-cover bg-center"
-    style="background-image: url('/images/me_rocks.png'); height: 60vh; min-height: 300px;"
+    id="cta-section"
+    class="relative w-full bg-cover bg-center parallax"
+    style="background-image: url('/images/me_rocks.png');"
   >
     <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-black opacity-70 dark:opacity-80"></div>
 
     <!-- Text and Button Container -->
     <div
-      class="absolute bottom-8 sm:bottom-16 md:bottom-[80px] left-1/2 transform -translate-x-1/2 z-10 text-center w-full px-4 sm:max-w-[90%] md:max-w-[70%] lg:max-w-[60%]"
+      class="absolute inset-x-0 bottom-[60px] flex flex-col items-center justify-center z-10 px-4 transform -translate-y-1/2"
     >
       <h2
-        class="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 font-bold tracking-tight text-gray-100 drop-shadow-lg"
+        id="reveal-text"
+        class="text-gradient text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8"
       >
         You know where to find me.
       </h2>
-      <div class="flex flex-col items-center justify-center space-y-6">
-        <!-- Button under the icons -->
-        <a
-          href="/contact"
-          class="btn text-white bg-sky-700 bg-opacity-20 border-2 border-sky-700 font-semibold rounded-full px-8 py-3 transition-colors duration-300 transform hover:bg-sky-700 hover:bg-opacity-40 shadow"
-        >
-          Let's Connect
-        </a>
-      </div>
+      <a
+        id="reveal-button"
+        href="/contact"
+        class="btn text-white bg-sky-700 rounded-full px-8 py-3 button-glow"
+      >
+        Let's Connect
+      </a>
     </div>
   </section>
 
@@ -158,11 +157,6 @@ const pageDescription =
 </Layout>
 
 <style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee);
-    min-height: 100vh;
-  }
-
   .horizontal-gradient-wrapper-2 {
     background: linear-gradient(to bottom, #dde4ee, #ffffff);
   }
@@ -176,47 +170,102 @@ const pageDescription =
   :global(.dark) .horizontal-gradient-wrapper-2 {
     background: linear-gradient(to bottom, #1f2937, #45617c);
   }
-
-  /* global.css */
-  .intro-text {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    @apply sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed;
-    color: var(--color-secondary);
-    max-width: 100%;
-    @apply sm:max-w-md md:max-w-2xl;
-    margin: 1rem auto;
-    @apply sm:my-4 md:my-8;
+  /* Add gradient overlay and glowing button shadow */
+  .text-gradient {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .highlight {
-    font-weight: bold;
-    color: var(--color-primary);
+  .button-glow {
+    box-shadow:
+      0 0 15px rgba(0, 114, 255, 0.8),
+      0 0 30px rgba(0, 114, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
   }
 
-  .content-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    @apply sm:grid-cols-2;
-    gap: 1rem;
-    @apply sm:gap-2 md:gap-4;
-    align-items: center;
+  .button-glow:hover {
+    box-shadow:
+      0 0 35px rgba(0, 114, 255, 1.2),
+      0 0 55px rgba(0, 114, 255, 0.7);
   }
 
-  .content-section:nth-child(even) .content-image {
-    order: 1; /* Move image first */
+  /* Parallax effect */
+  .parallax {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    min-height: 300px;
   }
 
-  .content-section:nth-child(even) .content-text {
-    order: 2; /* Move text second */
+  .text-gradient {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: #0072ff; /* Fallback color */
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
 
-  .content-section:nth-child(odd) .content-text {
-    order: 1; /* Move text first */
+  #reveal-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+    will-change: opacity, transform;
   }
 
-  .content-section:nth-child(odd) .content-image {
-    order: 2; /* Move image second */
+  #reveal-text.reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 </style>
 
 <script type="module" src="/scripts/fadeIn.js"></script>
+
+<script>
+  function handleIntersection(
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("Section is intersecting");
+        const text = document.getElementById("reveal-text");
+        const button = document.getElementById("reveal-button");
+        if (text) {
+          console.log("Adding reveal-visible class to text");
+          text.classList.add("reveal-visible");
+          console.log("Text opacity:", window.getComputedStyle(text).opacity);
+        } else {
+          console.log("Text element not found");
+        }
+        if (button) {
+          setTimeout(() => {
+            console.log("Adding reveal-visible class to button");
+            button.classList.add("reveal-visible");
+          }, 200);
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.2,
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM fully loaded");
+    const section = document.getElementById("cta-section");
+    if (section) {
+      console.log("Observing CTA section");
+      observer.observe(section);
+    } else {
+      console.log("CTA section not found");
+    }
+  });
+</script>
