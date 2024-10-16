@@ -3,12 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 
 // Import all project images
-import floridaGradeAndPave from "../assets/images/florida-grade-and-pave.png";
-import activeCareClinic from "../assets/images/active-care-clinic.png";
-import thePackersPost from "../assets/images/the-packers-post.png";
-import prestigeAcademia from "../assets/images/prestige-academia.png";
-import williamKerriganPainting from "../assets/images/william-kerrigan-painting.png";
-import lynchsLanding from "../assets/images/lynchs-landing-rv-park.png";
+import floridaGradeAndPave from "/assets/images/florida-grade-and-pave.png";
+import activeCareClinic from "/assets/images/active-care-clinic.png";
+import thePackersPost from "/assets/images/the-packers-post.png";
+import prestigeAcademia from "/assets/images/prestige-academia.png";
+import williamKerriganPainting from "/assets/images/william-kerrigan-painting.png";
+import lynchsLanding from "/assets/images/lynchs-landing-rv-park.png";
 
 const projects = [
   {
@@ -100,7 +100,7 @@ const pageDescription = "All about my portfolio of work.";
             Featured Projects
           </h2>
           <p class="mt-6 sm:mt-8 text-gray-600 dark:text-gray-400">
-            Here are a few projects that I've recently worked on.
+            Here are a few projects that I've recently completed.
           </p>
         </div>
         <div class="flex flex-col items-center">
@@ -160,6 +160,8 @@ const pageDescription = "All about my portfolio of work.";
       </div>
     </section>
   </div>
+</Layout>
+
 
   <style>
     .call-to-action {
@@ -205,4 +207,3 @@ const pageDescription = "All about my portfolio of work.";
   </style>
 
   <script type="module" src="/scripts/fadeIn.js"></script>
-</Layout>

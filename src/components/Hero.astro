@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import lightBackgroundImage from "../assets/images/hero-background-light-theme-toggle.png";
-import darkBackgroundImage from "../assets/images/hero-background-dark-theme-toggle.png";
-import mobileBackgroundImage from "../assets/images/hero_background_mobile.jpg";
+import lightBackgroundImage from "/assets/images/hero-background-light-theme-toggle.png";
+import darkBackgroundImage from "/assets/images/hero-background-dark-theme-toggle.png";
+import mobileBackgroundImage from "/assets/images/hero_background_mobile.jpg";
 
 const lightBackground = lightBackgroundImage.src;
 const darkBackground = darkBackgroundImage.src;
@@ -16,21 +16,18 @@ const mobileBackground = mobileBackgroundImage.src;
     alt="Hero Light Background"
     class="hidden"
     loading="lazy"
-    style={{ objectFit: "cover", width: "100%", height: "100%" }}
   />
   <Image
     src={darkBackgroundImage}
     alt="Hero Dark Background"
     class="hidden"
     loading="lazy"
-    style={{ objectFit: "cover", width: "100%", height: "100%" }}
   />
   <Image
     src={mobileBackgroundImage}
     alt="Hero Mobile Background"
     class="hidden"
     loading="lazy"
-    style={{ objectFit: "cover", width: "100%", height: "100%" }}
   />
 
   <!-- Hero Background Container -->

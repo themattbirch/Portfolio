@@ -3,7 +3,7 @@ author: pam-beesely
 categories: ["career advice"]
 date: 08/10/2021
 featured: false
-image: ./images/record.jpg
+image: /assets/images/record.jpg
 title: Creating a successful music brand
 description: lorem massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae
 ---
