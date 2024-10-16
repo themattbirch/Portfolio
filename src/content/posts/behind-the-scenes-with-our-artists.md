@@ -3,7 +3,7 @@ author: dwight-schrute
 categories: ["studio tips"]
 date: 08/10/2021
 featured: false
-image: ./images/photoshoot.jpg
+image: /assets/images/photoshoot.jpg
 title: Behind-the-scenes with our artists
 description: lorem massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae
 ---

@@ -2,11 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import ContentSection from "../components/ContentSection.astro";
-import headshot from "../assets/images/matt-birch-headshot.webp";
-import myApproach from "../assets/images/approach-to-work.webp";
-import whoIam from "../assets/images/who-i-am.webp";
-import passionateAbout from "../assets/images/my-passions-music-beach.webp";
-import workWithMe from "../assets/images/teamwork.webp";
+import headshot from "/assets/images/matt-birch-headshot.webp";
+import myApproach from "/assets/images/approach-to-work.webp";
+import whoIam from "/assets/images/who-i-am.webp";
+import passionateAbout from "/assets/images/my-passions-music-beach.webp";
+import workWithMe from "/assets/images/teamwork.webp";
 
 const pageTitle = "About Matt Birch | Web Developer";
 const pageDescription =
@@ -107,7 +107,7 @@ const pageDescription =
   <section
     id="cta-section"
     class="relative w-full bg-cover bg-center parallax"
-    style="background-image: url('/images/me_rocks.png');"
+    style="background-image: url('assets/images/me_rocks.png');"
   >
     <!-- Dark Overlay -->
     <div class="absolute inset-0 bg-black opacity-70 dark:opacity-80"></div>
