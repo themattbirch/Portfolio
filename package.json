@@ -4,8 +4,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+<<<<<<< HEAD
     "build": "astro build",
     "start": "node entry.mjs",
+=======
+  "start": "NODE_ENV=production node server.mjs",
+    "build": "astro check && astro build",
+>>>>>>> origin/main
     "preview": "astro preview",
     "astro": "astro",
     "clean": "rm -rf node_modules .astro dist"
