@@ -126,3 +126,9 @@ const pageDescription = "The technical skills I possess.";
     background: linear-gradient(to bottom, #374962, #45617c);
   }
 </style>
+
+
+<script is:inline type="module">
+  import { handleFadeIn } from "/scripts/fadeIn.js";
+  document.addEventListener("astro:page-load", handleFadeIn);
+</script>

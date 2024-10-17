@@ -60,7 +60,7 @@ const finalOgImage = image
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      onload="this.onload=null;this.rel='stylesheet'"
+      id="fontawesome-stylesheet"
     />
     <noscript>
       <link
@@ -76,12 +76,12 @@ const finalOgImage = image
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Load Google Fonts Asynchronously -->
+     <!-- Load Google Fonts Asynchronously -->
     <link
       href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap"
       rel="preload"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      id="google-fonts-stylesheet"
     />
     <noscript>
       <link
@@ -89,6 +89,21 @@ const finalOgImage = image
         rel="stylesheet"
       />
     </noscript>
+
+    <!-- Add script to handle stylesheets after preload -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fontAwesomeLink = document.getElementById("fontawesome-stylesheet");
+        if (fontAwesomeLink) {
+          fontAwesomeLink.rel = "stylesheet";
+        }
+
+        const googleFontsLink = document.getElementById("google-fonts-stylesheet");
+        if (googleFontsLink) {
+          googleFontsLink.rel = "stylesheet";
+        }
+      });
+    </script>
   </head>
   <body class="min-h-screen flex flex-col text-base sm:text-lg md:text-xl">
     <Header />

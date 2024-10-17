@@ -87,6 +87,8 @@ const pageDescription =
         <SkillsComponent skills={skillsPart2} />
       </div>
     </section>
+  </div>
+</Layout>
 
     <style>
       .horizontal-gradient-wrapper {
@@ -99,6 +101,8 @@ const pageDescription =
       }
     </style>
 
-    <script type="module" src="/scripts/fadeIn.js"></script>
-  </div>
-</Layout>
+
+<script is:inline type="module">
+  import { handleFadeIn } from "/scripts/fadeIn.js";
+  document.addEventListener("astro:page-load", handleFadeIn);
+</script>

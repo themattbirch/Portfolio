@@ -1,4 +1,3 @@
-// ecosystem.config.cjs
 module.exports = {
   apps: [
     {

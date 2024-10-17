@@ -7,17 +7,15 @@ import Share from "../../components/Share.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
 import { Image } from "astro:assets";
 
-
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
-  return posts.map((post) => ({
+  return posts.map((post: CollectionEntry<"posts">) => ({
     params: { slug: post.slug },
     props: { post },
   }));
 };
 
 export const prerender = true;
-
 
 // Define the structure of a heading
 interface Heading {
@@ -26,19 +24,35 @@ interface Heading {
   text: string;
 }
 
-type Props = {
-  post: CollectionEntry<"posts">;
-};
+interface ImageData {
+  src: string;
+  width: number;
+  height: number;
+}
 
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
+
+// Type guard function
+function isImageData(image: unknown): image is ImageData {
+  return typeof image === 'object' && image !== null && 'src' in image;
+}
+
+// Ensure post.data.image is of the correct type
+const postImage = {
+  src: isImageData(post.data.image) ? post.data.image.src : (post.data.image as string),
+  width: 1920,
+  height: 1080,
+  format: 'webp' as const // or the appropriate format of your image
+};
 ---
+
 
 <Layout
   title={post.data.title}
   description={post.data.description}
-  ogImage={post.data.image.src}
-  image={post.data.image}
+  ogImage={postImage.src}
+  image={postImage}
   fullWidth={true}
 >
   <div class="horizontal-gradient-wrapper">
@@ -56,10 +70,10 @@ const { Content, headings } = await post.render();
 
         <div class="mb-8 sm:mb-12 md:mb-16">
           <Image
-            src={post.data.image}
+            src={postImage.src}
             alt={post.data.title}
-            width={1920}
-            height={1080}
+            width={postImage.width}
+            height={postImage.height}
             class="w-full h-auto object-cover rounded-lg shadow-lg"
             loading="eager"
           />

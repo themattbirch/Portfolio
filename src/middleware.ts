@@ -1,15 +1,19 @@
 // src/middleware.ts
 
-export const onRequest = async ({ request }, next) => {
+import type { MiddlewareHandler } from 'astro';
+
+export const onRequest: MiddlewareHandler = async ({ request }, next) => {
+
   try {
     const originalUrl = new URL(request.url);
 
     // Only clean the URL for the homepage
-    if (originalUrl.pathname === '/' || originalUrl.pathname === '/index.html') {
+    if (originalUrl.pathname === '/index.html') {
       const baseUrl = import.meta.env.BASE_URL || 'https://mattbirch.co';
       const cleanUrl = new URL(baseUrl);
       cleanUrl.pathname = '/';
       cleanUrl.search = originalUrl.search;
+      cleanUrl.protocol = 'https:';
       const cleanHeaders = new Headers(request.headers);
       cleanHeaders.set('Host', cleanUrl.hostname);
       cleanHeaders.set('X-Forwarded-Proto', 'https');
@@ -28,6 +32,6 @@ export const onRequest = async ({ request }, next) => {
     return next();
   } catch (error) {
     console.error('Middleware - Error:', error);
-    return next(request);
+    return next();
   }
 };

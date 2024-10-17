@@ -14,17 +14,15 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
 export const prerender = true;
 
-
 type Props = {
-  page: Page | undefined;
+  page: Page<CollectionEntry<"posts">>;
 };
 
 const { page } = Astro.props;
-
-// Ensure `page` and its data are available before accessing properties
-const posts = page?.data as CollectionEntry<"posts">[] || [];
+const posts = page.data;
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
+
 const pageTitle = "Matt Birch's Web Development Blog";
 const blogDescription =
   "Transforming ideas into powerful web experiences. I combine technical expertise with creative problem-solving to deliver websites that not only look great but perform exceptionally.";
@@ -43,20 +41,15 @@ const blogDescription =
             {pageTitle}
           </h1>
         </header>
-
-        <!-- Check if page exists and handle pagination URLs gracefully -->
-        {page && (
-          <div
-            class="flex flex-col sm:flex-row justify-between items-center sm:mb-6 md:mb-8"
-          >
-            <Breadcrumb current={`Page ${page?.currentPage || 1}`} parent="Blog" />
-            <Pagination
-              prevURL={page.url?.prev || null}
-              nextURL={page.url?.next || null}
-            />
-          </div>
-        )}
-
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center sm:mb-6 md:mb-8"
+        >
+          <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
+          <Pagination
+            prevURL={page.url.prev}
+            nextURL={page.url.next}
+          />
+        </div>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 md:my-12"
         >
@@ -74,34 +67,28 @@ const blogDescription =
   .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
   }
-
   /* Dark mode gradient */
   :global(.dark) .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
   }
-
   article:hover img {
     transform: scale(1.05);
     transition: transform 0.3s ease;
   }
-
   article:hover h2 {
     color: #2563eb; /* Tailwind's blue-600 */
     transition: color 0.3s ease;
   }
-
   .toc-wrapper a {
     transition:
       color 0.3s ease,
       transform 0.3s ease;
     display: inline-block;
   }
-
   .toc-wrapper a:hover {
     color: #3b82f6; /* Tailwind's blue-500 */
     transform: translateX(5px);
   }
-
   .dark .toc-wrapper a:hover {
     color: #60a5fa; /* Tailwind's blue-400 */
   }
