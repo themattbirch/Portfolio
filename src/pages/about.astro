@@ -224,8 +224,6 @@ const pageDescription =
   }
 </style>
 
-<script type="module" src="/scripts/fadeIn.js"></script>
-
 <script>
   function handleIntersection(
     entries: IntersectionObserverEntry[],
@@ -233,19 +231,13 @@ const pageDescription =
   ) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("Section is intersecting");
         const text = document.getElementById("reveal-text");
         const button = document.getElementById("reveal-button");
         if (text) {
-          console.log("Adding reveal-visible class to text");
           text.classList.add("reveal-visible");
-          console.log("Text opacity:", window.getComputedStyle(text).opacity);
-        } else {
-          console.log("Text element not found");
         }
         if (button) {
           setTimeout(() => {
-            console.log("Adding reveal-visible class to button");
             button.classList.add("reveal-visible");
           }, 200);
         }
@@ -258,14 +250,8 @@ const pageDescription =
     threshold: 0.2,
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM fully loaded");
-    const section = document.getElementById("cta-section");
-    if (section) {
-      console.log("Observing CTA section");
-      observer.observe(section);
-    } else {
-      console.log("CTA section not found");
-    }
-  });
+  const section = document.getElementById("cta-section");
+  if (section) {
+    observer.observe(section);
+  }
 </script>
