@@ -30,23 +30,25 @@ interface ImageData {
   height: number;
 }
 
+// Type guard function for image data
+function isImageData(image: unknown): image is ImageData {
+  return typeof image === "object" && image !== null && "src" in image;
+}
+
+// Get post data and headings
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 
-// Type guard function
-function isImageData(image: unknown): image is ImageData {
-  return typeof image === 'object' && image !== null && 'src' in image;
-}
-
 // Ensure post.data.image is of the correct type
 const postImage = {
-  src: isImageData(post.data.image) ? post.data.image.src : (post.data.image as string),
+  src: isImageData(post.data.image)
+    ? post.data.image.src
+    : (post.data.image as string),
   width: 1920,
   height: 1080,
-  format: 'webp' as const // or the appropriate format of your image
+  format: "webp" as const, // or your actual image format (png, jpg, etc.)
 };
 ---
-
 
 <Layout
   title={post.data.title}
@@ -59,8 +61,11 @@ const postImage = {
     <section
       class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
-      <article class="relative">
+        <div
+        class="breadcrumb-container flex items-center justify-between space-x-4"
+      >
         <Breadcrumb current={post.data.title} parent="Blog" />
+      </div>
 
         <h1
           class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
@@ -79,17 +84,17 @@ const postImage = {
           />
         </div>
 
-        <!-- Mobile Table of Contents -->
-        <div class="lg:hidden mb-8 flex justify-center">
-          <div class="toc-wrapper w-full max-w-md mx-auto text-center">
+       <!-- Mobile Table of Contents -->
+        <div class="custom-lg:hidden mb-8 flex justify-center">
+          <div class="toc-wrapper w-full mx-auto text-center">
             <TableOfContents headings={headings as Heading[]} />
           </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row lg:gap-16 relative">
-          <div class="lg:w-3/4">
+        <div class="flex flex-col custom-lg:flex-row custom-lg:gap-16 relative">
+          <div class="custom-lg:w-3/4">
             <div
-              class="prose prose-sm sm:prose-base lg:prose-xl dark:prose-invert max-w-none"
+              class="prose prose-sm sm:prose-base custom-lg:prose-xl dark:prose-invert max-w-none"
             >
               <Content />
             </div>
@@ -97,9 +102,9 @@ const postImage = {
 
           <!-- Desktop Table of Contents -->
           <aside
-            class="hidden lg:block lg:w-1/4 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0"
+            class="hidden custom-lg:block custom-lg:w-1/4 mt-8 custom-lg:mt-0 custom-lg:absolute custom-lg:right-0 custom-lg:top-0"
           >
-            <div class="lg:sticky lg:top-8 toc-wrapper">
+            <div class="lg:sticky lg:top-8 toc-wrapper lg:pl-8">
               <TableOfContents headings={headings as Heading[]} />
             </div>
           </aside>
@@ -127,7 +132,7 @@ const postImage = {
     font-weight: 600;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1180px) {
     .sticky {
       position: sticky;
       top: 2rem;
@@ -146,15 +151,62 @@ const postImage = {
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1180px) {
     .mb-16.-mx-4.sm\:-mx-6.lg\:-mx-8 {
       --page-padding: 2rem;
     }
   }
-
   .toc-wrapper {
-    max-width: 250px;
+    max-width: 90%;
     margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  @media (max-width: 1179px) {
+    .toc-wrapper {
+      max-width: 90%;
+      font-size: 0.9rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .toc-wrapper :global(h2) {
+      font-size: 1.5rem;
+    }
+    .toc-wrapper :global(ul) {
+      padding-left: 1rem;
+    }
+    .toc-wrapper :global(a) {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .toc-wrapper {
+      width: 100%;
+      max-width: none;
+      margin-right: 0;
+      margin-left: auto;
+    }
+    .lg\:w-3\/4 {
+      width: calc(75% - 2rem);
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .toc-wrapper {
+      max-width: 90%; /* Adjust this value as needed */
+      font-size: 0.9rem;
+    }
+    .toc-wrapper :global(h2) {
+      font-size: 1.5rem;
+    }
+    .toc-wrapper :global(ul) {
+      padding-left: 1rem;
+    }
+    .toc-wrapper :global(a) {
+      font-size: 1rem;
+    }
   }
 
   .toc-wrapper :global(a) {
@@ -178,5 +230,18 @@ const postImage = {
 
   :global(.dark) .toc-wrapper :global(a:hover) {
     color: #60a5fa; /* Tailwind's blue-400 */
+  }
+
+  .breadcrumb-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Or justify-start if alignment is needed */
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  @media (max-width: 828px) {
+    .breadcrumb-container {
+      font-size: 0.875rem; /* Optional: Adjust font size for smaller screens */
+    }
   }
 </style>
