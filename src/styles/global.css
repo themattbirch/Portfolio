@@ -481,6 +481,15 @@ body {
     color: var(--text-color);
 }
 
+ .prose img {
+     width: 100%;
+     /* Ensures all images inside the content take full width */
+     height: auto;
+     /* Maintain aspect ratio */
+     margin: 0 auto;
+     /* Center the images if needed */
+ }
+
 .dark .prose p {
     color: var(--skills-text);
 }

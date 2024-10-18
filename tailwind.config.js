@@ -84,7 +84,6 @@ export default {
       screens: {
         "custom-md": "820px", // Custom breakpoint at 820px
         "custom-lg": "1180px",
-        "blog-lg": "1080px", // Blog container breakpoint
       },
     },
   },

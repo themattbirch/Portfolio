@@ -12,9 +12,7 @@ interface Props {
 const { headings } = Astro.props;
 ---
 
-<nav
-  class="table-of-contents w-full max-w-3xl p-6 sm:p-4 rounded-xl sm:rounded-lg"
->
+<nav class="table-of-contents w-full rounded-xl">
   <h2 class="text-2xl sm:text-xl font-semibold mb-6 sm:mb-4 text-center">
     Table of Contents
   </h2>
@@ -41,16 +39,8 @@ const { headings } = Astro.props;
     border-radius: 0.75rem;
     padding: 1rem 1.25rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 0.5rem;
     text-align: center;
     transition: all 0.3s ease;
-  }
-
-  @media (max-width: 1023px) {
-    .table-of-contents {
-      border-radius: 0.5rem;
-      padding: 1rem;
-    }
   }
 
   :global(.dark) .table-of-contents {
@@ -59,20 +49,6 @@ const { headings } = Astro.props;
 
   .toc-item {
     list-style-type: none;
-  }
-  .toc-wrapper {
-    background-color: #e6f3ff; /* Light blue background */
-    border: 1px solid #cccccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    transition: all 0.3s ease; /* Smooth transition for all changes */
-  }
-
-  /* Hover effect for the TOC */
-  .toc-wrapper:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px); /* Slight upward movement on hover */
   }
 
   .table-of-contents:hover {

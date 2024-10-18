@@ -3,7 +3,7 @@ author: matt-birch
 categories: ["SEO"]
 date: 06/16/2021
 featured: false
-image: /assets/images/photoshoot.jpg
+image: /assets/images/mobile-website-optimization.webp
 title: How to optimize website performance after Google Page Experience update rollout
 description: Google finally rolled out the Page Experience update for Core Web Vitals. Here's what marketers and bloggers can do for thieir website.
 ---
@@ -20,7 +20,7 @@ It’s a polarizing topic, and while Page Experience’s effects on ranking are 
 
 The Page Experience update is a set of signals that will become part of Google’s ranking algorithm. Its purpose is similar to other recent algorithm updates, as it's centered around optimizing the user experience.
 
-Where it differs from past ones, however, is in its structure. It joins the long list of hundreds of other factors currently impacting ranking. But what differentiates Page Experience from other past algorithms is that it's object oriented. Each aspect of the new algorithm is essentially treated as its own object, rather than simply looking at keywords and information on a web page, as its predecessors were designed to do. Google has indicated the Page Experience ranking boost will serve as more of a tiebreaker for SERP, rather than a driving force.
+Where it differs from past ones, however, is in its structure. It joins the long list of hundreds of other factors currently impacting ranking. But what differentiates Page Experience from other past algorithms is that it's object oriented. Each aspect of the new algorithm is essentially treated as its own object, rather than simply looking at keywords and information on a web page, as its predecessors were designed to do. Google has indicated the [Page Experience ranking boost](https://www.searchenginejournal.com/googles-last-minute-advice-on-the-page-experience-update/408146/) will serve as more of a tiebreaker for SERP, rather than a driving force.
 
 The Page Experience algorithm is comprised of these five ranking signals:
 
@@ -48,7 +48,7 @@ As such, we shouldn’t obsess too much about the numerical value given to each 
 
 ## How the Page Experience update will impact your website’s ranking, traffic
 
-Arguments can be made for both sides in terms of Page Experience’s impact, as it’s clearly not going to have a seismic effect on the tech world as a whole, such as when Apple released the original iPhone roughly 14 years ago. However, connectivity trends show mobile use has continued to grow like wildfire since that time, and 6.378 million people now own a smartphone. Not much has changed for Apple, though, as the tech giant still holds the majority of the United States smartphone market share (chart via Counterpoint, using data from Mobile Devices Monitor).
+Arguments can be made for both sides in terms of Page Experience’s impact, as it’s clearly not going to have a seismic effect on the tech world as a whole, such as when Apple released the original iPhone roughly 14 years ago. However, connectivity trends show mobile use has continued to grow like wildfire since that time, and 6.378 million people now [own a smartphone](https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/). Not much has changed for Apple, though, as the tech giant still holds the majority of the United States smartphone market share (chart via Counterpoint, using data from Mobile Devices Monitor).
 
 ![US smartphone market share 2019-2021](/assets/images/apple-samsung-market-share.png)
 
@@ -80,7 +80,7 @@ We also advocate using a crawling tool, such as Screaming Frog, to do a site aud
 
 Any business owner, SEO, marketer and digital media professional already routinely monitors all the reports, data and analytics Google Search Console provides. And now Google has given us yet another reason to always keep a GSC tab open in our browser.
 
-Google recently announced it has now included a Page Experience report in Search Console. You can see exactly what the report looks like via the screenshot below (which was recently posted).
+Google recently announced it has now included a Page Experience report in Search Console. You can see exactly what the report looks like via the screenshot below (which was [recently posted](https://developers.google.com/search/blog/2021/04/more-details-page-experience?hl=en#details)).
 
 ![Google Search Console report](/assets/images/google-search-console-report.png)
 
@@ -100,7 +100,7 @@ In looking at how Page Experience is structured, from a technical perspective, w
 
 Mobile use continues to grow like wildfire each year, and this trend isn’t slowing down anytime soon. It is, however, important to know your ideal customer, because some industries have a higher mobile usage rate than others. E-Commerce, hospitality and food service—all of which are currently thriving, with restrictions related to the pandemic recently having been lifted—are skewed heavily toward mobile users.
 
-Furthermore, it’s important to point out that many people living in third-world countries don’t have access to computers, so browsing on mobile devices is their only option. Just look at how many users operated smartphones last year in Africa and the Middle East, compared to the rest of the world (graphic via Newzoo).
+Furthermore, it’s important to point out that many people living in third-world countries don’t have access to computers, so browsing on mobile devices is their only option. Just look at how many users operated smartphones last year in Africa and the Middle East, compared to the rest of the world (graphic via [Newzoo](https://newzoo.com/resources/trend-reports/newzoo-global-mobile-market-report-2020-free-version)).
 
 ![Smartphone use around the world data](/assets/images/smartphone-use-global.png)
 
@@ -150,7 +150,7 @@ This one is self-explanatory, especially if approaching from a user experience p
 
 ### Less is more for mobile, but you can still get creative while optimizing
 
-Eliminating large images and certain elements that don’t render or display well on mobile devices is considered best practice. But try not to feel like you’re limited, from a creativity perspective. You can still display engaging elements on your pages to make your content visually appealing, like in this awesome mobile-responsive navigation mockup.
+Eliminating large images and certain elements that don’t render or display well on mobile devices is considered best practice. But try not to feel like you’re limited, from a creativity perspective. You can still display engaging elements on your pages to make your content visually appealing, like in this awesome [mobile-responsive navigation](https://admiretheweb.com/articles/20-responsive-mobile-navigation-inspiration/) mockup.
 
 ![Mobile responsive navigation](/assets/images/mobile-responsive-navigation.jpg)
 
@@ -164,7 +164,7 @@ It’s been well over a year since Google first alerted us about the Page Experi
 
 However, what business owners, SEOs, marketers and digital media professionals around the world want to know is how it will impact ranking. And what the potential outcomes will be. These questions won’t be answered overnight, as it will require a lot of testing and sharing of knowledge to gain actionable insights about the update’s impact.
 
-But if your website has been negatively impacted in any way: Don’t worry, you’re not alone. The good news is that we’re here to help with website optimization solutions.
+But if your website has been negatively impacted in any way: Don’t worry, you’re not alone. The good news is that I'm here to help with [web development](/contact) solutions.
 
 In the meantime, here are the three most important takeaways from this blog post , as well as our two cents on how you can optimize your website for the Page Experience algorithm.
 

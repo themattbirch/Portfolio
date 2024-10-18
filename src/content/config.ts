@@ -1,7 +1,6 @@
-//importing utilities from astro:content
 import { defineCollection, z } from "astro:content";
 import { format } from 'date-fns';
-//defining collection(s)
+
 const postsCollection = defineCollection({
     schema: ({ image }) => z.object({
         author: z.string(),
@@ -10,11 +9,13 @@ const postsCollection = defineCollection({
         featured: z.boolean().default(false),
         image: image(),
         title: z.string(),
-        description: z.string()
-     })
+        description: z.string(),
+        alt: z.string().optional(), // Optional alt text for the image
+        updatedDate: z.string().optional().transform(str => str ? format(new Date(str), 'MMMM d, yyyy') : undefined),
+        ogImage: z.string().optional(), // Optional OG image URL, if different from main image
+    })
 });
-//export a single 'collections' object to register the collections. 
-//key should match collection directory name in src/content
+
 export const collections = {
     posts: postsCollection,
 };
