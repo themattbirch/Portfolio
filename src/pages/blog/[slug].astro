@@ -41,56 +41,58 @@ const { Content, headings } = await post.render();
     <section
       class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
-      <article class="relative">
+      <div
+        class="breadcrumb-container flex items-center justify-between space-x-4"
+      >
         <Breadcrumb current={post.data.title} parent="Blog" />
+      </div>
 
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
-        >
-          {post.data.title}
-        </h1>
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
+      >
+        {post.data.title}
+      </h1>
 
-        <div class="mb-8 sm:mb-12 md:mb-16">
-          <Image
-            src={post.data.image}
-            alt={post.data.title}
-            width={1920}
-            height={1080}
-            class="w-full h-auto object-cover rounded-lg shadow-lg"
-            loading="eager"
-          />
+      <div class="mb-8 sm:mb-12 md:mb-16">
+        <Image
+          src={post.data.image}
+          alt={post.data.title}
+          width={1920}
+          height={1080}
+          class="w-full h-auto object-cover rounded-lg shadow-lg"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Mobile Table of Contents -->
+      <div class="lg:hidden mb-8">
+        <div class="toc-wrapper w-full max-w-md mx-auto">
+          <TableOfContents headings={headings as Heading[]} />
+        </div>
+      </div>
+
+      <div class="flex flex-col blog-lg:flex-row lg:gap-16 relative">
+        <div class="lg:w-3/4">
+          <div
+            class="prose prose-sm sm:prose-base lg:prose-xl dark:prose-invert max-w-none"
+          >
+            <Content />
+          </div>
         </div>
 
-        <!-- Mobile Table of Contents -->
-        <div class="lg:hidden mb-8 flex justify-center">
-          <div class="toc-wrapper w-full max-w-md mx-auto text-center">
+        <!-- Desktop Table of Contents -->
+        <aside
+          class="hidden lg:block lg:w-1/4 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0"
+        >
+          <div class="lg:sticky lg:top-8 toc-wrapper">
             <TableOfContents headings={headings as Heading[]} />
           </div>
-        </div>
-
-        <div class="flex flex-col lg:flex-row lg:gap-16 relative">
-          <div class="lg:w-3/4">
-            <div
-              class="prose prose-sm sm:prose-base lg:prose-xl dark:prose-invert max-w-none"
-            >
-              <Content />
-            </div>
-          </div>
-
-          <!-- Desktop Table of Contents -->
-          <aside
-            class="hidden lg:block lg:w-1/4 mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-0"
-          >
-            <div class="lg:sticky lg:top-8 toc-wrapper">
-              <TableOfContents headings={headings as Heading[]} />
-            </div>
-          </aside>
-        </div>
-      </article>
-      <div class="mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg">
-        <Share post={post} />
+        </aside>
       </div>
     </section>
+    <div class="mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg">
+      <Share post={post} />
+    </div>
   </div>
 </Layout>
 
@@ -137,6 +139,23 @@ const { Content, headings } = await post.render();
   .toc-wrapper {
     max-width: 250px;
     margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 1023px) {
+    .toc-wrapper {
+      max-width: 90%; /* Adjust this value as needed */
+      font-size: 0.9rem;
+    }
+    .toc-wrapper :global(h2) {
+      font-size: 1.5rem;
+    }
+    .toc-wrapper :global(ul) {
+      padding-left: 1rem;
+    }
+    .toc-wrapper :global(a) {
+      font-size: 1rem;
+    }
   }
 
   .toc-wrapper :global(a) {
@@ -160,5 +179,18 @@ const { Content, headings } = await post.render();
 
   :global(.dark) .toc-wrapper :global(a:hover) {
     color: #60a5fa; /* Tailwind's blue-400 */
+  }
+
+  .breadcrumb-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Or justify-start if alignment is needed */
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  @media (max-width: 828px) {
+    .breadcrumb-container {
+      font-size: 0.875rem; /* Optional: Adjust font size for smaller screens */
+    }
   }
 </style>
