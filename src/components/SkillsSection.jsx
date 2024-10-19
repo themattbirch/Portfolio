@@ -14,7 +14,7 @@ const SkillCard = ({ icon, title, description, color, extraClass }) => (
       <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{title}</h3>
       <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </div>
-<div className="mt-4 flex justify-center">
+    <div className="mt-4 flex justify-center">
       <button className={`${color.text} flex items-center hover:underline group`}>
         Learn More 
         <FontAwesomeIcon icon={faChevronRight} className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -49,7 +49,7 @@ const SkillsSection = () => {
         text: "text-green-600 dark:text-green-400",
         bgOpacity: "bg-green-500"
       },
-      extraClass: "md:mt-8" // Adds margin-top to this card in medium screens and above
+      extraClass: "lg:mt-6" 
     },
     {
       icon: faPenFancy,
@@ -65,28 +65,30 @@ const SkillsSection = () => {
     }
   ];
 
-  return (
-<section className="skills-section py-8 sm:py-12 px-4 sm:px-6">
-  <div className="mx-auto">
-    <h2 className="h2-text mb-8 sm:mb-12 text-center">Skills</h2> 
-    <div className="relative z-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-  {skills.map((skill, index) => (
-    <div
-      key={index}
-      className={`transform transition-all duration-300 ${
-        hoveredIndex === index ? 'scale-105 z-20' : hoveredIndex !== null ? 'scale-95 opacity-75' : ''
-      } ${
-        index === 2 ? 'md:col-span-2 md:mx-auto md:max-w-md lg:col-span-1 lg:mx-0 lg:max-w-none' : ''
-      }`}
-    >
-      <SkillCard {...skill} />
-    </div>
-  ))}
-</div>
-    </div>
-  </div>
-</section>
+   return (
+    <section className="skills-section py-8 sm:py-12 px-4 sm:px-6">
+      <div className="mx-auto">
+        <h2 className="h2-text mb-8 sm:mb-12 text-center">Skills</h2> 
+        <div className="relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-6 sm:gap-8">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className={`transform transition-all duration-300 ${
+                  hoveredIndex === index ? 'scale-105 z-20' : hoveredIndex !== null ? 'scale-95 opacity-75' : ''
+                } ${
+                  index === 2 ? 'md:col-span-2 md:mx-auto md:max-w-md lg:col-span-1 lg:mx-0 lg:max-w-none' : ''
+                } ${skill.extraClass}`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <SkillCard {...skill} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
