@@ -2,10 +2,10 @@
 import SkillsComponent from "@/components/SkillsComponent.astro";
 import Layout from "@/layouts/Layout.astro";
 import {
-  faHeart,
-  faLightbulb,
-  faComments,
-  faUserFriends,
+  faHandHoldingHeart,
+  faMagnifyingGlassChart,
+  faBullhorn,
+  faPeopleGroup,
 } from "@fortawesome/free-solid-svg-icons";
 
 const skills = [
@@ -13,29 +13,28 @@ const skills = [
     name: "Empathy",
     description:
       "Proficient in understanding and sharing the feelings of others.",
-    icon: faHeart,
+    icon: faHandHoldingHeart,
     level: "Beginner",
   },
   {
     name: "Awareness",
     description:
       "Skilled in being conscious of your own feelings and those of others.",
-    icon: faLightbulb,
+    icon: faMagnifyingGlassChart,
     level: "Skill",
   },
   {
     name: "Communication",
     description: "Excellent communication skills, both written and verbal.",
-    icon: faComments,
+    icon: faBullhorn,
     level: "Expert",
   },
   {
     name: "Teamwork",
     description: "Strong ability to work in collaborative environments.",
-    icon: faUserFriends,
+    icon: faPeopleGroup,
     level: "Advanced",
   },
-  // Add more skills as needed
 ];
 
 // Split the skills array into two parts
@@ -67,7 +66,7 @@ const pageDescription =
     <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-blue-700 dark:text-blue-200 skills-heading-color"
+          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 text-blue-700 dark:text-blue-200 skills-heading-color"
         >
           A few soft skills I've developed...
         </h2>

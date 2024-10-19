@@ -50,7 +50,9 @@ const testimonials: Testimonial[] = [
 ---
 
 <!-- Testimonial Cards for Mobile and Medium Screen Sizes -->
-<div class="lg:hidden grid grid-cols-1 gap-8 mb-8">
+<div
+  class="lg:hidden grid grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12"
+>
   {
     testimonials.map((testimonial) => (
       <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
@@ -79,8 +81,8 @@ const testimonials: Testimonial[] = [
   }
 </div>
 
-<!-- Testimonial Slider for Desktop Screens (MD and Up) -->
-<div class="hidden md:block">
+<!-- Testimonial Slider for Desktop Screens (LG and Up) -->
+<div class="hidden lg:block py-8 sm:py-12 px-4 sm:px-6">
   <div
     class="swiper-container relative testimonial-container swiper-no-swiping rounded-lg md:rounded-full transition-all duration-300 bg-gradient-to-r from-blue-100 to-blue-50 dark:bg-gradient-to-r dark:from-zinc-900 dark:to-zinc-800 p-4 sm:p-6 md:p-8"
   >
