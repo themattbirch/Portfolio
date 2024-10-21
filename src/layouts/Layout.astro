@@ -15,6 +15,7 @@ export interface Props {
     format: "svg" | "avif" | "png" | "webp" | "jpeg" | "jpg" | "tiff" | "gif";
   };
   fullWidth?: boolean;
+  preloadLinks?: Array<{ href: string; media?: string }>; // New prop for preload links
 }
 
 // Props with default values
@@ -24,6 +25,7 @@ const {
   ogImage = "/images/default-og-image.jpg",
   image, // No default for image, since it is optional
   fullWidth = false,
+  preloadLinks = [], // Default to an empty array if not provided
 } = Astro.props;
 
 const canonicalURL = Astro.url.href;
@@ -51,6 +53,13 @@ const finalOgImage = image
       ogImage={finalOgImage}
       canonicalURL={canonicalURL}
     />
+
+    <!-- Conditional Preload Links for Hero Images -->
+    {
+      preloadLinks.map((link) => (
+        <link rel="preload" as="image" href={link.href} media={link.media} />
+      ))
+    }
 
     <!-- Preload FontAwesome Stylesheet -->
     <link

@@ -8,6 +8,9 @@ import ServiceCard from "../components/ServiceCard.astro";
 import QualityItem from "../components/QualityItem.astro";
 import { Image } from "astro:assets";
 import meHeroImg from "/assets/images/matt-pointing.webp";
+import lightBackgroundImage from "/assets/images/hero-background-light-theme-toggle.webp";
+import darkBackgroundImage from "/assets/images/hero-background-dark-theme-toggle.webp";
+import mobileBackgroundImage from "/assets/images/hero_background_mobile.webp";
 
 const services = [
   {
@@ -37,9 +40,30 @@ const leftQualities = qualities.slice(0, half);
 const rightQualities = qualities.slice(half);
 const pageTitle = "Matt Birch, Front-End Web Developer";
 const pageDescription = "A web develoepr with passion";
+
+// Define the preload links
+const preloadLinks = [
+  {
+    href: lightBackgroundImage.src,
+    media: "(min-width: 641px)",
+  },
+  {
+    href: darkBackgroundImage.src,
+    media: "(min-width: 641px)",
+  },
+  {
+    href: mobileBackgroundImage.src,
+    media: "(max-width: 640px)",
+  },
+];
 ---
 
-<Layout title={pageTitle} description={pageDescription} fullWidth={true}>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  fullWidth={true}
+  preloadLinks={preloadLinks}
+>
   <!-- Hero Section -->
   <section>
     <Hero />

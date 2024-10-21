@@ -48,7 +48,7 @@ const blogDescription =
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 md:my-12"
         >
-          {posts.map((post) => <Post post={post} />)}
+          {posts.map((post, index) => <Post post={post} index={index} />)}
         </div>
         <div class="flex justify-center items-center">
           <CategoryList categories={categories} title="Tags" />
