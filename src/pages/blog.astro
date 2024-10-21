@@ -1,6 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 import CategoryList from "@/components/CategoryList.astro";
 import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
@@ -33,13 +33,13 @@ const blogDescription =
           </p>
         </header>
         <CategoryList categories={categories} title="Categories" />
-        <div class="mb-6 sm:mb-8 md:mb-12">
+        <div class="my-6 sm:my-8 md:my-12">
           <Breadcrumb current="Page 1" parent="Blog" />
         </div>
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-4 sm:mt-6 md:mt-8"
         >
-          {posts.map((post) => <Post post={post} />)}
+          {posts.map((post, index) => <Post post={post} index={index} />)}
         </div>
         <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
           <Pagination nextURL="/blog/2" />
