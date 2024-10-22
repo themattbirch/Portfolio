@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import CategoryList from "./CategoryList.astro";
 import { Image } from "astro:assets";
+
 type Props = {
   post: CollectionEntry<"posts">;
 };
@@ -9,39 +9,62 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<article
-  class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16"
->
+<article class="mb-8 sm:mb-12 md:mb-16">
   <a
     href={`/blog/${post.slug}`}
     aria-label={`Read more about ${post.data.title}`}
   >
+    <Image
+      src={post.data.image}
+      alt={post.data.title}
+      width={1024}
+      height={1024 / 1.5}
+      class="w-full h-auto rounded-lg sm:rounded-xl md:rounded-2xl object-cover"
+      loading="lazy"
+    />
   </a>
-  <Image
-    src={post.data.image}
-    alt={post.data.title}
-    width={1024}
-    height={1024 / 1.5}
-    class="rounded-lg sm:rounded-xl md:rounded-2xl aspect-thumbnail object-cover"
-    loading="lazy"
-  />
+  <div class="my-6 sm:my-8 md:my-12">
+    <h2
+      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-zinc-900 mb-2 sm:mb-3 md:mb-4 font-bold"
+    >
+      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+    </h2>
+    <div class="my-6 sm:my-8 md:my-12 max-w-5xl text-center mx-auto">
+      <time
+        datetime={post.data.date.raw.toISOString()}
+        class="text-zinc-700 text-sm sm:text-base md:text-lg"
+      >
+        {post.data.date.formatted}
+      </time>
+      <blockquote
+        class="relative bg-gray-50 dark:bg-gray-700 rounded-full mt-4 p-4 text-zinc-700 text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-6"
+      >
+        <span
+          class="absolute top-0 left-0 text-6xl text-blue-500 opacity-25 leading-none select-none"
+        >
+          &ldquo;
+        </span>
+        {post.body.slice(0, 200)}...
+      </blockquote>
+      <!-- Centered "Read More" link -->
+      <a
+        href={`/blog/${post.slug}`}
+        class="mt-4 inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline text-base sm:text-lg md:text-xl font-medium"
+      >
+        Read More
+        <svg
+          class="w-4 h-4 ml-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
 </article>
-<div>
-  <CategoryList categories={post.data.categories} />
-  <h2
-    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-zinc-900 mb-2 sm:mb-3 md:mb-4 font-bold"
-  >
-    <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-  </h2>
-  <p
-    class="text-zinc-500 text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-6 line-clamp-3 max-xl:line-clamp-2"
-  >
-    {post.body.slice(0, 200)}...
-  </p>
-  <time
-    datetime={post.data.date}
-    class="text-zinc-700 text-sm sm:text-base md:text-lg"
-  >
-    {post.data.date}
-  </time>
-</div>

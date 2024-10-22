@@ -1,69 +1,59 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 
-type Props = {
+interface Props {
   post: CollectionEntry<"posts">;
   index: number;
-};
+}
 
 const { post, index } = Astro.props;
-const postUrl = "/blog/" + post.slug;
-
-// Generate a low-res placeholder
-const placeholderImage = await getImage({
-  src: post.data.image,
-  width: 60,
-  height: 40,
-  format: "webp",
-});
+const postUrl = `/blog/${post.slug}`;
 ---
 
 <article
-  class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+  class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 duration-300 flex flex-col"
 >
-  <a href={postUrl} aria-label={`Read more about ${post.data.title}`}>
-    <div class="relative w-full h-40 sm:h-48">
-      <Image
-        src={post.data.image}
-        alt={post.data.title}
-        width={600}
-        height={400}
-        class="w-full h-full object-cover"
-        loading={index < 3 ? "eager" : "lazy"}
-        decoding={index < 3 ? "sync" : "async"}
-      />
-      <div
-        class="absolute inset-0 bg-cover bg-center blur-up lazyload"
-        style={`background-image: url(${placeholderImage.src})`}
-      >
-      </div>
-    </div>
+  <a href={postUrl} class="block">
+    <Image
+      src={post.data.image}
+      alt={post.data.title}
+      width={400}
+      height={225}
+      class="w-full h-40 sm:h-48 object-cover"
+    />
   </a>
-  <div class="p-4 sm:p-6">
+  <div class="p-4 sm:p-6 flex-1 flex flex-col">
     <h2
-      class="text-xl sm:text-2xl font-semibold mb-2 text-gray-900 dark:text-gray-100"
+      class="text-lg sm:text-xl font-semibold mb-2 text-gray-800 dark:text-white"
     >
-      <a href={postUrl}>{post.data.title}</a>
+      {post.data.title}
     </h2>
     <p
-      class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-3"
+      class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 flex-grow"
     >
-      {post.body.slice(0, 150)}...
+      {post.data.description || post.body.slice(0, 150) + "..."}
     </p>
-    <div
-      class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
-    >
-      <a
-        href={postUrl}
-        class="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base
-      mb-2 sm:mb-0"
-      >
-        Read more
-      </a>
-      <div class="flex flex-wrap gap-2">
+    <!-- Footer section -->
+    <div class="mt-auto">
+      <div class="flex items-center justify-between">
+        <a
+          href={postUrl}
+          class="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base"
+        >
+          Read More
+        </a>
+        <time
+          datetime={post.data.date.raw.toISOString()}
+          class="text-gray-500 dark:text-gray-400 text-xs sm:text-sm"
+        >
+          {post.data.date.formatted}
+        </time>
+      </div>
+      <!-- Categories (optional) -->
+      <div class="flex gap-2 mt-2">
         {
-          post.data.categories.map((category) => (
+          post.data.categories.map((category: string) => (
             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
               {category}
             </span>

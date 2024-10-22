@@ -1,25 +1,58 @@
 ---
-import type { GetStaticPathsOptions, Page } from "astro";
+import type { GetStaticPathsOptions } from "astro";
 import { type CollectionEntry, getCollection } from "astro:content";
+import type { FormattedDate, BlogPostFrontmatter } from "@/types";
 import Layout from "../../layouts/Layout.astro";
 import Post from "../../components/Post.astro";
 import Pagination from "../../components/Pagination.astro";
 import CategoryList from "../../components/CategoryList.astro";
 import Breadcrumb from "@/components/BreadCrumb.astro";
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const allPosts = await getCollection("posts");
-  return paginate(allPosts, { pageSize: 6 });
+export const prerender = true;
+
+interface Props {
+  page: {
+    data: CollectionEntry<"posts">[];
+    start: number;
+    end: number;
+    size: number;
+    total: number;
+    currentPage: number;
+    lastPage: number;
+    url: {
+      current: string;
+      prev: string | undefined;
+      next: string | undefined;
+    };
+  };
 }
 
-type Props = {
-  page: Page;
-};
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  try {
+    const posts = await getCollection("posts");
+    if (!posts || !posts.length) {
+      return paginate([], { pageSize: 6 });
+    }
 
+    const sortedPosts = posts.sort((a, b) => {
+      const dateA = new Date(a.data.date.raw);
+      const dateB = new Date(b.data.date.raw);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    return paginate(sortedPosts, { pageSize: 6 });
+  } catch (error) {
+    console.error("Error in getStaticPaths:", error);
+    return paginate([], { pageSize: 6 });
+  }
+}
+
+// Add null checks and default values
 const { page } = Astro.props;
-const posts = page.data as CollectionEntry<"posts">[];
-const allCategories = posts.flatMap((post) => post.data.categories);
+const posts = page?.data ?? [];
+const allCategories = posts.flatMap((post) => post.data.categories ?? []);
 const categories = Array.from(new Set(allCategories));
+
 const pageTitle = "Matt Birch's Web Development Blog";
 const blogDescription =
   "Transforming ideas into powerful web experiences. I combine technical expertise with creative problem-solving to deliver websites that not only look great but perform exceptionally.";
@@ -31,18 +64,18 @@ const blogDescription =
       class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 md:px-8"
     >
       <div class="max-w-screen-2xl mx-auto">
-        <header class="text-center">
+        <header class="text-center mb-8 sm:mb-12">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8"
+            class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 md:mb-12"
           >
             {pageTitle}
           </h1>
         </header>
-        <div
-          class="flex flex-col sm:flex-row justify-between items-center sm:mb-6 md:mb-8"
-        >
+
+        <!-- New flex container for Breadcrumb and CategoryList -->
+        <div class="flex justify-between items-center my-6 sm:my-8 md:my-12">
           <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
-          <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
+          <CategoryList categories={categories} />
         </div>
 
         <div
@@ -50,8 +83,10 @@ const blogDescription =
         >
           {posts.map((post, index) => <Post post={post} index={index} />)}
         </div>
-        <div class="flex justify-center items-center">
-          <CategoryList categories={categories} title="Tags" />
+
+        <!-- Moved Pagination to bottom right -->
+        <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
+          <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
         </div>
       </div>
     </section>
@@ -66,31 +101,5 @@ const blogDescription =
   /* Dark mode gradient */
   :global(.dark) .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-  }
-
-  article:hover img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-  }
-
-  article:hover h2 {
-    color: #2563eb; /* Tailwind's blue-600 */
-    transition: color 0.3s ease;
-  }
-
-  .toc-wrapper a {
-    transition:
-      color 0.3s ease,
-      transform 0.3s ease;
-    display: inline-block;
-  }
-
-  .toc-wrapper a:hover {
-    color: #3b82f6; /* Tailwind's blue-500 */
-    transform: translateX(5px);
-  }
-
-  .dark .toc-wrapper a:hover {
-    color: #60a5fa; /* Tailwind's blue-400 */
   }
 </style>

@@ -5,21 +5,39 @@ import Layout from "../../layouts/Layout.astro";
 import PostPreview from "../../components/PostPreview.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
 
-export async function getStaticPaths() {
-  const allPosts = await getCollection("posts");
-  const uniqueCategories = [
-    ...new Set(allPosts.flatMap((post) => post.data.categories)),
-  ];
+export const prerender = true;
 
-  return uniqueCategories.map((category) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.categories.includes(category)
-    );
-    return {
-      params: { slug: category.toLowerCase().replace(/\s+/g, "-") },
-      props: { category, posts: filteredPosts },
-    };
-  });
+export async function getStaticPaths() {
+  try {
+    const allPosts = await getCollection("posts");
+    if (!allPosts || !allPosts.length) {
+      return [];
+    }
+
+    // First sort all posts
+    const sortedAllPosts = allPosts.sort((a, b) => {
+      const dateA = new Date(a.data.date.raw);
+      const dateB = new Date(b.data.date.raw);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    const uniqueCategories = [
+      ...new Set(sortedAllPosts.flatMap((post) => post.data.categories)),
+    ];
+
+    return uniqueCategories.map((category) => {
+      const filteredPosts = sortedAllPosts.filter((post) =>
+        post.data.categories.includes(category)
+      );
+      return {
+        params: { slug: category.toLowerCase().replace(/\s+/g, "-") },
+        props: { category, posts: filteredPosts },
+      };
+    });
+  } catch (error) {
+    console.error("Error in getStaticPaths:", error);
+    return [];
+  }
 }
 
 interface Props {
@@ -27,61 +45,61 @@ interface Props {
   posts: CollectionEntry<"posts">[];
 }
 
-const { category, posts } = Astro.props;
-const sortedPosts = posts.sort(
-  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
-);
+const { category, posts = [] } = Astro.props;
+// No need to sort here since we already sorted in getStaticPaths
+const sortedPosts = posts;
 ---
 
-<Layout
-  title={`${category} blog posts`}
-  description={`All posts in the ${category} category`}
-  fullWidth={true}
->
-  <div class="horizontal-gradient-wrapper">
-    <section
-      class="max-w-screen-xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
-    >
-      <Breadcrumb current={category} parent="Blog" />
-
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 text-center"
+  <Layout
+    title={`${category} blog posts`}
+    description={`All posts in the ${category} category`}
+    fullWidth={true}
+  >
+    <div class="horizontal-gradient-wrapper">
+      <section
+        class="max-w-screen-xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
       >
-        All "{category}" Blog Posts
-      </h1>
+        <Breadcrumb current={category} parent="Blog" />
 
-      <div
-        class="grid gap-6 sm:gap-8 md:gap-12 mt-4 sm:mt-6 md:mt-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {sortedPosts.map((post) => <PostPreview post={post} />)}
-      </div>
-      <div class="flex justify-center items-center mt-8 sm:mt-12">
-        <a
-          href="/blog"
-          class="category-button text-blue-700 dark:text-white
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:my-8 md:my-12 text-center"
+        >
+          All "{category}" Blog Posts
+        </h1>
+
+        <div
+          class="grid gap-6 sm:gap-8 md:gap-12 mt-4 sm:mt-6 md:mt-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {sortedPosts.map((post) => <PostPreview post={post} />)}
+        </div>
+        <div class="flex justify-center items-center mt-8 sm:mt-12">
+          <a
+            href="/blog"
+            class="category-button text-blue-700 dark:text-white
         rounded-full px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg
         font-semibold border-2 border-blue-700 dark:border-white
         hover:bg-sky-100 dark:hover:bg-teal-900 transition-colors duration-300"
-        >
-          View All Posts
-        </a>
-      </div>
-    </section>
-  </div>
+          >
+            View All Posts
+          </a>
+        </div>
+      </section>
+    </div>
+  </Layout>
+
+  <style>
+    .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+    }
+
+    :global(.dark) .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+  </style>
 </Layout>
-
-<style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
-  }
-
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-</style>

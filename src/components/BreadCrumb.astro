@@ -25,20 +25,15 @@ const { current, parent } = Astro.props;
 </nav>
 
 <style>
-  /* Breadcrumb styles */
-  .breadcrumb {
-    @apply flex items-center text-lg text-gray-600;
-  }
-
   .breadcrumb {
     @apply flex items-center text-sm sm:text-base md:text-lg text-gray-600;
   }
 
   .breadcrumb-item:not(:last-child)::after {
     content: "/";
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    @apply sm:ml-2 sm:mr-2;
+    margin-left: 0; /* Reduced margin for small screens */
+    margin-right: 0; /* Reduced margin for small screens */
+    @apply md:ml-1 md:mr-1; /* Apply slightly larger margin for small viewports */
   }
 
   .breadcrumb-item a {

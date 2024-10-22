@@ -96,33 +96,47 @@ const pageDescription = "The technical skills I possess.";
         >
           Also familiar with...
         </h2>
-        <p class="text-base sm:text-lg md:text-xl">
-          WordPress, libraries (NextJS, Node), And don't forget about my writing
-          skills. I'm an excellent copywriter. It's possible you've read some of
-          my work on LinkedIn, Twitter or a popular blog. Clients hire me to
-          ghostwrite for them.
-        </p>
+        <div class="space-y-6">
+          <p class="text-base sm:text-lg md:text-xl">
+            My technical toolkit extends to WordPress development, modern
+            frameworks like Next.js, and server-side technologies including
+            Node.js.
+          </p>
+
+          <p class="text-base sm:text-lg md:text-xl">
+            Beyond coding, I've established myself as a skilled copywriter,
+            crafting engaging content for business leaders and tech companies.
+          </p>
+
+          <p class="text-base sm:text-lg md:text-xl">
+            My writing has reached audiences across LinkedIn, Twitter, and
+            leading industry blogs—often under others' bylines as a trusted
+            ghostwriter. This dual expertise in development and writing–combined
+            with my prompt engineering skills–gives me a unique edge in creating
+            web experiences that truly connect with users.
+          </p>
+        </div>
       </div>
     </section>
   </div>
+
+  <style>
+    .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #ffffff, #dde4ee);
+    }
+
+    .horizontal-gradient-wrapper-1 {
+      background: linear-gradient(to bottom, #dde4ee, #ffffff);
+    }
+
+    /* Dark mode gradient */
+    :global(.dark) .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #45617c, #374962);
+    }
+
+    /* Dark mode gradient */
+    :global(.dark) .horizontal-gradient-wrapper-1 {
+      background: linear-gradient(to bottom, #374962, #45617c);
+    }
+  </style>
 </Layout>
-
-<style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee);
-  }
-
-  .horizontal-gradient-wrapper-1 {
-    background: linear-gradient(to bottom, #dde4ee, #ffffff);
-  }
-
-  /* Dark mode gradient */
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #374962);
-  }
-
-  /* Dark mode gradient */
-  :global(.dark) .horizontal-gradient-wrapper-1 {
-    background: linear-gradient(to bottom, #374962, #45617c);
-  }
-</style>

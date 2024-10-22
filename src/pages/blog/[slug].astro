@@ -9,7 +9,15 @@ import { Image } from "astro:assets";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
-  return posts.map((post: CollectionEntry<"posts">) => ({
+
+  // Sort posts first
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.data.date.raw);
+    const dateB = new Date(b.data.date.raw);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return sortedPosts.map((post: CollectionEntry<"posts">) => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -69,6 +77,25 @@ const postImage = {
         >
           {post.data.title}
         </h1>
+
+        <!-- Add this section -->
+        <div
+          class="flex justify-center items-center gap-4 mb-8 text-gray-600 dark:text-gray-400"
+        >
+          <span class="text-sm sm:text-base">
+            {
+              new Date(post.data.date.raw).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </span>
+          <span class="text-sm sm:text-base">•</span>
+          <span class="text-sm sm:text-base">
+            Written By: {post.data.author}
+          </span>
+        </div>
 
         <div class="mb-8 sm:mb-12 md:mb-16">
           <Image
