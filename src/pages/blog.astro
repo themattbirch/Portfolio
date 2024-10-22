@@ -5,56 +5,100 @@ import CategoryList from "@/components/CategoryList.astro";
 import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
 import Breadcrumb from "@/components/BreadCrumb.astro";
+import FeaturedPost from "@/components/FeaturedPost.astro"; // Import FeaturedPost
 
-const posts = (await getCollection("posts")).slice(0, 6);
+const allPosts = await getCollection("posts");
+
+// Sort posts by date (newest first)
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.date.raw);
+  const dateB = new Date(b.data.date.raw);
+  return dateB.getTime() - dateA.getTime();
+});
+
+// Identify the featured post
+const featuredPost = sortedPosts.find((post) => post.data.featured);
+
+// Remove the featured post from the main posts array
+const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6); // Adjust the slice if needed
+
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
+
 const pageTitle = "Matt Birch's Web Development Blog";
 const blogDescription =
   "Transforming ideas into powerful web experiences. I combine technical expertise with creative problem-solving to deliver websites that not only look great but perform exceptionally.";
 ---
 
 <Layout title={pageTitle} description={blogDescription} fullWidth={true}>
-  <div class="horizontal-gradient-wrapper">
-    <section
-      class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 md:px-8"
-    >
-      <div class="mx-auto">
-        <header class="text-center mb-8 sm:mb-12">
-          <h1
-            class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8"
-          >
-            {pageTitle}
-          </h1>
-          <p
-            class="dark:text-darkModeText text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8"
-          >
-            {blogDescription}
-          </p>
-        </header>
-        <CategoryList categories={categories} title="Categories" />
-        <div class="my-6 sm:my-8 md:my-12">
-          <Breadcrumb current="Page 1" parent="Blog" />
-        </div>
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-4 sm:mt-6 md:mt-8"
+  <section
+    class="bg-gray-100 mx-auto py-6 md:py-8 lg:py-12 px-4 sm:px-6 md:px-8"
+  >
+    <div class="mx-auto max-w-screen-2xl">
+      <header class="text-center">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8"
         >
-          {posts.map((post, index) => <Post post={post} index={index} />)}
-        </div>
-        <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
-          <Pagination nextURL="/blog/2" />
-        </div>
+          {pageTitle}
+        </h1>
+        <p
+          class="dark:text-darkModeText text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12"
+        >
+          {blogDescription}
+        </p>
+      </header>
+
+      <!-- New flex container for Breadcrumb and CategoryList -->
+      <div class="flex justify-between items-center">
+        <Breadcrumb current="Page 1" parent="Blog" />
+        <CategoryList categories={categories} />
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <!-- Featured Post Section -->
+  <section
+    class="featured-post bg-white mx-auto pt-12 pb-6 md:pt-16 lg:pt-24 px-4 sm:px-6 md:px-8"
+  >
+    <div class="mx-auto max-w-screen-2xl">
+      <!-- Featured Post -->
+      {featuredPost && <FeaturedPost post={featuredPost} />}
+    </div>
+  </section>
+  <!-- Add "More Pos</div>ts" heading -->
+  <section
+    class="bg-gray-100 mx-auto py-6 md:py-8 lg:py-12 px-4 sm:px-6 md:px-8"
+  >
+    <div class="mx-auto max-w-screen-2xl">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mt-12 mb-8"
+      >
+        More Posts
+      </h2>
+
+      <!-- Subtle underline effect -->
+      <div class="flex justify-center my-12">
+        <div class="w-12 border-t-2 border-gray-300 dark:border-gray-600"></div>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-12"
+      >
+        {posts.map((post, index) => <Post post={post} index={index} />)}
+      </div>
+
+      <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
+        <Pagination nextURL="/blog/2" />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+    }
+
+    :global(.dark) .horizontal-gradient-wrapper {
+      background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
+    }
+  </style>
 </Layout>
-
-<style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
-  }
-
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-  }
-</style>

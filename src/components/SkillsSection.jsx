@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faRobot, faPenFancy, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const SkillCard = ({ icon, title, description, color, extraClass }) => (
-  <div className={`bg-gradient-to-r from-blue-100 to-blue-50 dark:from-zinc-900 dark:to-zinc-800 rounded-lg p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg border-t-4 ${color.border} ${extraClass} flex flex-col justify-between md:h-[280px]`}>
+  <div className={`bg-gradient-to-r from-blue-100 to-blue-50 dark:from-zinc-900 dark:to-zinc-800 rounded-lg p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg border-t-4 ${color.border} ${extraClass} flex flex-col justify-between md:h-[320px]`}>
     <div className="flex flex-col items-center text-center">
       <div className="flex justify-between items-start mb-3 sm:mb-4 w-full">
         <FontAwesomeIcon icon={icon} className={`${color.icon} w-8 h-8 sm:w-12 sm:h-12`} />
@@ -30,7 +30,7 @@ const SkillsSection = () => {
     {
       icon: faCode,
       title: "Front-end Web Developer",
-      description: "Building responsive and dynamic websites with modern frameworks.",
+      description: "Build well-structured websites using React, Astro, and modern frameworks that deliver both functionality and visual appeal.",
       color: {
         border: "border-blue-500",
         icon: "text-blue-500",
@@ -42,7 +42,7 @@ const SkillsSection = () => {
     {
       icon: faRobot,
       title: "Prompt Engineer",
-      description: "Crafting and optimizing prompts for cutting-edge AI models.",
+      description: "Maximize AI capabilities to streamline workflows via in-depth prompts to unlock the full potential of ChatGPT, Claude, and other LLMs.",
       color: {
         border: "border-green-500",
         icon: "text-green-500",
@@ -54,7 +54,7 @@ const SkillsSection = () => {
     {
       icon: faPenFancy,
       title: "Copywriter",
-      description: "Creating compelling and persuasive content that converts.",
+      description: "Convert visitors into customers through strategic web content that combines persuasive storytelling with proven conversion principles.",
       color: {
         border: "border-purple-500",
         icon: "text-purple-500",

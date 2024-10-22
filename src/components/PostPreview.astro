@@ -6,7 +6,16 @@ interface Props {
   post: CollectionEntry<"posts">;
 }
 
+interface DateObject {
+  raw: Date;
+  formatted: string;
+}
+
 const { post } = Astro.props;
+const formattedDate =
+  typeof post.data.date === "object" && "formatted" in post.data.date
+    ? (post.data.date as DateObject).formatted
+    : post.data.date;
 ---
 
 <article
@@ -32,16 +41,10 @@ const { post } = Astro.props;
         {post.data.description || post.body.slice(0, 150) + "..."}
       </p>
       <time
-        datetime={post.data.date}
+        datetime={formattedDate}
         class="text-xs sm:text-sm text-gray-500 dark:text-gray-400"
       >
-        {
-          new Date(post.data.date).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        }
+        {formattedDate}
       </time>
     </div>
   </a>

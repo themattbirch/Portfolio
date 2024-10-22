@@ -9,7 +9,15 @@ import { Image } from "astro:assets";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
-  return posts.map((post: CollectionEntry<"posts">) => ({
+
+  // Sort posts first
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.data.date.raw);
+    const dateB = new Date(b.data.date.raw);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  return sortedPosts.map((post: CollectionEntry<"posts">) => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -53,19 +61,16 @@ const postImage = {
 <Layout
   title={post.data.title}
   description={post.data.description}
-  ogImage={postImage.src}
-  image={postImage}
+  ogImage={post.data.ogImage || post.data.image.src}
+  image={post.data.image}
   fullWidth={true}
 >
   <div class="horizontal-gradient-wrapper">
     <section
       class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
-        <div
-        class="breadcrumb-container flex items-center justify-between space-x-4"
-      >
+      <article class="relative">
         <Breadcrumb current={post.data.title} parent="Blog" />
-      </div>
 
         <h1
           class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
@@ -73,18 +78,37 @@ const postImage = {
           {post.data.title}
         </h1>
 
+        <!-- Add this section -->
+        <div
+          class="flex justify-center items-center gap-4 mb-8 text-gray-600 dark:text-gray-400"
+        >
+          <span class="text-sm sm:text-base">
+            {
+              new Date(post.data.date.raw).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </span>
+          <span class="text-sm sm:text-base">•</span>
+          <span class="text-sm sm:text-base">
+            Written By: {post.data.author}
+          </span>
+        </div>
+
         <div class="mb-8 sm:mb-12 md:mb-16">
           <Image
-            src={postImage.src}
-            alt={post.data.title}
-            width={postImage.width}
-            height={postImage.height}
+            src={post.data.image}
+            alt={post.data.alt || post.data.title}
+            width={1920}
+            height={1080}
             class="w-full h-auto object-cover rounded-lg shadow-lg"
             loading="eager"
           />
         </div>
 
-       <!-- Mobile Table of Contents -->
+        <!-- Mobile Table of Contents -->
         <div class="custom-lg:hidden mb-8 flex justify-center">
           <div class="toc-wrapper w-full mx-auto text-center">
             <TableOfContents headings={headings as Heading[]} />

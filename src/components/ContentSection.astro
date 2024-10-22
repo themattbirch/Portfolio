@@ -18,7 +18,9 @@ const { title, text, imageSrc, imageAlt, reverse = false } = Astro.props;
     <h2 class="text-3xl font-bold mb-6 text-blue-700 dark:text-blue-300">
       {title}
     </h2>
-    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+    <p
+      class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-line"
+    >
       {text}
     </p>
   </div>
