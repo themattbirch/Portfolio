@@ -37,27 +37,32 @@ const postUrl = `/blog/${post.slug}`;
     <!-- Footer section -->
     <div class="mt-auto">
       <div class="flex items-center justify-between">
+        <!-- Left: Read More link -->
         <a
           href={postUrl}
           class="text-blue-600 dark:text-blue-400 hover:underline text-sm sm:text-base"
         >
           Read More
         </a>
+
+        <!-- Center: Post Date -->
         <time
           datetime={post.data.date.raw.toISOString()}
           class="text-gray-500 dark:text-gray-400 text-xs sm:text-sm"
         >
           {post.data.date.formatted}
         </time>
-      </div>
-      <!-- Categories (optional) -->
-      <div class="flex gap-2 mt-2">
+
+        <!-- Right: Category button -->
         {
-          post.data.categories.map((category: string) => (
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
-              {category}
-            </span>
-          ))
+          post.data.categories.length > 0 && (
+            <a
+              href={`/blog/category/${post.data.categories[0]}`}
+              class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800"
+            >
+              {post.data.categories[0]}
+            </a>
+          )
         }
       </div>
     </div>
