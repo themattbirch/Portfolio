@@ -7,18 +7,18 @@ const { current, parent } = Astro.props;
 ---
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
+  <ol class="breadcrumb whitespace-nowrap">
+    <li class="breadcrumb-item inline-block">
       <a href="/">Home</a>
     </li>
     {
       parent && (
-        <li class="breadcrumb-item">
+        <li class="breadcrumb-item inline-block">
           <a href="/blog">{parent}</a>
         </li>
       )
     }
-    <li class="breadcrumb-item active" aria-current="page">
+    <li class="breadcrumb-item inline-block active" aria-current="page">
       {current}
     </li>
   </ol>
@@ -26,43 +26,37 @@ const { current, parent } = Astro.props;
 
 <style>
   .breadcrumb {
-    @apply flex items-center text-sm sm:text-base md:text-lg text-gray-600;
+    @apply flex items-center text-sm sm:text-base md:text-lg text-gray-600 min-w-max;
+  }
+
+  .breadcrumb-item {
+    @apply flex items-center;
   }
 
   .breadcrumb-item:not(:last-child)::after {
     content: "/";
-    margin-left: 0; /* Reduced margin for small screens */
-    margin-right: 0; /* Reduced margin for small screens */
-    @apply md:ml-1 md:mr-1; /* Apply slightly larger margin for small viewports */
+    @apply mx-1 sm:mx-2;
+    white-space: pre;
   }
 
   .breadcrumb-item a {
-    color: #2563eb; /* text-blue-600 */
-    text-decoration: none;
-  }
-
-  .breadcrumb-item a:hover {
-    color: #1d4ed8; /* text-blue-800 */
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
   }
 
   .breadcrumb-item.active {
-    color: #1f2937; /* text-gray-800 */
+    @apply text-gray-800;
   }
 
   /* Dark mode styles */
   :global(.dark) .breadcrumb {
-    color: #d4d4d8; /* dark:text-zinc-300  */
+    @apply text-zinc-300;
   }
 
   :global(.dark) .breadcrumb-item a {
-    color: #e0f2fe; /* dark:text-sky-100 */
-  }
-
-  :global(.dark) .breadcrumb-item a:hover {
-    color: #93c5fd; /* dark:text-blue-200 */
+    @apply text-sky-100 hover:text-blue-200;
   }
 
   :global(.dark) .breadcrumb-item.active {
-    color: #ebe8e5; /* dark:text-gray-200 */
+    @apply text-gray-200;
   }
 </style>

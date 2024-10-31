@@ -25,14 +25,14 @@ const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6); /
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
-const pageTitle = "Matt Birch's Web Development Blog";
+const pageTitle = "Matt Birch's Blog";
 const blogDescription =
-  "Transforming ideas into powerful web experiences. I combine technical expertise with creative problem-solving to deliver websites that not only look great but perform exceptionally.";
+  "Sharing my thoughts on the most important topics involving web development, digital marketing and social media.";
 ---
 
 <Layout title={pageTitle} description={blogDescription} fullWidth={true}>
   <section
-    class="bg-gray-100 mx-auto py-6 md:py-8 lg:py-12 px-4 sm:px-6 md:px-8"
+    class="mx-auto py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 bg-gray-50 dark:bg-gray-900"
   >
     <div class="mx-auto max-w-screen-2xl">
       <header class="text-center">
@@ -42,7 +42,7 @@ const blogDescription =
           {pageTitle}
         </h1>
         <p
-          class="dark:text-darkModeText text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12"
+          class="italic dark:text-darkModeText text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12"
         >
           {blogDescription}
         </p>
@@ -58,16 +58,17 @@ const blogDescription =
 
   <!-- Featured Post Section -->
   <section
-    class="featured-post bg-white mx-auto pt-12 pb-6 md:pt-16 lg:pt-24 px-4 sm:px-6 md:px-8"
+    class="featured-post bg-white dark:bg-gray-950 mx-auto pt-12 md:pt-20 lg:pt-28 xl:pt-36 pb-12 md:pb-16 lg:pb-20 xl:pb-24 px-4 sm:px-6 md:px-8"
   >
     <div class="mx-auto max-w-screen-2xl">
       <!-- Featured Post -->
       {featuredPost && <FeaturedPost post={featuredPost} />}
     </div>
   </section>
-  <!-- Add "More Pos</div>ts" heading -->
+
+  <!-- Add "More Posts" heading -->
   <section
-    class="bg-gray-100 mx-auto py-6 md:py-8 lg:py-12 px-4 sm:px-6 md:px-8"
+    class="mx-auto py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 bg-gray-50 dark:bg-gray-900"
   >
     <div class="mx-auto max-w-screen-2xl">
       <h2
@@ -91,14 +92,4 @@ const blogDescription =
       </div>
     </div>
   </section>
-
-  <style>
-    .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
-    }
-
-    :global(.dark) .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-    }
-  </style>
 </Layout>

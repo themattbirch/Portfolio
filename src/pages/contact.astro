@@ -30,21 +30,22 @@ const pageDescription = "Get in touch with Matt Birch";
       </div>
     </section>
 
-    <!-- Quote Section with Responsive Adjustments for md -->
+    <!-- Quote Section with Dark Mode Support -->
     <section
-      class="relative w-full flex items-center justify-center h-auto py-8 sm:py-12 md:py-16 bg-gradient-to-r from-blue-900 to-gray-800"
+      class="relative w-full flex items-center justify-center h-auto py-8 sm:py-12 md:py-16 bg-gradient-to-r from-slate-700 dark:from-slate-800 to-blue-900 dark:to-slate-600"
     >
+      <div class="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
       <div
         class="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-screen-xl"
       >
         <h2
-          class="text-white italic text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug sm:leading-tight md:leading-relaxed"
+          class="text-white dark:text-white italic text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug sm:leading-tight md:leading-relaxed font-medium"
         >
           "The meeting of two personalities is like the contact of two chemical
           substances: if there is any reaction, both are transformed."
         </h2>
         <p
-          class="text-gray-400 text-sm sm:text-base md:text-lg mt-4 relative text-center sm:text-right"
+          class="text-blue-100 dark:text-purple-100 text-sm sm:text-base md:text-lg mt-4 relative text-center sm:text-right font-medium"
         >
           — Carl Jung
         </p>
@@ -179,6 +180,11 @@ const pageDescription = "Get in touch with Matt Birch";
   .fade-in-up.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  h2,
+  p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 </style>
 

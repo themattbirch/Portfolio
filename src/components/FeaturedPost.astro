@@ -7,64 +7,111 @@ type Props = {
 };
 
 const { post } = Astro.props;
+
+// Function to format category for URL (same as in Post component)
+const formatCategoryUrl = (category: string) => {
+  return category
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/[^a-z0-9-]/g, "") // Remove special characters
+    .replace(/-+/g, "-"); // Replace multiple hyphens with single hyphen
+};
 ---
 
-<article class="mb-8 sm:mb-12 md:mb-16">
-  <a
-    href={`/blog/${post.slug}`}
-    aria-label={`Read more about ${post.data.title}`}
-  >
-    <Image
-      src={post.data.image}
-      alt={post.data.title}
-      width={1024}
-      height={1024 / 1.5}
-      class="w-full h-auto rounded-lg sm:rounded-xl md:rounded-2xl object-cover"
-      loading="lazy"
-    />
-  </a>
-  <div class="my-6 sm:my-8 md:my-12">
-    <h2
-      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-zinc-900 mb-2 sm:mb-3 md:mb-4 font-bold"
+<article class="group relative mb-8 sm:mb-12 md:mb-16 overflow-hidden">
+  <div class="relative">
+    <a
+      href={`/blog/${post.slug}`}
+      aria-label={`Read more about ${post.data.title}`}
+      class="block overflow-hidden rounded-lg sm:rounded-xl md:rounded-2xl"
     >
-      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-    </h2>
-    <div class="my-6 sm:my-8 md:my-12 max-w-5xl text-center mx-auto">
-      <time
-        datetime={post.data.date.raw.toISOString()}
-        class="text-zinc-700 text-sm sm:text-base md:text-lg"
+      <Image
+        src={post.data.image}
+        alt={post.data.title}
+        width={1024}
+        height={1024 / 1.5}
+        class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
-        {post.data.date.formatted}
-      </time>
-      <blockquote
-        class="relative bg-gray-50 dark:bg-gray-700 rounded-full mt-4 p-4 text-zinc-700 text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-6"
-      >
-        <span
-          class="absolute top-0 left-0 text-6xl text-blue-500 opacity-25 leading-none select-none"
+      </div>
+    </a>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 -mt-20 sm:-mt-24">
+    <div
+      class="bg-blue-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 transition-transform duration-300 group-hover:translate-y-1"
+    >
+      <div class="flex items-center justify-between mb-4">
+        <time
+          datetime={post.data.date.raw.toISOString()}
+          class="text-sm sm:text-base text-blue-600 dark:text-blue-400 font-medium"
         >
-          &ldquo;
-        </span>
-        {post.body.slice(0, 200)}...
-      </blockquote>
-      <!-- Centered "Read More" link -->
-      <a
-        href={`/blog/${post.slug}`}
-        class="mt-4 inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline text-base sm:text-lg md:text-xl font-medium"
-      >
-        Read More
-        <svg
-          class="w-4 h-4 ml-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          {post.data.date.formatted}
+        </time>
+        <a
+          href={`/category/${formatCategoryUrl(post.data.categories?.[0] || "general")}`}
+          class="px-3 py-1 text-xs sm:text-sm rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-200"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"></path>
-        </svg>
-      </a>
+          {post.data.categories?.[0] || "General"}
+        </a>
+      </div>
+
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 dark:text-white mb-4 font-bold tracking-tight"
+      >
+        <a
+          href={`/blog/${post.slug}`}
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+        >
+          {post.data.title}
+        </a>
+      </h2>
+
+      <div class="prose dark:prose-invert max-w-none mb-6">
+        <p
+          class="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed"
+        >
+          {post.body.slice(0, 200)}...
+        </p>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <a
+          href={`/blog/${post.slug}`}
+          class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 dark:bg-blue-500 text-white font-medium text-sm sm:text-base transition-colors duration-200 hover:bg-blue-700 dark:hover:bg-blue-600"
+        >
+          Read More
+          <svg
+            class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-gray-500 dark:text-gray-400">
+            5 min read
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </article>
+
+<style>
+  article:hover .bg-white {
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+</style>
