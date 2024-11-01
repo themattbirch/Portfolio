@@ -8,7 +8,7 @@ const SkillCard = ({ icon, title, description, color, extraClass }) => (
       <div className="flex justify-between items-start mb-3 sm:mb-4 w-full">
         <FontAwesomeIcon icon={icon} className={`${color.icon} w-8 h-8 sm:w-12 sm:h-12`} />
         <div className={`${color.text} text-xs font-semibold px-2 py-1 rounded-full bg-opacity-20 ${color.bgOpacity}`}>
-          Expert
+          Experienced
         </div>
       </div>
       <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{title}</h3>

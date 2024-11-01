@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
 
 export const prerender = true;
 
-// Define the structure of a heading
+//Heading structure
 interface Heading {
   depth: number;
   slug: string;
@@ -43,7 +43,7 @@ function isImageData(image: unknown): image is ImageData {
   return typeof image === "object" && image !== null && "src" in image;
 }
 
-// Get post data and headings
+// Get: Post data and headings
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 
@@ -54,7 +54,7 @@ const postImage = {
     : (post.data.image as string),
   width: 1920,
   height: 1080,
-  format: "webp" as const, // or your actual image format (png, jpg, etc.)
+  format: "webp" as const,
 };
 ---
 
@@ -78,7 +78,6 @@ const postImage = {
           {post.data.title}
         </h1>
 
-        <!-- Add this section -->
         <div
           class="flex justify-center items-center gap-4 mb-8 text-gray-600 dark:text-gray-400"
         >
@@ -162,7 +161,7 @@ const postImage = {
       top: 2rem;
     }
   }
-  /* New styles for full-width image */
+  /* Styles for full-width image */
   .mb-16.-mx-4.sm\:-mx-6.lg\:-mx-8 {
     margin-left: calc(-1 * var(--page-padding, 1rem));
     margin-right: calc(-1 * var(--page-padding, 1rem));
@@ -219,7 +218,7 @@ const postImage = {
 
   @media (max-width: 1180px) {
     .toc-wrapper {
-      max-width: 90%; /* Adjust this value as needed */
+      max-width: 90%;
       font-size: 0.9rem;
     }
     .toc-wrapper :global(h2) {
@@ -235,37 +234,37 @@ const postImage = {
 
   .toc-wrapper :global(a) {
     display: inline-block;
-    color: #1d4ed8; /* Tailwind's blue-700 */
+    color: #1d4ed8;
     text-decoration: none;
     transition:
       color 0.3s ease,
       transform 0.3s ease;
-    font-size: 1.25rem; /* Increased from 1.125rem to 1.25rem */
+    font-size: 1.25rem;
   }
 
   .toc-wrapper :global(a:hover) {
-    color: #3b82f6; /* Tailwind's blue-500 */
+    color: #3b82f6;
     transform: translateX(5px);
   }
 
   :global(.dark) .toc-wrapper :global(a) {
-    color: #93c5fd; /* Tailwind's blue-300 for better contrast in dark mode */
+    color: #93c5fd;
   }
 
   :global(.dark) .toc-wrapper :global(a:hover) {
-    color: #60a5fa; /* Tailwind's blue-400 */
+    color: #60a5fa;
   }
 
   .breadcrumb-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Or justify-start if alignment is needed */
-    white-space: nowrap; /* Prevents text from wrapping */
+    justify-content: space-between;
+    white-space: nowrap;
   }
 
   @media (max-width: 828px) {
     .breadcrumb-container {
-      font-size: 0.875rem; /* Optional: Adjust font size for smaller screens */
+      font-size: 0.875rem;
     }
   }
 </style>

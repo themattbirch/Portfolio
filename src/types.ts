@@ -1,10 +1,10 @@
 // src/types.ts
 import type { ImageMetadata } from 'astro';
 
-// Simplified date handling
+// Date handling
 export interface FormattedDate {
-  raw: Date;         // The raw Date object
-  formatted: string; // Formatted display version
+  raw: Date;         
+  formatted: string;
 }
 
 export interface BlogPostFrontmatter {

@@ -10,7 +10,7 @@ const mobileBackground = mobileBackgroundImage.src;
 ---
 
 <div class="relative h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16">
-  <!-- Preload Images Using Image Component -->
+  <!-- Preload Images, using Astro's image component -->
   <Image
     src={lightBackgroundImage}
     alt="Hero Light Background"
@@ -30,7 +30,6 @@ const mobileBackground = mobileBackgroundImage.src;
     loading="lazy"
   />
 
-  <!-- Hero Background Container -->
   <div
     id="hero-background"
     class="absolute inset-0 bg-cover bg-center"
@@ -42,7 +41,7 @@ const mobileBackground = mobileBackgroundImage.src;
     <div class="hero-dim-overlay"></div>
   </div>
 
-  <!-- Hero Content -->
+  <!-- Content -->
   <div class="relative z-10 w-full">
     <div class="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-start">
@@ -127,7 +126,7 @@ const mobileBackground = mobileBackgroundImage.src;
   // Initialize on page load
   document.addEventListener("DOMContentLoaded", init);
 
-  // Re-initialize when the page content is updated (for Astro view transitions)
+  // Re-initialize when page content is updated (for Astro view transitions)
   document.addEventListener("astro:page-load", init);
 
   // Update theme on resize
@@ -160,28 +159,20 @@ const mobileBackground = mobileBackgroundImage.src;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(
-      to right,
-      #2563eb,
-      #1e40af
-    ); /* blue-800 to blue-600 */
+    background-image: linear-gradient(to right, #2563eb, #1e40af);
   }
 
   .hero-title {
-    color: #60a5fa; /* A light blue color, adjust as needed */
+    color: #60a5fa;
   }
 
   /* Ensure text is visible in dark mode */
   :global(.dark) .hero-title {
-    color: #93c5fd; /* Even lighter blue for dark mode */
+    color: #93c5fd;
   }
   @media (min-width: 640px) {
     .gradient-text {
-      background-image: linear-gradient(
-        to right,
-        #2563eb,
-        #60a5fa
-      ); /* blue-600 to blue-400 */
+      background-image: linear-gradient(to right, #2563eb, #60a5fa);
     }
   }
 
@@ -202,11 +193,7 @@ const mobileBackground = mobileBackgroundImage.src;
   }
 
   .hero-button:hover {
-    background-image: linear-gradient(
-      to right,
-      #1d4ed8,
-      #2563eb
-    ); /* blue-700 to blue-600 */
+    background-image: linear-gradient(to right, #1d4ed8, #2563eb);
     transform: scale(1.05);
     box-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -214,21 +201,12 @@ const mobileBackground = mobileBackgroundImage.src;
   }
 
   @media (max-width: 640px) {
-    /* Changed from 1024px to 640px */
     .hero-button {
-      background-image: linear-gradient(
-        to right,
-        #1e40af,
-        #1d4ed8
-      ); /* blue-800 to blue-700 */
+      background-image: linear-gradient(to right, #1e40af, #1d4ed8);
     }
 
     .hero-button:hover {
-      background-image: linear-gradient(
-        to right,
-        #1e3a8a,
-        #1e40af
-      ); /* blue-900 to blue-800 */
+      background-image: linear-gradient(to right, #1e3a8a, #1e40af);
     }
   }
 
@@ -243,15 +221,14 @@ const mobileBackground = mobileBackgroundImage.src;
       min-height: 500px;
       display: flex;
       align-items: center;
-      padding: 0; /* Adjust this value to align with the navbar */
+      padding: 0;
     }
 
     .hero-content {
       text-align: left;
-      padding-left: 1rem; /* Ensures that the content starts from the left, aligned with the navbar */
+      padding-left: 1rem;
     }
 
-    /* Ensure the text is light enough on mobile */
     .gradient-text {
       background-image: linear-gradient(to right, #76b3f5, #4a90e2);
       -webkit-background-clip: text;

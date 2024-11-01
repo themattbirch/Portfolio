@@ -7,7 +7,7 @@ export const onRequest: MiddlewareHandler = async ({ request }, next) => {
   try {
     const originalUrl = new URL(request.url);
 
-    // Only clean the URL for the homepage
+    // Only clean homepage URL
     if (originalUrl.pathname === '/index.html') {
       const baseUrl = import.meta.env.BASE_URL || 'https://mattbirch.co';
       const cleanUrl = new URL(baseUrl);
@@ -28,7 +28,7 @@ export const onRequest: MiddlewareHandler = async ({ request }, next) => {
       return next(cleanedRequest);
     }
 
-    // For all other routes, pass the request unchanged
+    // All other routes: Pass request unchanged
     return next();
   } catch (error) {
     console.error('Middleware - Error:', error);

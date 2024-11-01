@@ -78,13 +78,12 @@ const { title, description, image, category, keyFeatures, link } = Astro.props;
     transform: scale(1.05);
   }
   .project-card:hover h3 {
-    color: #1d4ed8; /* Blue color on hover for light mode */
+    color: #1d4ed8;
   }
 
   /* Dark mode styles */
-  :root.dark .project-card:hover h3,
-  [data-theme="dark"] .project-card:hover h3 {
-    color: #3b82f6; /* Blue color on hover for dark mode */
+  :global(.dark) .project-card:hover h3 {
+    color: #3b82f6;
   }
 
   .feature-tag:hover {
@@ -92,12 +91,10 @@ const { title, description, image, category, keyFeatures, link } = Astro.props;
     color: #fff;
   }
 
-  :root.dark .project-card,
-  [data-theme="dark"] .project-card {
+  :global(.dark) .project-card {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
-  :root.dark .project-card:hover,
-  [data-theme="dark"] .project-card:hover {
+  :global(.dark) .project-card:hover {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -114,7 +111,6 @@ const { title, description, image, category, keyFeatures, link } = Astro.props;
 
   .btn-projects:hover {
     background-color: #172554;
-    /* Consistent with your theme */
     @apply shadow-lg transform -translate-y-1;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
@@ -122,7 +118,6 @@ const { title, description, image, category, keyFeatures, link } = Astro.props;
 
   .btn-projects:active {
     background-color: #1e3a8a;
-    /* Darker active state */
     @apply shadow-md transform translate-y-0;
   }
 </style>

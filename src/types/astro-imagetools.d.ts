@@ -10,7 +10,6 @@ declare module 'astro-imagetools/components' {
     height?: number;
     loading?: 'lazy' | 'eager';
     formats?: string[];
-    // Add any other props that the Image component accepts
   }
 
   export const Image: AstroComponentFactory<ImageProps>;

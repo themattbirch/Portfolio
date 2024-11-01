@@ -10,13 +10,13 @@ interface Props {
 const { post, index } = Astro.props;
 const postUrl = `/blog/${post.slug}`;
 
-// Function to format category for URL
+// Function: Format category for URL
 const formatCategoryUrl = (category: string) => {
   return category
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/[^a-z0-9-]/g, "") // Remove special characters
-    .replace(/-+/g, "-"); // Replace multiple hyphens with single hyphen
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-");
 };
 ---
 
@@ -43,7 +43,8 @@ const formatCategoryUrl = (category: string) => {
     >
       {post.data.description || post.body.slice(0, 150) + "..."}
     </p>
-    <!-- Footer section -->
+
+    <!-- Additionals -->
     <div class="mt-auto">
       <div class="flex items-center justify-between">
         <!-- Left: Read More link -->

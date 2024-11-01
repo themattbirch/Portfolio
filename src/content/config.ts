@@ -8,14 +8,14 @@ const postsCollection = defineCollection({
             author: z.string(),
             categories: z.array(z.string()),
             date: z.string().transform((str) => ({
-                raw: new Date(str), // Keep the raw Date object for sorting
-                formatted: format(new Date(str), "MMMM d, yyyy"), // Keep the formatted string for display
+                raw: new Date(str), 
+                formatted: format(new Date(str), "MMMM d, yyyy"),
             })),
             featured: z.boolean().default(false),
             image: image(),
             title: z.string(),
             description: z.string(),
-            alt: z.string().optional(), // Optional alt text for the image
+            alt: z.string().optional(), 
             updatedDate: z
                 .string()
                 .optional()
@@ -27,7 +27,7 @@ const postsCollection = defineCollection({
                         }
                         : undefined
                 ),
-            ogImage: z.string().optional(), // Optional OG image URL
+            ogImage: z.string().optional(),
         }),
 });
 

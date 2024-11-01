@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 
-// Import all project images
 import floridaGradeAndPave from "/assets/images/florida-grade-and-pave.webp";
 import activeCareClinic from "/assets/images/active-care-clinic.webp";
 import thePackersPost from "/assets/images/the-packers-post.webp";
@@ -126,7 +125,7 @@ const pageDescription = "All about my portfolio of work.";
       </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- CTA -->
     <section class="py-12 md:py-20 lg:py-24 xl:py-32">
       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2
@@ -162,50 +161,48 @@ const pageDescription = "All about my portfolio of work.";
       </div>
     </section>
   </div>
-
-  <style>
-    .call-to-action {
-      position: relative;
-      overflow: hidden;
-    }
-    .call-to-action::before {
-      @apply opacity-5 sm:opacity-10;
-    }
-    .call-to-action > div {
-      position: relative;
-      z-index: 1;
-    }
-
-    .projects-container {
-      @apply mt-4 sm:mt-6 md:mt-8;
-    }
-
-    .flex {
-      display: flex;
-    }
-
-    .flex-col {
-      flex-direction: column;
-    }
-
-    .items-center {
-      align-items: center;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
-    }
-
-    /* Dark mode gradient */
-    :global(.dark) .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-    }
-  </style>
-
-  <script type="module" src="/scripts/fadeIn.js"></script>
 </Layout>
->
+
+<style>
+  .call-to-action {
+    position: relative;
+    overflow: hidden;
+  }
+  .call-to-action::before {
+    @apply opacity-5 sm:opacity-10;
+  }
+  .call-to-action > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  .projects-container {
+    @apply mt-4 sm:mt-6 md:mt-8;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .horizontal-gradient-wrapper {
+    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+  }
+
+  :global(.dark) .horizontal-gradient-wrapper {
+    background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
+  }
+</style>
+
+<script type="module" src="/scripts/fadeIn.js"></script>

@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary and Secondary Colors
+        // Primary + Secondary Colors
         primary: {
           light: "#3b82f6", // Tailwind's blue-500
           DEFAULT: "#172554", // Tailwind's blue-600
@@ -22,31 +22,37 @@ export default {
           dark: "#1e40af", // Tailwind's blue-800
         },
         // CTA Gradient Colors
+
         "cta-gradient-from": "#dbeafe", // blue-100
         "cta-gradient-via": "#e0e7ff", // indigo-100
         "cta-gradient-to": "#f3e8ff", // purple-100
         "cta-gradient-dark-from": "#1e3a8a", // blue-900
         "cta-gradient-dark-via": "#312e81", // indigo-900
         "cta-gradient-dark-to": "#4c1d95", // purple-900
+
         // CTA Button Colors
-        "cta-button": "#2563eb", // blue-600
-        "cta-button-hover": "#1d4ed8", // blue-700
-        "cta-button-dark": "#3b82f6", // blue-500
-        "cta-button-dark-hover": "#2563eb", // blue-600
+
+        "cta-button": "#2563eb", 
+        "cta-button-hover": "#1d4ed8", 
+        "cta-button-dark": "#3b82f6", 
+        "cta-button-dark-hover": "#2563eb",
+
         // CTA Text Color
         "cta-text": "#ffffff", // white
+
         // CTA Backdrop and Content Backgrounds
-        "cta-backdrop": "rgba(0, 0, 0, 0.5)", // Light Mode backdrop
-        "cta-backdrop-dark": "rgba(255, 255, 255, 0.3)", // Dark Mode backdrop, adjust opacity as needed
+        "cta-backdrop": "rgba(0, 0, 0, 0.5)",
+        "cta-backdrop-dark": "rgba(255, 255, 255, 0.3)", 
+
         "cta-content-bg": "#ffffff",
         "cta-subtext": "#4b5563",
         // Background Colors
         background: {
           light: "#FFFFFF",
           dark: "#1F2937",
-          secondary: "#E9EEF4", // For index.astro section
-          skills: "#e6ebf2", // For Skills Section
-          testimonials: "#f0f4f8", // For Testimonials Section
+          secondary: "#E9EEF4", 
+          skills: "#e6ebf2",
+          testimonials: "#f0f4f8",
         },
         // Text Colors
         text: {
@@ -56,20 +62,14 @@ export default {
           headingDark: "#E5E7EB",
           subtextLight: "#6B7280",
           subtextDark: "#9CA3AF",
-          skillsTextLight: "#1f2937", // gray-800
-          skillsTextDark: "#f3f4f6", // gray-100
-          testimonialTextLight: "#1f2937", // gray-800
-          testimonialTextDark: "#f3f4f6", // gray-100
+          skillsTextLight: "#1f2937",
+          skillsTextDark: "#f3f4f6", 
+          testimonialTextLight: "#1f2937", 
+          testimonialTextDark: "#f3f4f6",
         },
         darkModeText: "#ffffff",
       },
-      primary: {
-        DEFAULT: "#2563EB",
-        dark: "#3B82F6",
-      },
-      secondary: {
-        dark: "#4B5563",
-      },
+    
       aspectRatio: {
         thumbnail: "1.5",
       },
