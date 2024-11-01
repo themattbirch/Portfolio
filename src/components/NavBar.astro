@@ -20,7 +20,7 @@ const { menuItems } = Astro.props;
 <PortfolioNav>
   <div class="navbar max-w-screen-2xl mx-auto px-4">
     <div class="flex justify-between text-sm items-center h-16">
-      <!-- Enhanced Logo -->
+      <!-- Logo -->
       <div class="flex-shrink-0 flex items-center">
         <a
           href="/"
@@ -90,9 +90,9 @@ const { menuItems } = Astro.props;
         </nav>
       </div>
 
-      <!-- Mobile menu and ThemeToggle -->
+      <!-- Mobile menu + ThemeToggle -->
       <div class="custom-md:hidden flex items-center">
-        <!-- ThemeToggle Button moved to the left -->
+        <!-- ThemeToggle Button moved to left -->
         <ThemeToggle client:load />
 
         <!-- Mobile menu button  -->
@@ -166,66 +166,66 @@ const { menuItems } = Astro.props;
       </div>
     </div>
   </div>
-
-  <!-- JavaScript to handle mobile menu and event listeners -->
-  <script>
-    function setupMobileMenu() {
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const openIcon = document.querySelector(".astronav-open-icon");
-      const closeIcon = document.querySelector(".astronav-close-icon");
-
-      if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.toggle("mobile-menu-open");
-          openIcon.classList.toggle("hidden");
-          closeIcon.classList.toggle("hidden");
-          mobileMenuButton.setAttribute(
-            "aria-expanded",
-            mobileMenu.classList.contains("mobile-menu-open") ? "true" : "false"
-          );
-        });
-
-        const skillsDropdownToggle = document.querySelector(
-          ".mobile-dropdown-toggle"
-        );
-        const skillsDropdownMenu = document.querySelector(
-          ".mobile-dropdown-menu"
-        );
-        if (skillsDropdownToggle && skillsDropdownMenu) {
-          skillsDropdownToggle.addEventListener("click", () => {
-            skillsDropdownMenu.classList.toggle("hidden");
-            const arrowIcon = skillsDropdownToggle.querySelector("svg");
-            if (arrowIcon) {
-              arrowIcon.classList.toggle("rotate-180");
-            }
-          });
-        }
-
-        // Add event listener for window resize
-        window.addEventListener("resize", handleResize);
-      }
-    }
-
-    function handleResize() {
-      const mobileMenu = document.getElementById("mobile-menu");
-      const openIcon = document.querySelector(".astronav-open-icon");
-      const closeIcon = document.querySelector(".astronav-close-icon");
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-
-      if (mobileMenu && openIcon && closeIcon && mobileMenuButton) {
-        if (window.innerWidth >= 820) {
-          // 820px breakpoint
-          mobileMenu.classList.remove("mobile-menu-open");
-          mobileMenu.classList.add("hidden");
-          openIcon.classList.remove("hidden");
-          closeIcon.classList.add("hidden");
-          mobileMenuButton.setAttribute("aria-expanded", "false");
-        }
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", setupMobileMenu);
-    document.addEventListener("astro:after-swap", setupMobileMenu);
-  </script>
 </PortfolioNav>
+
+<!-- JS for mobile menu, event listeners -->
+<script>
+  function setupMobileMenu() {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const openIcon = document.querySelector(".astronav-open-icon");
+    const closeIcon = document.querySelector(".astronav-close-icon");
+
+    if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("mobile-menu-open");
+        openIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+        mobileMenuButton.setAttribute(
+          "aria-expanded",
+          mobileMenu.classList.contains("mobile-menu-open") ? "true" : "false"
+        );
+      });
+
+      const skillsDropdownToggle = document.querySelector(
+        ".mobile-dropdown-toggle"
+      );
+      const skillsDropdownMenu = document.querySelector(
+        ".mobile-dropdown-menu"
+      );
+      if (skillsDropdownToggle && skillsDropdownMenu) {
+        skillsDropdownToggle.addEventListener("click", () => {
+          skillsDropdownMenu.classList.toggle("hidden");
+          const arrowIcon = skillsDropdownToggle.querySelector("svg");
+          if (arrowIcon) {
+            arrowIcon.classList.toggle("rotate-180");
+          }
+        });
+      }
+
+      // Event listener for window resize
+      window.addEventListener("resize", handleResize);
+    }
+  }
+
+  function handleResize() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const openIcon = document.querySelector(".astronav-open-icon");
+    const closeIcon = document.querySelector(".astronav-close-icon");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+
+    if (mobileMenu && openIcon && closeIcon && mobileMenuButton) {
+      if (window.innerWidth >= 820) {
+        // 820px breakpoint
+        mobileMenu.classList.remove("mobile-menu-open");
+        mobileMenu.classList.add("hidden");
+        openIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        mobileMenuButton.setAttribute("aria-expanded", "false");
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", setupMobileMenu);
+  document.addEventListener("astro:after-swap", setupMobileMenu);
+</script>

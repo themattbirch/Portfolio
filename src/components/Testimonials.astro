@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Chris Gordon",
-    business: "Chris Gordon News",
+    business: "CGN",
     quote:
       "Excellent work! I have a terrific new website that is everything I wanted. I was guided through the whole process in a collaborative process. Matt Birch was patient and professional. My highest recommendation!",
     photo: cgHeadshot,
@@ -36,20 +36,20 @@ const testimonials: Testimonial[] = [
     name: "Bridget Costello",
     business: "Lynch's Landing",
     quote:
-      "I can't say enough about how swift and professional our experience with this company has been. Matt created a beautiful new website for our business. We are very happy with his work.",
+      "I can't say enough about how swift and professional our experience with Matt has been. He created a beautiful new website for our business. We are very happy with his work.",
     photo: bcHeadshot,
   },
   {
     name: "Ann Gorman",
     business: "Blacktop Ohio",
     quote:
-      "Matt was great to work with, I love the website he built for me, I have already recommended him to a few of my family members who are also business owners.",
+      "Matt was great to work with, I love the website he built for me. I have already recommended him to a few of my family members who are also business owners.",
     photo: agHeadshot,
   },
 ];
 ---
 
-<!-- Testimonial Cards for Mobile and Medium Screen Sizes -->
+<!-- Testimonial Cards: Mobile + Medium screen sizes -->
 <div
   class="lg:hidden grid grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12"
 >
@@ -81,7 +81,7 @@ const testimonials: Testimonial[] = [
   }
 </div>
 
-<!-- Testimonial Slider for Desktop Screens (LG and Up) -->
+<!-- Testimonial Slider: Desktop (LG/XL) -->
 <div class="hidden lg:block py-8 sm:py-12 px-4 sm:px-6">
   <div
     class="swiper-container relative testimonial-container swiper-no-swiping rounded-lg md:rounded-full transition-all duration-300 bg-gradient-to-r from-blue-100 to-blue-50 dark:bg-gradient-to-r dark:from-zinc-900 dark:to-zinc-800 p-4 sm:p-6 md:p-8"
@@ -334,17 +334,17 @@ const testimonials: Testimonial[] = [
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 16px; /* Add padding to the left and right */
+    padding-left: 16px;
     padding-right: 16px;
   }
 
-  /* Remove rounded edges on medium screens */
+  /* Remove rounded edges on smaller screens */
   @media (max-width: 1023px) {
     .swiper-container {
-      display: none; /* Hide the slider entirely */
+      display: none;
     }
 
-    /* Fix for cards not displaying properly */
+    /* Cards display issue solution */
     .testimonial-container {
       border-radius: 0 !important;
       padding: 0 !important;

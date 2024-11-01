@@ -63,13 +63,7 @@ export default {
         },
         darkModeText: "#ffffff",
       },
-      primary: {
-        DEFAULT: "#2563EB",
-        dark: "#3B82F6",
-      },
-      secondary: {
-        dark: "#4B5563",
-      },
+
       aspectRatio: {
         thumbnail: "1.5",
       },

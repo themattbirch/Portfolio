@@ -18,7 +18,7 @@ export async function get(context: APIContext) {
         items: posts.map((post: CollectionEntry<'posts'>) => ({
             title: post.data.title,
             link: `/blog/${post.slug}`,
-            pubDate: new Date(post.data.date),
+            pubDate: post.data.date.raw,
             content: sanitizeHtml(parser.render(post.body)),
             image: post.data.image,
         })),

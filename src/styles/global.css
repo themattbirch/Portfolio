@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define CSS Variables for Custom Styles */
+/* Define Variables for 'custom styles' */
 :root {
     --bg-color: theme('colors.background.light');
     --text-color: theme('colors.text.light');
@@ -30,7 +30,7 @@ body {
     font-family: 'Source Sans 3', sans-serif;
 }
 
-/* Define Custom Classes within @layer components */
+/* General @layer components */
 @layer components {
 
     /* ---------------------------------
@@ -46,7 +46,7 @@ body {
         font-family: 'PT Serif', serif;
     }
 
-    /* Custom Text Color Classes */
+    /* Custom Text Color classes */
     .text-headingLight {
         color: theme('colors.text.headingLight');
     }
@@ -75,7 +75,7 @@ body {
         color: var(--text-color);
     }
 
-    /* h1 using clamp for responsive scaling */
+    /* h1 using clamp: Responsive scaling */
     .h1-text {
         font-size: clamp(2rem, 4vw, 3.5rem);
         /* Will scale between 2rem and 3.5rem */
@@ -84,7 +84,7 @@ body {
                 color: var(--primary-color);
     }
 
-    /* h2 using clamp for responsive scaling */
+    /* h2 using clamp: Responsive scaling */
     .h2-text {
         font-size: clamp(1.75rem, 3.5vw, 2.5rem);
         /* Will scale between 1.75rem and 2.5rem */
@@ -301,7 +301,6 @@ body {
     }
 
     /* Underline Hover Effect */
-        /* Mobile Menu Styles */
         .mobile-link,
         .mobile-dropdown-toggle,
         .mobile-dropdown-menu a {
@@ -450,24 +449,6 @@ body {
         display: block;
     }
 
-    /* Breadcrumbs */
-    .breadcrumb {
-        @apply flex space-x-2 text-sm text-gray-500 dark:text-gray-400;
-    }
-
-    .breadcrumb-item::after {
-        content: '/';
-        @apply mx-2;
-    }
-
-    .breadcrumb-item:last-child::after {
-        content: '';
-    }
-
-    .breadcrumb-item a {
-        @apply text-blue-600 hover:underline;
-    }
-
         @layer utilities {
             .responsive-hide {
                 @apply hidden sm:block;
@@ -483,11 +464,8 @@ body {
 
  .prose img {
      width: 100%;
-     /* Ensures all images inside the content take full width */
      height: auto;
-     /* Maintain aspect ratio */
      margin: 0 auto;
-     /* Center the images if needed */
  }
 
 .dark .prose p {
@@ -522,7 +500,6 @@ body {
 
 #mobile-menu {
     display: none;
-    /* Default hidden state */
 }
 
 @media (min-width: 820px) {

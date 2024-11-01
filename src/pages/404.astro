@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "404: Page Not Found";
+const pageDescription = "Sorry, the page you're looking for doesn't exist.";
+---
+
+<Layout title={pageTitle} description={pageDescription} fullWidth={true}>
+  <div class="min-h-[70vh] flex flex-col items-center justify-center px-4">
+    <h1
+      class="text-6xl md:text-8xl font-bold text-blue-600 dark:text-blue-400 mb-4"
+    >
+      404
+    </h1>
+    <p
+      class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 text-center"
+    >
+      Oops! Page not found.
+    </p>
+    <p
+      class="text-lg text-gray-600 dark:text-gray-400 mb-8 text-center max-w-md"
+    >
+      The page you're looking for might have been moved, deleted, or never
+      existed.
+    </p>
+<a
+    href="/" class="btn btn-primary rounded-full py-3 px-6 text-lg shadow-md
+    transition duration-300 ease-in-out transform hover:-translate-y-1
+    hover:shadow-xl" > Back to Home
+    </a>
+  </div>
+</Layout>

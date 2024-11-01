@@ -1,18 +1,17 @@
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
-/// <reference types="vite/client" />
+import 'astro/client';
+import 'vite/client';
 
 interface ImportMetaEnv {
   readonly PROD: boolean;
   readonly BASE_URL: string;
-  // Add any other environment variables you're using
 }
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-// Add this to ensure Astro recognizes Tailwind classes
+// Make sure Astro recognizes Tailwind classes
 declare module 'astro:content' {
   interface Render {
     '.md': Promise<{
@@ -23,7 +22,7 @@ declare module 'astro:content' {
   }
 }
 
-// Declare the Tailwind CSS module
+// Declare Tailwind CSS module
 declare module '*.css' {
   const styles: any;
   export default styles;

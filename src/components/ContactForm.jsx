@@ -14,12 +14,12 @@ const ContactForm = () => {
   }, []);
 
   const handleFocus = () => {
-    setPlaceholder(""); // Clear the placeholder on focus
+    setPlaceholder(""); 
   };
 
   const handleBlur = (event) => {
     if (!event.target.value) {
-      setPlaceholder("Your message here..."); // Restore the placeholder if no input
+      setPlaceholder("Your message here..."); 
     }
   };
 

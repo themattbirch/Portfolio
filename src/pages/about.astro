@@ -18,7 +18,7 @@ const pageDescription =
     <link rel="preload" as="image" href={headshot.src} />
   </Fragment>
   <div class="horizontal-gradient-wrapper">
-    <!-- About Section with Headshot -->
+    <!-- Headshot -->
     <section class="py-12 md:py-20 lg:py-24 xl:py-32 text-center">
       <h1 class="h1-text text-center mb-8 md:mb-12">
         {pageTitle}
@@ -41,7 +41,7 @@ const pageDescription =
         </div>
       </div>
 
-      <!-- Enhanced Introduction Text -->
+      <!-- Introduction Text -->
       <p
         class="text-base sm:text-lg md:text-xl pt-4 sm:pt-8 md:pt-12 pb-4 sm:pb-6 md:pb-8 leading-relaxed max-w-xs sm:max-w-sm md:max-w-2xl mx-auto text-gray-700 dark:text-gray-300"
       >
@@ -54,7 +54,7 @@ const pageDescription =
           >, and <strong>React</strong>.
         </span>
 
-        <!-- Styled Resume Download Button -->
+        <!-- Resume Download Button -->
         <div class="mt-8">
           <a
             href="/src/uploads/matt-birch-resume.pdf"
@@ -84,7 +84,7 @@ const pageDescription =
 
     <section class="fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- My Approach To Work Section -->
+        <!-- Approach To Work Section -->
         <ContentSection
           title="My Approach To Work"
           text={`I believe in delivering solutions that go beyond just meeting requirements—driving real business value. Every project starts with understanding your goals, audience, and success metrics. This foundation allows me to build websites that not only look great visually but also accomplish business objectives.
@@ -94,7 +94,7 @@ My development process combines systematic planning, clear communication, and it
           imageAlt="man working in front of computer typing on keyboard sipping coffee"
         />
 
-        <!-- Who I Am Section (with reversed layout) -->
+        <!-- Who I Am Section (reversed layout) -->
         <ContentSection
           title="Who I Am"
           text={`I'm an optimistic by nature, with a growth mindset. And I'm deeply passionate about the intersection of technology and human experience. My journey into web development was sparked by a fascination with creating digital solutions that make a real difference in people's lives.
@@ -107,6 +107,8 @@ When I'm not crafting websites, you'll find me exploring nature trails, perfecti
       </div>
     </section>
   </div>
+
+  <!-- CTA Section -->
 
   <section
     id="cta-section"
@@ -151,7 +153,7 @@ At my core, I believe in building genuine human connections and using technology
           imageAlt="man sitting on beach deep in thought"
         />
 
-        <!-- What It's Like To Work With Me (with reversed layout) -->
+        <!-- What It's Like To Work With Me (reversed layout) -->
         <ContentSection
           title="What It's Like To Work With Me"
           text={`Technical skills are important, but they’re not all that I offer. I’m a  perpetual learner with high emotional intelligence who thrives off building relationships, Whether it’s connecting with clients, recruiters, and fellow developers, or just grabbing a beer after work with friends, I always make time for and enjoy the company of others.
@@ -175,17 +177,14 @@ Whether you're a client, recruiter, or team member, you’ll quickly realize I�
   .horizontal-gradient-wrapper-2 {
     background: linear-gradient(to bottom, #dde4ee, #ffffff);
   }
-
-  /* Dark mode gradient */
   :global(.dark) .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #45617c, #1f2937);
   }
 
-  /* Dark mode gradient */
   :global(.dark) .horizontal-gradient-wrapper-2 {
     background: linear-gradient(to bottom, #1f2937, #45617c);
   }
-  /* Add gradient overlay and glowing button shadow */
+  /* Text gradient overlay + glowing button shadow */
   .text-gradient {
     background: linear-gradient(to right, #00c6ff, #0072ff);
     -webkit-background-clip: text;
@@ -204,7 +203,7 @@ Whether you're a client, recruiter, or team member, you’ll quickly realize I�
       0 0 55px rgba(0, 114, 255, 0.7);
   }
 
-  /* Parallax effect */
+  /* Parallax */
   .parallax {
     position: relative;
     background-attachment: fixed;

@@ -31,7 +31,7 @@ const skills = [
   },
 ];
 
-// Split the skills array into two parts
+// Split skills array into two parts
 const half = Math.ceil(skills.length / 2);
 const skillsPart1 = skills.slice(0, half);
 const skillsPart2 = skills.slice(half);
@@ -56,7 +56,7 @@ const pageDescription = "The technical skills I possess.";
       </div>
     </section>
 
-    <!-- SkillsComponent with Split Part 1 -->
+    <!-- SkillsComponent with split (part 1)-->
     <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -69,7 +69,7 @@ const pageDescription = "The technical skills I possess.";
       </div>
     </section>
 
-    <!-- SkillsComponent with Split Part 2 -->
+    <!-- SkillsComponent with split (part 2)-->
     <section>
       <div class="max-w-7xl mx-auto px-4 md:px-6">
         <h2
@@ -83,7 +83,7 @@ const pageDescription = "The technical skills I possess.";
     </section>
   </div>
 
-  <!-- Other Sections -->
+  <!-- Additional Skills -->
   <div class="horizontal-gradient-wrapper-1">
     <section
       class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32 dark:text-white"
@@ -119,24 +119,21 @@ const pageDescription = "The technical skills I possess.";
       </div>
     </section>
   </div>
-
-  <style>
-    .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #ffffff, #dde4ee);
-    }
-
-    .horizontal-gradient-wrapper-1 {
-      background: linear-gradient(to bottom, #dde4ee, #ffffff);
-    }
-
-    /* Dark mode gradient */
-    :global(.dark) .horizontal-gradient-wrapper {
-      background: linear-gradient(to bottom, #45617c, #374962);
-    }
-
-    /* Dark mode gradient */
-    :global(.dark) .horizontal-gradient-wrapper-1 {
-      background: linear-gradient(to bottom, #374962, #45617c);
-    }
-  </style>
 </Layout>
+
+<style>
+  .horizontal-gradient-wrapper {
+    background: linear-gradient(to bottom, #ffffff, #dde4ee);
+  }
+
+  .horizontal-gradient-wrapper-1 {
+    background: linear-gradient(to bottom, #dde4ee, #ffffff);
+  }
+  :global(.dark) .horizontal-gradient-wrapper {
+    background: linear-gradient(to bottom, #45617c, #374962);
+  }
+
+  :global(.dark) .horizontal-gradient-wrapper-1 {
+    background: linear-gradient(to bottom, #374962, #45617c);
+  }
+</style>

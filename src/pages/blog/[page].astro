@@ -47,7 +47,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   }
 }
 
-// Add null checks and default values
+// Null checks + default values
 const { page } = Astro.props;
 const posts = page?.data ?? [];
 const allCategories = posts.flatMap((post) => post.data.categories ?? []);
@@ -72,7 +72,6 @@ const blogDescription =
           </h1>
         </header>
 
-        <!-- New flex container for Breadcrumb and CategoryList -->
         <div class="flex justify-between items-center my-6 sm:my-8 md:my-12">
           <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
           <CategoryList categories={categories} />
@@ -84,7 +83,6 @@ const blogDescription =
           {posts.map((post, index) => <Post post={post} index={index} />)}
         </div>
 
-        <!-- Moved Pagination to bottom right -->
         <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
           <Pagination prevURL={page.url.prev} nextURL={page.url.next} />
         </div>
@@ -97,8 +95,6 @@ const blogDescription =
   .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
   }
-
-  /* Dark mode gradient */
   :global(.dark) .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
   }

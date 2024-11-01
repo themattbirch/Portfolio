@@ -18,19 +18,18 @@ export interface Props {
   preloadLinks?: Array<{ href: string; media?: string }>; // New prop for preload links
 }
 
-// Props with default values
+// Props - Default Values
 const {
   title = "Matt Birch | Web Developer",
   description = "Transforming ideas into powerful web experiences...",
   ogImage = "/images/default-og-image.jpg",
-  image, // No default for image, since it is optional
+  image, // Image is optional, no default
   fullWidth = false,
-  preloadLinks = [], // Default to an empty array if not provided
+  preloadLinks = [],
 } = Astro.props;
 
 const canonicalURL = Astro.url.href;
 
-// Handle the ogImage fallback logic: use `image.src` if available, otherwise fallback to ogImage
 const finalOgImage = image
   ? new URL(image.src, Astro.url).toString()
   : new URL(ogImage, Astro.url).toString();
@@ -39,14 +38,14 @@ const finalOgImage = image
 <!doctype html>
 <html lang="en" class="min-h-screen">
   <head>
-    <!-- Basic Meta Tags -->
+    <!-- Basic meta tags -->
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <!-- Reusable Head Meta Component -->
+    <!-- Head Meta component for more -->
     <HeadMeta
       title={title}
       description={description}
@@ -54,14 +53,14 @@ const finalOgImage = image
       canonicalURL={canonicalURL}
     />
 
-    <!-- Conditional Preload Links for Hero Images -->
+    <!-- Preload Links for hero images -->
     {
       preloadLinks.map((link) => (
         <link rel="preload" as="image" href={link.href} media={link.media} />
       ))
     }
 
-    <!-- Preload FontAwesome Stylesheet -->
+    <!-- Preload FontAwesome -->
     <link
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
