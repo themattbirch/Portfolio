@@ -1,4 +1,11 @@
 ---
+interface Props {
+  title: string;
+  description: string;
+  ogImage: string;
+  canonicalURL: string;
+}
+
 const { title, description, ogImage, canonicalURL } = Astro.props;
 ---
 
@@ -12,9 +19,13 @@ const { title, description, ogImage, canonicalURL } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@mattbirchdev" /> <!-- Add your Twitter handle -->
+<meta name="twitter:creator" content="@mattbirchdev" /> <!-- Add your Twitter handle -->
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
