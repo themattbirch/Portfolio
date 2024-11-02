@@ -1,7 +1,7 @@
 ---
 author: Matt Birch
 categories: ["Web Development"]
-date: 012/20/2022
+date: 12/20/2022
 featured: false
 image: /assets/images/two-web-designers.jpg
 title: A look back at how websites have evolved using modern web design principles

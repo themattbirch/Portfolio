@@ -15,21 +15,29 @@ const { title, description, ogImage, canonicalURL } = Astro.props;
 
 <!-- Open Graph Meta Tags -->
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="Matt Birch" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@mattbirchdev" /> <!-- Add your Twitter handle -->
-<meta name="twitter:creator" content="@mattbirchdev" /> <!-- Add your Twitter handle -->
+<meta name="twitter:site" content="@themattbirch" />
+<meta name="twitter:creator" content="@themattbirch" />
+<meta name="twitter:domain" content="mattbirch.co" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- Favicon & Theme -->
+<meta name="theme-color" content="#0072ff" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -39,9 +47,25 @@ const { title, description, ogImage, canonicalURL } = Astro.props;
     url: canonicalURL,
     name: title,
     description: description,
-    publisher: {
-      "@type": "Organization",
+    author: {
+      "@type": "Person",
       name: "Matt Birch",
+      url: "https://mattbirch.co",
+      sameAs: [
+        "https://twitter.com/themattbirch",
+        "https://github.com/themattbirch",  
+        "https://linkedin.com/in/themattbirch"  
+      ]
+    },
+    publisher: {
+      "@type": "Person", 
+      name: "Matt Birch",
+      image: {
+        "@type": "ImageObject",
+        url: ogImage,
+        width: 1200,
+        height: 630,
+      },
     },
     image: {
       "@type": "ImageObject",

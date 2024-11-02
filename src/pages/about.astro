@@ -10,10 +10,15 @@ import workWithMe from "/assets/images/teamwork.webp";
 
 const pageTitle = "About Matt Birch | Web Developer";
 const pageDescription =
-  "Learn about Matt Birch's journey as a front-end web developer, his skills, and his approach to creating exceptional web experiences.";
+  "Discover Matt Birch's journey as a front-end web developer—his technical skills, creative process, and dedication to crafting outstanding web experiences.";
 ---
 
-<Layout title={pageTitle} description={pageDescription} fullWidth={true}>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage="/assets/images/about-matt-pointing.jpg"
+  fullWidth={true}
+>
   <Fragment slot="head">
     <link rel="preload" as="image" href={headshot.src} />
   </Fragment>

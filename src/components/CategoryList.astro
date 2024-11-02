@@ -12,7 +12,7 @@ const getCategoryUrl = (category: string) =>
   `/category/${category.toLowerCase().replace(/\s+/g, "-")}`;
 ---
 
-<div class="category-section my-4 sm:my-6 md:my-8">
+<div class="category-section">
   {
     title && (
       <h2 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-center">
@@ -20,12 +20,12 @@ const getCategoryUrl = (category: string) =>
       </h2>
     )
   }
-  <div class="flex flex-wrap justify-center gap-2 sm:gap-4">
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
     {
       categories.map((category) => (
         <a
           href={getCategoryUrl(category)}
-          class="category-button text-blue-700 dark:text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 text-sm sm:text-base md:text-lg font-semibold border border-blue-700 dark:border-white hover:bg-sky-100 dark:hover:bg-teal-900 transition-colors duration-300"
+          class="category-button text-center text-blue-700 dark:text-white rounded-full px-4 py-2 text-sm sm:text-base md:text-lg font-semibold border border-blue-700 dark:border-white hover:bg-sky-100 dark:hover:bg-teal-900 transition-colors duration-300"
         >
           {category}
         </a>
