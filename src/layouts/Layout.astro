@@ -41,6 +41,11 @@ const finalOgImage = image
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="format-detection" content="telephone=no" />
+
     <!-- Security headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -65,6 +70,33 @@ const finalOgImage = image
       canonicalURL={canonicalURL}
     />
 
+    <!-- Person Schema -->
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": Astro.site?.toString(),
+    "name": "Matt Birch",
+    "url": Astro.site?.toString(),
+    "sameAs": [
+      "https://twitter.com/themattbirch",
+      "https://github.com/themattbirch",
+      "https://linkedin.com/in/themattbirch"
+    ],
+    "image": {
+      "@type": "ImageObject",
+      "url": new URL("/assets/images/headshot-avatar-illustration.webp", Astro.site).toString(), 
+      "width": 512,
+      "height": 512
+    },
+    "jobTitle": "Web Developer", 
+    "worksFor": {                 
+      "@type": "Organization",
+      "name": "Optimize Web Solutions"
+    }
+  }, null, 2)}
+</script>
+
     <!-- Preload Critical Assets -->
     {
       preloadLinks.map((link) => (
@@ -72,30 +104,28 @@ const finalOgImage = image
           rel="preload"
           as="image"
           href={link.href}
-          media={link.media}
-          fetchpriority="high"
+          media={link.media ?? "all"}
         />
       ))
     }
 
-    <!-- FontAwesome with improved loading -->
+    <!-- FontAwesome  -->
     <link
       rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       as="style"
       crossorigin="anonymous"
-      fetchpriority="low"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous"
       />
     </noscript>
 
-    <!-- Google Fonts with improved loading -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

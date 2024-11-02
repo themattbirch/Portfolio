@@ -44,34 +44,34 @@ const { title, description, ogImage, canonicalURL } = Astro.props;
   {JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    url: canonicalURL,
-    name: title,
-    description: description,
-    author: {
+    "url": canonicalURL,
+    "name": title,
+    "description": description,
+    "author": {
       "@type": "Person",
-      name: "Matt Birch",
-      url: "https://mattbirch.co",
-      sameAs: [
+      "name": "Matt Birch",
+      "url": "https://mattbirch.co",
+      "sameAs": [
         "https://twitter.com/themattbirch",
-        "https://github.com/themattbirch",  
-        "https://linkedin.com/in/themattbirch"  
+        "https://github.com/themattbirch",
+        "https://linkedin.com/in/themattbirch"
       ]
     },
-    publisher: {
-      "@type": "Person", 
-      name: "Matt Birch",
-      image: {
+    "publisher": {
+      "@type": "Person",
+      "name": "Matt Birch",
+      "image": {
         "@type": "ImageObject",
-        url: ogImage,
-        width: 1200,
-        height: 630,
-      },
+        "url": ogImage,
+        "width": 1200,
+        "height": 630
+      }
     },
-    image: {
+    "image": {
       "@type": "ImageObject",
-      url: ogImage,
-      width: 1200,
-      height: 630,
-    },
-  })}
+      "url": ogImage,
+      "width": 1200,
+      "height": 630
+    }
+  }, null, 2)}
 </script>
