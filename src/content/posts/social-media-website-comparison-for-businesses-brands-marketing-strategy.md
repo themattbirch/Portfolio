@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["Social Media"]
+categories: ["Digital Marketing"]
 date: 09/18/2022
 featured: false
 image: /assets/images/tiktok.jpg

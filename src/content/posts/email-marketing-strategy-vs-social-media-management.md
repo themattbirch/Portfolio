@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["Social Media"]
+categories: ["Digital Marketing"]
 date: 12/21/2023
 featured: false
 image: /assets/images/email-marketing.jpg

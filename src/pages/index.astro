@@ -40,8 +40,9 @@ const qualities = ["Reliable", "Multi-skilled", "Experienced", "Diligent"];
 const half = Math.ceil(qualities.length / 2);
 const leftQualities = qualities.slice(0, half);
 const rightQualities = qualities.slice(half);
-const pageTitle = "Matt Birch, Front-End Web Developer";
-const pageDescription = "A web develoepr with passion";
+const pageTitle = "Matt Birch: Front-End Web Developer";
+const pageDescription =
+  "A creative front-end web developer dedicated to crafting engaging, user-centered digital experiences.";
 
 // Define preload links
 const preloadLinks = [
@@ -63,6 +64,7 @@ const preloadLinks = [
 <Layout
   title={pageTitle}
   description={pageDescription}
+  ogImage="/assets/images/matt-birch-headshot.jpg"
   fullWidth={true}
   preloadLinks={preloadLinks}
 >

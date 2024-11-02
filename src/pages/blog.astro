@@ -25,12 +25,17 @@ const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6); /
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
-const pageTitle = "Matt Birch's Blog";
+const pageTitle = "Matt Birch's Personal Blog";
 const blogDescription =
-  "Sharing my thoughts on the most important topics involving web development, digital marketing and social media.";
+  "Dive into insights on web development, digital marketing, and social media as Matt shares thoughts on today’s most impactful topics.";
 ---
 
-<Layout title={pageTitle} description={blogDescription} fullWidth={true}>
+<Layout
+  title={pageTitle}
+  description={blogDescription}
+  ogImage="/assets/images/blog-notebook-coffee.jpg"
+  fullWidth={true}
+>
   <section
     class="mx-auto py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 bg-gray-50 dark:bg-gray-900"
   >
@@ -49,7 +54,7 @@ const blogDescription =
       </header>
 
       <!-- Container for Breadcrumb + CategoryList -->
-      <div class="flex justify-between items-center">
+      <div class="flex justify-between items-center gap-2">
         <Breadcrumb current="Page 1" parent="Blog" />
         <CategoryList categories={categories} />
       </div>

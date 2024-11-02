@@ -2,11 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.jsx";
 
-const pageTitle = "Get In Touch With Matt";
-const pageDescription = "Get in touch with Matt Birch";
+const pageTitle = "Get In Touch With Matt Birch";
+const pageDescription =
+  "Reach out to Matt via mailing address, email, phone, or contact form for collaborations, inquiries, or just to connect.";
 ---
 
-<Layout title={pageTitle} description={pageDescription} fullWidth={true}>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage="/assets/images/contact-phone.jpg"
+  fullWidth={true}
+>
   <div class="horizontal-gradient-wrapper">
     <!-- Page Title -->
     <section

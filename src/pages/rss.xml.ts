@@ -10,10 +10,8 @@ const parser = new MarkdownIt();
 export async function get(context: APIContext) {
     const posts = await getCollection("posts")
     return rss({
-        title: "Matt Birch - Web Developer",
-        description: `Transforming ideas into powerful web experiences.
-        I combine technical expertise with creative problem-solving to deliver 
-        websites that not only look great but perform exceptionally.`,
+        title: "Matt Birch: Front-End Web Developer",
+        description: `A creative web developer dedicated to crafting engaging, user-centered digital experiences.`,
         site: context.site?.toString() ?? "",
         items: posts.map((post: CollectionEntry<'posts'>) => ({
             title: post.data.title,
