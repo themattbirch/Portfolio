@@ -1,7 +1,7 @@
 ---
 author: Matt Birch
 categories: ["Digital Marketing"]
-date: 08/11/2024
+date: 06/28/2024
 featured: false
 image: /assets/images/brand-colors.jpg
 title: Strategy for choosing the right colors for your brand, business
