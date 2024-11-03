@@ -1,7 +1,7 @@
 ---
 author: "Matt Birch"
 categories: ["AI"]
-date: "09/19/2024"
+date: "10/18/2024"
 featured: false
 image: /assets/images/ai-large-language-model.jpg
 title: "Comparing Popular Large Language Models: AI Race Heats Up"

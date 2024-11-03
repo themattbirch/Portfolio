@@ -1,7 +1,7 @@
 ---
 author: "Matt Birch"
 categories: ["AI"]
-date: "10/09/2024"
+date: "09/28/2024"
 featured: false
 image: /assets/images/man-thinking-office.jpg
 title: "How AI Can Help You Shift Careers"

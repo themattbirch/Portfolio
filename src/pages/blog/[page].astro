@@ -29,20 +29,20 @@ interface Props {
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   try {
-    const posts: CollectionEntry<"posts">[] = await getCollection("posts");
-    if (!posts || !posts.length) {
-      return paginate([], { pageSize: 6 });
-    }
+    const posts = await getCollection("posts");
+    const sortedPosts = posts.sort((a, b) => {
+      const dateA = new Date(a.data.date.raw);
+      const dateB = new Date(b.data.date.raw);
+      return dateB.getTime() - dateA.getTime();
+    });
 
-    const sortedPosts = posts.sort(
-      (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) => {
-        const dateA = new Date(a.data.date.raw);
-        const dateB = new Date(b.data.date.raw);
-        return dateB.getTime() - dateA.getTime();
-      }
+    // Remove featured post from pagination
+    const featuredPost = sortedPosts.find((post) => post.data.featured);
+    const nonFeaturedPosts = sortedPosts.filter(
+      (post) => post !== featuredPost
     );
 
-    return paginate(sortedPosts, { pageSize: 6 });
+    return paginate(nonFeaturedPosts, { pageSize: 6 });
   } catch (error) {
     console.error("Error in getStaticPaths:", error);
     return paginate([], { pageSize: 6 });
