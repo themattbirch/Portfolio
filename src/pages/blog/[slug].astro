@@ -9,8 +9,6 @@ import { Image } from "astro:assets";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
-
-  // Sort posts first
   const sortedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.data.date.raw);
     const dateB = new Date(b.data.date.raw);
@@ -25,7 +23,6 @@ export const getStaticPaths = async () => {
 
 export const prerender = true;
 
-//Heading structure
 interface Heading {
   depth: number;
   slug: string;
@@ -38,16 +35,17 @@ interface ImageData {
   height: number;
 }
 
-// Type guard function for image data
 function isImageData(image: unknown): image is ImageData {
   return typeof image === "object" && image !== null && "src" in image;
 }
 
-// Get: Post data and headings
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 
-// Ensure post.data.image is of the correct type
+// Canonical URL construction
+const canonicalURL = new URL(`/blog/${post.slug}`, Astro.site).toString();
+
+// Make image handling consistent
 const postImage = {
   src: isImageData(post.data.image)
     ? post.data.image.src
@@ -69,11 +67,19 @@ const postImage = {
     <section
       class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
     >
-      <article class="relative">
+      <article
+        class="relative"
+        itemscope
+        itemtype="https://schema.org/BlogPosting"
+      >
+        <meta itemprop="url" content={canonicalURL} />
+        <link itemprop="mainEntityOfPage" href={canonicalURL} />
+
         <Breadcrumb current={post.data.title} parent="Blog" />
 
         <h1
           class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
+          itemprop="headline"
         >
           {post.data.title}
         </h1>
@@ -81,7 +87,7 @@ const postImage = {
         <div
           class="flex justify-center items-center gap-4 mb-8 text-gray-600 dark:text-gray-400"
         >
-          <span class="text-sm sm:text-base">
+          <span class="text-sm sm:text-base" itemprop="datePublished">
             {
               new Date(post.data.date.raw).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -91,7 +97,7 @@ const postImage = {
             }
           </span>
           <span class="text-sm sm:text-base">•</span>
-          <span class="text-sm sm:text-base">
+          <span class="text-sm sm:text-base" itemprop="author">
             Written By: {post.data.author}
           </span>
         </div>
@@ -104,6 +110,7 @@ const postImage = {
             height={1080}
             class="w-full h-auto object-cover rounded-lg shadow-lg"
             loading="eager"
+            itemprop="image"
           />
         </div>
 
@@ -118,6 +125,7 @@ const postImage = {
           <div class="custom-lg:w-3/4">
             <div
               class="prose prose-sm sm:prose-base custom-lg:prose-xl dark:prose-invert max-w-none"
+              itemprop="articleBody"
             >
               <Content />
             </div>

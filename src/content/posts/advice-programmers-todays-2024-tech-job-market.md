@@ -2,7 +2,7 @@
 author: Matt Birch
 categories: ["Web Development"]
 date: 08/30/2024
-featured: true
+featured: false
 image: /assets/images/tech-job-interview.jpg
 title: Advice to Programmer's for Today's Tech Job Market
 description: Stay competitive in the 2024 tech job market with strategic insights for programmers. Learn to navigate 'ghost jobs,' adapt to extended interviews, and focus on skill-building for success in a rapidly evolving landscape.

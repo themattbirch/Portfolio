@@ -2,7 +2,7 @@
 author: "Matt Birch"
 categories: ["AI"]
 date: "10/18/2024"
-featured: false
+featured: true
 image: /assets/images/ai-large-language-model.jpg
 title: "Comparing Popular Large Language Models: AI Race Heats Up"
 description: "Explore a comprehensive comparison of popular large language models, examining their capabilities, strengths, and applications to help you choose the right AI tool for your needs."
@@ -15,11 +15,20 @@ The landscape of Large Language Models (LLMs) is evolving at a breakneck pace, w
 The journey from GPT-2 to GPT-4 and beyond represents one of the most rapid technological advances in recent history. However, we're beginning to see the limitations of current approaches. Compute power and processing speed have been persistent bottlenecks, which is what makes GPT-4's performance improvements so significant. The model shows enhanced capabilities in several critical areas:
 
 - Multimodal processing (text, audio, and visual inputs)
+
 - More nuanced understanding of conversational context
+
 - Improved processing speed and performance
+
 - Better grasp of tone and sentiment
 
 Yet these improvements also highlight a crucial reality: we may be approaching the limits of what's possible with current training methodologies.
+
+Let's see these capabilities in action. Here's an example of an interaction with Claude, demonstrating how modern LLMs can engage in nuanced conversation while maintaining context and providing detailed, relevant responses:
+
+![different large language models](/assets/images/claude-prompt-reply-llm-differences.jpg)
+
+This exchange showcases how LLMs can process complex queries and provide structured, coherent responses while maintaining a natural conversational flow. Notice the model's ability to understand context and provide detailed, relevant information without losing focus on the core question.
 
 ## The Google vs OpenAI Dynamic
 

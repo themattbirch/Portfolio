@@ -1,33 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import CategoryList from "@/components/CategoryList.astro";
 import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
 import Breadcrumb from "@/components/BreadCrumb.astro";
-import FeaturedPost from "@/components/FeaturedPost.astro"; // Import FeaturedPost
+import FeaturedPost from "@/components/FeaturedPost.astro";
 
-const allPosts = await getCollection("posts");
+// Type definitions
+interface BlogFrontmatter {
+  date: {
+    raw: string;
+    formatted: string;
+  };
+  featured?: boolean;
+  categories: string[];
+  title: string;
+  description: string;
+  image: string | { src: string; alt: string };
+}
 
-// Sort posts by date (newest first)
+type BlogPost = CollectionEntry<"posts"> & {
+  data: BlogFrontmatter;
+};
+
+const allPosts = (await getCollection("posts")) as BlogPost[];
+
 const sortedPosts = allPosts.sort((a, b) => {
   const dateA = new Date(a.data.date.raw);
   const dateB = new Date(b.data.date.raw);
   return dateB.getTime() - dateA.getTime();
 });
 
-// Identify the featured post
 const featuredPost = sortedPosts.find((post) => post.data.featured);
-
-// Remove the featured post from the main posts array
-const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6); // Adjust the slice if needed
+const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6);
 
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
 const pageTitle = "Matt Birch's Personal Blog";
 const blogDescription =
-  "Dive into insights on web development, digital marketing, and social media as Matt shares thoughts on today’s most impactful topics.";
+  "Dive into insights on web development, digital marketing, and social media as Matt shares thoughts on today's most impactful topics.";
 ---
 
 <Layout
@@ -53,8 +67,10 @@ const blogDescription =
         </p>
       </header>
 
-      <!-- Container for Breadcrumb + CategoryList -->
-      <div class="flex justify-between items-center gap-2">
+      <!-- Flex container to align Breadcrumb and CategoryList -->
+      <div
+        class="flex items-center justify-between gap-2 w-full flex-wrap md:flex-nowrap"
+      >
         <Breadcrumb current="Page 1" parent="Blog" />
         <CategoryList categories={categories} />
       </div>
@@ -66,7 +82,6 @@ const blogDescription =
     class="featured-post bg-white dark:bg-gray-950 mx-auto pt-12 md:pt-20 lg:pt-28 xl:pt-36 pb-12 md:pb-16 lg:pb-20 xl:pb-24 px-4 sm:px-6 md:px-8"
   >
     <div class="mx-auto max-w-screen-2xl">
-      <!-- Featured Post -->
       {featuredPost && <FeaturedPost post={featuredPost} />}
     </div>
   </section>
@@ -81,20 +96,35 @@ const blogDescription =
       >
         More Posts
       </h2>
-
-      <!-- Underline effect -->
       <div class="flex justify-center my-12">
         <div class="w-12 border-t-2 border-gray-300 dark:border-gray-600"></div>
       </div>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-12"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-12"
       >
         {posts.map((post, index) => <Post post={post} index={index} />)}
       </div>
-
       <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
         <Pagination nextURL="/blog/2" />
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Styling for CategoryList and Breadcrumb alignment */
+  .flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* CategoryList alignment adjustments for responsive screens */
+  @media (max-width: 640px) {
+    .flex-wrap {
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+    }
+  }
+</style>
