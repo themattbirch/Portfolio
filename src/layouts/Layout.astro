@@ -70,32 +70,42 @@ const finalOgImage = image
       canonicalURL={canonicalURL}
     />
 
-    <!-- Person Schema -->
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": Astro.site?.toString(),
-    "name": "Matt Birch",
-    "url": Astro.site?.toString(),
-    "sameAs": [
-      "https://twitter.com/themattbirch",
-      "https://github.com/themattbirch",
-      "https://linkedin.com/in/themattbirch"
-    ],
-    "image": {
-      "@type": "ImageObject",
-      "url": new URL("/assets/images/headshot-avatar-illustration.webp", Astro.site).toString(), 
-      "width": 512,
-      "height": 512
-    },
-    "jobTitle": "Web Developer", 
-    "worksFor": {                 
-      "@type": "Organization",
-      "name": "Optimize Web Solutions"
-    }
-  }, null, 2)}
-</script>
+    <!-- Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://mattbirch.co",
+        "name": "Matt Birch's Personal Blog",
+        "description": "A blog by Matt Birch on web development and digital marketing.",
+        "author": {
+          "@type": "Person",
+          "name": "Matt Birch",
+          "url": "https://mattbirch.co",
+          "sameAs": [
+            "https://twitter.com/themattbirch",
+            "https://github.com/themattbirch",
+            "https://linkedin.com/in/themattbirch"
+          ]
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Matt Birch",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://mattbirch.co/default-image.jpg",
+            "width": 1200,
+            "height": 630
+          }
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://mattbirch.co/default-image.jpg",
+          "width": 1200,
+          "height": 630
+        }
+      }
+    </script>
 
     <!-- Preload Critical Assets -->
     {
