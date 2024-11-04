@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 type Props = {
   categories: string[];
   title?: string;
+  className?: string;
 };
 
 const { categories, title } = Astro.props;
@@ -20,7 +21,7 @@ const getCategoryUrl = (category: string) =>
       </h2>
     )
   }
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+  <div class="category-grid">
     {
       categories.map((category) => (
         <a
@@ -35,14 +36,30 @@ const getCategoryUrl = (category: string) =>
 </div>
 
 <style>
-  .category-button {
-    white-space: nowrap;
+  .category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-end;
   }
 
+  .category-button {
+    white-space: nowrap;
+    min-width: 100px;
+  }
+
+  /* Align to the left when stacking */
   @media (max-width: 640px) {
-    .category-button {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.75rem;
+    .category-grid {
+      justify-content: flex-start;
+    }
+  }
+
+  /* Center items in two-column layout */
+  @media (max-width: 768px) {
+    .category-grid {
+      justify-content: center;
+      max-width: 100%;
     }
   }
 </style>
