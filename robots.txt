@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mattbirch.co/sitemap-0.xml
+
+
+# Disallow: /private/    
+# Disallow: /admin/   

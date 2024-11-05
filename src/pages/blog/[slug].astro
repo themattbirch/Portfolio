@@ -1,66 +1,62 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import type { BlogPost, PostFrontmatter } from "@/types/blog";
 import Layout from "../../layouts/Layout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Share from "../../components/Share.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
 import { Image } from "astro:assets";
 
-export const getStaticPaths = async () => {
-  const posts = await getCollection("posts");
-  const sortedPosts = posts.sort((a, b) => {
-    const dateA = new Date(a.data.date.raw);
-    const dateB = new Date(b.data.date.raw);
-    return dateB.getTime() - dateA.getTime();
-  });
-
-  return sortedPosts.map((post: CollectionEntry<"posts">) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
-};
-
-export const prerender = true;
-
+// Local types that aren't related to blog posts
 interface Heading {
   depth: number;
   slug: string;
   text: string;
 }
 
-interface ImageData {
-  src: string;
-  width: number;
-  height: number;
-}
+// Static paths generation
+export const getStaticPaths = async () => {
+  try {
+    const posts = await getCollection("posts");
+    const sortedPosts = posts.sort((a, b) => {
+      const dateA = new Date(a.data.date.raw);
+      const dateB = new Date(b.data.date.raw);
+      return dateB.getTime() - dateA.getTime();
+    });
 
-function isImageData(image: unknown): image is ImageData {
-  return typeof image === "object" && image !== null && "src" in image;
-}
+    return sortedPosts.map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+  } catch (error) {
+    console.error("Error generating static paths:", error);
+    return [];
+  }
+};
 
+export const prerender = true;
+
+// Component logic
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
-
-// Canonical URL construction
 const canonicalURL = new URL(`/blog/${post.slug}`, Astro.site).toString();
 
-// Make image handling consistent
-const postImage = {
-  src: isImageData(post.data.image)
-    ? post.data.image.src
-    : (post.data.image as string),
-  width: 1920,
-  height: 1080,
-  format: "webp" as const,
+// Format the date
+const formatDate = (date: Date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 };
 ---
 
 <Layout
   title={post.data.title}
   description={post.data.description}
-  ogImage={post.data.ogImage || post.data.image.src}
-  image={post.data.image}
+  ogImage={typeof post.data.image === "string"
+    ? post.data.image
+    : post.data.image.src}
   fullWidth={true}
 >
   <div class="horizontal-gradient-wrapper">
@@ -77,35 +73,31 @@ const postImage = {
 
         <Breadcrumb current={post.data.title} parent="Blog" />
 
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8 text-center"
-          itemprop="headline"
-        >
-          {post.data.title}
-        </h1>
+        <header class="mb-8 sm:mb-12 md:mb-16 text-center">
+          <h1
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-4 sm:py-6 md:py-8"
+            itemprop="headline"
+          >
+            {post.data.title}
+          </h1>
 
-        <div
-          class="flex justify-center items-center gap-4 mb-8 text-gray-600 dark:text-gray-400"
-        >
-          <span class="text-sm sm:text-base" itemprop="datePublished">
-            {
-              new Date(post.data.date.raw).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </span>
-          <span class="text-sm sm:text-base">•</span>
-          <span class="text-sm sm:text-base" itemprop="author">
-            Written By: {post.data.author}
-          </span>
-        </div>
+          <div
+            class="flex justify-center items-center gap-4 text-gray-600 dark:text-gray-400"
+          >
+            <span class="text-sm sm:text-base" itemprop="datePublished">
+              {formatDate(post.data.date.raw)}
+            </span>
+            <span class="text-sm sm:text-base">•</span>
+            <span class="text-sm sm:text-base" itemprop="author">
+              Written By: {post.data.author}
+            </span>
+          </div>
+        </header>
 
         <div class="mb-8 sm:mb-12 md:mb-16">
           <Image
             src={post.data.image}
-            alt={post.data.alt || post.data.title}
+            alt={post.data.title}
             width={1920}
             height={1080}
             class="w-full h-auto object-cover rounded-lg shadow-lg"
@@ -114,7 +106,6 @@ const postImage = {
           />
         </div>
 
-        <!-- Mobile Table of Contents -->
         <div class="custom-lg:hidden mb-8 flex justify-center">
           <div class="toc-wrapper w-full mx-auto text-center">
             <TableOfContents headings={headings as Heading[]} />
@@ -131,16 +122,19 @@ const postImage = {
             </div>
           </div>
 
-          <!-- Desktop Table of Contents -->
           <aside
             class="hidden custom-lg:block custom-lg:w-1/4 mt-8 custom-lg:mt-0 custom-lg:absolute custom-lg:right-0 custom-lg:top-0"
           >
-            <div class="lg:sticky lg:top-8 toc-wrapper lg:pl-8">
+            <div
+              class="toc-wrapper lg:pl-8"
+              style="position: sticky; top: 2rem;"
+            >
               <TableOfContents headings={headings as Heading[]} />
             </div>
           </aside>
         </div>
       </article>
+
       <div class="mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg">
         <Share post={post} />
       </div>
@@ -150,129 +144,51 @@ const postImage = {
 
 <style>
   .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+    @apply bg-gradient-to-b from-white via-blue-50 to-white dark:from-[#45617c] dark:via-gray-800 dark:to-[#45617c];
   }
 
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-
-  @media (min-width: 1180px) {
-    .sticky {
-      position: sticky;
-      top: 2rem;
-    }
-  }
-  /* Styles for full-width image */
-  .mb-16.-mx-4.sm\:-mx-6.lg\:-mx-8 {
-    margin-left: calc(-1 * var(--page-padding, 1rem));
-    margin-right: calc(-1 * var(--page-padding, 1rem));
-    width: calc(100% + (2 * var(--page-padding, 1rem)));
-  }
-
-  @media (min-width: 640px) {
-    .mb-16.-mx-4.sm\:-mx-6.lg\:-mx-8 {
-      --page-padding: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1180px) {
-    .mb-16.-mx-4.sm\:-mx-6.lg\:-mx-8 {
-      --page-padding: 2rem;
-    }
-  }
   .toc-wrapper {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-
-  @media (max-width: 1179px) {
-    .toc-wrapper {
-      max-width: 90%;
-      font-size: 0.9rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .toc-wrapper :global(h2) {
-      font-size: 1.5rem;
-    }
-    .toc-wrapper :global(ul) {
-      padding-left: 1rem;
-    }
-    .toc-wrapper :global(a) {
-      font-size: 1rem;
-    }
-  }
-
-  @media (min-width: 1180px) {
-    .toc-wrapper {
-      width: 100%;
-      max-width: none;
-      margin-right: 0;
-      margin-left: auto;
-    }
-    .lg\:w-3\/4 {
-      width: calc(75% - 2rem);
-    }
-  }
-
-  @media (max-width: 1180px) {
-    .toc-wrapper {
-      max-width: 90%;
-      font-size: 0.9rem;
-    }
-    .toc-wrapper :global(h2) {
-      font-size: 1.5rem;
-    }
-    .toc-wrapper :global(ul) {
-      padding-left: 1rem;
-    }
-    .toc-wrapper :global(a) {
-      font-size: 1rem;
-    }
+    @apply max-w-[90%] mx-auto w-full;
   }
 
   .toc-wrapper :global(a) {
-    display: inline-block;
-    color: #1d4ed8;
-    text-decoration: none;
-    transition:
-      color 0.3s ease,
-      transform 0.3s ease;
-    font-size: 1.25rem;
+    @apply inline-block text-blue-700 no-underline transition-all duration-300 ease-in-out text-xl;
   }
 
   .toc-wrapper :global(a:hover) {
-    color: #3b82f6;
-    transform: translateX(5px);
+    @apply text-blue-500 translate-x-1;
   }
 
   :global(.dark) .toc-wrapper :global(a) {
-    color: #93c5fd;
+    @apply text-blue-300 hover:text-blue-400;
   }
 
-  :global(.dark) .toc-wrapper :global(a:hover) {
-    color: #60a5fa;
+  /* Responsive styles */
+  @media (max-width: 1179px) {
+    .toc-wrapper {
+      @apply text-sm max-w-[90%] mx-auto;
+    }
+
+    .toc-wrapper :global(h2) {
+      @apply text-2xl;
+    }
+
+    .toc-wrapper :global(ul) {
+      @apply pl-4;
+    }
+
+    .toc-wrapper :global(a) {
+      @apply text-base;
+    }
   }
 
-  .breadcrumb-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-  }
+  @media (min-width: 1180px) {
+    .toc-wrapper {
+      @apply w-full max-w-none ml-auto mr-0;
+    }
 
-  @media (max-width: 828px) {
-    .breadcrumb-container {
-      font-size: 0.875rem;
+    .lg\:w-3\/4 {
+      width: calc(75% - 2rem);
     }
   }
 </style>

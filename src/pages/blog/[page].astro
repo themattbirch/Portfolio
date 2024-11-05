@@ -1,18 +1,16 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import { type CollectionEntry, getCollection } from "astro:content";
-import type { FormattedDate, BlogPostFrontmatter } from "@/types";
+import { getCollection } from "astro:content";
+import type { BlogPost, PostFrontmatter } from "@/types/blog";
 import Layout from "../../layouts/Layout.astro";
 import Post from "../../components/Post.astro";
 import Pagination from "../../components/Pagination.astro";
 import CategoryList from "../../components/CategoryList.astro";
 import Breadcrumb from "@/components/BreadCrumb.astro";
 
-export const prerender = true;
-
 interface Props {
   page: {
-    data: CollectionEntry<"posts">[];
+    data: BlogPost[];
     start: number;
     end: number;
     size: number;
@@ -36,24 +34,23 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
       return dateB.getTime() - dateA.getTime();
     });
 
-    // Remove featured post from pagination
     const featuredPost = sortedPosts.find((post) => post.data.featured);
-    const nonFeaturedPosts = sortedPosts.filter(
-      (post) => post !== featuredPost
-    );
+    const regularPosts = sortedPosts.filter((post) => post !== featuredPost);
 
-    return paginate(nonFeaturedPosts, { pageSize: 6 });
+    return paginate(regularPosts, { pageSize: 6 });
   } catch (error) {
     console.error("Error in getStaticPaths:", error);
-    return paginate([], { pageSize: 6 });
+    return [];
   }
 }
 
-// Null checks + default values
+export const prerender = true;
+
 const { page } = Astro.props;
 const posts = page?.data ?? [];
-const allCategories = posts.flatMap((post) => post.data.categories ?? []);
-const categories = Array.from(new Set(allCategories));
+const categories = Array.from(
+  new Set(posts.flatMap((post) => post.data.categories))
+);
 
 const pageTitle = "Matt Birch's Web Development Blog Pages";
 const blogDescription =
@@ -79,13 +76,16 @@ const blogDescription =
           </h1>
         </header>
 
-        <div class="flex justify-between items-center my-6 sm:my-8 md:my-12">
+        <!-- Breadcrumb and CategoryList Section with matching styling -->
+        <div
+          class="breadcrumb-category-container flex flex-col md:flex-row md:justify-between items-start lg:items-center w-full"
+        >
           <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
           <CategoryList categories={categories} />
         </div>
 
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 my-6 sm:my-8 md:my-12"
+          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4 xl:gap-6 mt-8"
         >
           {posts.map((post, index) => <Post post={post} index={index} />)}
         </div>
@@ -100,9 +100,29 @@ const blogDescription =
 
 <style>
   .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+    @apply bg-gradient-to-b from-white via-[#dde4ee] to-white 
+           dark:from-[#45617c] dark:via-gray-800 dark:to-[#45617c];
   }
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
+
+  .breadcrumb-category-container {
+    padding-top: 2rem;
+    gap: 2rem;
+  }
+
+  /* Match styling for centered stacking on small screens */
+  @media (max-width: 767px) {
+    .breadcrumb-category-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  /* Space between breadcrumb and categories on larger screens */
+  @media (min-width: 768px) {
+    .breadcrumb-category-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 </style>
