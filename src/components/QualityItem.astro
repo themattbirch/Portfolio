@@ -6,10 +6,12 @@ const { text } = Astro.props;
 ---
 
 <li
-  class="flex items-start text-base sm:text-lg text-gray-700 dark:text-gray-300 transform transition-transform duration-300 hover:scale-105 sm:hover:scale-110"
+  class="flex items-start text-base sm:text-lg text-gray-700 dark:text-gray-300
+         transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2"
 >
   <svg
-    class="icon-checkmark w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-blue-700 dark:text-green-400"
+    class="icon-checkmark w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-blue-700 dark:text-green-400
+           flex-shrink-0"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -18,5 +20,5 @@ const { text } = Astro.props;
     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"
     ></path>
   </svg>
-  <span>{text}</span>
+  <span class="flex-1">{text}</span>
 </li>
