@@ -3,11 +3,11 @@ type Props = {
   prevURL?: string;
   nextURL?: string;
 };
+
 const { prevURL, nextURL } = Astro.props;
 ---
 
 <div class="flex justify-center space-x-4">
-  <!-- Center buttons and add spacing -->
   {
     prevURL ? (
       <a

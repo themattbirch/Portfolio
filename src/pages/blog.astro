@@ -67,9 +67,8 @@ const blogDescription =
         </p>
       </header>
 
-      <!-- Flex container to align Breadcrumb and CategoryList -->
       <div
-        class="flex items-center justify-between gap-2 w-full flex-wrap md:flex-nowrap"
+        class="breadcrumb-category-container flex flex-col md:flex-row md:justify-between items-start lg:items-center w-full"
       >
         <Breadcrumb current="Page 1" parent="Blog" />
         <CategoryList categories={categories} />
@@ -77,16 +76,14 @@ const blogDescription =
     </div>
   </section>
 
-  <!-- Featured Post Section -->
   <section
-    class="featured-post bg-white dark:bg-gray-950 mx-auto pt-12 md:pt-20 lg:pt-28 xl:pt-36 pb-12 md:pb-16 lg:pb-20 xl:pb-24 px-4 sm:px-6 md:px-8"
+    class="featured-post bg-white dark:bg-gray-950 mx-auto pt-6 md:pt-20 lg:pt-28 xl:pt-36 pb-12 md:pb-16 lg:pb-20 xl:pb-24 px-4 sm:px-6 md:px-8"
   >
     <div class="mx-auto max-w-screen-2xl">
       {featuredPost && <FeaturedPost post={featuredPost} />}
     </div>
   </section>
 
-  <!-- "More Posts" heading -->
   <section
     class="mx-auto py-12 md:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 md:px-8 bg-gray-50 dark:bg-gray-900"
   >
@@ -96,14 +93,17 @@ const blogDescription =
       >
         More Posts
       </h2>
+
       <div class="flex justify-center my-12">
         <div class="w-12 border-t-2 border-gray-300 dark:border-gray-600"></div>
       </div>
+
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-12"
+        class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4 xl:gap-6"
       >
         {posts.map((post, index) => <Post post={post} index={index} />)}
       </div>
+
       <div class="mt-4 sm:mt-6 md:mt-8 flex justify-end">
         <Pagination nextURL="/blog/2" />
       </div>
@@ -112,19 +112,45 @@ const blogDescription =
 </Layout>
 
 <style>
-  /* Styling for CategoryList and Breadcrumb alignment */
-  .flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem;
+  .breadcrumb-category-container {
+    padding-top: 2rem;
+    gap: 2rem;
   }
 
-  /* CategoryList alignment adjustments for responsive screens */
-  @media (max-width: 640px) {
-    .flex-wrap {
+  .breadcrumb-wrapper {
+    order: 1;
+  }
+
+  .categorylist-wrapper {
+    order: 2;
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .breadcrumb-category-container {
       flex-direction: column;
-      align-items: center; /* Center items horizontally */
+      align-items: center;
+    }
+
+    .categorylist-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: auto;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .breadcrumb-category-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .categorylist-wrapper {
+      width: auto;
+      margin-top: 0;
     }
   }
 </style>

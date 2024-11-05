@@ -74,6 +74,7 @@ export default {
         "custom-lg": "1180px",
       },
     },
+    
   },
   plugins: [require("@tailwindcss/typography")],
   darkMode: "class",

@@ -2,7 +2,7 @@
 export interface Props {
   current: string;
   parent?: string;
-    className?: string; 
+    className?: string; // Allow className as an optional prop
 
 }
 const { current, parent } = Astro.props;
@@ -65,7 +65,7 @@ breadcrumbItems.push({
 
 <style>
   .breadcrumb {
-    @apply flex items-center text-sm sm:text-base md:text-lg text-gray-600 min-w-max;
+    @apply flex items-center text-base md:text-lg text-gray-600 min-w-max;
   }
 
   .breadcrumb-item {

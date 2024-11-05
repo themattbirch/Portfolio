@@ -20,7 +20,6 @@ export interface PostFrontmatter {
 
 export type BlogPost = CollectionEntry<'posts'>;
 
-// Type guard for checking if image is an object
 export function isImageObject(image: any): image is { src: string; alt?: string } {
   return typeof image === 'object' && image !== null && 'src' in image;
 }
