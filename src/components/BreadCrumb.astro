@@ -2,12 +2,12 @@
 export interface Props {
   current: string;
   parent?: string;
-    className?: string; // Allow className as an optional prop
+    className?: string; 
 
 }
 const { current, parent } = Astro.props;
 
-// Create breadcrumb items array for structured data
+// Create breadcrumb items array for structured data/SEO
 const breadcrumbItems = [
   {
     "@type": "ListItem",
