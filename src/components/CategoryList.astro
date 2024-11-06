@@ -1,5 +1,6 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { BlogPost } from "@/types/blog";
+import { formatCategorySlug } from "@/utils/formatters";
 
 type Props = {
   categories: string[];
@@ -8,9 +9,6 @@ type Props = {
 };
 
 const { categories, title } = Astro.props;
-
-const getCategoryUrl = (category: string) =>
-  `/category/${category.toLowerCase().replace(/\s+/g, "-")}`;
 ---
 
 <div class="category-section">
@@ -25,8 +23,12 @@ const getCategoryUrl = (category: string) =>
     {
       categories.map((category) => (
         <a
-          href={getCategoryUrl(category)}
-          class="category-button text-center text-blue-700 dark:text-white rounded-full px-4 py-2 text-sm sm:text-base md:text-lg font-semibold border border-blue-700 dark:border-white hover:bg-sky-100 dark:hover:bg-teal-900 transition-colors duration-300"
+          href={`/category/${formatCategorySlug(category)}`}
+          class="category-button text-center text-blue-700 dark:text-white 
+                 rounded-full px-4 py-2 text-sm sm:text-base md:text-lg 
+                 font-semibold border border-blue-700 dark:border-white 
+                 hover:bg-sky-100 dark:hover:bg-teal-900 
+                 transition-colors duration-300"
         >
           {category}
         </a>
@@ -34,6 +36,7 @@ const getCategoryUrl = (category: string) =>
     }
   </div>
 </div>
+
 <style>
   .category-grid {
     display: flex;

@@ -1,7 +1,7 @@
 ---
 author: "Matt Birch"
 categories: ["Digital Marketing"]
-date: "08/30/2024"
+date: "03/11/2024"
 featured: false
 image: /assets/images/social-media.jpg
 title: "Learn to Become a Professional Digital Marketer"
