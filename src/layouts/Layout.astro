@@ -27,7 +27,13 @@ const {
   preloadLinks = [],
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+function cleanUrl(pathname: string) {
+  // Remove '/index.html' at end, for SEO
+  const cleanPath = pathname.replace(/\/index\.html$/, "/");
+  return new URL(cleanPath, Astro.site).toString();
+}
+
+const canonicalURL = cleanUrl(Astro.url.pathname);
 const finalOgImage = image
   ? new URL(image.src, Astro.site).toString()
   : new URL(ogImage, Astro.site).toString();

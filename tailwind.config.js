@@ -46,7 +46,7 @@ export default {
         text: {
           light: "#1F2937",
           dark: "#FFFFFF",
-          headingLight: "#111827",
+          headingLight: "#161f32",
           headingDark: "#E5E7EB",
           subtextLight: "#6B7280",
           subtextDark: "#9CA3AF",
@@ -74,7 +74,6 @@ export default {
         "custom-lg": "1180px",
       },
     },
-    
   },
   plugins: [require("@tailwindcss/typography")],
   darkMode: "class",

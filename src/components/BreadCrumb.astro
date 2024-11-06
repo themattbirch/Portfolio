@@ -2,38 +2,10 @@
 export interface Props {
   current: string;
   parent?: string;
-    className?: string; 
-
+  className?: string;
 }
+
 const { current, parent } = Astro.props;
-
-// Create breadcrumb items array for structured data/SEO
-const breadcrumbItems = [
-  {
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": new URL("/", Astro.site).toString()
-  }
-];
-
-// Add parent item (if exists)
-if (parent) {
-  breadcrumbItems.push({
-    "@type": "ListItem",
-    "position": 2,
-    "name": parent,
-    "item": new URL("/blog", Astro.site).toString()
-  });
-}
-
-// Adds current page w/ its full URL
-breadcrumbItems.push({
-  "@type": "ListItem",
-  "position": parent ? 3 : 2,
-  "name": current,
-  "item": new URL(Astro.url.pathname, Astro.site).toString()
-});
 ---
 
 <nav aria-label="breadcrumb">
@@ -53,15 +25,6 @@ breadcrumbItems.push({
     </li>
   </ol>
 </nav>
-
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbItems
-  }, null, 2)}
-</script>
-
 
 <style>
   .breadcrumb {
