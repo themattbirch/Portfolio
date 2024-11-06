@@ -6,23 +6,18 @@ import TableOfContents from "../../components/TableOfContents.astro";
 import Share from "../../components/Share.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
 import { Image } from "astro:assets";
+import { sortPostsByDate } from "@/utils/sorters";
 
-// Local types that aren't related to blog posts
 interface Heading {
   depth: number;
   slug: string;
   text: string;
 }
 
-// Static paths generation
 export const getStaticPaths = async () => {
   try {
     const posts = await getCollection("posts");
-    const sortedPosts = posts.sort((a, b) => {
-      const dateA = new Date(a.data.date.raw);
-      const dateB = new Date(b.data.date.raw);
-      return dateB.getTime() - dateA.getTime();
-    });
+    const sortedPosts = sortPostsByDate(posts as BlogPost[]);
 
     return sortedPosts.map((post) => ({
       params: { slug: post.slug },
@@ -36,12 +31,10 @@ export const getStaticPaths = async () => {
 
 export const prerender = true;
 
-// Component logic
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 const canonicalURL = new URL(`/blog/${post.slug}`, Astro.site).toString();
 
-// Format the date
 const formatDate = (date: Date) => {
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -163,7 +156,7 @@ const formatDate = (date: Date) => {
     @apply text-blue-300 hover:text-blue-400;
   }
 
-  /* Responsive styles */
+  /* Responsive  */
   @media (max-width: 1179px) {
     .toc-wrapper {
       @apply text-sm max-w-[90%] mx-auto;

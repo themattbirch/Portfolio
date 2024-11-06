@@ -1,26 +1,18 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { BlogPost } from "@/types/blog";
+import { formatCategorySlug } from "@/utils/formatters";
 import { Image } from "astro:assets";
 
 interface Props {
-  post: CollectionEntry<"posts">;
+  post: BlogPost;
   index: number;
 }
 
 const { post, index } = Astro.props;
 const postUrl = `/blog/${post.slug}`;
 
-// Move this to a shared utils file since it's used in both components
-const formatCategoryUrl = (category: string): string => {
-  return category
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/-+/g, "-");
-};
-
-// Add a safety check for description length
-const getDescription = (post: Props["post"]): string => {
+// Safety check for description length
+const getDescription = (post: BlogPost): string => {
   if (post.data.description) return post.data.description;
   return post.body.length > 150 ? `${post.body.slice(0, 150)}...` : post.body;
 };
@@ -79,7 +71,7 @@ const firstCategory = post.data.categories[0];
         {
           firstCategory && (
             <a
-              href={`/category/${formatCategoryUrl(firstCategory)}`}
+              href={`/category/${formatCategorySlug(firstCategory)}`}
               class="bg-blue-100 text-blue-800 font-medium px-2.5 py-1 
                  rounded dark:bg-blue-200 dark:text-blue-800 whitespace-nowrap"
             >

@@ -5,13 +5,13 @@ import Hero from "../components/Hero.astro";
 import { Image } from "astro:assets";
 import meHeroImg from "/assets/images/matt-pointing.webp";
 import lightBackgroundImage from "/assets/images/hero-background-light-theme-toggle.webp";
-import darkBackgroundImage from "/assets/images/hero-background-dark-theme-toggle.webp";
 import mobileBackgroundImage from "/assets/images/hero_background_mobile.webp";
 import Testimonials from "../components/Testimonials.astro";
 import SkillsSection from "../components/SkillsSection.jsx";
 import CTASection from "../components/CTASection.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import QualityItem from "../components/QualityItem.astro";
+import Section from "../components/Section.astro";
 
 const services = [
   {
@@ -45,19 +45,18 @@ const pageTitle = "Matt Birch: Front-End Web Developer";
 const pageDescription =
   "A creative front-end web developer dedicated to crafting engaging, user-centered digital experiences.";
 
-// Define preload links
 const preloadLinks = [
   {
     href: lightBackgroundImage.src,
+    as: "image", // Add the 'as' attribute
     media: "(min-width: 641px)",
-  },
-  {
-    href: darkBackgroundImage.src,
-    media: "(min-width: 641px)",
+    type: "image/webp", // Add the type attribute
   },
   {
     href: mobileBackgroundImage.src,
+    as: "image",
     media: "(max-width: 640px)",
+    type: "image/webp",
   },
 ];
 ---
@@ -67,7 +66,6 @@ const preloadLinks = [
   description={pageDescription}
   ogImage="/assets/images/matt-birch-headshot.jpg"
   fullWidth={true}
-  preloadLinks={preloadLinks}
 >
   <!-- Hero Section -->
   <section>
@@ -76,14 +74,14 @@ const preloadLinks = [
 
   <!-- What I Can Do For You Section -->
   <section
-    class="py-0 sm:py-6 md:py-16 lg:py-20 xl:py-24 bg-background-secondary dark:bg-background-dark transition-colors duration-300"
+    class="pt-0 pb-12 sm:pt-12 md:py-16 lg:py-20 xl:py-24 bg-background-secondary dark:bg-background-dark transition-colors duration-300"
   >
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
         class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
       >
         <!-- Text Column -->
-        <div class="w-full lg:w-2/3 xl:w-3/4 mb-8 lg:mb-0">
+        <div class="w-full lg:w-2/3 xl:w-3/4 mb-0">
           <h2 class="h2-text text-center mb-6 sm:mb-8">
             What I Can Do for You
           </h2>
@@ -148,106 +146,81 @@ const preloadLinks = [
   </section>
 
   <!-- Testimonials Section -->
-  <section
-    class="testimonials-section max-w-7xl pt-12 md:pt-20 lg:pt-24 xl:pt-32 pb-4 sm:pb-6 md:pb-8 lg:pb-12 mx-auto px-4 sm:px-6 lg:px-8"
-  >
-    <!-- Container for header + cards -->
+  <Section>
     <div class="testimonial-wrapper">
       <h2
-        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mx-auto mb-8 sm:mb-12 md:mb-20 lg:mb-24 xl:mb-32 text-headingLight dark:text-headingDark"
+        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mx-auto mb-8 sm:mb-12 md:mb-20 lg:mb-24 xl:mb-32"
       >
         Ask My Clients About Projects I've Completed
       </h2>
-
-      <!-- Testimonials display as cards (MD, SM, XS) -->
       <Testimonials />
     </div>
-  </section>
+  </Section>
 
   <!-- Unique Sales Proposition -->
   <section
-    class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 pt-4 sm:pt-6 md:pt-10 lg:pt-12 xl:pt-16 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+    class="hidden lg:block pb-0 lg:pb-24 xl:pb-32 pt-4 sm:pt-6 md:pt-10
+  lg:pt-12 xl:pt-16 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 transition-colors
+  duration-300"
   >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center mx-auto mb-6 sm:mb-8 md:mb-12 text-blue-950 text-headingLight dark:text-headingDark"
-        id="custom-heading"
-      >
-        They know what separates me from other web developers:
-      </h2>
+    <h2
+      class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-blue-950"
+    >
+      They know what separates me from other web developers:
+    </h2>
+    <div
+      class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8"
+    >
+      <!-- Left column -->
+      <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
+        <li class="text-base sm:text-lg">
+          Transform complex projects into polished deliverables, hitting
+          deadlines through proactive communication and collaborative
+          problem-solving.
+        </li>
+        <li class="text-base sm:text-lg">
+          Blend technical expertise with business acumen to deliver solutions
+          that drive real ROI for stakeholders.
+        </li>
+      </ul>
 
-      <div
-        class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8"
-      >
-        <!-- Left column -->
-        <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
-          <li class="text-base sm:text-lg">
-            Transform complex projects into polished deliverables, hitting
-            deadlines through proactive communication and collaborative
-            problem-solving.
-          </li>
-          <li class="text-base sm:text-lg">
-            Blend technical expertise with business acumen to deliver solutions
-            that drive real ROI for stakeholders.
-          </li>
-        </ul>
-
-        <!-- Right column -->
-        <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
-          <li class="text-base sm:text-lg">
-            Bridge the gap between user needs and business objectives,
-            delivering web solutions that boost engagement and drive measurable
-            results.
-          </li>
-          <li class="text-base sm:text-lg">
-            Cross-functional expert with systems-thinking approach while
-            remaining mindful of technical details.
-          </li>
-        </ul>
-      </div>
+      <!-- Right column -->
+      <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
+        <li class="text-base sm:text-lg">
+          Bridge the gap between user needs and business objectives, delivering
+          web solutions that boost engagement and drive measurable results.
+        </li>
+        <li class="text-base sm:text-lg">
+          Cross-functional expert with systems-thinking approach while remaining
+          mindful of technical details.
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section
-    class="bg-background-skills dark:bg-background-dark py-12 md:py-20 lg:py-24 xl:py-32 transition-colors duration-300"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <SkillsSection client:visible />
-    </div>
-  </section>
+  <Section class="bg-background-skills dark:bg-background-dark">
+    <SkillsSection client:visible />
+  </Section>
 
-  <section
-    class="py-12 md:py-16 lg:py-20 max-w-screen-xl mx-auto px-4 sm:px-6 text-center"
-  >
-    <h2
-      class="h2-text mb-10 text-center text-headingLight dark:text-headingDark"
-    >
-      What You See Is What You Get
-    </h2>
-
+  <!-- CTA Section -->
+  <Section>
+    <h2 class="h2-text mb-10 text-center">What You See Is What You Get</h2>
     <div class="flex justify-center">
       <div
         class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 justify-items-center"
       >
-        <!-- Left Column -->
         <ul class="space-y-6">
           {leftQualities.map((quality) => <QualityItem text={quality} />)}
         </ul>
-
-        <!-- Right Column -->
         <ul class="space-y-6">
           {rightQualities.map((quality) => <QualityItem text={quality} />)}
         </ul>
       </div>
     </div>
-
-    <!-- Underline effect -->
     <div class="flex justify-center my-12">
       <div class="w-12 border-t-2 border-gray-300 dark:border-gray-600"></div>
     </div>
-
-    <!-- CTA Card -->
     <CTASection />
-  </section>
+  </Section>
 </Layout>

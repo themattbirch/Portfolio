@@ -71,7 +71,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section className="skills-section py-8 sm:py-12 px-4 sm:px-6">
+    <section className="skills-section px-4 sm:px-6">
       <div className="mx-auto">
         <h2 className="h2-text mb-8 sm:mb-12 text-center">Skills</h2> 
         <div className="relative z-10">

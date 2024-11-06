@@ -50,9 +50,7 @@ const testimonials: Testimonial[] = [
 ---
 
 <!-- Testimonial Cards: Mobile + Medium screen sizes -->
-<div
-  class="lg:hidden grid grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6 py-8 sm:py-12"
->
+<div class="lg:hidden grid grid-cols-1 gap-6 sm:gap-8 px-4 sm:px-6">
   {
     testimonials.map((testimonial) => (
       <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
@@ -344,7 +342,6 @@ const testimonials: Testimonial[] = [
       display: none;
     }
 
-    /* Cards display issue solution */
     .testimonial-container {
       border-radius: 0 !important;
       padding: 0 !important;

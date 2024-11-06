@@ -10,11 +10,11 @@ const { title, text, imageSrc, imageAlt, reverse = false } = Astro.props;
 ---
 
 <div
-  class={`md:grid md:grid-cols-2 gap-24 items-center pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up ${reverse ? "md:grid-flow-dense" : ""}`}
+  class={`lg:grid lg:grid-cols-2 gap-24 items-center pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up ${reverse ? "md:grid-flow-dense" : ""}`}
   style={`grid-template-areas: "${reverse ? "image text" : "text image"}";`}
 >
   <!-- Text Column -->
-  <div class="text-left mb-8 md:mb-0" style="grid-area: text;">
+  <div class="text-left mb-8 lg:mb-0" style="grid-area: text;">
     <h2 class="text-3xl font-bold mb-6 text-blue-700 dark:text-blue-300">
       {title}
     </h2>

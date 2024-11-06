@@ -7,8 +7,8 @@ import Pagination from "@/components/Pagination.astro";
 import Post from "@/components/Post.astro";
 import Breadcrumb from "@/components/BreadCrumb.astro";
 import FeaturedPost from "@/components/FeaturedPost.astro";
+import { sortPostsByDate } from "@/utils/sorters";
 
-// Type definitions
 interface BlogFrontmatter {
   date: {
     raw: string;
@@ -27,11 +27,7 @@ type BlogPost = CollectionEntry<"posts"> & {
 
 const allPosts = (await getCollection("posts")) as BlogPost[];
 
-const sortedPosts = allPosts.sort((a, b) => {
-  const dateA = new Date(a.data.date.raw);
-  const dateB = new Date(b.data.date.raw);
-  return dateB.getTime() - dateA.getTime();
-});
+const sortedPosts = sortPostsByDate(allPosts);
 
 const featuredPost = sortedPosts.find((post) => post.data.featured);
 const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6);
