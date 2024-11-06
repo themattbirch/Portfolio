@@ -8,13 +8,18 @@ interface Props {
 
 const { title, description, ogImage, canonicalURL } = Astro.props;
 
-// Ensure all variables have fallback values to prevent undefined errors
+// Function to clean URL by removing '/index.html' at end, for SEO
+function cleanUrl(url: string) {
+  return url.replace(/\/index\.html$/, "/");
+}
+
+// Ensure variables have fallback values
 const resolvedTitle = title || "Matt Birch's Personal Blog";
 const resolvedDescription =
   description ||
   "A blog by Matt Birch on web development and digital marketing.";
 const resolvedOgImage = ogImage || "https://mattbirch.co/default-image.jpg";
-const resolvedCanonicalURL = canonicalURL || "https://mattbirch.co";
+const resolvedCanonicalURL = cleanUrl(canonicalURL || "https://mattbirch.co");
 
 // Create the JSON-LD object
 const jsonLdData = {
@@ -51,7 +56,7 @@ const jsonLdData = {
   },
 };
 
-// Stringify the JSON-LD object
+// Stringify JSON-LD object
 const jsonLdString = JSON.stringify(jsonLdData);
 ---
 

@@ -47,13 +47,13 @@ const { menuItems } = Astro.props;
                   {!item.children ? (
                     <a
                       href={item.path}
-                      class="text-gray-300 hover:text-white px-4 py-2 rounded-lg inline-flex items-center h-full transition-all duration-200 neumorphic-button"
+                      class="px-4 py-2 rounded-lg inline-flex items-center h-full transition-all duration-200 neumorphic-button"
                     >
                       <span class="relative z-10">{item.title}</span>
                     </a>
                   ) : (
                     <div class="relative inline-flex items-center h-full">
-                      <button class="text-gray-300 hover:text-white px-4 py-2 rounded-lg inline-flex items-center transition-all duration-200 neumorphic-button">
+                      <button class=" px-4 py-2 rounded-lg inline-flex items-center transition-all duration-200 neumorphic-button">
                         <span>{item.title}</span>
                         <svg
                           class="ml-2 h-5 w-5 transform transition-transform duration-200 group-hover:rotate-180"
@@ -74,7 +74,7 @@ const { menuItems } = Astro.props;
                           <li>
                             <a
                               href={child.path}
-                              class="block px-4 py-2 text-sm text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-150 rounded-lg"
+                              class="block px-4 py-2 text-sm hover:bg-blue-600 transition-colors duration-150 rounded-lg"
                             >
                               {child.title}
                             </a>
@@ -98,7 +98,7 @@ const { menuItems } = Astro.props;
         <!-- Mobile menu button  -->
         <button
           id="mobile-menu-button"
-          class="custom-md:hidden inline-flex items-center justify-center p-1 sm:p-2 rounded-lg text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-colors duration-200 neumorphic-button ml-2 sm:ml-4"
+          class="custom-md:hidden inline-flex items-center justify-center p-1 sm:p-2 rounded-lg transition-colors duration-200 neumorphic-button ml-2 sm:ml-4"
         >
           <span class="sr-only">Open main menu</span>
           <OpenIcon class="astronav-open-icon block h-6 w-6" />
@@ -118,14 +118,14 @@ const { menuItems } = Astro.props;
                 {!item.children ? (
                   <a
                     href={item.path}
-                    class="mobile-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+                    class="mobile-link text-gray-300 hover:bg-gray-700  block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
                   >
                     <span class="mobile-link-text">{item.title}</span>
                   </a>
                 ) : (
                   <div class="relative">
                     <button
-                      class="mobile-dropdown-toggle w-full text-left text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium flex items-center justify-between transition-all duration-200"
+                      class="mobile-dropdown-toggle w-full text-left text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium flex items-center justify-between transition-all duration-200"
                       aria-expanded="false"
                     >
                       <span class="mobile-link-text">{item.title}</span>
@@ -148,7 +148,7 @@ const { menuItems } = Astro.props;
                         item.children.map((child, childIndex) => (
                           <a
                             href={child.path}
-                            class="mobile-link text-gray-300 hover:text-white hover:border-b-2 hover:border-blue-400 block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
+                            class="mobile-link text-gray-300 hover:border-b-2 hover:border-blue-400 block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
                             style={`animation-delay: ${
                               index * 0.1 + (childIndex + 1) * 0.05
                             }s;`}
