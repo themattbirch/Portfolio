@@ -2,45 +2,54 @@
 import SkillsComponent from "@/components/SkillsComponent.astro";
 import Layout from "@/layouts/Layout.astro";
 import {
-  faHandHoldingHeart,
-  faMagnifyingGlassChart,
-  faBullhorn,
-  faPeopleGroup,
-} from "@fortawesome/free-solid-svg-icons";
+  Heart,
+  MessageSquare,
+  Users,
+  Search,
+  Brain,
+  Clock,
+} from "lucide-react";
 
 const skills = [
   {
     name: "Empathy",
     description:
       "Proficient in understanding and being mindful of others' emotional state.",
-    icon: faHandHoldingHeart,
+    icon: Heart,
   },
   {
     name: "Communication",
     description:
       "Excellent communication skills, both written and verbal. This was learned in college, where I earned a communications degree.",
-    icon: faBullhorn,
+    icon: MessageSquare,
   },
   {
     name: "Teamwork",
     description:
-      "Strong ability to work in collaborative environments. I'm a team player who always takes a holistic view working on proejcts.",
-    icon: faPeopleGroup,
+      "Strong ability to work in collaborative environments. I'm a team player who always takes a holistic view working on projects.",
+    icon: Users,
   },
   {
     name: "Awareness",
     description:
-      "Skilled in being conscious of both my and others' feelings. I leverage this to help achhieve both stakeholders and coworkers' goals.",
-    icon: faMagnifyingGlassChart,
+      "Skilled in being conscious of both my and others' feelings. This helps achieve both stakeholders' and coworkers' goals.",
+    icon: Search,
+  },
+  {
+    name: "Problem-Solving",
+    description:
+      "Analytical thinker with strong problem-solving abilities. Able to break down complex issues and find innovative solutions.",
+    icon: Brain,
+  },
+  {
+    name: "Time Management",
+    description:
+      "Excellent at prioritizing tasks, meeting deadlines, and balancing multiple projects efficiently.",
+    icon: Clock,
   },
 ];
 
-// Split skills array into two parts
-const half = Math.ceil(skills.length / 2);
-const skillsPart1 = skills.slice(0, half);
-const skillsPart2 = skills.slice(half);
-
-const pageTitle = "Soft Skills I've Built";
+const pageTitle = "EQ Skills I've Built";
 const pageDescription =
   "Discover the essential soft skills that enhance my daily workflow, from emotional intelligence to effective communication and problem-solving.";
 ---
@@ -51,14 +60,14 @@ const pageDescription =
   ogImage="/assets/images/soft-skills-programming.jpg"
   fullWidth={true}
 >
-  <div class="horizontal-gradient-wrapper">
+  <div class="soft-skills-gradient-wrapper min-h-screen pb-12">
     <!-- Introduction Text Section -->
-    <section class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
+    <section class="text-center mx-auto py-10 md:py-16 lg:py-20">
       <div class="max-w-screen mx-auto">
         <h1 class="h1-text mb-4 sm:mb-6 md:mb-8 fade-in-up">
           {pageTitle}
         </h1>
-        <p class="text-base sm:text-lg md:text-xl max-w-2xl mx-auto">
+        <p class="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
           Understanding and refining these soft skills is crucial for
           professional growth, fostering strong team dynamics, and ensuring
           project success.
@@ -66,40 +75,27 @@ const pageDescription =
       </div>
     </section>
 
-    <!-- SkillsComponent with split (part 1)-->
-    <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
+    <!-- Skills Section -->
+    <section class="pb-8 md:pb-16 lg:pb-20 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 dark:text-blue-200 skills-heading-color"
+          class="text-2xl md:text-3xl font-bold text-center mb-12 dark:text-blue-200 soft-skills-heading-color"
         >
-          A few soft skills I've developed...
+          Essential Soft Skills
         </h2>
-        <!-- Render SkillsComponent for first part of skills -->
-        <SkillsComponent skills={skillsPart1} />
-      </div>
-    </section>
-
-    <!-- SkillsComponent with split (part 2)-->
-    <section class="mb-12 md:mb-20 lg:mb-24 xl:mb-32">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-2xl md:text-3xl lg:text-4xl skills-heading-color font-bold text-center mb-6 sm:mb-8 md:mb-12"
-        >
-          ...A few more
-        </h2>
-        <!-- Render SkillsComponent for second part of skills -->
-        <SkillsComponent skills={skillsPart2} />
+        <SkillsComponent skills={skills} />
       </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
+  .soft-skills-gradient-wrapper {
+    background: linear-gradient(to bottom, #f7f9fc, #dde4ee, #f7f9fc);
   }
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #374962, #45617c);
+
+  :global(.dark) .soft-skills-gradient-wrapper {
+    background: linear-gradient(to bottom, #3a506b, #2c3e50, #3a506b);
   }
 </style>
 

@@ -1,59 +1,56 @@
 ---
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake } from "@fortawesome/free-solid-svg-icons";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 export interface Skill {
   name: string;
   description?: string;
-  icon?: IconDefinition;
+  icon?: any;
   level?: string;
 }
 
 interface Props {
   skills: Skill[];
-  split?: boolean;
 }
 
-const { skills, split = false } = Astro.props;
-
-const half = Math.ceil(skills.length / 2);
-const skillsGroup1 = split ? skills.slice(0, half) : skills;
+const { skills } = Astro.props;
 ---
 
 <section class="skills-section">
-  <div
-    class="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-  >
+  <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
     <div class="skills-grid">
       {
-        skillsGroup1.map((skill, index) => (
-          <div class="skill-card bg-white dark:bg-gray-800 rounded-lg shadow-md border border-transparent dark:border-gray-700 mb-4 sm:mb-6">
-            <button class="skill-header w-full text-left p-4 sm:p-6 md:p-8 flex items-center justify-between">
-              <div class="icon-wrapper flex items-center">
-                <FontAwesomeIcon
-                  icon={skill.icon || faHandshake}
-                  className="text-gray-700 dark:text-gray-200"
-                />
-              </div>
-              <div class="text-wrapper flex-1">
-                <div class="text-2xl font-semibold text-blue-700 dark:text-blue-200">
-                  {skill.name}
+        skills.map((skill) => (
+          <div class="skill-card group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl">
+            <button
+              class="skill-header w-full text-left p-6 sm:p-8"
+              aria-expanded="false"
+            >
+              <div class="flex items-center justify-between w-full">
+                <div class="flex items-center space-x-6 flex-1">
+                  <div class="icon-wrapper w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-lg transform transition-transform group-hover:rotate-12">
+                    <span class="text-blue-600 dark:text-blue-300">
+                      {skill.icon && <skill.icon className="w-6 h-6" />}
+                    </span>
+                  </div>
+
+                  <div class="text-wrapper">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
+                      {skill.name}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-              <div class="toggle-wrapper flex items-center justify-center">
-                <span class="toggle-icon text-xl text-gray-700 dark:text-gray-200">
-                  &#x25BC;
-                </span>
+
+                <div class="toggle-wrapper ml-6">
+                  <span class="toggle-icon w-10 h-10 flex items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 transition-transform duration-300">
+                    ↓
+                  </span>
+                </div>
               </div>
             </button>
-            <div class="skill-content p-0 m-0 hidden">
-              <div class="content-wrapper p-0 m-0">
-                <div class="py-3 sm:py-4 md:py-6 px-2 sm:px-4 md:px-6 bg-gray-50 dark:bg-black">
-                  <p class="text-gray-600 dark:text-gray-300 text-center">
-                    {skill.description}
-                  </p>
-                </div>
+
+            <div class="skill-content">
+              <div class="p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {skill.description}
+                </p>
               </div>
             </div>
           </div>
@@ -71,7 +68,6 @@ const skillsGroup1 = split ? skills.slice(0, half) : skills;
     padding: 1.25rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 
   .icon-wrapper {
@@ -80,26 +76,20 @@ const skillsGroup1 = split ? skills.slice(0, half) : skills;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .text-wrapper {
     flex: 1;
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  @media (min-width: 640px) {
-    .text-wrapper {
-      padding-left: 3rem;
-      padding-right: 2rem;
-    }
+    text-align: left;
+    padding-right: 1rem;
   }
 
   .toggle-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .toggle-icon {
@@ -119,24 +109,33 @@ const skillsGroup1 = split ? skills.slice(0, half) : skills;
   }
 
   .skill-content {
-    display: none;
-    transition:
-      max-height 0.5s ease-in,
-      opacity 0.5s ease-in,
-      height 0.5s ease-in;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
   }
 
   .skill-content.active {
-    display: block;
-    width: 100%;
-    position: relative;
-    height: auto;
+    max-height: 1000px; /* Adjust this value as needed */
   }
 
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
   }
 
   @media (max-width: 640px) {
@@ -151,90 +150,49 @@ const skillsGroup1 = split ? skills.slice(0, half) : skills;
     }
   }
 
-  @media (min-width: 1024px) {
-    .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
+  .skill-card {
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
   }
 
-  @media (max-width: 1023px) {
-    .mobile-margin {
-      margin-bottom: 60px;
-    }
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
 </style>
 
 <script>
   function initializeSkillToggles() {
-    const skillCards = document.querySelectorAll<HTMLElement>(".skill-card");
-
-    function updateLayout() {
-      const isMobile = window.innerWidth <= 1023;
-      skillCards.forEach((card) => {
-        const content = card.querySelector<HTMLElement>(".skill-content");
-        if (content && content.classList.contains("active")) {
-          content.classList.toggle("mobile-margin", isMobile);
-        }
-      });
-
-      // Update grid layout for both skill groups
-      const skillsGrids =
-        document.querySelectorAll<HTMLElement>(".skills-grid");
-      skillsGrids.forEach((grid) => {
-        if (isMobile) {
-          grid.style.gridTemplateColumns = "1fr";
-        } else {
-          grid.style.gridTemplateColumns = "repeat(2, 1fr)";
-        }
-      });
-    }
+    const skillCards = document.querySelectorAll(".skill-card");
 
     skillCards.forEach((card) => {
-      const header = card.querySelector<HTMLElement>(".skill-header");
-      const content = card.querySelector<HTMLElement>(".skill-content");
+      const header = card.querySelector(".skill-header");
+      const content = card.querySelector(".skill-content");
+      const toggleIcon = header?.querySelector(".toggle-icon");
 
       if (!header || !content) return;
 
-      header.addEventListener("click", () => {
+      header.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+
         const isExpanded = header.getAttribute("aria-expanded") === "true";
 
+        // Only toggle the clicked card
         if (isExpanded) {
+          // Closing
           header.setAttribute("aria-expanded", "false");
-          content.style.maxHeight = "0px";
-          content.classList.remove("active", "mobile-margin");
+          content.classList.remove("active");
         } else {
-          const parentGrid = card.closest(".skills-grid");
-          if (parentGrid) {
-            parentGrid
-              .querySelectorAll<HTMLElement>(".skill-card")
-              .forEach((otherCard) => {
-                const otherHeader =
-                  otherCard.querySelector<HTMLElement>(".skill-header");
-                const otherContent =
-                  otherCard.querySelector<HTMLElement>(".skill-content");
-                if (otherHeader && otherContent) {
-                  otherHeader.setAttribute("aria-expanded", "false");
-                  otherContent.style.maxHeight = "0px";
-                  otherContent.classList.remove("active", "mobile-margin");
-                }
-              });
-          }
-
+          // Opening
           header.setAttribute("aria-expanded", "true");
-          content.style.maxHeight = content.scrollHeight + "px";
           content.classList.add("active");
-          if (window.innerWidth <= 1023) {
-            content.classList.add("mobile-margin");
-          }
         }
       });
     });
-
-    window.addEventListener("resize", updateLayout);
-    updateLayout();
   }
 
+  // Initialize on page load and theme changes
   document.addEventListener("astro:page-load", initializeSkillToggles);
   window.addEventListener("themeChange", initializeSkillToggles);
   initializeSkillToggles();

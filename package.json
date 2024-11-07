@@ -34,6 +34,7 @@
     "astro-navbar": "^2.3.3",
     "date-fns": "^3.6.0",
     "kwesforms": "^2.2.9",
+    "lucide-react": "^0.454.0",
     "markdown-it": "^14.1.0",
     "marked": "^13.0.2",
     "react": "^18.3.1",

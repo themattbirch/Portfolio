@@ -1,40 +1,79 @@
 ---
 import SkillsComponent from "@/components/SkillsComponent.astro";
 import Layout from "@/layouts/Layout.astro";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
-import { faCss3Alt, faJs, faReact } from "@fortawesome/free-brands-svg-icons";
+import {
+  Code,
+  FileCode,
+  Braces,
+  Globe,
+  Laptop,
+  Globe2,
+  Server,
+  Search,
+  PenTool,
+} from "lucide-react";
 
-const skills = [
+// Core Technical Skills
+const coreSkills = [
   {
     name: "HTML",
     description:
       "Proficient in creating structured, semantic markup for both static and dynamic web applications.",
-    icon: faCode,
+    icon: Code,
   },
   {
     name: "CSS",
     description:
       "Skilled in manipulating the DOM using Cascading Style Sheets to style and lay out web pages.",
-    icon: faCss3Alt,
+    icon: FileCode,
   },
   {
     name: "JavaScript",
     description:
-      "Comfortable adding interactive elements to web pages to optimize the user experience and also accept input.",
-    icon: faJs,
+      "Expert in modern JavaScript, including ES6+ features, DOM manipulation, and asynchronous programming.",
+    icon: Braces,
+  },
+];
+
+// Additional Expertise
+const additionalSkills = [
+  {
+    name: "Astro",
+    description:
+      "Building fast, content-focused websites with Astro's modern features and optimal client-side performance.",
+    icon: Globe,
   },
   {
     name: "React",
     description:
-      "Leverage this popular JavaScript library to build both single and multi-page applications. React allows me to utilize components in the web application build process.",
-    icon: faReact,
+      "Creating dynamic user interfaces with React, including hooks, context, and state management.",
+    icon: Laptop,
+  },
+  {
+    name: "WordPress",
+    description:
+      "Custom theme development, plugin integration, and performance optimization.",
+    icon: Globe2,
+  },
+  {
+    name: "Node.js",
+    description:
+      "Server-side development, API integration, and backend architecture.",
+    icon: Server,
+  },
+  {
+    name: "SEO & Content Strategy",
+    description:
+      "Optimizing content for search engines while maintaining engaging, user-focused narratives.",
+    icon: Search,
+  },
+  {
+    name: "Copywriting",
+    description:
+      "Crafting compelling technical content and documentation for various platforms.",
+    icon: PenTool,
   },
 ];
-
-// Split skills array into two parts
-const half = Math.ceil(skills.length / 2);
-const skillsPart1 = skills.slice(0, half);
-const skillsPart2 = skills.slice(half);
 
 const pageTitle = "Technical Skills I've Acquired";
 const pageDescription =
@@ -48,7 +87,7 @@ const pageDescription =
   fullWidth={true}
 >
   <div class="horizontal-gradient-wrapper">
-    <!-- Introduction Text Section -->
+    <!-- Introduction Section -->
     <section class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="h1-text mb-4 sm:mb-6 md:mb-8 fade-in-up">
@@ -62,67 +101,44 @@ const pageDescription =
       </div>
     </section>
 
-    <!-- SkillsComponent with split (part 1)-->
+    <!-- Core Technical Skills Section -->
     <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 dark:text-blue-200 skills-heading-color"
         >
-          Knowledgeable in
+          Core Technical Skills
         </h2>
-        <!-- Render SkillsComponent for first part of skills -->
-        <SkillsComponent skills={skillsPart1} />
+        <SkillsComponent skills={coreSkills} />
       </div>
     </section>
 
-    <!-- SkillsComponent with split (part 2)-->
-    <section>
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <!-- Additional Expertise Section -->
+    <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
           class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 dark:text-blue-200 skills-heading-color"
         >
-          More skills I possess
+          Additional Expertise
         </h2>
-        <!-- Render SkillsComponent for second part of skills -->
-        <SkillsComponent skills={skillsPart2} />
-      </div>
-    </section>
-  </div>
-
-  <!-- Additional Skills -->
-  <div class="horizontal-gradient-wrapper-1">
-    <section
-      class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32 dark:text-white"
-    >
-      <div
-        class="max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-7xl mx-auto px-8"
-      >
-        <h2
-          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-12 dark:text-blue-200 skills-heading-color"
-        >
-          Also familiar with...
-        </h2>
-        <div class="space-y-6">
-          <p class="text-base sm:text-lg md:text-xl">
-            My technical toolkit extends to WordPress development, modern
-            frameworks like Next.js, and server-side technologies including
-            Node.js.
-          </p>
-
-          <p class="text-base sm:text-lg md:text-xl">
-            Beyond coding, I've established myself as a skilled copywriter,
-            leveraging my extensive knowledge of Search Engine Optimization
-            (SEO). I craft engaging content for business leaders and tech
-            companies.
-          </p>
-
-          <p class="text-base sm:text-lg md:text-xl">
-            My writing has reached audiences across LinkedIn, Twitter, and
-            leading industry blogs—often under others' bylines as a trusted
-            ghostwriter. This dual expertise in development and writing–combined
-            with my prompt engineering skills–gives me a unique edge in creating
-            web experiences that truly connect with users.
-          </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {
+            additionalSkills.map((skill) => (
+              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div class="flex items-center space-x-4 mb-4">
+                  <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                    <skill.icon className="w-6 h-6 text-blue-600 dark:text-blue-300" />
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+                    {skill.name}
+                  </h3>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300">
+                  {skill.description}
+                </p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -131,17 +147,18 @@ const pageDescription =
 
 <style>
   .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee);
+    background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
   }
 
   .horizontal-gradient-wrapper-1 {
-    background: linear-gradient(to bottom, #dde4ee, #ffffff);
+    background: linear-gradient(to bottom, #d9e2ec, #f0f4f8);
   }
+
   :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #374962);
+    background: linear-gradient(to bottom, #1e3a5f, #243b55);
   }
 
   :global(.dark) .horizontal-gradient-wrapper-1 {
-    background: linear-gradient(to bottom, #374962, #45617c);
+    background: linear-gradient(to bottom, #243b55, #1e3a5f);
   }
 </style>
