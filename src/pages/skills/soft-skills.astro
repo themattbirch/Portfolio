@@ -60,30 +60,42 @@ const pageDescription =
   ogImage="/assets/images/soft-skills-programming.jpg"
   fullWidth={true}
 >
-  <div class="soft-skills-gradient-wrapper min-h-screen pb-12">
+  <div class="soft-skills-gradient-wrapper">
     <!-- Introduction Text Section -->
-    <section class="text-center mx-auto py-10 md:py-16 lg:py-20">
+    <section class="text-center mx-auto px-4 md:px-0 py-10 md:py-16 lg:py-20">
       <div class="max-w-screen mx-auto">
-        <h1 class="h1-text mb-4 sm:mb-6 md:mb-8 fade-in-up">
+        <h1 class="h1-text fade-in-up">
           {pageTitle}
         </h1>
-        <p class="text-base sm:text-lg md:text-xl max-w-xl mx-auto">
-          Understanding and refining these soft skills is crucial for
-          professional growth, fostering strong team dynamics, and ensuring
-          project success.
-        </p>
       </div>
     </section>
 
     <!-- Skills Section -->
     <section class="pb-8 md:pb-16 lg:pb-20 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-2xl md:text-3xl font-bold text-center mb-12 dark:text-blue-200 soft-skills-heading-color"
-        >
-          Essential Soft Skills
-        </h2>
         <SkillsComponent skills={skills} />
+
+        <!-- Text content wrapper with styling -->
+        <div
+          class="text-content mt-16 md:mt-20 text-center bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 md:p-12"
+        >
+          <div class="max-w-3xl mx-auto space-y-6">
+            <p
+              class="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300"
+            >
+              Understanding and refining these soft skills is crucial for
+              professional growth, fostering strong team dynamics, and ensuring
+              project success.
+            </p>
+            <p
+              class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400"
+            >
+              And here's another block of text. I'm going to write more. This is
+              just so we can make sure there's no extra padding at the bottom.
+              I'll update this later.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -96,6 +108,14 @@ const pageDescription =
 
   :global(.dark) .soft-skills-gradient-wrapper {
     background: linear-gradient(to bottom, #3a506b, #2c3e50, #3a506b);
+  }
+
+  .text-content {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .text-content:hover {
+    transform: translateY(-4px);
   }
 </style>
 

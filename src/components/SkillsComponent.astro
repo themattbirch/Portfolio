@@ -14,140 +14,98 @@ const { skills } = Astro.props;
 ---
 
 <section class="skills-section">
-  <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="skills-grid">
-      {
-        skills.map((skill) => (
-          <div class="skill-card group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl">
-            <button
-              class="skill-header w-full text-left p-6 sm:p-8"
-              aria-expanded="false"
-            >
-              <div class="flex items-center justify-between w-full">
-                <div class="flex items-center space-x-6 flex-1">
-                  <div class="icon-wrapper w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-lg transform transition-transform group-hover:rotate-12">
-                    <span class="text-blue-600 dark:text-blue-300">
-                      {skill.icon && <skill.icon className="w-6 h-6" />}
-                    </span>
-                  </div>
-
-                  <div class="text-wrapper">
-                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">
-                      {skill.name}
-                    </h3>
-                  </div>
-                </div>
-
-                <div class="toggle-wrapper ml-6">
-                  <span class="toggle-icon w-10 h-10 flex items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 transition-transform duration-300">
-                    ↓
-                  </span>
-                </div>
+  <!-- Changed from max-w-full -->
+  <div class="skills-grid">
+    {
+      skills.map((skill) => (
+        <div class="skill-card group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl">
+          <button class="skill-header w-full text-left p-6 sm:p-8">
+            <div class="flex items-center justify-between w-full">
+              <div class="icon-wrapper">
+                <span class="text-blue-600 dark:text-blue-300">
+                  {skill.icon && <skill.icon className="w-6 h-6" />}
+                </span>
               </div>
-            </button>
 
-            <div class="skill-content">
-              <div class="p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {skill.description}
-                </p>
+              <div class="text-wrapper">
+                <h3 class="text-2xl font-bold text-black dark:text-white">
+                  {skill.name}
+                </h3>
+              </div>
+
+              <div class="toggle-wrapper">
+                <span class="toggle-icon">↓</span>
               </div>
             </div>
+          </button>
+
+          <div class="skill-content">
+            <div class="p-6 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {skill.description}
+              </p>
+            </div>
           </div>
-        ))
-      }
-    </div>
+        </div>
+      ))
+    }
   </div>
 </section>
 
 <style>
-  .skill-header {
-    min-height: 6rem;
-    cursor: pointer;
-    position: relative;
-    padding: 1.25rem 1rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .icon-wrapper {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-  }
-
-  .text-wrapper {
-    flex: 1;
-    text-align: left;
-    padding-right: 1rem;
-  }
-
-  .toggle-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .toggle-icon {
-    transition: transform 0.3s ease;
-    border: 2px solid #94a3b8;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 5px;
-  }
-
-  .skill-header[aria-expanded="true"] .toggle-icon {
-    transform: rotate(180deg);
-  }
-
-  .skill-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-  }
-
-  .skill-content.active {
-    max-height: 1000px; /* Adjust this value as needed */
-  }
-
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
+    align-items: start; /* Align items to the top */
+    grid-auto-rows: min-content; /* Each row adjusts to its content */
   }
 
-  @media (min-width: 768px) {
+  /* Add this for mobile view */
+  @media (max-width: 767px) {
+    .skills-grid {
+      grid-template-columns: 1fr; /* Single column */
+      margin: 0 auto; /* Center the grid */
+    }
+  }
+
+  /* Tablet view */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .skills-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
+
+    /* Center the last item when it's alone in a row */
+    .skill-card:last-child:nth-child(2n + 1) {
+      grid-column: 1 / -1;
+      max-width: 500px;
+      justify-self: center;
+    }
   }
 
+  /* Desktop view */
   @media (min-width: 1024px) {
     .skills-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 2rem; /* Consistent gap */
+      margin: 0 auto;
+    }
+
+    /* Center the last item when it's alone in a row */
+    .skill-card:last-child:nth-child(3n + 1) {
+      grid-column: 2 / 3;
     }
   }
 
-  @media (max-width: 640px) {
-    .skill-header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
+  .skill-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
+  }
 
-    .skills-grid {
-      gap: 1.5rem;
-    }
+  .skill-content.active {
+    /* max-height will be set dynamically via JavaScript */
   }
 
   .skill-card {
@@ -160,39 +118,160 @@ const { skills } = Astro.props;
     transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
+
+  .skill-header {
+    min-height: 6rem;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #e0f2fe;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .text-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .toggle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 2px solid #94a3b8;
+    border-radius: 50%;
+    color: #2563eb;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #94a3b8;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #2563eb;
+    transition: transform 0.3s ease;
+  }
+
+  .skill-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Dark Mode */
+  :global(.dark) .skill-card {
+    background: linear-gradient(to bottom right, #2d3748, #1a202c);
+    color: #e2e8f0;
+    border: 1px solid #4a5568;
+  }
+
+  :global(.dark) .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  :global(.dark) .icon-wrapper {
+    background-color: #4a5568;
+    color: #90cdf4;
+  }
+
+  :global(.dark) .toggle-wrapper {
+    border: 2px solid #90cdf4;
+    color: #90cdf4;
+  }
+
+  :global(.dark) .toggle-icon {
+    color: #90cdf4;
+  }
+
+  :global(.dark) .text-wrapper h3 {
+    background: linear-gradient(to right, #90cdf4, #63b3ed);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  @media (max-width: 640px) {
+    .skill-header {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .skills-grid {
+      gap: 1.5rem;
+    }
+  }
 </style>
 
 <script>
   function initializeSkillToggles() {
-    const skillCards = document.querySelectorAll(".skill-card");
+    const skillCards = document.querySelectorAll<HTMLElement>(".skill-card");
 
     skillCards.forEach((card) => {
-      const header = card.querySelector(".skill-header");
-      const content = card.querySelector(".skill-content");
-      const toggleIcon = header?.querySelector(".toggle-icon");
+      const header = card.querySelector<HTMLElement>(".skill-header");
+      const content = card.querySelector<HTMLElement>(".skill-content");
 
       if (!header || !content) return;
 
-      header.addEventListener("click", (e) => {
-        e.stopPropagation(); // Prevent event bubbling
+      // Set initial state
+      header.setAttribute("aria-expanded", "false");
+      content.style.maxHeight = "0px";
 
+      header.addEventListener("click", () => {
         const isExpanded = header.getAttribute("aria-expanded") === "true";
 
-        // Only toggle the clicked card
+        // Close other cards
+        const parentGrid = card.closest(".skills-grid");
+        if (parentGrid) {
+          parentGrid
+            .querySelectorAll<HTMLElement>(".skill-card")
+            .forEach((otherCard) => {
+              if (otherCard !== card) {
+                const otherHeader =
+                  otherCard.querySelector<HTMLElement>(".skill-header");
+                const otherContent =
+                  otherCard.querySelector<HTMLElement>(".skill-content");
+                if (otherHeader && otherContent) {
+                  otherHeader.setAttribute("aria-expanded", "false");
+                  otherContent.style.maxHeight = "0px";
+                  otherContent.classList.remove("active");
+                }
+              }
+            });
+        }
+
+        // Toggle current card
         if (isExpanded) {
-          // Closing
           header.setAttribute("aria-expanded", "false");
+          content.style.maxHeight = "0px";
           content.classList.remove("active");
         } else {
-          // Opening
           header.setAttribute("aria-expanded", "true");
+          content.style.maxHeight = `${content.scrollHeight}px`;
           content.classList.add("active");
         }
       });
     });
   }
 
-  // Initialize on page load and theme changes
   document.addEventListener("astro:page-load", initializeSkillToggles);
   window.addEventListener("themeChange", initializeSkillToggles);
   initializeSkillToggles();
