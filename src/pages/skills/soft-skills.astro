@@ -44,7 +44,7 @@ const skills = [
   {
     name: "Time Management",
     description:
-      "Excellent at prioritizing tasks, meeting deadlines, and balancing multiple projects efficiently.",
+      "Excellent at prioritizing tasks, meeting deadlines and balancing multiple projects efficiently.",
     icon: Clock,
   },
 ];
@@ -62,7 +62,9 @@ const pageDescription =
 >
   <div class="soft-skills-gradient-wrapper">
     <!-- Introduction Text Section -->
-    <section class="text-center mx-auto px-4 md:px-0 py-10 md:py-16 lg:py-20">
+    <section
+      class="text-center mx-auto px-4 md:px-0 py-12 md:py-20 lg:py-24 xl:py-32"
+    >
       <div class="max-w-screen mx-auto">
         <h1 class="h1-text fade-in-up">
           {pageTitle}
@@ -75,20 +77,44 @@ const pageDescription =
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SkillsComponent skills={skills} />
 
-        <!-- Text content wrapper with styling -->
+        <!-- Text content wrapper -->
         <div
-          class="text-content mt-16 md:mt-20 text-center bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 md:p-12"
+          class="text-content mb-4 mt-12 md:mt-20 text-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-8 md:p-12 relative overflow-hidden border border-gray-200 dark:border-gray-700"
         >
-          <div class="max-w-3xl mx-auto space-y-6">
+          <div
+            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"
+          >
+          </div>
+          <div
+            class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-24 bg-blue-400 rounded-full opacity-50"
+          >
+          </div>
+          <div
+            class="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-24 bg-blue-600 rounded-full opacity-50"
+          >
+          </div>
+
+          <!-- Icon -->
+          <div class="mx-auto mb-8">
+            <Brain
+              className="w-12 h-12 text-blue-500 dark:text-blue-400 opacity-80"
+            />
+          </div>
+
+          <div class="max-w-3xl mx-auto space-y-6 relative z-10">
             <p
-              class="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300"
+              class="text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed"
             >
-              Understanding and refining these soft skills is crucial for
-              professional growth, fostering strong team dynamics, and ensuring
-              project success.
+              Understanding and refining these
+              <span class="subtle-pulse text-blue-600 dark:text-blue-400 mx-1"
+                >soft skills</span
+              >
+              is crucial for professional growth, fostering strong team dynamics,
+              and ensuring project success.
             </p>
+
             <p
-              class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400"
+              class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed"
             >
               And here's another block of text. I'm going to write more. This is
               just so we can make sure there's no extra padding at the bottom.
@@ -96,27 +122,29 @@ const pageDescription =
             </p>
           </div>
         </div>
+
+        <style>
+          .text-content {
+            transition: all 0.3s ease-in-out;
+          }
+
+          .text-content:hover {
+            transform: translateY(-4px);
+            box-shadow:
+              0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          }
+
+          .text-content:hover .h-24 {
+            height: 32px;
+            transition: height 0.3s ease-in-out;
+          }
+
+          .text-content:hover .w-12 {
+            animation: subtle-pulse 2s infinite;
+          }
+        </style>
       </div>
     </section>
-  </div>
-</Layout>
-
-<style>
-  .soft-skills-gradient-wrapper {
-    background: linear-gradient(to bottom, #f7f9fc, #dde4ee, #f7f9fc);
-  }
-
-  :global(.dark) .soft-skills-gradient-wrapper {
-    background: linear-gradient(to bottom, #3a506b, #2c3e50, #3a506b);
-  }
-
-  .text-content {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .text-content:hover {
-    transform: translateY(-4px);
-  }
-</style>
-
-<script type="module" src="/scripts/fadeIn.js"></script>
+  </div></Layout
+>

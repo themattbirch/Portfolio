@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* CSS Variable Definitions */
+
 :root {
     /* Base Theme Colors */
     --bg-color: theme('colors.background.light');
@@ -175,15 +176,11 @@
         transform: translateX(2px);
     }
 
-    .logo-container:hover .name {
-        animation: subtle-pulse 2s infinite;
-    }
-
     .bracket {
         @apply inline-block transition-transform duration-300;
     }
 
-    /* CTA Styles */
+    /* CTA */
     .cta-gradient {
         @apply bg-gradient-to-br from-cta-gradient-from via-cta-gradient-via to-cta-gradient-to rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:rotate-1;
     }
@@ -293,11 +290,11 @@
         color: var(--skills-text);
     }
 
-    /* Back Link */
     .back-link {
         @apply text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 text-2xl mb-16 underline block transition-colors duration-200;
     }
 }
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -312,16 +309,56 @@
     }
 }
 
-@keyframes subtle-pulse {
+@keyframes subtlePulse {
 
     0%,
     100% {
         transform: scale(1);
+        color: #2563eb;
     }
 
     50% {
-        transform: scale(1.05);
+        transform: scale(1.1);
+        color: #60a5fa;
     }
+}
+
+:global(.dark) .subtle-pulse {
+    animation: subtlePulseDark 2s ease-in-out infinite;
+}
+
+@keyframes subtlePulseDark {
+
+    0%,
+    100% {
+        transform: scale(1);
+        color: #60a5fa;
+    }
+
+    50% {
+        transform: scale(1.1);
+        color: #93c5fd;
+    }
+}
+
+.subtle-pulse {
+    animation: subtlePulse 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+
+/* Utility Classes */
+
+.subtle-pulse {
+    animation: subtlePulse 2s ease-in-out infinite;
+    display: inline-block;
+    
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
 }
 
 .fade-in-up {

@@ -76,6 +76,20 @@ const finalOgImage = image
       canonicalURL={canonicalURL}
     />
 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0DMM273LKZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: any[]) {
+        if (window.dataLayer) {
+          window.dataLayer.push(arguments);
+        }
+      }
+      gtag("js", new Date());
+      gtag("config", "G-0DMM273LKZ");
+    </script>
+
     <!-- Schema -->
     <script type="application/ld+json">
       {

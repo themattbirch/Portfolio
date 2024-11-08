@@ -13,7 +13,6 @@ import {
   PenTool,
 } from "lucide-react";
 
-// Core Technical Skills
 const coreSkills = [
   {
     name: "HTML",
@@ -35,42 +34,41 @@ const coreSkills = [
   },
 ];
 
-// Additional Expertise
 const additionalSkills = [
   {
     name: "Astro",
     description:
-      "Building fast, content-focused websites with Astro's modern features and optimal client-side performance.",
+      "Build fast, content-focused websites with Astro's modern features and optimal client-side performance.",
     icon: Globe,
   },
   {
     name: "React",
     description:
-      "Creating dynamic user interfaces with React, including hooks, context, and state management.",
+      "Skilled in creating dynamic user interfaces with React, including hooks, context, and state management.",
     icon: Laptop,
   },
   {
     name: "WordPress",
     description:
-      "Custom theme development, plugin integration, and performance optimization.",
+      "Proficient in custom WordPress development, from theme creation to plugin integration, delivering tailored solutions for unique brand needs.",
     icon: Globe2,
   },
   {
     name: "Node.js",
     description:
-      "Server-side development, API integration, and backend architecture.",
+      "Familiar with server-side development, API integration, and backend architecture.",
     icon: Server,
   },
   {
     name: "SEO & Content Strategy",
     description:
-      "Optimizing content for search engines while maintaining engaging, user-focused narratives.",
+      "Optimize content for search engines while maintaining engaging, user-focused copy.",
     icon: Search,
   },
   {
     name: "Copywriting",
     description:
-      "Crafting compelling technical content and documentation for various platforms.",
+      "Experienced creating strategic, persuasive web content that builds brand loyalty and drives conversions across digital platforms.",
     icon: PenTool,
   },
 ];
@@ -88,7 +86,7 @@ const pageDescription =
 >
   <div class="horizontal-gradient-wrapper">
     <!-- Introduction Section -->
-    <section class="text-center mx-auto py-8 md:py-16 lg:py-20">
+    <section class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="h1-text fade-in-up">
           {pageTitle}
@@ -97,10 +95,8 @@ const pageDescription =
     </section>
 
     <!-- Core Technical Skills Section -->
-    <section class="pb-8 md:pb-16 lg:pb-20 fade-in-up">
+    <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Made container structure identical -->
-
         <SkillsComponent skills={coreSkills} />
       </div>
     </section>
@@ -109,14 +105,15 @@ const pageDescription =
     <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
-          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-12 dark:text-blue-200 skills-heading-color"
+          class="text-2xl md:text-3xl lg:text-4xl font-bold text-center pb-12 md:pb-20 lg:pb-24 xl:pb-32 dark:text-blue-200 skills-heading-color"
         >
           Additional Expertise
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {
             additionalSkills.map((skill) => (
-              <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 expertise-grid rounded-lg shadow-md p-6 transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                {" "}
                 <div class="flex items-center space-x-4 mb-4">
                   <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
                     <skill.icon className="w-6 h-6 text-blue-600 dark:text-blue-300" />
@@ -138,6 +135,9 @@ const pageDescription =
 </Layout>
 
 <style>
+  .expertise-grid {
+    margin-bottom: 1rem;
+  }
   .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
   }
