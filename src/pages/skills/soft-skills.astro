@@ -73,10 +73,9 @@ const pageDescription =
     </section>
 
     <!-- Skills Section -->
-    <section class="pb-8 md:pb-16 lg:pb-20 fade-in-up">
+    <section class="pb-12 md:pb-20 lg:pb-24 xl:pb-32 fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SkillsComponent skills={skills} />
-
         <!-- Text content wrapper -->
         <div
           class="text-content mb-4 mt-12 md:mt-20 text-center bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg p-8 md:p-12 relative overflow-hidden border border-gray-200 dark:border-gray-700"
@@ -105,46 +104,39 @@ const pageDescription =
             <p
               class="text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed"
             >
-              Understanding and refining these
-              <span class="subtle-pulse text-blue-600 dark:text-blue-400 mx-1"
+              My <span
+                class="subtle-pulse text-blue-600 dark:text-blue-400 mx-1"
                 >soft skills</span
-              >
-              is crucial for professional growth, fostering strong team dynamics,
-              and ensuring project success.
-            </p>
-
-            <p
-              class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed"
-            >
-              And here's another block of text. I'm going to write more. This is
-              just so we can make sure there's no extra padding at the bottom.
-              I'll update this later.
+              > are what set me apart as a developer who does more than just write
+              code. They enable me to build better solutions by understanding team
+              dynamics, user needs, and project goals. I bring this balanced approach
+              to every project I take on.
             </p>
           </div>
         </div>
-
-        <style>
-          .text-content {
-            transition: all 0.3s ease-in-out;
-          }
-
-          .text-content:hover {
-            transform: translateY(-4px);
-            box-shadow:
-              0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
-          }
-
-          .text-content:hover .h-24 {
-            height: 32px;
-            transition: height 0.3s ease-in-out;
-          }
-
-          .text-content:hover .w-12 {
-            animation: subtle-pulse 2s infinite;
-          }
-        </style>
       </div>
     </section>
-  </div></Layout
->
+
+    <style>
+      .text-content {
+        transition: all 0.3s ease-in-out;
+      }
+
+      .text-content:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .text-content:hover .h-24 {
+        height: 32px;
+        transition: height 0.3s ease-in-out;
+      }
+
+      .text-content:hover .w-12 {
+        animation: subtle-pulse 2s infinite;
+      }
+    </style>
+  </div>
+</Layout>
