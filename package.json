@@ -36,6 +36,7 @@
     "express": "^4.21.1",
     "http-server": "^14.1.1",
     "kwesforms": "^2.2.9",
+    "lucide-react": "^0.454.0",
     "markdown-it": "^14.1.0",
     "marked": "^13.0.2",
     "react": "^18.2.0",

@@ -56,13 +56,13 @@ const mobileBackground = mobileBackgroundImage.src;
             id="heroTagline"
           >
             Who can write clean code <span
-              class="hero-pulse animate-subtlePulse text-blue-800 lg:text-blue-400 dark:text-blue-400 font-bold"
+              class="subtle-pulse text-blue-800 lg:text-blue-400 dark:text-blue-400 font-bold"
               >and</span
             > copy!
           </p>
 
           <div class="hero-animate hero-cta" style="--delay: 1s" id="heroCta">
-            <a href="/contact" class="hero-button"> Get in Touch </a>
+            <a href="/contact" class="btn hero-button"> Get in Touch </a>
           </div>
         </div>
       </div>
@@ -131,115 +131,3 @@ const mobileBackground = mobileBackgroundImage.src;
     setupEventListeners();
   });
 </script>
-
-<style>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  :root {
-    --gradient-primary: linear-gradient(to right, #2563eb, #3b82f6);
-    --gradient-secondary: linear-gradient(to right, #2563eb, #1e40af);
-    --gradient-hover: linear-gradient(to right, #1d4ed8, #2563eb);
-    --gradient-mobile: linear-gradient(to right, #5499df, #2563a7);
-  }
-
-  /* Move hero-container out of @layer */
-  .hero-container {
-    @apply relative h-[66vh] lg:h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16;
-  }
-
-  #hero-background {
-    transition: background-image 0.5s ease;
-  }
-
-  /* Rest of your styles stay the same */
-  .gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-image: var(--gradient-secondary);
-  }
-
-  .hero-title {
-    @apply font-extrabold tracking-tight text-5xl lg:text-6xl xl:text-7xl mb-2 sm:max-w-sm md:max-w-md lg:max-w-full;
-    color: #60a5fa;
-  }
-
-  .hero-tagline {
-    @apply mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 max-w-2xl;
-  }
-
-  .hero-cta {
-    @apply mt-6 sm:mt-8 md:mt-10;
-  }
-
-  .hero-animate {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
-    animation-delay: var(--delay);
-  }
-
-  .hero-button {
-    @apply text-sm sm:text-base md:text-lg text-white font-bold rounded-full;
-    background-image: var(--gradient-primary);
-    padding: 0.75rem 1.5rem;
-    transition: all 0.3s ease;
-  }
-
-  :global(.dark) .hero-title {
-    color: #93c5fd;
-  }
-
-  @media (min-width: 640px) {
-    .gradient-text {
-      background-image: var(--gradient-primary);
-    }
-
-    .hero-button {
-      padding: 1rem 2rem;
-    }
-  }
-
-  .hero-button:hover {
-    background-image: var(--gradient-hover);
-    transform: scale(1.05);
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-
-  @media (max-width: 640px) {
-    .relative {
-      @apply min-h-[500px] flex items-center p-0;
-      height: 80vh;
-    }
-
-    .hero-content {
-      @apply text-left pl-4;
-    }
-
-    .gradient-text {
-      background-image: var(--gradient-mobile);
-    }
-
-    .hero-button {
-      background-image: var(--gradient-secondary);
-    }
-
-    .hero-button:hover {
-      background-image: var(--gradient-hover);
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
