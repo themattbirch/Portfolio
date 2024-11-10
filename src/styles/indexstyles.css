@@ -6,6 +6,10 @@
     --gradient-mobile: linear-gradient(to right, #5499df, #2563a7);
 }
 
+:root.dark {
+    --gradient-secondary: linear-gradient(45deg, #3B82F6, #60A5FA);
+}
+
 .hero-container {
     @apply relative h-[66vh] lg:h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16;
 }
