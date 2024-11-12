@@ -62,7 +62,7 @@ Here are some practical steps for developers to implement:
 
 When you're stuck on a coding problem or experiencing developer's block, your brain's default mode network (DMN) can help. This neural network activates during wakeful rest and has been shown to boost creativity and problem-solving abilities.
 
-Below are a few strategies to activate your brain's default mode network:
+Check out a few strategies to activate your brain's default mode network:
 
 ### Step Away from the Screen
 
@@ -144,6 +144,14 @@ Daily habits are so important to being productive and feeling good. Here are som
 
 ### TLDR (Too Long, Didn't Read!)
 
-Remember that productivity isn't about working more hours – it's about making your working hours more effective. By understanding and working with your brain's natural tendencies, you can achieve more while feeling less stressed and more satisfied with your work.
+Remember that productivity isn't about working more hours. Nope. It's about making your working hours more effective.
 
-Start small: pick one or two strategies from this guide and implement them consistently. As these become habits, gradually incorporate more. The goal isn't perfection but progress toward a more focused and productive work life.
+By understanding and working with your brain's natural tendencies, you can achieve more while feeling less stressed and more satisfied with your work.
+
+Start small.
+
+Pick one or two strategies from this guide and implement them consistently. As these become habits, gradually incorporate more. The goal isn't perfection.
+
+Just find balance, and shift toward a more focused and productive mindset while working.
+
+Thank me later!
