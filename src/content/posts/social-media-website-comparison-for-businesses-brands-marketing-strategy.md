@@ -18,17 +18,17 @@ But the blame shouldn't be placed on Myspace, or Facebook, which launched the fo
 
 ![AOL Instant Messenger example](/assets/images/aim-message.jpg)
 
-## Social media in the modern age
+## Social Media In The Modern Age
 
 Fast-forward to today, with social media channels being the predominant way users communicate globally. Not only that, it's also the most common touchpoint for businesses and brand managers to reach their customers, both for business-to-business (B2B) and business-to-consumer (B2C). And that's exactly what we're going to focus on in this post.
 
 There are a number of different social media sites in existence today, each of which harbors different demographics of users. As such, businesses and brand managers must employ different approaches on each individual platform to reach their audience. We've highlighted the key comparisons between each network, so you can do exactly that.
 
-## Strategy, comparisons for targeting social media users on each platform
+## Strategy, Comparisons For Targeting Users On Social Media Platforms
 
 - Twitter
 
-Great for brand awareness, and also informative and educational. The beauty of Twitter is that it's versatile, leverageable for both B2B and B2C purposes. It's effective for advertising in the form of written messages, but falls short in creative, which is why it's not popular in the E-Commerce vertical.
+Great for brand awareness, and also informative and educational. The beauty of Twitter is that it's versatile, able to be leveraged for both B2B and B2C purposes. It's effective for advertising in the form of written messages, but falls short in creative, which is why it's not popular in the E-Commerce vertical.
 
 - Facebook
 
@@ -54,7 +54,7 @@ Like TikTok, it's extremely popular for brands and businesses, for both audience
 
 Not really a social channel by definition, but is still great for brand awareness. Podcast advertising continues to increase, and it does have social components to it that cross-shares into social platforms. CPMs are currently low, so it can deliver a solid return on investment (ROI) if you're looking to get your brand mentioned.
 
-## Summary: How brands should use social media site similarities, differences for audience building and marketing strategy
+## How Brands Can Leverage Social Media For Audience Development
 
 Identify your ideal customer. Use that "avatar" to dictate which social media sites are best to allocate your resources, both from a time and financial perspective. Time is finite, and budgets for small businesses and brands in their incubation phase can be thin.
 

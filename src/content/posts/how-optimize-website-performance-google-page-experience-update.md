@@ -16,7 +16,7 @@ And while we obviously don’t have any actionable insights about the algorithm�
 
 It’s a polarizing topic, and while Page Experience’s effects on ranking are unclear, if you want to give your website the best chance of success in the future, or are already seeing minor changes in Search Engine Ranking Position (SERP), we’d advise optimizing for mobile–first and foremost.
 
-## What is the Google Page Experience algorithm update?
+## What Is The Google Page Experience Algorithm Update?
 
 The Page Experience update is a set of signals that will become part of Google’s ranking algorithm. Its purpose is similar to other recent algorithm updates, as it's centered around optimizing the user experience.
 
@@ -38,7 +38,7 @@ The Page Experience algorithm is comprised of these five ranking signals:
 
 It’s unclear how much weight each signal will have, so it’s best to optimize for all five (displayed below). The two main themes they all share, however, is that they’re centered around being mobile responsive, and also delivering the best user experience possible. As such, any website optimization strategy should start in these areas, and then drill down to the more granular issues.
 
-## What role will Core Web Vitals play in this update?
+## What Role Will Core Web Vitals Play In This Update?
 
 The three Core Web Vitals metrics are Cumulative Layout Shift (CLS), First Input Delay (FID) and Largest Contentful Paint (LCP). Each carries its own score, and will be handled individually as its own ranking signal by the Page Experience update.
 
@@ -46,7 +46,7 @@ It’s important to note that the CWV scores will essentially be viewed as the s
 
 As such, we shouldn’t obsess too much about the numerical value given to each of the three metrics, as long as the page is deemed to be "good" overall. There are many ranking signals included in this update, so until we have more data, and better understand the extent of CWV’s impact, it’s best to focus on optimizing for all of them, and providing the best user experience possible.
 
-## How the Page Experience update will impact your website’s ranking, traffic
+## How The Page Experience Update Will Impact Your Website's Ranking, Traffic
 
 Arguments can be made for both sides in terms of Page Experience’s impact, as it’s clearly not going to have a seismic effect on the tech world as a whole, such as when Apple released the original iPhone roughly 14 years ago. However, connectivity trends show mobile use has continued to grow like wildfire since that time, and 6.378 million people now [own a smartphone](https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/). Not much has changed for Apple, though, as the tech giant still holds the majority of the United States smartphone market share (chart via Counterpoint, using data from Mobile Devices Monitor).
 
@@ -54,7 +54,7 @@ Arguments can be made for both sides in terms of Page Experience’s impact, as 
 
 Designing a mobile-friendly website gives you the best chance of surviving this update, and also for maximizing growth potential, which is why we advocate focusing a lot of attention in that area.
 
-## Potential issues, challenges the algorithm update can create for your website
+## Potential Issues, Challenges Stemming From The Algorithm Update
 
 The most obvious area in which your website can be affected is its traffic, given that Google is implementing the Page Experience update as a ranking signal. Similarly, brand awareness and lead generation can also be negatively impacted.
 
@@ -62,7 +62,7 @@ If you’re attempting to rank (or already did rank) for a seed keyword – or a
 
 Long-tail keywords with less search volume may not see as much of a fluctuation. It depends on what sector your business operates in, and the demand. E-Commerce and service-based businesses in particular should pay close attention to keyword tracking and search positions, which SEO tools such as SEMrush, Ahrefs and Searchmetrics can help with.
 
-## How to diagnose technical issues using a website performance monitor such as Google PageSpeed Insights, Lighthouse
+## How To Diagnose Technical Issues Using Google PageSpeed Insights, Lighthouse
 
 There are a number of tools to leverage to gauge how your website is performing, with Google’s Lighthouse and PageSpeed Insights being at the top of the list. We’re big fans of Lighthouse, which you can access in Chrome DevTools, as it tends to be more accurate than PSI. It can also help identify more technical issues dragging your website's performance down. It also does a great job of providing potential solutions to the problems it identifies. Lighthouse is a very popular tool among developers, and for good reason.
 
@@ -76,7 +76,7 @@ SEO tools to monitor ranking, as well as website performance monitors to identif
 
 We also advocate using a crawling tool, such as Screaming Frog, to do a site audit, from an SEO perspective. It will allow you to compare Googlebot Desktop to Googlebot Mobile. Screaming Frog also analyzes your URL structure and site architecture, to identify issues, so you can make the necessary fixes.
 
-## ...Don’t forget about Google Search Console’s new Page Experience report
+## ...Don’t Forget About Google Search Console’s New Page Experience Report
 
 Any business owner, SEO, marketer and digital media professional already routinely monitors all the reports, data and analytics Google Search Console provides. And now Google has given us yet another reason to always keep a GSC tab open in our browser.
 
@@ -84,7 +84,7 @@ Google recently announced it has now included a Page Experience report in Search
 
 ![Google Search Console report](/assets/images/google-search-console-report.png)
 
-## What to do with all this data for Page Experience website optimization
+## What To Do With All The New Data
 
 These metrics are important, but with so many different factors involved in analyzing website performance, results can be quite fluid. It can be hard to gain actionable insights without a large sample size to pull from.
 
@@ -94,7 +94,7 @@ Website performance metrics are only a piece of the puzzle in terms of how pages
 
 If you’re improving your website's performance, potential leads and current customers will notice improvements in their experience while browsing. Focus on keeping users engaged and happy—as well as satisfying the intent of their search query.
 
-## What you can do following the algorithm update to improve your website’s performance
+## How To Optimize Your Website's Performance
 
 In looking at how Page Experience is structured, from a technical perspective, we advise beginning with optimizing for mobile.
 
@@ -112,43 +112,43 @@ Mobile users simply don’t have time to wait for scripts to load. Or to experie
 
 And while designing a mobile responsive website is extremely important, Page Experience isn’t just limited to one device. Here are some tips on how to optimize for all three.
 
-## Best practices, strategies to optimize for Page Experience mobile, tablet and desktop use
+## Optimization Best Practices
 
-### Image optimization, using size reduction and compression
+### Image Optimization
 
 Images make up approximately 50% of a page’s load on mobile devices, so remember that size and formats matter. Don’t make the common mistake of only using PNGs and JPGs, as WebPs and SVGs are much smaller in size, and therefore load quicker. If you can get away with a slight decrease in image quality, it’s worth using those two from a page load and user experience standpoint.
 
-Also, crop, re-size and scale images down, with different sizes for each device, then compress them. Do this before uploading them. Generally, it works best to create horizontal graphics for desktop, and vertical ones for mobile. Adobe Photoshop works well for re-sizing. If on a budget, Affinity Designer provides excellent value for the price as well. Also, there are a number of different options to help with image compression. If you prefer to spend a bit more, and are amenable to being on a monthly plan, Smush and Imagify are excellent Wordpress plugins that get the job done, quickly and easily. But if you’re looking for a cheaper option, Pym and EWWW Image Optimizer will suffice as well.
+Also, crop, re-size and scale images down, with different sizes for each device, then compress them. Do this before uploading them. Generally, it works best to create horizontal graphics for desktop, and vertical ones for mobile. Adobe Photoshop works well for re-sizing. If on a budget, Affinity Designer provides excellent value for the price as well. Also, there are a number of different options to help with image compression. If you prefer to spend a bit more, and are amenable to being on a monthly plan, Smush and Imagify are excellent WordPress plugins that get the job done, quickly and easily. But if you’re looking for a cheaper option, Pym and EWWW Image Optimizer will suffice as well.
 
 Lastly, it’s wise to use an image Content Delivery Network (CDN). This can both transform and deliver images quicker. Cloudflare, for example, excels at accomplishing both these goals.
 
-### Choose your web hosting company wisely
+### Choose Your Web Hosting Company Wisely
 
 Shared hosting simply isn’t the way to go if you’re looking to optimize your website. These companies spend a ton of money on marketing and are commonly used by beginners, but they fall short on performance. Reputable managed hosting companies such as Kinsta and SiteGround are far better options, and they’ll also handle some of the hosting responsibilities for you. They’re viable choices for both beginners and intermediate users. Lastly, if you're an advanced user, hosting your website on a dedicated server, or via cloud hosting, can really boost your website's performance.
 
-### Try to limit any redirects whenever possible
+### Limit Any Redirects Whenever Possible
 
 There’s a time and a place for redirects, such as when you’ve changed domains, deleted a page or have merged websites. But aside from those scenarios, it’s best to avoid them. Otherwise, the user experience suffers greatly, and your website’s ranking could be affected.
 
-### Optimize JavaScript and CSS
+### Optimize JavaScript, CSS
 
 There are a number of different strategies to optimize your website’s JavaScript code. One of the best ways to start is by eliminating render-blocking JavaScript and CSS with asynchronous loading, using Defer and Async tags. This will delay the loading of JavaScript and CSS until the visible elements on your page have already loaded—similar to lazy loading images.
 
-Also, you can change the order of how elements are loaded. It’s best practice to have as little JS inside a website's sections as possible. This probably isn’t feasible for beginner or intermediate web designers. But there are some Wordpress plugins, such as Asset CleanUp and WP Rocket, that do this extremely well.
+Also, you can change the order of how elements are loaded. It’s best practice to have as little JS inside a website's sections as possible. This probably isn’t feasible for beginner or intermediate web designers. But there are some WordPress plugins, such as Asset CleanUp and WP Rocket, that do this extremely well.
 
 (Disclaimer: Always test on a staging site before making any substantial changes such as these go live. These adjustments can break your website, so tread carefully.)
 
 One final suggestion is to put less essential JavaScript (such as tracking pixels or Google Analytics code) in the footer, so the rest of the page can render first.
 
-### Leverage minification to minimize code and markup
+### Leverage Minification
 
 The extra space and comments can be beneficial during the development phase, but once your site is live, they’re no longer necessary. Minifying the JavaScript, CSS and HTML files will increase site speed, but also improve accessibility. WP Rocket is great for this purpose. (The same disclaimer listed above, about testing on a staging site, applies here.)
 
-### Avoid using pop-ups
+### Avoid Popovers
 
 This one is self-explanatory, especially if approaching from a user experience perspective. You don’t enjoy browsing websites that have pop-ups, and neither do users. Pop-ups negatively impact the user experience, and can also get you penalized by Google. If it doesn’t pertain to the brand, product or customers you serve, it can negatively affect your SEO. We avoid using them altogether, but if you feel you must include one on your website, for lead generation purposes, make it easy to close. And make sure it doesn’t impact your content layout.
 
-### Less is more for mobile, but you can still get creative while optimizing
+### Less Is More (Especially For Mobile)
 
 Eliminating large images and certain elements that don’t render or display well on mobile devices is considered best practice. But try not to feel like you’re limited, from a creativity perspective. You can still display engaging elements on your pages to make your content visually appealing, like in this awesome [mobile-responsive navigation](https://admiretheweb.com/articles/20-responsive-mobile-navigation-inspiration/) mockup.
 
@@ -158,7 +158,7 @@ Here are some ideas to make your mobile website's layout pop, in a way that enga
 
 Mobile carousels can display images, GIFs and text in a clean, user-friendly way. Top navigation is also a great option. It enables the user to access the menu easily, while also providing the option to navigate the entire website efficiently. Lastly, accordions continue to grow in popularity, as they conserve space by making content collapsible. You’ve probably seen these implemented on FAQ pages.
 
-### Summary: What we’ve learned about how Page Experience update will impact ranking, and what we can do about it
+### Summary
 
 It’s been well over a year since Google first alerted us about the Page Experience update, so we do know what ranking signals it’s comprised of. Google has also provided us with a general understanding of the algorithm's purpose.
 

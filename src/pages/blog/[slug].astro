@@ -64,7 +64,11 @@ const formatDate = (date: Date) => {
         <meta itemprop="url" content={canonicalURL} />
         <link itemprop="mainEntityOfPage" href={canonicalURL} />
 
-        <Breadcrumb current={post.data.title} parent="Blog" />
+        <Breadcrumb
+          current={post.data.title}
+          parent="Blog"
+          hideCurrentPage={true}
+        />
 
         <header class="mb-8 sm:mb-12 md:mb-16 text-center">
           <h1

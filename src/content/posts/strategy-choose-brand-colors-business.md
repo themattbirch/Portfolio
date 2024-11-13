@@ -4,7 +4,7 @@ categories: ["Digital Marketing"]
 date: 06/28/2024
 featured: false
 image: /assets/images/brand-colors.jpg
-title: Strategy for choosing the right colors for your brand, business
+title: Strategy for choosing the right colors for your business
 description: Learn the strategy behind choosing the right colors for your brand or business, and how color psychology can influence customer perceptions, evoke emotions, and strengthen your brand identity.
 ---
 
@@ -12,13 +12,13 @@ Marketers have been leveraging the power of color psychology for years, and you 
 
 Use of color theory dates back to the days of traditional advertising, with agencies attempting to influence perception, drive behavior or set an agenda. And while different eras showcased different color schemes -- with bright, vibrant, accent colors being popular in the '70s, while the '90s saw a rise in the traditional red-black-white palette -- the methodology behind it remains the same.
 
-There are a number of reasons why agencies use color and music to affect mood and drive behavior. The most powerful one is that they target the irrational portion of the brain, otherwise known as the limbic system. It operates quite differently than the prefrontal cortex, which handles judgement, and rational decision making. For example, if you send a proposal to a client, they might focus on the cost, because it's a set number, which can be measured.
+There are a number of reasons why agencies use color and music to affect mood and drive behavior. The most powerful one is that they target the irrational portion of the brain, otherwise known as the limbic system. It operates quite differently than the prefrontal cortex, which handles judgment, and rational decision making. For example, if you send a proposal to a client, they might focus on the cost, because it's a set number, which can be measured.
 
 But the limbic system is quite different, as it's focused on emotions and feelings. Marketers use colors, music and messaging to make consumers feel a certain way, attempting to influence them into taking action.
 
 So what emotions are associated with colors? Read on to find out.
 
-## How to use color theory to fit your business strategy
+## How Color Theory Fits With Your Business' Brand Strategy
 
 - Red
 
@@ -30,7 +30,7 @@ The use of orange can draw attention, as it's vibrant, so it's viewed as being e
 
 - Pink
 
-This color is viewed as safe. That's why pink is commonly used for beauty brands, and children's' toys.
+This color is viewed as safe. That's why pink is commonly used for beauty brands, and children's toys.
 
 - Blue
 
@@ -56,7 +56,7 @@ We can't forget about the most shiny color. Gold is popular for logos that attem
 
 Last but not least, silver doesn't have much impact on [color psychology](https://www.verywellmind.com/color-psychology-2795824), but it does look cool. It's modern, and automotive companies love it.
 
-## Summary: Why color theory should be a part of your brand strategy
+## Why Color Theory Is So Important For Small Businesses
 
 Marketers and business owners both understand that using the right strategy to drive action is imperative to optimize conversion rate.
 

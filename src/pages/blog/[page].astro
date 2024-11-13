@@ -48,7 +48,7 @@ const categories = Array.from(
   new Set(posts.flatMap((post) => post.data.categories))
 );
 
-const pageTitle = "Matt Birch's Web Development Blog Pages";
+const pageTitle = "Matt Birch's Blog: Thoughts On Web Development, AI And More";
 const blogDescription =
   "Explore insightful articles about web development, digital marketing, SEO, and social media. Practical tips and professional insights for developers and marketers.";
 ---
@@ -76,7 +76,9 @@ const blogDescription =
           class="breadcrumb-category-container flex flex-col md:flex-row md:justify-between items-start lg:items-center w-full"
         >
           <Breadcrumb current={`Page ${page.currentPage}`} parent="Blog" />
-          <CategoryList categories={categories} />
+          <div class="hidden min-[865px]:block">
+            <CategoryList categories={categories} />
+          </div>
         </div>
 
         <div
