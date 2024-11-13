@@ -18,7 +18,7 @@ It's actually been three decades since web pages have been in existence, with Si
 
 Fast-forward to now, a world in which pets have their own blog—or an entire website, even. So how'd we get here?
 
-## The evolution of how businesses have leveraged web design
+## The Evolution Of How Businesses Have Leveraged Web Design
 
 Websites nowadays traditionally utilize a five-page design. They differ based on niche, audience demographics and marketing approach, but generally, they're comprised of the following pages:
 
@@ -42,7 +42,7 @@ Short attention spans and the era of "opt-in" marketing has given rise to the 3/
 
 So make sure you are designing your web page in a clear, professional manner. The "brochure" era is over.
 
-## Summary: Why modern web design is here to stay
+## Modern Web Design Is Here To Stay
 
 It's really a blast from the past when we go back and look at some old blogs and websites, from the GeoCities days, and even beforehand. There was so much text crowded onto a tiny page, generally on a traditional grey background. From a design perspective, it was a nightmare. And here's why that was problematic.
 
@@ -50,6 +50,6 @@ It's really a blast from the past when we go back and look at some old blogs and
 
 That's why we at Optimize Web Solutions utilize modern web design principles, with plenty of white space, and not so many elements. You won't find videos, unless our clients specifically request them to help show expertise or to model a product. E-Commerce websites can be a bit tricky, as a video or two can help sell the product, and a lot of photos are needed to be displayed as well. But there's ways to be creative, such as website optimization, and still adhere to best practices for modern design.
 
-Let your page breathe, tell your readers exactly who you are and what you do, and you can drill down to design principles and concepts from there. Just don't get caught up in going overboard with Javascript and embeddable media. It may look cool, but it won't perform well or convert.
+Let your page breathe, tell your readers exactly who you are and what you do, and you can drill down to design principles and concepts from there. Just don't get caught up in going overboard with JavaScript and embeddable media. It may look cool, but it won't perform well or convert.
 
 Trust us: Less is more. What was once the World Wide Web will soon be Web 3.0, and a lot has changed since that time, so it's important to adjust your website's approach accordingly.

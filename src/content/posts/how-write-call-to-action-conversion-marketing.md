@@ -18,7 +18,7 @@ As such, driving action using clever copy has increased in popularity over the p
 
 So while there are different opinions on how to drive action, which depend on both the individual approach and niche, there are some shared themes among them. Here are some strategies for how to create a call-to-action that works for your business.
 
-## Best practice, strategy for how to create a call-to-action to convert at a high rate
+## How To Create A Call-To-Action That Converts
 
 - Placement
 
@@ -28,7 +28,7 @@ Nowadays, however, that's usually not the case anymore, except for maybe on mobi
 
 - Size
 
-It should be related to the context of the page, desired outcome and other important characteristics. If there’s a graphic or image that strengths the message, a big CTA can help add value to and emphasize that message. Bigger CTAs will help draw attention to a desired outcome or action.
+It should be related to the context of the page, desired outcome and other important characteristics. If there’s a graphic or image that strengthens the message, a big CTA can help add value to and emphasize that message. Bigger CTAs will help draw attention to a desired outcome or action.
 
 However, if they're too big, they can overpower the other elements on the page, and can decrease the conversion rate. Smaller CTAs can be effective if the end user wants to feel in control of their decision.
 
@@ -46,7 +46,7 @@ Short, sweet and to the point copy works best. Describe what the user will get, 
 
 If a graphic accompanies your CTA, make sure it conveys meaning, and strengthens the message. It can also be effective to add a shape next to a CTA button, as long as it's not a distraction.
 
-## Summary: How a CTA can help grow your business
+## Effective CTAs Can Help Grow Your Business
 
 Content marketing is important for lead generation and nurturing your audience, as providing value to them can help build trust. But that copy should also include at least one call-to-action, so they'll take the desired action you want them to. Otherwise, you may not get the return you're seeking for your content.
 

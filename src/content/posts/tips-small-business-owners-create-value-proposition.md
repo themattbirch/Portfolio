@@ -18,7 +18,7 @@ Positioning is a major part of brand strategy, and finding the right differentia
 
 To give your business the best chance of survival, it's vital to create a compelling value proposition that separates you from your competitors. Here are some tips to accomplish exactly that.
 
-## Best practices, strategies for creating a value proposition for small businesses
+## Best Practices For Creating A Value Proposition
 
 (Medium and large businesses that have grown enough to fall into that category generally don't need help with their value proposition, so we're going to focus on small ones. But these tips would generally apply for all businesses as a whole.)
 
@@ -26,12 +26,15 @@ A [great value proposition](https://www.helpscout.com/blog/value-proposition-exa
 
 - Show how you solve a problem better than your competition.
 
-- Use a single-sentence headline.It's sometimes accompanied by a sub-headline, and is often the first bit of copy you'll see above the fold on a company's website.
-- Contain one key selling point, to differentiate you from your competition.It should focus on why consumers should choose you over the rest of the pack.
+- Use a single-sentence headline. It's sometimes accompanied by a sub-headline, and is often the first bit of copy you'll see above the fold on a company's website.
+
+- Contain one key selling point, to differentiate you from your competition. It should focus on why consumers should choose you over the rest of the pack.
+
 - Copy should be clear and concise, and must focus on benefits, rather than features.
+
 - Give consumers a compelling reason to buy from you over your competitors.
 
-## Summary: How to create a value proposition to position your business in its market vertical
+## How To Use A Strong Value Proposition To Position Your Business
 
 Market positioning is often overlooked, but is one of the most important factors for the success of any business.
 

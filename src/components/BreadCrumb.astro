@@ -1,34 +1,39 @@
 ---
 export interface Props {
-  current: string;
+  current?: string; // Make current optional
   parent?: string;
   className?: string;
+  hideCurrentPage?: boolean; // Add new prop
 }
 
-const { current, parent } = Astro.props;
+const { current, parent, hideCurrentPage = false } = Astro.props;
 ---
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb whitespace-nowrap">
-    <li class="breadcrumb-item inline-block">
+  <ol class="breadcrumb flex flex-wrap items-center">
+    <li class="breadcrumb-item whitespace-nowrap">
       <a href="/">Home</a>
     </li>
     {
       parent && (
-        <li class="breadcrumb-item inline-block">
+        <li class="breadcrumb-item whitespace-nowrap">
           <a href="/blog">{parent}</a>
         </li>
       )
     }
-    <li class="breadcrumb-item inline-block active" aria-current="page">
-      {current}
-    </li>
+    {
+      !hideCurrentPage && current && (
+        <li class="breadcrumb-item break-words" aria-current="page">
+          {current}
+        </li>
+      )
+    }
   </ol>
 </nav>
 
 <style>
   .breadcrumb {
-    @apply flex items-center text-base md:text-lg text-gray-600 min-w-max;
+    @apply text-base md:text-lg text-gray-600;
   }
 
   .breadcrumb-item {
@@ -37,8 +42,7 @@ const { current, parent } = Astro.props;
 
   .breadcrumb-item:not(:last-child)::after {
     content: "/";
-    @apply mx-1 sm:mx-2;
-    white-space: pre;
+    @apply mx-1 sm:mx-2 whitespace-nowrap;
   }
 
   .breadcrumb-item a {

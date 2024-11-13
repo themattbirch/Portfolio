@@ -4,7 +4,7 @@ categories: ["AI"]
 date: "10/18/2024"
 featured: true
 image: /assets/images/ai-large-language-model.jpg
-title: "Comparing Popular Large Language Models: AI Race Heats Up"
+title: "Comparing popular large language models: AI race heats up"
 description: "Explore a comprehensive comparison of popular large language models, examining their capabilities, strengths, and applications to help you choose the right AI tool for your needs."
 ---
 
@@ -16,15 +16,15 @@ We're witnessing a fascinating shift in both technical capabilities and business
 
 The journey from GPT-2 to GPT-4 and beyond represents one of the most rapid technological advances in recent history.
 
-However, we're beginning to see some limitations surrounding the techology. Compute power and processing speed have been persistent bottlenecks, which is what makes GPT-4's performance improvements so significant. The model shows enhanced capabilities in several critical areas:
+However, we're beginning to see some limitations surrounding the technology. Compute power and processing speed have been persistent bottlenecks, which is what makes GPT-4's performance improvements so significant. The model shows enhanced capabilities in several critical areas:
 
-- Multimodal processing (text, audio, and visual inputs)
+- Multimodal processing (text, audio, and visual inputs).
 
-- More nuanced understanding of conversational context
+- More nuanced understanding of conversational context.
 
-- Improved processing speed and performance
+- Improved processing speed and performance.
 
-- Better grasp of tone and sentiment
+- Better grasp of tone and sentiment.
 
 But these improvements also highlight a crucial reality: we may be approaching the limits of what's possible with current training methodologies. And it may be time to pump the brakes a bit.
 
@@ -49,8 +49,6 @@ Google's strategy centers on integration, weaving LLM capabilities throughout it
 OpenAI's counter-move into search, while seemingly logical, plays directly into Google's strengths. As the disruptor becomes the challenger, OpenAI must now compete on Google's home turf. Their partnerships with (Microsoft's) Bing and potentially Apple represent crucial steps in building the distribution network and user relationships necessary to compete effectively.
 
 For a more holistic view: This [Labellerr infographic](https://www.labellerr.com/blog/an-introduction-to-large-language-models-llms/) shows a number of different large language models in the AI space.
-
-![different large language models](/assets/images/large-language-models.jpg)
 
 ## Expensive Training Wheels: The Data Dilemma
 
@@ -112,6 +110,6 @@ The winner in this race won't necessarily be the company with the largest model 
 
 Don't forget about the picks and the shovels, either. NVIDIA, AMD, ARM, Arista Networks, Microsoft and Meta will play a big role here, and will be major players as well.
 
-Traditionally, we've seen a dominant tech oligopoly, with a few behemoth companies that rely on lobbying and donating to political compaigns. And they don't lose. So I expect a few big winners, while everyone else fights for whatever scraps are left, unfortunately.
+Traditionally, we've seen a dominant tech oligopoly, with a few behemoth companies that rely on lobbying and donating to political campaigns. And they don't lose. So I expect a few big winners, while everyone else fights for whatever scraps are left, unfortunately.
 
 But it will be fun to watch, that's for sure. Buckle up!

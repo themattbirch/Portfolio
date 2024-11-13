@@ -16,21 +16,21 @@ But it takes a lot of work to warm up a cold lead. Nurturing with valuable infor
 
 This logic makes sense, but it's not as simple as it may seem on paper, in terms of user journey. It's important to build a sales funnel to generate leads and warm them up, hopefully leading to one or more conversions. We've got some advice for how to do exactly that.
 
-## Tips for building a sales funnel with a simple user journey
+## Tips For Building A Sales Funnel
 
 It all starts with simplicity, because a confused mind never buys. The user journey in your sales funnel should only include a few steps, and should be as simple as possible, to prevent against potentially dropping out of the funnel, or fracturing the relationship.
 
-- Create a strong value proposition,as this will provide a framework for your sales funnel. It will usually be in the form of "We help [target] with [problem] by [solution]," and, if needed, you can learn some tips to create a value proposition. Identifying your value proposition will help you focus on your target audience, and also how you can move them down the funnel, to your desired outcome (sales, shares, etc.).
+- Create a strong value proposition, as this will provide a framework for your sales funnel. It will usually be in the form of "We help [target] with [problem] by [solution]," and, if needed, you can learn some tips to create a value proposition. Identifying your value proposition will help you focus on your target audience, and also how you can move them down the funnel, to your desired outcome (sales, shares, etc.).
 
-- Utilize the hook-story offer formula.Begin with a hook to capture the user's attention. This can come in the form of a creative headline, image or video, and it simply needs to grab their attention long enough for you to tell your story.It's at that point when you empathize with the consumer in telling your story. Explain where you started, and the journey to where you are now. It should include pain points the user is experiencing.
+- Utilize the hook-story offer formula. Begin with a hook to capture the user's attention. This can come in the form of a creative headline, image or video, and it simply needs to grab their attention long enough for you to tell your story. It's at that point when you empathize with the consumer in telling your story. Explain where you started, and the journey to where you are now. It should include pain points the user is experiencing.
 
 - End by presenting an offer in a way where the user has to say yes. Make it irresistible. The offer obviously depends on what you’re selling (ie., physical product, information product, service, etc.). But a good starting point is to restructure what you’re selling, and then turn it into an offer. An offer should increase the perceived value of what you’re selling, by showing the client that they’re going to make money from it. It should also be unique to your business, with terms or deliverables they can't get elsewhere.
 
-- Identify goals and strategies for each step of the funnel.It should begin with lead generation at the top of the funnel, where you'll use various traction channels (ie., website, social media, paid ads, etc.) to get cold leads into your ecosystem.You'll then try to move them down the funnel with steps to nurture them, which can be done with direct communication, email campaigns (often automated), social media interactions and more. This will allow you to provide value and establish a relationship with your lead, helping to warm them up. The more they trust and believe in your brand, the longer they'll stick around, which makes them more likely to buy, essentially moving them down the funnel.
+- Identify goals and strategies for each step of the funnel. It should begin with lead generation at the top of the funnel, where you'll use various traction channels (ie., website, social media, paid ads, etc.) to get cold leads into your ecosystem. You'll then try to move them down the funnel with steps to nurture them, which can be done with direct communication, email campaigns (often automated), social media interactions and more. This will allow you to provide value and establish a relationship with your lead, helping to warm them up. The more they trust and believe in your brand, the longer they'll stick around, which makes them more likely to buy, essentially moving them down the funnel.
 
 - Introduce upsells at the bottom of the funnel for more active buyers.Not all conversions are created equal. If you find some users are more active buyers than others, then it's beneficial to contact them directly to suggest various upsells they can purchase to complement the action they've already taken. Explain to them why these features will benefit them.
 
-## Summary: The value in creating a sales funnel for your business
+## The Value In Creating A Sales Funnel For Your Business
 
 Any business owner knows how difficult it can be to generate leads consistently.
 
