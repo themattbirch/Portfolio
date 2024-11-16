@@ -1,89 +1,122 @@
 /* Global CSS Variables (index.astro) */
 :root {
-    --gradient-primary: linear-gradient(to right, #2563eb, #3b82f6);
-    --gradient-secondary: linear-gradient(to right, #2563eb, #1e40af);
-    --gradient-hover: linear-gradient(to right, #1d4ed8, #2563eb);
-    --gradient-mobile: linear-gradient(to right, #5499df, #2563a7);
+  --gradient-primary: linear-gradient(to right, #2563eb, #3b82f6);
+  --gradient-secondary: linear-gradient(to right, #2563eb, #1e40af);
+  --gradient-hover: linear-gradient(to right, #1d4ed8, #2563eb);
+  --gradient-mobile: linear-gradient(to right, #5499df, #2563a7);
 }
 
 :root.dark {
-    --gradient-secondary: linear-gradient(45deg, #3B82F6, #60A5FA);
+  --gradient-secondary: linear-gradient(45deg, #3b82f6, #60a5fa);
 }
 
 .hero-container {
-    @apply relative h-[66vh] lg:h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16;
+  @apply relative h-[66vh] lg:h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16;
 }
 
 #hero-background {
-    transition: background-image 0.5s ease;
+  transition: background-image 0.5s ease;
 }
 
 .hero-gradient-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(to bottom, rgba(233, 238, 244, 0), rgba(233, 238, 244, 1));
-    pointer-events: none;
-    transition: background 0.5s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(233, 238, 244, 0),
+    rgba(233, 238, 244, 1)
+  );
+  pointer-events: none;
+  transition: background 0.5s ease;
 }
 
 .dark .hero-gradient-overlay {
-    background: linear-gradient(to bottom,
-            rgba(17, 24, 39, 0) 0%,
-            rgba(17, 24, 39, 0.5) 70%,
-            rgba(17, 24, 39, 0.8) 100%);
-    filter: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 24, 39, 0) 0%,
+    rgba(17, 24, 39, 0.5) 70%,
+    rgba(17, 24, 39, 0.8) 100%
+  );
+  filter: none;
 }
 
 .gradient-text {
-    @apply text-transparent bg-clip-text;
-    background-image: var(--gradient-secondary);
+  @apply text-transparent bg-clip-text;
+  background-image: var(--gradient-secondary);
 }
 
 .hero-title {
-    @apply font-extrabold tracking-tight text-5xl lg:text-6xl xl:text-7xl mb-2 sm:max-w-sm md:max-w-md lg:max-w-full;
-    color: #60a5fa;
+  @apply font-extrabold tracking-tight text-5xl lg:text-6xl xl:text-7xl mb-2 sm:max-w-sm md:max-w-md lg:max-w-full;
+  color: #60a5fa;
 }
 
 .hero-tagline {
-    @apply mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 max-w-2xl;
+  @apply mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 max-w-2xl;
 }
 
 .hero-cta {
-    @apply mt-6 sm:mt-8 md:mt-10;
+  @apply mt-6 sm:mt-8 md:mt-10;
 }
 
 .hero-button {
-    @apply text-sm sm:text-base md:text-lg text-white font-bold rounded-full;
-    background-image: var(--gradient-primary);
-    padding: 0.75rem 1.5rem;
-    transition: all 0.3s ease;
+  @apply text-sm sm:text-base md:text-lg text-white font-bold rounded-full;
+  background-image: var(--gradient-primary);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .hero-button:hover {
-    background-image: var(--gradient-hover);
-    transform: scale(1.05);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-image: var(--gradient-hover);
+  transform: scale(1.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 1023px) {
+  .image-container img {
+    width: 45vw;
+    height: 35vh;
+    max-width: 1000px;
+  }
+
+  .deliver-text {
+    position: absolute;
+    top: 56%;
+    left: 30%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    max-width: 90%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .deliver-text {
+    background-color: rgba(17, 24, 39, 0.9);
+  }
 }
 
 @media (min-width: 640px) {
-    .hero-button {
-        padding: 1rem 2rem;
-    }
+  .hero-button {
+    padding: 1rem 2rem;
+  }
 }
 
 @media (max-width: 640px) {
-    .hero-container {
-        height: 80vh;
-    }
+  .hero-container {
+    height: 80vh;
+  }
 
-    .hero-button {
-        background-image: var(--gradient-secondary);
-    }
+  .hero-button {
+    background-image: var(--gradient-secondary);
+  }
 
-    .hero-button:hover {
-        background-image: var(--gradient-hover);
-    }
+  .hero-button:hover {
+    background-image: var(--gradient-hover);
+  }
 }

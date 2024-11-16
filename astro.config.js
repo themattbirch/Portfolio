@@ -25,4 +25,11 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  vite: {
+    resolve: {
+      alias: {
+        '@': '/src'
+      }
+    }
+  }
 });
