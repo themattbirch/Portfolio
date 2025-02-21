@@ -4,9 +4,11 @@ categories: ["Digital Marketing"]
 date: 05/12/2023
 featured: false
 image: /assets/images/write-marketing-call-to-action.jpg
-title: How to write a call-to-action that optimizes conversions
+title: "How to write a call-to-action that optimizes conversions"
 description: Discover effective strategies for writing powerful call-to-action (CTA) phrases that optimize conversions, drive engagement, and encourage your audience to take action on your offers or services.
 ---
+
+# How to write a call-to-action that optimizes conversions
 
 Digital marketing is all the rage these days, but there are still a number of traditional strategies in use, many of which have existed for decades.
 

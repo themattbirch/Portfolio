@@ -4,9 +4,11 @@ categories: ["Digital Marketing"]
 date: 10/9/2024
 featured: false
 image: /assets/images/coworkers-communicating.jpg
-title: Strengthen your soft skills to unlock career success
+title: "Strengthen your soft skills to unlock career success"
 description: Discover how improving your soft skills can unlock new career opportunities and lead to greater success. Learn essential interpersonal, communication, and problem-solving skills to thrive in any workplace.
 ---
+
+# Strengthen your soft skills to unlock career success
 
 Technical expertise is no longer enough to propel your career forward.
 

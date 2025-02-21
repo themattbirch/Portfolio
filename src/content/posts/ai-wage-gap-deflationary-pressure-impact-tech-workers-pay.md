@@ -4,9 +4,11 @@ categories: ["AI"]
 date: "11/22/2024"
 featured: false
 image: /assets/images/ai-chatgpt-logo.jpg
-title: "The AI wage paradox: how deflationary pressure will impact tech workers"
+title: "The AI wage paradox: How deflationary pressure will impact tech workers"
 description: "Explore how AI is reshaping the tech workforce. Learn why automation's deflationary pressure could lower wages for tech professionals and what it means for the industry’s future."
 ---
+
+# The AI wage paradox: How deflationary pressure will impact tech workers
 
 Both workers and the companies that employ them are witnessing a paradigm shift of epic proportions in the tech sector. AI capabilities are surging forward, and we're seeing a paradox emerge that challenges conventional wisdom about technology and wages.
 

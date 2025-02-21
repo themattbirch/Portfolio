@@ -4,9 +4,11 @@ categories: ["Digital Marketing"]
 date: 06/28/2024
 featured: false
 image: /assets/images/brand-colors.jpg
-title: Strategy for choosing the right colors for your business
+title: "Strategy for choosing the right colors for your business"
 description: Learn the strategy behind choosing the right colors for your brand or business, and how color psychology can influence customer perceptions, evoke emotions, and strengthen your brand identity.
 ---
+
+# Strategy for choosing the right colors for your business
 
 Marketers have been leveraging the power of color psychology for years, and you can apply some of their methods to help grow your business.
 

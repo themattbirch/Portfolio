@@ -4,9 +4,11 @@ categories: ["SEO"]
 date: 11/09/2023
 featured: false
 image: /assets/images/user-phone-review.jpg
-title: The importance of getting testimonials, reviews for small businesses
+title: "The importance of getting testimonials, reviews for small businesses"
 description: Learn why testimonials and reviews are crucial for small businesses, helping to build trust, boost credibility, and attract new customers by showcasing positive experiences from satisfied clients.
 ---
+
+# The importance of getting testimonials, reviews for small businesses
 
 Social proof is a necessity for small businesses—especially those in the early stage—in the digital world we live in today.
 

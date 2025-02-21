@@ -4,9 +4,11 @@ categories: ["Digital Marketing"]
 date: 09/18/2022
 featured: false
 image: /assets/images/tiktok.jpg
-title: Key comparisons of major social media sites used by businesses, brands for marketing strategy
+title: "Key comparisons of major social media sites used by businesses, brands for marketing strategy"
 description: Compare the key features, demographics, and marketing potential of major social media platforms. Learn which channels best suit your business goals, audience targeting, and content strategy.
 ---
+
+# Key comparisons of major social media sites used by businesses, brands for marketing strategy
 
 It's been roughly two decades since social media networks came into existence, and since that time, they've completely changed how people around the world communicate, do business and approach their daily routine.
 

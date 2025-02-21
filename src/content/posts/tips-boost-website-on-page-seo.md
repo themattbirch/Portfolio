@@ -4,9 +4,11 @@ categories: ["SEO"]
 date: 04/08/2024
 featured: false
 image: /assets/images/seo-laptop.jpg
-title: How to boost your website's on-page SEO
+title: "How to boost your website's on-page SEO"
 description: Learn actionable tips to boost your website's on-page SEO, improve search engine rankings, and drive organic traffic through optimized content, meta tags, keywords, and user-friendly design
 ---
+
+# How to boost your website's on-page SEO
 
 SEO has changed quite a bit over the years, and there are a lot of factors to monitor if you want your website to rank well.
 

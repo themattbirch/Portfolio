@@ -4,9 +4,11 @@ categories: ["Web Development"]
 date: 12/20/2022
 featured: false
 image: /assets/images/two-web-designers.jpg
-title: A look back at how websites have evolved using modern web design principles
+title: "A look back at how websites have evolved using modern web design principles"
 description: Explore the evolution of websites and how modern web design principles have transformed the way brands build engaging, user-friendly digital experiences for their audiences.
 ---
+
+# A look back at how websites have evolved using modern web design principles
 
 Web design is one of the hottest industries right now, as the pandemic gave rise to E-Commerce businesses, and also caused some people to reevaluate their career choice and learn new skills.
 

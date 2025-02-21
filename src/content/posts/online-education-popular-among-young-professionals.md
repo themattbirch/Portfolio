@@ -8,6 +8,8 @@ title: "Why Gen Z is flocking to online education"
 description: "Discover why online education is becoming increasingly popular among young professionals. Learn how flexible, skill-focused courses are helping them advance their careers and stay competitive in a rapidly evolving job market."
 ---
 
+# Why Gen Z is flocking to online education
+
 There's been a seismic shift in how professionals approach learning today.
 
 As web developers and tech professionals, we see it firsthand. This industry moves too quickly for traditional education alone. Recent data backs this up—78% of tech professionals now supplement their learning through online platforms.

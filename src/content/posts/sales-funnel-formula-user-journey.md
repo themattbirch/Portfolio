@@ -4,9 +4,11 @@ categories: ["Digital Marketing"]
 date: 08/24/2023
 featured: false
 image: /assets/images/sales-funnel.jpg
-title: The perfect sales funnel formula for a defined user journey
+title: "The perfect sales funnel formula for a defined user journey"
 description: Uncover the perfect sales funnel formula designed to guide your audience through a well-defined user journey, maximizing engagement, nurturing leads, and boosting conversions at every stage of the funnel.
 ---
+
+# The perfect sales funnel formula for a defined user journey
 
 Much has changed in business and marketing trends over the past year, but lead generation continues to remain important.
 

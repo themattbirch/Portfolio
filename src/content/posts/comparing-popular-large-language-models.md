@@ -8,6 +8,8 @@ title: "Comparing popular large language models: AI race heats up"
 description: "Explore a comprehensive comparison of popular large language models, examining their capabilities, strengths, and applications to help you choose the right AI tool for your needs."
 ---
 
+# Comparing popular large language models: AI race heats up
+
 Anyone who isn't currently living under a rock knows that the Large Language Models (LLMs) landscape is evolving rapidly.
 
 We're witnessing a fascinating shift in both technical capabilities and business strategies that's reshaping the future of artificial intelligence. And here's what you need to know about it.
