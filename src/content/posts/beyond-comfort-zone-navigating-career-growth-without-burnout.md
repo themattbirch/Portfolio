@@ -10,13 +10,13 @@ description: "Discover how strategic discomfort accelerates career growth while 
 
 # Beyond the comfort zone: Navigating career growth without burnout
 
-The comfort zone—where careers go to plateau, not grow.
+The comfort zone—where careers go to plateau.
 
-Nothing is more detrimental to career growth than stagnation.
+Nothing is more detrimental to growth than stagnation. This is a simple fact, and it applies to every area of our lives.
 
-Experts believe the optimal state for sustainable growth is “manageable difficulty”—challenges that stretch your abilities without overwhelming your brain and body.
+Experts believe the optimal state for sustainable growth is by leveraging manageable difficulty—challenges that stretch your abilities without overwhelming your body and mind.
 
-Striking the perfect balance between comfort, learningr, and occasional fast growth zones—while avoiding burnout—creates the ideal conditions for both career advancement and long-term brain health.
+Striking the perfect balance between comfort, learning, and occasional fast growth zones—while avoiding burnout—creates the ideal conditions for both career advancement and long-term brain health.
 
 ![Career Growth Zones Chart](/assets/images/career-growth-zones.jpg)
 
@@ -115,7 +115,7 @@ Career success isn't about permanently inhabiting one zone, but rather moving st
 
 Many successful knowledge workers alternate between the learning zone and short, strategic ventures into the fast growth zone.
 
-This powerful tandem allows them to onsolidate the skills gained during learning phases, but also break through into growth. And it's sustainable, as it can be applied during both short and long-term time horizons.
+This powerful tandem allows them to consolidate the skills gained during learning phases, but also break through into growth. And it's sustainable, as it can be applied during both short and long-term time horizons.
 
 ### Recovery-Challenge Cycle
 
@@ -135,7 +135,7 @@ Eminem said it best.
 
 Sometimes extraordinary growth opportunities appear unexpectedly. When they do, you have to run through that door.
 
-It's import to identify these opportunities when they appear, as they're rare acceleration points in your career. And, if possible, you should temporarily reorganize other commitments.
+It's important to identify these opportunities when they appear, as they're rare acceleration points in your career. And, if possible, you should temporarily reorganize other commitments.
 
 Go all in.
 
