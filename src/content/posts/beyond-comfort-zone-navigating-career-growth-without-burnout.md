@@ -125,7 +125,7 @@ And, when your batteries are recharged, you can return to higher-challenge zones
 
 I know all about this strategy, because I myself follow it.
 
-_And if we're being honest, I spend the majority of it outside the comfort zone, aside from a few vacation days a year for decompression-based retreats in nature._
+_And if we're being honest, I spend the majority of my life outside the comfort zone, aside from a few vacation days a year for decompression-based retreats in nature._
 
 This cycle acknowledges that humans need recovery and prevents burnout while still enabling advancement.
 
