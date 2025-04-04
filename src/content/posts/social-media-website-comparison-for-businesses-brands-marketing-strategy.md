@@ -8,8 +8,6 @@ title: "Key comparisons of major social media sites used by businesses, brands f
 description: Compare the key features, demographics, and marketing potential of major social media platforms. Learn which channels best suit your business goals, audience targeting, and content strategy.
 ---
 
-# Key comparisons of major social media sites used by businesses, brands for marketing strategy
-
 It's been roughly two decades since social media networks came into existence, and since that time, they've completely changed how people around the world communicate, do business and approach their daily routine.
 
 For Millennials and Gen X'ers, it all began in 2003, when Myspace first launched. Having one's own page—which was more of a personal blog than anything—was the best way to express oneself digitally. But the most important part of Myspace's value proposition centered around connecting users around the world in the form of comments and direct messages.

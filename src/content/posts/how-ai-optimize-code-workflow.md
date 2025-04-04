@@ -8,8 +8,6 @@ title: "How to use Large Language Models to optimize your workflow"
 description: "Learn how to leverage large language models to streamline and enhance your workflow. Discover practical applications for automating tasks, improving productivity, and boosting efficiency in your daily operations."
 ---
 
-# How to use Large Language Models to optimize your workflow
-
 The integration of Large Language Models (LLMs) into daily work routines has transformed how professionals approach routine tasks. Like many developers, I initially saw ChatGPT as just another fancy chatbot. But after six months of daily use, I've discovered that LLMs are far more than writing assistants—they've become indispensable partners in my development process.
 
 I've transformed my daily workflow using these AI tools, and trust me, it goes way beyond just generating code snippets.

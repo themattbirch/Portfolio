@@ -8,8 +8,6 @@ title: "How to optimize website performance after Google Page Experience update 
 description: Google finally rolled out the Page Experience update for Core Web Vitals. Here's what marketers and bloggers can do to optimize their website performance.
 ---
 
-# How to optimize website performance after Google Page Experience update rollout
-
 The Google Page Experience algorithm update was rolled out globally to users on Tuesday, and Core Web Vitals is no longer alone as the hot topic of discussion dominating headlines in the online media world.
 
 Don’t expect any drastic or immediate changes, though. Page Experience is being rolled out slowly, according to Google, with the new algorithm set to be implemented in its entirety to all users by the end of August.

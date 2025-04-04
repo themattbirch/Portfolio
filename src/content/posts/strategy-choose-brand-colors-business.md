@@ -8,8 +8,6 @@ title: "Strategy for choosing the right colors for your business"
 description: Learn the strategy behind choosing the right colors for your brand or business, and how color psychology can influence customer perceptions, evoke emotions, and strengthen your brand identity.
 ---
 
-# Strategy for choosing the right colors for your business
-
 Marketers have been leveraging the power of color psychology for years, and you can apply some of their methods to help grow your business.
 
 Use of color theory dates back to the days of traditional advertising, with agencies attempting to influence perception, drive behavior or set an agenda. And while different eras showcased different color schemes -- with bright, vibrant, accent colors being popular in the '70s, while the '90s saw a rise in the traditional red-black-white palette -- the methodology behind it remains the same.

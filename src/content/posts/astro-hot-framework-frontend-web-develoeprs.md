@@ -8,8 +8,6 @@ title: "Why Astro is the hot framework for frontend developers"
 description: "Find out why Astro is gaining popularity among frontend developers. Explore its unique features, performance benefits, and how it simplifies building fast, modern websites with ease."
 ---
 
-# Why Astro is the hot framework for frontend developers
-
 The web development landscape has witnessed the rise of numerous frameworks. As we all know, it's all about the new flavor of the month.
 
 But Astro has emerged as a standout choice for frontend devs. Its innovative approach to building content-rich websites has caught the attention of major players, with industry leaders like MDN Web Docs, Vercel and Netlify all incorporating it into their tech stack.

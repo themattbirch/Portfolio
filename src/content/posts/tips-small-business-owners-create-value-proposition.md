@@ -8,8 +8,6 @@ title: "Tips for small business owners to create a value proposition"
 description: Learn essential tips for small business owners on how to craft a compelling value proposition that clearly communicates your brand’s unique benefits and sets you apart from the competition.
 ---
 
-# Tips for small business owners to create a value proposition
-
 There were over 30.2 million registered businesses in the United States in 2020, so standing out from the rest of the pack continues to grow in importance.
 
 Small businesses dominate the overall landscape, as 99.9% of all registered businesses in the country are of the small variety. Each vertical market has different requirements to be classified as a small, medium or large business, in terms of average annual revenue or number of employees.
