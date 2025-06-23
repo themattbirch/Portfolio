@@ -12,8 +12,8 @@ export default defineConfig({
   output: "server",
   adapter: node({
     mode: "standalone",
-    host: process.env.HOST || "0.0.0.0",
-    port: process.env.PORT || 3001,
+    host: true,
+    port: process.env.PORT,
   }),
   integrations: [
     tailwind({
