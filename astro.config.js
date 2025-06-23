@@ -1,5 +1,4 @@
 // astro.config.js
-
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
@@ -10,21 +9,11 @@ import node from "@astrojs/node";
 export default defineConfig({
   site: process.env.BASE_URL || "https://mattbirch.co",
   output: "server",
-  adapter: node({
-    mode: "standalone",
-    host: "0.0.0.0",
-    port: process.env.PORT,
-  }),
+  adapter: node({ mode: "standalone" }), // no host/port here
   integrations: [
-    tailwind({
-      config: { path: "./tailwind.config.js" },
-    }),
+    tailwind({ config: { path: "./tailwind.config.js" } }),
     react(),
     icon(),
-    sitemap({
-      changefreq: "weekly",
-      priority: 0.7,
-      lastmod: new Date(),
-    }),
+    sitemap({ changefreq: "weekly", priority: 0.7, lastmod: new Date() }),
   ],
 });
