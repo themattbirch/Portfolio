@@ -9,7 +9,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: process.env.BASE_URL || "https://mattbirch.co",
   output: "server",
-  adapter: node({ mode: "standalone" }), // ← no host/port here
+  adapter: node({ mode: "middleware" }), // ← change
   integrations: [
     tailwind({ config: { path: "./tailwind.config.js" } }),
     react(),

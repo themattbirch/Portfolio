@@ -4,10 +4,9 @@
   "version": "1.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "node dist/server/entry.mjs",
     "build": "astro check && astro build",
+    "start": "NODE_ENV=production node server.mjs",
     "preview": "astro preview",
-    "astro": "astro",
     "clean": "rm -rf node_modules .astro dist"
   },
   "engines": {
@@ -26,6 +25,7 @@
     "astro-icon": "^1.1.1",
     "astro-navbar": "^2.3.3",
     "date-fns": "^3.6.0",
+    "express": "^5.1.0",
     "kwesforms": "^2.2.9",
     "lucide-react": "^0.454.0",
     "markdown-it": "^14.1.0",
