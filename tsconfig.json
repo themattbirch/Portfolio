@@ -1,22 +1,18 @@
+// tsconfig.json
 {
-  "$schema": "./schema/tsconfig.schema.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
-      "skipLibCheck": true,
+    "skipLibCheck": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    },
-     "typeRoots": ["./src/types", "./node_modules/@types"],
-    "types": ["astro/client"],
-    "moduleResolution": "node",
-"esModuleInterop": true,
-"allowSyntheticDefaultImports": true
- },
-"include": ["src", "tests", "scripts"],
-"exclude": ["node_modules", "dist"]
+    }
+  },
+  "include": ["src", "tests", "scripts"],
+  "exclude": ["node_modules", "dist"]
 }
