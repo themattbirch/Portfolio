@@ -11,7 +11,7 @@ const app = express();
 // static assets built to dist/client
 app.use(express.static(join(__dirname, "dist/client")));
 
-app.all("*", (req, res, next) => ssr(req, res, next));
+app.use("/", (req, res, next) => ssr(req, res, next));
 
 const port = process.env.PORT || 3000; // Render injects PORT
 app.listen(port, "0.0.0.0", () =>
