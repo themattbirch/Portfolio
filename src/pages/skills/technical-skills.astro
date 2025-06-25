@@ -3,79 +3,126 @@ import SkillsComponent from "@/components/SkillsComponent.astro";
 import Layout from "@/layouts/Layout.astro";
 import {
   Code,
-  FileCode,
-  Braces,
-  Globe,
   Laptop,
-  Globe2,
   Server,
-  Search,
+  Brain,
+  Users,
+  Smartphone,
+  Database,
+  GitMerge,
+  Settings,
   PenTool,
+  Search,
+  Globe2,
 } from "lucide-react";
 
+// --- The 6 Pillars of Expertise ---
 const coreSkills = [
   {
-    name: "HTML",
+    name: "Full-Stack Development",
     description:
-      "Proficient in creating structured, semantic markup for both static and dynamic web applications.",
+      "I build complete, end-to-end web applications, handling everything from the server-side logic and database interactions to the interactive user interface.",
     icon: Code,
   },
   {
-    name: "CSS",
+    name: "Frontend Architecture",
     description:
-      "Skilled in manipulating the DOM using Cascading Style Sheets to style and lay out web pages.",
-    icon: FileCode,
-  },
-  {
-    name: "JavaScript",
-    description:
-      "Expert in modern JavaScript, including ES6+ features, DOM manipulation, and asynchronous programming.",
-    icon: Braces,
-  },
-];
-
-const additionalSkills = [
-  {
-    name: "Astro",
-    description:
-      "Build fast, content-focused websites with Astro's modern features and optimal client-side performance.",
-    icon: Globe,
-  },
-  {
-    name: "React",
-    description:
-      "Skilled in creating dynamic user interfaces with React, including hooks, context, and state management.",
+      "I specialize in creating fast, scalable, and maintainable user interfaces using modern frameworks like React and Next.js, with a deep focus on component design and state management.",
     icon: Laptop,
   },
   {
-    name: "WordPress",
+    name: "Backend & API Development",
     description:
-      "Proficient in custom WordPress development, from theme creation to plugin integration, delivering tailored solutions for unique brand needs.",
-    icon: Globe2,
+      "I design and build secure, efficient RESTful APIs with Node.js and Express, enabling clean data flow between the client, server, and third-party services.",
+    icon: Server,
   },
   {
-    name: "Node.js",
+    name: "AI Integration",
     description:
-      "Familiar with server-side development, API integration, and backend architecture.",
+      "I leverage large language models like GPT-4 and Claude to build intelligent, dynamic features that create smarter and more personalized user experiences.",
+    icon: Brain,
+  },
+  {
+    name: "Product-Minded Engineering",
+    description:
+      "With a founder's perspective, I focus on the 'why' behind the work. I build features that align with business goals and deliver tangible value to the end-user.",
+    icon: Users,
+  },
+  {
+    name: "Mobile & PWA Development",
+    description:
+      "I create responsive, native-like experiences on any device by building installable Progressive Web Apps (PWAs) that are reliable, fast, and work offline.",
+    icon: Smartphone,
+  },
+];
+
+// --- The Toolbox (Additional Expertise) ---
+const additionalSkills = [
+  {
+    name: "JavaScript & TypeScript",
+    description:
+      "Writing clean, modern, and type-safe JavaScript (ES6+) for robust application logic.",
+    icon: Code,
+  },
+  {
+    name: "React & Next.js",
+    description:
+      "Building component-based UIs with the most powerful and popular frontend library and framework.",
+    icon: Laptop,
+  },
+  {
+    name: "Node.js & Express",
+    description:
+      "Creating fast and scalable backend services for your application's core logic.",
     icon: Server,
+  },
+  {
+    name: "Databases & BaaS (Supabase)",
+    description:
+      "Structuring data with PostgreSQL and leveraging the full Supabase platform for authentication, storage, and auto-generated RESTful APIs.",
+    icon: Database,
+  },
+  {
+    name: "Astro",
+    description:
+      "Developing blazingly fast, content-focused websites with a modern, island-based architecture.",
+    icon: Settings,
+  },
+  {
+    name: "HTML5 & CSS3",
+    description:
+      "Expert-level command of the foundational building blocks of the web, including modern CSS layouts.",
+    icon: PenTool,
+  },
+  {
+    name: "Version Control (Git)",
+    description:
+      "Managing codebases and collaborating with teams efficiently using Git and platforms like GitHub.",
+    icon: GitMerge,
   },
   {
     name: "SEO & Content Strategy",
     description:
-      "Utilize SEO copywriting expertise to improve organic search visibility and drive targeted traffic for small and medium-sized businesses.",
+      "Drawing on my media background to inform technical SEO and content decisions that drive organic growth.",
     icon: Search,
   },
   {
-    name: "Copywriting",
+    name: "Modern Build Tools (Vite)",
     description:
-      "Create engaging, conversion-focused content for brands and businesses across multiple channels, including website copy, blog posts, social media content and email newsletters.",
-    icon: PenTool,
+      "Utilizing fast, modern build tooling like Vite to optimize development workflows, enable hot module replacement (HMR), and bundle applications for production.",
+    icon: Settings,
+  },
+  {
+    name: "WordPress",
+    description:
+      "Proficient in custom WordPress development for specific client needs and legacy projects.",
+    icon: Globe2,
   },
 ];
 
-const pageTitle = "Technical Skills I've Acquired";
+const pageTitle = "Technical Skills | Matt Birch";
 const pageDescription =
-  "Explore my technical expertise in HTML, CSS, React, Astro, WordPress, SEO, and more—skills that drive my development and design work.";
+  "Explore my full-stack technical skills. See my expertise in frontend architecture (React, Next.js), backend APIs (Node.js), AI integration, and mobile app development.";
 ---
 
 <Layout
@@ -88,9 +135,7 @@ const pageDescription =
     <!-- Introduction Section -->
     <section class="text-center mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="h1-text fade-in-up">
-          {pageTitle}
-        </h1>
+        <h1 class="h1-text fade-in-up">Technical Skills I've Acquired</h1>
       </div>
     </section>
 

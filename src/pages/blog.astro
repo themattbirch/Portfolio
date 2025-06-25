@@ -35,9 +35,9 @@ const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6);
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
-const pageTitle = "Matt Birch's Blog: Thoughts on Web Development, AI and More";
+const pageTitle = "Articles on Software Development & AI | Matt Birch";
 const blogDescription =
-  "Dive into insights on web development, digital marketing, and social media as Matt shares thoughts on today's most impactful topics.";
+  "A blog by Matt Birch. Explore articles on full-stack engineering, AI, and product strategy, written with the clarity of a copywriter and the perspective of a founder.";
 ---
 
 <Layout
@@ -53,12 +53,13 @@ const blogDescription =
     >
       <header class="text-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
-          {pageTitle}
+          The Matt Birch Blog: Words On App Development & AI
         </h1>
         <p
           class="italic dark:text-darkModeText text-base sm:text-lg md:text-xl py-8 sm:py-6 md:py-12"
         >
-          {blogDescription}
+Explore articles on full stack development, AI, and product strategy, written with the clarity of a copywriter and the perspective of a founder.
+
         </p>
       </header>
 

@@ -4,11 +4,14 @@ import ProjectCard from "@/components/ProjectCard.astro";
 import { projects } from "@/data/projects"; // Import from our new data file!
 
 // Separate full-stack/mobile apps from client sites
-const featuredApps = projects.filter(p => p.type === 'Full-Stack App' || p.type === 'Mobile App');
-const clientWebsites = projects.filter(p => p.type === 'Client Website');
+const featuredApps = projects.filter(
+  (p) => p.type === "Full-Stack App" || p.type === "Mobile App",
+);
+const clientWebsites = projects.filter((p) => p.type === "Brand Website");
 
-const pageTitle = "My Portfolio";
-const pageDescription = "Explore my portfolio showcasing full-stack applications, mobile apps, and client websites.";
+const pageTitle = "Portfolio | Matt Birch";
+const pageDescription =
+  "Explore the portfolio of Matt Birch, showcasing projects that include full-stack applications, mobile apps, AI-powered solutions, and client websites.";
 ---
 
 <Layout
@@ -19,54 +22,90 @@ const pageDescription = "Explore my portfolio showcasing full-stack applications
 >
   <div class="horizontal-gradient-wrapper py-12 md:py-20">
     <section class="max-w-screen-2xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">
-        {pageTitle}
+      <h1
+        class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white"
+      >
+        My Portfolio
       </h1>
-      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-        I build robust and scalable applications for web and mobile. Here are some of the projects I'm proud to have worked on.
+      <p
+        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+      >
+        I build robust and scalable applications for web and mobile. Here are
+        some of the projects I'm proud to have worked on.
       </p>
     </section>
 
-    <section class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24">
+    <section
+      class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24"
+    >
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl text-blue-600 dark:text-gray-100 font-bold">
+        <h2
+          class="text-3xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold"
+        >
           Featured Applications
         </h2>
         <p class="mt-4 text-gray-600 dark:text-gray-400">
           Full-stack and mobile projects that solve real-world problems.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {featuredApps.map(project => <ProjectCard {...project} />)}
+
+      <div>
+        {
+          // If there's only ONE featured app, use a centered flex layout
+          featuredApps.length === 1 ? (
+            <div class="flex justify-center">
+              <div class="lg:max-w-lg">
+                <ProjectCard {...featuredApps[0]} />
+              </div>
+            </div>
+          ) : (
+            // Otherwise, use the standard grid layout for multiple items
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredApps.map((project) => (
+                <ProjectCard {...project} />
+              ))}
+            </div>
+          )
+        }
       </div>
     </section>
 
-    <section class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24">
+    <section
+      class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24"
+    >
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold">
+        <h2
+          class="text-3xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold"
+        >
           Client Websites
         </h2>
-         <p class="mt-4 text-gray-600 dark:text-gray-400">
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
           Professionally designed websites for small businesses.
         </p>
       </div>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {clientWebsites.map(project => <ProjectCard {...project} />)}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {clientWebsites.map((project) => <ProjectCard {...project} />)}
       </div>
     </section>
 
     <section class="py-16 md:py-24 mt-16 md:mt-24">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
-                Ready to Build Something Great?
-            </h2>
-            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-                I'm currently available for freelance projects and new opportunities. Let's connect!
-            </p>
-            <a href="/contact" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
-                Get In Touch
-            </a>
-        </div>
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6"
+        >
+          Ready to Build Something Great?
+        </h2>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
+          I'm currently available for freelance projects and new opportunities.
+          Let's connect!
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1"
+        >
+          Get In Touch
+        </a>
+      </div>
     </section>
   </div>
 </Layout>

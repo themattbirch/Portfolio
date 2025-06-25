@@ -1,6 +1,6 @@
 ---
 author: "Matt Birch"
-categories: ["Web Development"]
+categories: ["App Development"]
 date: "11/2/2024"
 featured: false
 image: /assets/images/web-developer-astro-framework.jpg

@@ -16,35 +16,34 @@ import Section from "../components/Section.astro";
 
 const services = [
   {
-    title: "Custom Web Development",
+    title: "Full Stack App Development",
     description:
-      "Craft bespoke websites that combine clean code with exceptional user experience. I transform your vision into reality utilzizing modern web technologies and industry best practices.",
-  },
-
-  {
-    title: "Results-Driven Copywriting",
-    description:
-      "Convert visitors into customers through strategic, compelling web content. I create clear, persuasive copy that drives engagement and achieves your business objectives.",
+      "From the database to the UI, I build complete, robust, and scalable web applications. I handle both server-side logic and the frontend side to bring your product to life.",
   },
   {
-    title: "Responsive Design",
+    title: "Mobile & Progressive Web Apps",
     description:
-      "Deliver seamless experiences across all devices, from desktop to mobile. Your website will adapt beautifully to any screen size while maintaining optimal performance and functionality.",
+      "I create seamless mobile experiences, from responsive websites to installable Progressive Web Apps (PWAs) that work offline and deliver native-like performance on any device.",
   },
   {
-    title: "Ongoing Support",
+    title: "AI-Powered Solutions",
     description:
-      "Protect your digital asset through proactive maintenance and timely updates. I ensure your website stays secure, fast, and aligned with the latest web standards.",
+      "Leveraging modern AI and large language models, I build smarter applications. I can integrate intelligent features, automate workflows, and create more dynamic, personalized user experiences.",
+  },
+  {
+    title: "Product Strategy & UX",
+    description:
+      "With a founder's mindset and a writer's focus on clarity, I go beyond just code. I help shape product direction and design user experiences that are intuitive, engaging, and aligned with business goals.",
   },
 ];
 
-const qualities = ["Reliable", "Multi-skilled", "Experienced", "Diligent"];
+const qualities = ["Reliable", "Versatile", "Strategic", "Meticulous"];
 const half = Math.ceil(qualities.length / 2);
 const leftQualities = qualities.slice(0, half);
 const rightQualities = qualities.slice(half);
-const pageTitle = "Matt Birch: Front-End Web Developer";
+const pageTitle = "Matt Birch: Full Stack Software Engineer";
 const pageDescription =
-  "A creative front-end web developer dedicated to crafting engaging, user-centered digital experiences.";
+  "The portfolio of a Full Stack Software Engineer who creates performant web and mobile apps with a focus on AI integration and great user experience.";
 
 const preloadLinks = [
   {
@@ -74,24 +73,26 @@ const preloadLinks = [
   </section>
 
 <section
-  class="bg-background-secondary dark:bg-background-dark transition-colors duration-300 pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
+  class="bg-background-secondary dark:bg-background-dark transition-colors duration-300 sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
 >
   <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col lg:flex-row items-stretch gap-8">
-      <!-- LEFT COLUMN: Headings, Text, Service Cards -->
-      <div class="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
-        <h2 class="h2-text text-center mb-6 sm:mb-8">
-          What I Can Do for You
-        </h2>
-        <p class="mb-6 sm:mb-8 leading-relaxed">
-          I help businesses accelerate growth through user-focused websites
-          that deliver results. By combining technical expertise with
-          conversion-focused copywriting and strong project management, I
-          consistently deliver <span
-            class="text-blue-700 dark:text-blue-300 italic"
-            >on time</span
-          >, up to modern standards.
-        </p>
+    <!-- LEFT COLUMN: Headings, Text, Service Cards -->
+    <div class="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
+      <h2 class="h2-text sm:text-center mb-6 sm:mb-8">
+        What I Can Do for You
+      </h2>
+
+      <!-- 1) extra bottom margin on first paragraph for that blank line -->
+      <p class="mb-6">
+        I build high-performance web and mobile applications designed to deliver tangible results. My experience ranges from complex data-driven platforms to intuitive, mobile-first experiences.
+      </p>
+
+      <!-- 2) you can also tune this mb- value to taste, or use `<br>` above—but `mb-6` gives you a clean Tailwind spacing -->
+      <p class="mb-8">
+        This versatility is amplified by my background in media and copywriting&mdash;my key differentiator. It gives me a
+        <span class="text-blue-700 dark:text-blue-300 italic">sharp focus on the end-user,</span> ensuring every product is not just technically robust and scalable, but also genuinely engaging.
+      </p>
 
         <!-- COMBINED FLEX LAYOUT FOR MOBILE/TABLET: Text, Image, and Services -->
         <div class="lg:hidden">
@@ -100,7 +101,7 @@ const preloadLinks = [
             <!-- Text Box -->
             <div class="w-1/2 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border-0 dark:border dark:border-gray-600">
               <p class="leading-relaxed text-gray-900 dark:text-gray-100">
-                Here's what I can do for you,
+                Here's how I can solve your business problems, 
                 <span class="text-blue-700 dark:text-blue-300 italic">today</span>:
               </p>
             </div>
@@ -160,45 +161,24 @@ const preloadLinks = [
   </Section>
 
   <!-- Unique Sales Proposition -->
-  <section
-    class="hidden lg:block pb-0 lg:pb-24 xl:pb-32 pt-4 sm:pt-6 md:pt-10
-  lg:pt-12 xl:pt-16 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 transition-colors
-  duration-300"
-  >
-    <h2
-      class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-blue-950"
-    >
-      They know what separates me from other web developers:
+<section class="py-16 lg:py-24">
+  <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <h2 class="h2-text mb-8">
+      ...They'll Tell You I Deliver More Than Just Code
     </h2>
-    <div
-      class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8"
-    >
-      <!-- Left column -->
-      <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
-        <li class="text-base sm:text-lg">
-          Transform complex projects into polished deliverables, hitting
-          deadlines through proactive communication and collaborative
-          problem-solving.
-        </li>
-        <li class="text-base sm:text-lg">
-          Blend technical expertise with business acumen to deliver solutions
-          that drive real ROI for stakeholders.
-        </li>
-      </ul>
-
-      <!-- Right column -->
-      <ul class="list-disc space-y-4 w-full md:w-1/2 pl-6 md:pl-8">
-        <li class="text-base sm:text-lg">
-          Bridge the gap between user needs and business objectives, delivering
-          web solutions that boost engagement and drive measurable results.
-        </li>
-        <li class="text-base sm:text-lg">
-          Cross-functional expert with systems-thinking approach while remaining
-          mindful of technical details.
-        </li>
-      </ul>
+    
+    <div class="prose prose-lg dark:prose-invert max-w-none space-y-6">
+      <p>
+        Great applications require more than just clean code—they require a clear story and a deep understanding of the user. My journey through media as a copywriter and business owner taught me how to connect with an audience, a skill I now embed into every component I build and every interface I design.
+      </p>
+      <p>
+        This means you get an engineer who thinks like a founder about your business goals, and obsesses like a writer over the clarity of the user experience. It's how I ensure the final product isn't just technically sound, but truly resonates with the people using it.
+      </p>
     </div>
-  </section>
+
+  </div>
+</section>
 
   <!-- Skills Section -->
   <Section class="bg-background-skills dark:bg-background-dark">

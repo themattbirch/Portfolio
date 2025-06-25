@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["Web Development"]
+categories: ["App Development"]
 date: 08/30/2024
 featured: false
 image: /assets/images/tech-job-interview.jpg

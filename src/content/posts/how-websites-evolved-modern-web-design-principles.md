@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["Web Development"]
+categories: ["App Development"]
 date: 12/20/2022
 featured: false
 image: /assets/images/two-web-designers.jpg

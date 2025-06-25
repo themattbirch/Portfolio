@@ -8,9 +8,9 @@ import whoIam from "/assets/images/who-i-am.webp";
 import passionateAbout from "/assets/images/my-passions-music-beach.webp";
 import workWithMe from "/assets/images/teamwork.webp";
 
-const pageTitle = "About Matt Birch | Web Developer";
+const pageTitle = "About Matt Birch | Full Stack Software Engineer";
 const pageDescription =
-  "Discover Matt Birch's journey as a front-end web developer—his technical skills, creative process, and dedication to crafting outstanding web experiences.";
+  "Learn about Matt Birch, a Full Stack Software Engineer with a unique background in media and a passion for building AI-powered web and mobile applications.";
 ---
 
 <Layout
@@ -47,25 +47,29 @@ const pageDescription =
       </div>
 
       <!-- Introduction Text -->
-      <p
-        class="text-base sm:text-lg md:text-xl pt-4 sm:pt-8 md:pt-12 pb-4 sm:pb-6 md:pb-8 leading-relaxed max-w-xs sm:max-w-sm md:max-w-2xl mx-auto text-gray-700 dark:text-gray-300"
-      >
-        <span class="font-bold text-blue-600 dark:text-blue-400">Hello!</span>
-        <span class="intro-text">
-          I'm Matt Birch, a passionate front-end web developer with expertise in <strong
-            >HTML</strong
-          >, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong
-            >Astro</strong
-          >, and <strong>React</strong>.
-        </span>
+      <div class="max-w-2xl mx-auto px-4">
+        <p
+          class="text-lg md:text-xl pt-8 md:pt-12 pb-4 leading-relaxed text-gray-700 dark:text-gray-300"
+        >
+          My journey into tech wasn't a straight line. I started my career in
+          media&mdash;first, as a sportswriter. And, later as a media company
+          owner. What pushed me to become a software engineer was a deep-seated
+          love for learning and a passion for building things that solve real
+          problems.
+        </p>
+        <p
+          class="text-lg md:text-xl pb-8 leading-relaxed text-gray-700 dark:text-gray-300"
+        >
+          Today, I'm a Full Stack Engineer who gets to combine a writer's focus
+          on clarity with an engineer's love for problem-solving.
+        </p>
 
-        <!-- Resume Download Button -->
         <div class="mt-8">
           <a
             href="/src/uploads/matt-birch-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-primary rounded-full py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="btn btn-primary rounded-full py-3 sm:py-4 px-6 text-base shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <svg
               class="w-5 h-5 mr-2"
@@ -73,204 +77,197 @@ const pageDescription =
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
+              ><path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path>
-            </svg>
+              ></path></svg
+            >
             Download My Resume
           </a>
         </div>
-      </p>
+      </div>
     </section>
 
     <section class="fade-in-up">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Approach To Work Section -->
         <ContentSection
-          title="My Approach To Work"
-          text={`I believe in delivering solutions that go beyond just meeting requirements—driving real business value. Every project starts with understanding your goals, audience, and success metrics. This foundation allows me to build websites that not only look great visually but also accomplish business objectives.
+          title="My Building Philosophy"
+          text={`For me, software is about more than just fulfilling requirements; it's about solving a puzzle for a real person. I start every project by diving deep into the 'why'—understanding the end-user and the problem we're aiming to solve. This user-first foundation is everything.
 
-My development process combines systematic planning, clear communication, and iterative refinement to ensure we stay on track and on budget. By maintaining transparency throughout the project lifecycle and proactively addressing challenges, I create an efficient workflow that consistently delivers results.`}
+From there, I focus on craftsmanship. I build with clean, scalable architecture and write code that's meant to be understood and maintained. I believe in open communication and a collaborative process, working iteratively to turn a great idea into a tangible, high-quality product.`}
           imageSrc={myApproach.src}
-          imageAlt="man working in front of computer typing on keyboard sipping coffee"
+          imageAlt="A focused developer working on code at their desk"
         />
 
-        <!-- Who I Am Section (reversed layout) -->
         <ContentSection
-          title="Who I Am"
-          text={`I'm an optimistic by nature, with a growth mindset. And I'm deeply passionate about the intersection of technology and human experience. My journey into web development was sparked by a fascination with creating digital solutions that make a real difference in people's lives.
+          title="Beyond The Code"
+          text={`I'm a natural optimist with a relentless growth mindset, fascinated by the intersection of technology and the human experience. My journey into development was sparked by a simple idea: that the right digital tool can genuinely make someone's day better. That's the mission that drives me.
 
-When I'm not crafting websites, you'll find me exploring nature trails, perfecting my coffee brewing techniques, or engaging with the local tech community. This balance of technical expertise and human connection allows me to bring a unique perspective to every project, combining analytical thinking with genuine empathy for user needs.`}
+When I'm not coding, you'll find me exploring trails or trying to perfect my pour-over coffee. These hobbies aren't just escapes; they're how I recharge my focus and creativity. It's this balance that allows me to approach complex technical challenges with a calm, human-centered perspective.`}
           imageSrc={whoIam.src}
-          imageAlt="man waving in front of computer"
+          imageAlt="Matt Birch smiling and waving"
           reverse={true}
         />
       </div>
     </section>
-  </div>
 
-  <!-- CTA Section -->
+    <!-- CTA Section -->
 
-  <section
-    id="cta-section"
-    class="relative w-full bg-cover bg-center parallax"
-    style="background-image: url('assets/images/matt_on_rocks.webp');"
-  >
-    <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black opacity-70 dark:opacity-80"></div>
-
-    <!-- Text and Button Container -->
-    <div
-      class="absolute inset-x-0 bottom-[60px] flex flex-col items-center justify-center z-10 px-4 transform -translate-y-1/2"
+    <section
+      id="cta-section"
+      class="relative w-full bg-cover bg-center parallax"
+      style="background-image: url('assets/images/matt_on_rocks.webp');"
     >
-      <h2
-        id="reveal-text"
-        class="text-gradient text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8"
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black opacity-70 dark:opacity-80"></div>
+
+      <!-- Text and Button Container -->
+      <div
+        class="absolute inset-x-0 bottom-[60px] flex flex-col items-center justify-center z-10 px-4 transform -translate-y-1/2"
       >
-        You know where to find me.
-      </h2>
-      <a
-        id="reveal-button"
-        href="/contact"
-        class="btn text-white bg-sky-700 rounded-full px-8 py-3 button-glow"
-      >
-        Let's Connect
-      </a>
-    </div>
-  </section>
-
-  <div class="horizontal-gradient-wrapper-2">
-    <section class="pb-4 pt-12 md:pt-20 lg:pt-24 xl:pt-32">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- What I'm Passionate About Section -->
-        <ContentSection
-          title="What I'm Passionate About"
-          text={`My drive for excellence extends beyond coding. I maintain peak mental performance through fitness and nutrition. They're not only hobbies, but also tools that keep me sharp and focused when tackling coding-related obstacles.
-
-Music is my go-to option for entering flow states during intense coding sessions. Combined with my enthusiasm for cutting-edge technology and AI, I'm constantly exploring new ways to push the boundaries of what's possible on the web.
-
-At my core, I believe in building genuine human connections and using technology as a force for good. Making a positive impact in the world is what keeps me humble, and also satisfied, when I wake up in the morning to begin working on projects.`}
-          imageSrc={passionateAbout.src}
-          imageAlt="man sitting on beach deep in thought"
-        />
-
-        <!-- What It's Like To Work With Me (reversed layout) -->
-        <ContentSection
-          title="What It's Like To Work With Me"
-          text={`Technical skills are important, but they’re not all that I offer. I’m a  perpetual learner with high emotional intelligence who thrives off building relationships, Whether it’s connecting with clients, recruiters, and fellow developers, or just grabbing a beer after work with friends, I always make time for and enjoy the company of others.
-
-My work ethic is matched only by my commitment to clear, consistent communication. You'll find me responsive, proactive, and always ready to share insights when I can help add to the discussion.
-
-Whether you're a client, recruiter, or team member, you’ll quickly realize I’m an easygoing, empathetic person who is professional, yet friendly and approachable. I pride myself on being an honest, hard-working developer people genuinely enjoy collaborating with—whether remote or face-to-face in the office. I’m always mindful of others’ wants, needs and emotions.`}
-          imageSrc={workWithMe.src}
-          imageAlt="Collaborative workspace environment showing teamwork"
-          reverse={true}
-        />
+        <h2
+          id="reveal-text"
+          class="text-gradient text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8"
+        >
+          You know where to find me.
+        </h2>
+        <a
+          id="reveal-button"
+          href="/contact"
+          class="btn text-white bg-sky-700 rounded-full px-8 py-3 button-glow"
+        >
+          Let's Connect
+        </a>
       </div>
     </section>
-  </div>
-</Layout>
 
-<style>
-  .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #ffffff, #dde4ee);
-  }
-  .horizontal-gradient-wrapper-2 {
-    background: linear-gradient(to bottom, #dde4ee, #ffffff);
-  }
-  :global(.dark) .horizontal-gradient-wrapper {
-    background: linear-gradient(to bottom, #45617c, #1f2937);
-  }
+    <div class="horizontal-gradient-wrapper-2">
+      <section class="pb-4 pt-12 md:pt-20 lg:pt-24 xl:pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- What I'm Passionate About Section -->
+          <ContentSection
+            title="Passions & Perspective"
+            text={`At my core, I'm driven by the idea that technology can be a powerful force for good. I'm passionate about building things that have a positive impact, and I'm constantly exploring the boundaries of what's possible with cutting-edge tech and AI.
 
-  :global(.dark) .horizontal-gradient-wrapper-2 {
-    background: linear-gradient(to bottom, #1f2937, #45617c);
-  }
-  /* Text gradient overlay + glowing button shadow */
-  .text-gradient {
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .button-glow {
-    box-shadow:
-      0 0 15px rgba(0, 114, 255, 0.8),
-      0 0 30px rgba(0, 114, 255, 0.4);
-    transition: box-shadow 0.3s ease-in-out;
-  }
+            To stay sharp for these complex challenges, I rely on a few key things: vibing  music to find a state of flow, and a disciplined approach to fitness and nutrition to keep my mind clear. It’s this combination of purpose, passion, and preparation that I bring to every project.`}
+            imageSrc={passionateAbout.src}
+            imageAlt="Man sitting on a beach, focused and deep in thought"
+          />
 
-  .button-glow:hover {
-    box-shadow:
-      0 0 35px rgba(0, 114, 255, 1.2),
-      0 0 55px rgba(0, 114, 255, 0.7);
-  }
+          <!-- What It's Like To Work With Me (reversed layout) -->
+          <ContentSection
+            title="Collaboration & Communication"
+            text={`I believe great results come from great collaboration. You’ll find I’m a clear and consistent communicator who is responsive, proactive, and always ready to share insights and contribute to the discussion.
 
-  /* Parallax */
-  .parallax {
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    min-height: 300px;
-  }
+            My approach is simple: be an empathetic partner. Whether you're a team member, a stakeholder, or a client, I pride myself on being an honest, easygoing, and hard-working engineer that people genuinely enjoy building with.`}
+            imageSrc={workWithMe.src}
+            imageAlt="Collaborative workspace environment showing teamwork"
+            reverse={true}
+          />
+        </div>
+      </section>
+    </div>
 
-  .text-gradient {
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: #0072ff; /* Fallback color */
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-  }
-
-  #reveal-text {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.8s ease-out,
-      transform 0.8s ease-out;
-    will-change: opacity, transform;
-  }
-
-  #reveal-text.reveal-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-</style>
-
-<script>
-  function handleIntersection(
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
-  ) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const text = document.getElementById("reveal-text");
-        const button = document.getElementById("reveal-button");
-        if (text) {
-          text.classList.add("reveal-visible");
-        }
-        if (button) {
-          setTimeout(() => {
-            button.classList.add("reveal-visible");
-          }, 200);
-        }
-        observer.unobserve(entry.target);
+    <style>
+      .horizontal-gradient-wrapper {
+        background: linear-gradient(to bottom, #ffffff, #dde4ee);
       }
-    });
-  }
+      .horizontal-gradient-wrapper-2 {
+        background: linear-gradient(to bottom, #dde4ee, #ffffff);
+      }
+      :global(.dark) .horizontal-gradient-wrapper {
+        background: linear-gradient(to bottom, #45617c, #1f2937);
+      }
 
-  const observer = new IntersectionObserver(handleIntersection, {
-    threshold: 0.2,
-  });
+      :global(.dark) .horizontal-gradient-wrapper-2 {
+        background: linear-gradient(to bottom, #1f2937, #45617c);
+      }
+      /* Text gradient overlay + glowing button shadow */
+      .text-gradient {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .button-glow {
+        box-shadow:
+          0 0 15px rgba(0, 114, 255, 0.8),
+          0 0 30px rgba(0, 114, 255, 0.4);
+        transition: box-shadow 0.3s ease-in-out;
+      }
 
-  const section = document.getElementById("cta-section");
-  if (section) {
-    observer.observe(section);
-  }
-</script>
+      .button-glow:hover {
+        box-shadow:
+          0 0 35px rgba(0, 114, 255, 1.2),
+          0 0 55px rgba(0, 114, 255, 0.7);
+      }
+
+      /* Parallax */
+      .parallax {
+        position: relative;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 60vh;
+        min-height: 300px;
+      }
+
+      .text-gradient {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: #0072ff; /* Fallback color */
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      #reveal-text {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.8s ease-out,
+          transform 0.8s ease-out;
+        will-change: opacity, transform;
+      }
+
+      #reveal-text.reveal-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    </style>
+
+    <script>
+      function handleIntersection(
+        entries: IntersectionObserverEntry[],
+        observer: IntersectionObserver,
+      ) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const text = document.getElementById("reveal-text");
+            const button = document.getElementById("reveal-button");
+            if (text) {
+              text.classList.add("reveal-visible");
+            }
+            if (button) {
+              setTimeout(() => {
+                button.classList.add("reveal-visible");
+              }, 200);
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }
+
+      const observer = new IntersectionObserver(handleIntersection, {
+        threshold: 0.2,
+      });
+
+      const section = document.getElementById("cta-section");
+      if (section) {
+        observer.observe(section);
+      }
+    </script>
+  </div></Layout
+>
