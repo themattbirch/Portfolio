@@ -23,7 +23,8 @@ export const projects: Project[] = [
   {
     title: "ScoreGenius",
     image: scoreGeniusImg,
-    tagline: "An AI-powered PWA/TWA…",
+    tagline:
+      "An AI-driven Progressive Web App (PWA) and Trusted Web Activity (TWA) that delivers daily NBA and MLB score forecasts using a modular machine-learning pipeline. Powered by a Node.js/Express backend on Docker with a Supabase database, it offers advanced analytics in a privacy-first, offline-capable interface.",
     type: "Full-Stack App",
     technologies: [
       "React",
@@ -40,21 +41,24 @@ export const projects: Project[] = [
   {
     title: "Florida Grade & Pave",
     image: floridaGradeAndPaveImg,
-    tagline: "A professional online presence…",
+    tagline:
+      "A family-owned paving contractor in Central Florida offering asphalt milling, paving, concrete work, and sealcoating for both residential and commercial clients",
     type: "Brand Website",
     liveUrl: "https://floridagradeandpave.com/",
   },
   {
     title: "Active Care Clinic",
     image: activeCareClinicImg,
-    tagline: "A welcoming site for a chiropractic…",
+    tagline:
+      "A chiropractic and acupuncture clinic offering personalized, hands-on pain relief through spinal decompression, physical therapy, and wellness treatments.",
     type: "Brand Website",
     liveUrl: "https://activecareclinic.com/",
   },
   {
     title: "The Packers Post",
     image: thePackersPostImg,
-    tagline: "A Green Bay Packers-focused sports blog…",
+    tagline:
+      "A Green Bay Packers–focused sports blog delivering news, game previews, recaps, rankings, and historical analysis for passionate fans around the world.",
     type: "Brand Website",
     liveUrl: "https://thepackerspost.com/",
   },
@@ -62,7 +66,7 @@ export const projects: Project[] = [
     title: "Prestige Academia",
     image: prestigeAcademiaImg,
     tagline:
-      "An online academy that teaches English to students in Latin America.",
+      "An online blended-learning academy offering Cambridge-backed English courses with live instruction, interactive materials, and level assessments for students across Latin America.",
     type: "Brand Website",
     liveUrl: "https://prestigeacademia.com/",
   },
@@ -70,7 +74,7 @@ export const projects: Project[] = [
     title: "William Kerrigan Painting",
     image: williamKerriganPaintingImg,
     tagline:
-      "A clean, professional portfolio for a locally-owned painting company.",
+      "A contractor servicing residential and commercial properties across Central Ohio with interior and exterior painting, farm painting, and pressure-washing",
     type: "Brand Website",
     liveUrl: "https://williamkpainting.com/",
   },
@@ -78,7 +82,7 @@ export const projects: Project[] = [
     title: "Lynch's Landing",
     image: lynchsLandingImg,
     tagline:
-      "A popular hospitality business featuring live webcams and contact forms.",
+      "A scenic riverfront RV park in North Central Florida offering full-service hookups, a fishing dock, boat ramp, and classic “Old Florida” ambiance for locals and tourists alike.",
     type: "Brand Website",
     liveUrl: "https://lynchslandingrvpark.com/",
   },

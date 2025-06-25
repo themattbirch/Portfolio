@@ -72,87 +72,99 @@ const preloadLinks = [
     <Hero />
   </section>
 
-<section
-  class="bg-background-secondary dark:bg-background-dark transition-colors duration-300 sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
->
-  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col lg:flex-row items-stretch gap-8">
-    <!-- LEFT COLUMN: Headings, Text, Service Cards -->
-    <div class="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
-      <h2 class="h2-text sm:text-center mb-6 sm:mb-8">
-        What I Can Do for You
-      </h2>
+  <section
+    class="bg-background-secondary dark:bg-background-dark transition-colors duration-300 sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
+  >
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-stretch gap-8">
+        <!-- LEFT COLUMN: Headings, Text, Service Cards -->
+        <div class="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
+          <h2 class="h2-text sm:text-center mb-6 sm:mb-8">
+            What I Can Do for You
+          </h2>
 
-      <!-- 1) extra bottom margin on first paragraph for that blank line -->
-      <p class="mb-6">
-        I build high-performance web and mobile applications designed to deliver tangible results. My experience ranges from complex data-driven platforms to intuitive, mobile-first experiences.
-      </p>
+          <!-- 1) extra bottom margin on first paragraph for that blank line -->
+          <p class="mb-6">
+            I build high-performance web and mobile applications designed to
+            deliver tangible results. My experience ranges from complex
+            data-driven platforms to intuitive, mobile-first experiences.
+          </p>
 
-      <!-- 2) you can also tune this mb- value to taste, or use `<br>` above—but `mb-6` gives you a clean Tailwind spacing -->
-      <p class="mb-8">
-        This versatility is amplified by my background in media and copywriting&mdash;my key differentiator. It gives me a
-        <span class="text-blue-700 dark:text-blue-300 italic">sharp focus on the end-user,</span> ensuring every product is not just technically robust and scalable, but also genuinely engaging.
-      </p>
+          <!-- 2) you can also tune this mb- value to taste, or use `<br>` above—but `mb-6` gives you a clean Tailwind spacing -->
+          <p class="mb-8">
+            This versatility is amplified by my background in media and
+            copywriting&mdash;my key differentiator. It gives me a
+            <span class="text-blue-700 dark:text-blue-300 italic"
+              >sharp focus on the end-user,</span
+            > ensuring every product is not just technically robust and scalable,
+            but also genuinely engaging.
+          </p>
 
-        <!-- COMBINED FLEX LAYOUT FOR MOBILE/TABLET: Text, Image, and Services -->
-        <div class="lg:hidden">
-          <!-- Flex container for the text box and image -->
-          <div class="flex items-center mb-8">
-            <!-- Text Box -->
-            <div class="w-1/2 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border-0 dark:border dark:border-gray-600">
-              <p class="leading-relaxed text-gray-900 dark:text-gray-100">
-                Here's how I can solve your business problems, 
-                <span class="text-blue-700 dark:text-blue-300 italic">today</span>:
-              </p>
-            </div>
-            
-            <!-- Image container - LARGER SIZE ACROSS ALL BREAKPOINTS -->
-            <div class="w-1/2 flex justify-end">
-              <Image
-                src={meHeroImg}
-                alt="Matt showcasing skills for clients"
-                class="object-contain w-auto h-64"
-                width={400}
-                height={600}
-                loading="lazy"
-              />
+          <!-- COMBINED FLEX LAYOUT FOR MOBILE/TABLET: Text, Image, and Services -->
+          <div class="lg:hidden">
+            <!-- Flex container for the text box and image -->
+            <div class="flex items-center mb-8">
+              <!-- Text Box -->
+              <div
+                class="w-1/2 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border-0 dark:border dark:border-gray-600"
+              >
+                <p class="leading-relaxed text-gray-900 dark:text-gray-100">
+                  Here's how I can solve your business problems,
+                  <span class="text-blue-700 dark:text-blue-300 italic"
+                    >today</span
+                  >:
+                </p>
+              </div>
+
+              <!-- Image container - LARGER SIZE ACROSS ALL BREAKPOINTS -->
+              <div class="w-1/2 flex justify-end">
+                <Image
+                  src={meHeroImg}
+                  alt="Matt showcasing skills for clients"
+                  class="object-contain w-auto h-64"
+                  width={400}
+                  height={600}
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
+
+          <!-- Service Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 flex-grow">
+            {
+              services.map((service) => (
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                />
+              ))
+            }
+          </div>
         </div>
-        
-        <!-- Service Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 flex-grow">
-          {services.map((service) => (
-            <ServiceCard
-              title={service.title}
-              description={service.description}
+
+        <!-- RIGHT COLUMN: Desktop Image - NO TEXT BOX -->
+        <div class="hidden lg:flex lg:w-1/3 xl:w-1/4 items-end">
+          <div class="w-full mb-[-16px]">
+            <Image
+              src={meHeroImg}
+              alt="Matt showcasing skills for clients"
+              class="object-contain h-auto max-w-xs mx-auto"
+              width={400}
+              height={600}
+              loading="lazy"
             />
-          ))}
-        </div>
-      </div>
-      
-      <!-- RIGHT COLUMN: Desktop Image - NO TEXT BOX -->
-      <div class="hidden lg:flex lg:w-1/3 xl:w-1/4 items-end">
-        <div class="w-full mb-[-16px]">
-          <Image
-            src={meHeroImg}
-            alt="Matt showcasing skills for clients"
-            class="object-contain h-auto max-w-xs mx-auto"
-            width={400}
-            height={600}
-            loading="lazy"
-          />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Testimonials Section -->
   <Section>
     <div class="testimonial-wrapper">
       <h2
-        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mx-auto mb-8 sm:mb-12 md:mb-20 lg:mb-24 xl:mb-32"
+        class="h2-text font-bold text-center mx-auto mb-8 sm:mb-12 md:mb-20 lg:mb-24 xl:mb-32"
       >
         Ask My Clients About Projects I've Completed
       </h2>
@@ -161,24 +173,29 @@ const preloadLinks = [
   </Section>
 
   <!-- Unique Sales Proposition -->
-<section class="py-16 lg:py-24">
-  <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    
-    <h2 class="h2-text mb-8">
-      ...They'll Tell You I Deliver More Than Just Code
-    </h2>
-    
-    <div class="prose prose-lg dark:prose-invert max-w-none space-y-6">
-      <p>
-        Great applications require more than just clean code—they require a clear story and a deep understanding of the user. My journey through media as a copywriter and business owner taught me how to connect with an audience, a skill I now embed into every component I build and every interface I design.
-      </p>
-      <p>
-        This means you get an engineer who thinks like a founder about your business goals, and obsesses like a writer over the clarity of the user experience. It's how I ensure the final product isn't just technically sound, but truly resonates with the people using it.
-      </p>
-    </div>
+  <section class="py-16 lg:py-24">
+    <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="h2-text mb-8">
+        ...They'll Tell You I Deliver More Than Just Code
+      </h2>
 
-  </div>
-</section>
+      <div class="prose prose-lg dark:prose-invert max-w-none space-y-6">
+        <p>
+          Great applications require more than just clean code—they require a
+          clear story and a deep understanding of the user. My journey through
+          media as a copywriter and business owner taught me how to connect with
+          an audience, a skill I now embed into every component I build and
+          every interface I design.
+        </p>
+        <p>
+          This means you get an engineer who thinks like a founder about your
+          business goals, and obsesses like a writer over the clarity of the
+          user experience. It's how I ensure the final product isn't just
+          technically sound, but truly resonates with the people using it.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Skills Section -->
   <Section class="bg-background-skills dark:bg-background-dark">

@@ -42,22 +42,24 @@ const pageDescription =
         <h2
           class="text-3xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold"
         >
-          Featured Applications
+          Featured Application
         </h2>
         <p class="mt-4 text-gray-600 dark:text-gray-400">
           Full-stack and mobile projects that solve real-world problems.
         </p>
       </div>
 
-      <div>
+            <div>
         {
-          // If there's only ONE featured app, use a centered flex layout
           featuredApps.length === 1 ? (
             <div class="flex justify-center">
-              <div class="lg:max-w-lg">
-                <ProjectCard {...featuredApps[0]} />
+              <!-- wider & taller on all breakpoints -->
+              <div class="w-full sm:max-w-xl lg:max-w-4xl">
+                <!-- pass a flag so ProjectCard can style itself -->
+                <ProjectCard {...featuredApps[0]} featured />
               </div>
             </div>
+
           ) : (
             // Otherwise, use the standard grid layout for multiple items
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,7 +95,7 @@ const pageDescription =
         <h2
           class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6"
         >
-          Ready to Build Something Great?
+          Ready To Build Something Great?
         </h2>
         <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
           I'm currently available for freelance projects and new opportunities.
