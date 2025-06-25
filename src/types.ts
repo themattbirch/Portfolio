@@ -1,9 +1,9 @@
 // src/types.ts
-import type { ImageMetadata } from 'astro';
+import type { ImageMetadata } from "astro";
 
 // Date handling
 export interface FormattedDate {
-  raw: Date;         // The raw Date object
+  raw: Date; // Raw Date object
   formatted: string; // Formatted display version
 }
 
