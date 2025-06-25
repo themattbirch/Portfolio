@@ -5,6 +5,7 @@ import ContentSection from "../components/ContentSection.astro";
 import headshot from "/assets/images/matt-birch-headshot.webp";
 import myApproach from "/assets/images/approach-to-work.webp";
 import whoIam from "/assets/images/who-i-am.webp";
+import mattOnRocks from "/assets/images/matt_on_rocks.webp";
 import passionateAbout from "/assets/images/my-passions-music-beach.webp";
 import workWithMe from "/assets/images/teamwork.webp";
 
@@ -96,7 +97,7 @@ const pageDescription =
           title="My Building Philosophy"
           text={`For me, software is about more than just fulfilling requirements; it's about solving a puzzle for a real person. I start every project by diving deep into the 'why'—understanding the end-user and the problem we're aiming to solve. This user-first foundation is everything.
 
-From there, I focus on craftsmanship. I build with clean, scalable architecture and write code that's meant to be understood and maintained. I believe in open communication and a collaborative process, working iteratively to turn a great idea into a tangible, high-quality product.`}
+          From there, I focus on craftsmanship. I build with clean, scalable architecture and write code that's meant to be understood and maintained. I believe in open communication and a collaborative process, working iteratively to turn a great idea into a tangible, high-quality product.`}
           imageSrc={myApproach.src}
           imageAlt="A focused developer working on code at their desk"
         />
@@ -105,7 +106,7 @@ From there, I focus on craftsmanship. I build with clean, scalable architecture 
           title="Beyond The Code"
           text={`I'm a natural optimist with a relentless growth mindset, fascinated by the intersection of technology and the human experience. My journey into development was sparked by a simple idea: that the right digital tool can genuinely make someone's day better. That's the mission that drives me.
 
-When I'm not coding, you'll find me exploring trails or trying to perfect my pour-over coffee. These hobbies aren't just escapes; they're how I recharge my focus and creativity. It's this balance that allows me to approach complex technical challenges with a calm, human-centered perspective.`}
+          When I'm not coding, you'll find me exploring trails or trying to perfect my pour-over coffee. These hobbies aren't just escapes; they're how I recharge my focus and creativity. It's this balance that allows me to approach complex technical challenges with a calm, human-centered perspective.`}
           imageSrc={whoIam.src}
           imageAlt="Matt Birch smiling and waving"
           reverse={true}
@@ -118,8 +119,9 @@ When I'm not coding, you'll find me exploring trails or trying to perfect my pou
     <section
       id="cta-section"
       class="relative w-full bg-cover bg-center parallax"
-      style="background-image: url('assets/images/matt_on_rocks.webp');"
+      style={`background-image: url(${mattOnRocks.src});`}
     >
+      {/* --- END OF FIX --- */}
       <!-- Dark Overlay -->
       <div class="absolute inset-0 bg-black opacity-70 dark:opacity-80"></div>
 
