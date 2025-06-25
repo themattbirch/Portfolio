@@ -1,19 +1,21 @@
 // server.mjs
-
 import express from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { handler as ssr } from "./dist/server/entry.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
+const distDir = join(__dirname, "dist");
 
-// static assets built to dist/client
-app.use(express.static(join(__dirname, "dist/client")));
+// 1. Serve all static files from dist
+app.use(express.static(distDir));
 
-app.use("/", (req, res, next) => ssr(req, res, next));
+// 2. For client-side routing, return index.html on every other route
+app.use((_req, res) => {
+  res.sendFile(join(distDir, "index.html"));
+});
 
-const port = process.env.PORT || 3000; // Render injects PORT
+const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", () =>
-  console.log(`✓ Astro listening on 0.0.0.0:${port}`)
+  console.log(`✓ Static server listening on 0.0.0.0:${port}`)
 );
