@@ -1,73 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import { projects } from "@/data/projects"; // Import from our new data file!
 
-import floridaGradeAndPave from "/assets/images/florida-grade-and-pave.webp";
-import activeCareClinic from "/assets/images/active-care-clinic.webp";
-import thePackersPost from "/assets/images/the-packers-post.webp";
-import prestigeAcademia from "/assets/images/prestige-academia.webp";
-import williamKerriganPainting from "/assets/images/william-kerrigan-painting.webp";
-import lynchsLanding from "/assets/images/lynchs-landing-rv-park.webp";
+// Separate full-stack/mobile apps from client sites
+const featuredApps = projects.filter(p => p.type === 'Full-Stack App' || p.type === 'Mobile App');
+const clientWebsites = projects.filter(p => p.type === 'Client Website');
 
-const projects = [
-  {
-    title: "Florida Grade & Pave",
-    description:
-      "A paving company that handles both residential and commercial needs.",
-    image: floridaGradeAndPave,
-    category: "Asphalt Paving",
-    keyFeatures: ["Landing Page", "Services", "Book Directly"],
-    link: "https://floridagradeandpave.com/",
-  },
-  {
-    title: "Active Care Clinic",
-    description: "A well-known chiropractic and acupuncture clinic.",
-    image: activeCareClinic,
-    category: "Chiropractor",
-    keyFeatures: [
-      "Live Support",
-      "Mission Statement",
-      "Google Maps Integration",
-    ],
-    link: "https://activecareclinic.com/",
-  },
-  {
-    title: "The Packers Post",
-    description: "A Green Bay Packers-focused sports blog.",
-    image: thePackersPost,
-    category: "Blog",
-    keyFeatures: ["RSS Feed", "Blog Template", "Metadata"],
-    link: "https://thepackerspost.com/",
-  },
-  {
-    title: "Prestige Academia",
-    description: "An online academy that teaches English in Latin America.",
-    image: prestigeAcademia,
-    category: "Education",
-    keyFeatures: ["Language Translator", "Registration Form", "Brochure"],
-    link: "https://prestigeacademia.com/",
-  },
-  {
-    title: "William Kerrigan Painting",
-    description: "A locally-owned painting company.",
-    image: williamKerriganPainting,
-    category: "House Painting",
-    keyFeatures: ["Testimonials", "Services", "Bio"],
-    link: "https://williamkpainting.com/",
-  },
-  {
-    title: "Lynch's Landing",
-    description: "Popular hospitality business located in Florida.",
-    image: lynchsLanding,
-    category: "RV Park",
-    keyFeatures: ["Brochure", "Contact Form", "Live Cam"],
-    link: "https://lynchslandingrvpark.com/",
-  },
-];
-
-const pageTitle = "Projects I've Completed";
-const pageDescription =
-  "Explore my portfolio showcasing diverse projects in web development, design, and digital solutions.";
+const pageTitle = "My Portfolio";
+const pageDescription = "Explore my portfolio showcasing full-stack applications, mobile apps, and client websites.";
 ---
 
 <Layout
@@ -76,137 +17,65 @@ const pageDescription =
   ogImage="/assets/images/portfolio-work-projects.jpg"
   fullWidth={true}
 >
-  <div class="horizontal-gradient-wrapper">
-    <!-- Hero Section -->
-    <section class="max-w-screen-2xl mx-auto py-12 md:py-20 lg:py-24 xl:py-32">
-      <div class="mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h1
-          class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-gray-800 dark:text-white"
-        >
-          {pageTitle}
-        </h1>
-        <p class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300">
-          I build both web and mobile applications.
-          <br><br>
-          Currently, I'm working on small projects for clients, as well as <a href="https://scoregenius.io/" class="text-blue-700 dark:text-blue-300">Score Genius</a>, a sports predictive analysis PWA which delivers predictions and advanced stats to passionate fans.
-          <br><br>
-          Here are just a few of the projects I've worked on. Many of them were completed working as <a href="https://optimizewebsolutions.com" class="text-blue-700 dark:text-blue-300">lead designer</a> for Optimize Web Solutions.
-        </p>      
-        </div>
+  <div class="horizontal-gradient-wrapper py-12 md:py-20">
+    <section class="max-w-screen-2xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800 dark:text-white">
+        {pageTitle}
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        I build robust and scalable applications for web and mobile. Here are some of the projects I'm proud to have worked on.
+      </p>
     </section>
 
-    <!-- Projects Grid -->
-    <section>
-      <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl md:text-4xl text-blue-600 dark:text-gray-100 font-bold"
-          >
-            Featured Projects
-          </h2>
-          <p class="mt-6 sm:mt-8 text-gray-600 dark:text-gray-400">
-            Here are a few projects that I've recently completed.
-          </p>
-        </div>
-        <div class="flex flex-col items-center">
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-          >
-            {
-              projects.map((project) => (
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  category={project.category}
-                  keyFeatures={project.keyFeatures}
-                  link={project.link}
-                />
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-12 md:py-20 lg:py-24 xl:py-32">
-      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8"
-        >
-          Ready to Start Your Project?
+    <section class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl text-blue-600 dark:text-gray-100 font-bold">
+          Featured Applications
         </h2>
-        <p
-          class="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8"
-        >
-          I'm excited to collaborate and bring your vision to life. Let's create
-          something amazing together!
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          Full-stack and mobile projects that solve real-world problems.
         </p>
-        <a
-          href="/contact"
-          class="btn btn-primary rounded-full py-2 px-4 sm:py-3 sm:px-6 text-sm sm:text-base shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Get In Touch
-          <svg
-            class="h-5 w-5 ml-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-          </svg>
-        </a>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredApps.map(project => <ProjectCard {...project} />)}
+      </div>
+    </section>
+
+    <section class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:mt-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold">
+          Client Websites
+        </h2>
+         <p class="mt-4 text-gray-600 dark:text-gray-400">
+          Professionally designed websites for small businesses.
+        </p>
+      </div>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {clientWebsites.map(project => <ProjectCard {...project} />)}
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 mt-16 md:mt-24">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
+                Ready to Build Something Great?
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
+                I'm currently available for freelance projects and new opportunities. Let's connect!
+            </p>
+            <a href="/contact" class="inline-block bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1">
+                Get In Touch
+            </a>
+        </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .call-to-action {
-    position: relative;
-    overflow: hidden;
-  }
-  .call-to-action::before {
-    @apply opacity-5 sm:opacity-10;
-  }
-  .call-to-action > div {
-    position: relative;
-    z-index: 1;
-  }
-
-  .projects-container {
-    @apply mt-4 sm:mt-6 md:mt-8;
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .flex-col {
-    flex-direction: column;
-  }
-
-  .items-center {
-    align-items: center;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
   .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #ffffff, #dde4ee, #ffffff);
   }
-
   :global(.dark) .horizontal-gradient-wrapper {
     background: linear-gradient(to bottom, #45617c, #1f2937, #45617c);
   }
 </style>
-
-<script type="module" src="/scripts/fadeIn.js"></script>

@@ -1,8 +1,7 @@
 // src/data/projects.ts
 import { getImage } from "astro:assets";
-
-// TODO: Make sure your image paths are correct
-import scoreGeniusImg from "/assets/images/scoregenius-app.webp"; // <<< ADD A SCREENSHOT HERE
+import type { GetImageResult, ImageMetadata } from "astro";
+import scoreGeniusImg from "/assets/images/scoregenius-app.webp";
 import floridaGradeAndPaveImg from "/assets/images/florida-grade-and-pave.webp";
 import activeCareClinicImg from "/assets/images/active-care-clinic.webp";
 import thePackersPostImg from "/assets/images/the-packers-post.webp";
@@ -10,13 +9,12 @@ import thePackersPostImg from "/assets/images/the-packers-post.webp";
 // Define the new, more descriptive project type
 export interface Project {
   title: string;
-  image: ImageMetadata;
+  image: GetImageResult;
   tagline: string;
   type: "Full-Stack App" | "Mobile App" | "Client Website";
-  technologies: string[];
+  technologies: readonly string[]; // ← now matches the readonly arrays
   liveUrl?: string;
   githubUrl?: string;
-  // Optional: Add a link to a future case study page
   caseStudyUrl?: string;
 }
 
@@ -38,10 +36,7 @@ const projectsData = [
       "TypeScript",
     ],
     liveUrl: "https://scoregenius.io",
-    // TODO: Add your GitHub repo link
     githubUrl: "https://github.com/themattbirch/your-repo-name",
-    // Optional: you can create a page like /portfolio/scoregenius later
-    // caseStudyUrl: "/portfolio/scoregenius"
   },
   {
     title: "Florida Grade & Pave",
@@ -67,15 +62,13 @@ const projectsData = [
     technologies: ["Astro", "RSS", "Markdown"],
     liveUrl: "https://thepackerspost.com/",
   },
-  // TODO: Add your other projects here in the new format
-];
+] as const;
 
 // Process images and export the final typed array
 export const projects: Project[] = await Promise.all(
-  projectsData.map(async (project) => {
-    // Fallback to a default image if one isn't found
-    const imageSrc = project.img || "/assets/images/default-placeholder.webp";
+  projectsData.map(async ({ img, ...rest }) => {
+    const imageSrc = img || "/assets/images/default-placeholder.webp";
     const image = await getImage({ src: imageSrc, width: 600 });
-    return { ...project, image };
+    return { ...rest, image };
   })
 );

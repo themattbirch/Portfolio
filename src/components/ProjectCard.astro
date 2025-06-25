@@ -1,123 +1,70 @@
 ---
 import { Image } from "astro:assets";
+import type { Project } from "@/data/projects"; // Import our new Project type
+import { Globe, Github } from 'lucide-react'; // Import icons for buttons
 
-export interface Props {
-  title: string;
-  description: string;
-  image: ImageMetadata;
-  category: string;
-  keyFeatures: string[];
-  link: string;
-}
+export type Props = Project;
 
-const { title, description, image, category, keyFeatures, link } = Astro.props;
+const { title, image, tagline, type, technologies, liveUrl, githubUrl } = Astro.props;
+
+const typeColors = {
+  'Full-Stack App': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+  'Mobile App': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+  'Client Website': 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300',
+};
+
 ---
 
-<div
-  class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center"
->
-  <a href={link} target="_blank" rel="noopener noreferrer" class="w-full">
-    <Image src={image} alt={title} class="w-full h-48 object-cover" />
+<div class="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 h-full">
+  <a href={liveUrl || githubUrl} target="_blank" rel="noopener noreferrer" class="block">
+    <Image src={image} alt={title} class="w-full h-48 object-cover aspect-thumbnail" />
   </a>
-  <div class="p-4 sm:p-6 w-full flex flex-col items-center">
-    <span
-      class="text-xs sm:text-sm text-blue-600 dark:text-blue-400 uppercase font-semibold"
-    >
-      {category}
-    </span>
-    <h3
-      class="mt-2 text-xl sm:text-2xl font-bold text-gray-800 dark:text-white"
-    >
-      {title}
-    </h3>
-    <p class="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
-      {description}
-    </p>
-    <div class="mt-4 w-full">
-      <span
-        class="font-semibold text-sm sm:text-base text-gray-700 dark:text-gray-200"
-      >
-        Key Features:
+
+  <div class="p-6 flex flex-col flex-grow">
+    <div class="flex justify-between items-center mb-2">
+      <span class:list={['text-xs font-semibold uppercase px-2 py-1 rounded-full', typeColors[type]]}>
+        {type}
       </span>
-      <ul class="mt-2 space-y-1 text-sm sm:text-base">
-        {
-          keyFeatures.map((feature) => (
-            <li class="text-gray-600 dark:text-gray-300 flex items-center justify-center">
-              <i class="fas fa-check text-blue-600 mr-2 text-xs sm:text-sm" />
-              <span>{feature}</span>
-            </li>
-          ))
-        }
-      </ul>
     </div>
-    <div class="mt-4 sm:mt-6 w-full">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-projects rounded-full
-      shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1
-      hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm
-      sm:text-base py-2 px-4 sm:py-3 sm:px-6"
-      >
-        Visit Site
-      </a>
+
+    <h3 class="text-xl font-bold text-gray-900 dark:text-white">{title}</h3>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400 flex-grow">{tagline}</p>
+
+    <div class="mt-4">
+      <h4 class="text-xs uppercase font-semibold text-gray-500 dark:text-gray-400">Tech Stack</h4>
+      <div class="flex flex-wrap gap-2 mt-2">
+        {technologies.map(tech => (
+          <span class="text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700 mt-auto">
+    <div class="flex justify-start gap-4">
+      {liveUrl && (
+        <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="btn-project-link">
+          <Globe size={16} className="mr-2" />
+          Visit Site
+        </a>
+      )}
+      {githubUrl && (
+        <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="btn-project-link">
+          <Github size={16} className="mr-2" />
+          View Code
+        </a>
+      )}
     </div>
   </div>
 </div>
 
 <style>
-  .project-card {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  .btn-project-link {
+    @apply inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
   }
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-  }
-  .project-card:hover img {
-    transform: scale(1.05);
-  }
-  .project-card:hover h3 {
-    color: #1d4ed8;
-  }
-
-  /* Dark mode styles */
-  :global(.dark) .project-card:hover h3 {
-    color: #3b82f6;
-  }
-
-  .feature-tag:hover {
-    background-color: #3b82f6;
-    color: #fff;
-  }
-
-  :global(.dark) .project-card {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  }
-  :global(.dark) .project-card:hover {
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
-  }
-
-  .btn-projects {
-    @apply inline-flex items-center justify-center font-semibold transition-all duration-300 ease-in-out px-4 py-2 rounded-full shadow-md;
-    background-color: #1e3a8a;
-    color: #fff;
-    padding: 0.75rem 1.25rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition:
-      background-color 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .btn-projects:hover {
-    background-color: #172554;
-    @apply shadow-lg transform -translate-y-1;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-  }
-
-  .btn-projects:active {
-    background-color: #1e3a8a;
-    @apply shadow-md transform translate-y-0;
+  .btn-project-link:hover {
+    @apply underline;
   }
 </style>
