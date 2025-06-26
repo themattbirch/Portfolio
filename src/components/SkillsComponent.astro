@@ -224,15 +224,4 @@ const { skills } = Astro.props;
   }
 </style>
 
-<script type="module" is:inline>
-  /**
-   * Dynamic import ensures Vite handles the module path.
-   * Vite rewrites '/src/…' to a hashed asset in production,
-   * and serves raw TS during `astro dev`.
-   */
-  const load = () =>
-    import("/src/scripts/skill-toggles.ts").then(({ default: init }) => init());
-
-  load(); // run on first render
-  document.addEventListener("astro:page-load", load); // run after client nav
-</script>
+<script type="module" src="/scripts/skill-toggles.js"></script>

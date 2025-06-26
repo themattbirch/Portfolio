@@ -1,10 +1,10 @@
 // public/scripts/skill-toggles.js
 
-// Accordion toggle helper (plain ES module, no TypeScript)
+// run only once
 let isInitialized = false;
 
-export default function initializeSkillToggles() {
-  if (isInitialized) return; // run only once per page load
+function initializeSkillToggles() {
+  if (isInitialized) return;
 
   const skillsGrid = document.querySelector(".skills-grid");
   if (!skillsGrid) return;
@@ -20,7 +20,6 @@ export default function initializeSkillToggles() {
 
     const isExpanded = card.classList.contains("is-active");
 
-    // close any previously-open card
     if (currentlyOpenCard && currentlyOpenCard !== card) {
       currentlyOpenCard.classList.remove("is-active");
       currentlyOpenCard
@@ -28,7 +27,6 @@ export default function initializeSkillToggles() {
         ?.setAttribute("aria-expanded", "false");
     }
 
-    // toggle the clicked card
     card.classList.toggle("is-active", !isExpanded);
     card
       .querySelector(".skill-header")
@@ -39,3 +37,9 @@ export default function initializeSkillToggles() {
 
   isInitialized = true;
 }
+
+// run on initial load
+initializeSkillToggles();
+
+// re-run after any Astro client-side navigation
+document.addEventListener("astro:page-load", initializeSkillToggles);
