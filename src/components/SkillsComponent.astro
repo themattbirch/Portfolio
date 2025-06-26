@@ -225,14 +225,8 @@ const { skills } = Astro.props;
 </style>
 
 <script type="module" is:inline>
-  import init from '/src/scripts/skill-toggles.ts';
-
-  // 1 – run right now for the initial page
+  // now pointing to your public folder
+  import init from "/scripts/skill-toggles.js";
   init();
-
-  // 2 – run again after any Astro client-side navigation
-  document.addEventListener('astro:page-load', init);
+  document.addEventListener("astro:page-load", init);
 </script>
-
-
-
