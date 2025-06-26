@@ -1,4 +1,8 @@
 ---
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import { Image } from "astro:assets";
 
 interface Testimonial {
@@ -117,57 +121,49 @@ const testimonials: Testimonial[] = [
 
 <script>
   async function setupSwiper() {
-    // We only want to initialize on large screens
     if (window.matchMedia("(min-width: 1024px)").matches) {
       const swiperContainer = document.querySelector(
         ".swiper-container",
       ) as HTMLElement | null;
 
-      if (!swiperContainer) return; // Exit if the container isn't on the page
+      if (
+        swiperContainer &&
+        !swiperContainer.classList.contains("swiper-initialized")
+      ) {
+        try {
+          const { default: Swiper } = await import("swiper");
+          const { Navigation, Pagination, Autoplay } = await import(
+            "swiper/modules"
+          );
 
-      // If Swiper is already running, just ensure the container is visible and exit.
-      // This handles fast client-side navigations.
-      if (swiperContainer.classList.contains("swiper-initialized")) {
-        swiperContainer.classList.remove("js-swiper-loading");
-        return;
-      }
+          new Swiper(swiperContainer, {
+            modules: [Navigation, Pagination, Autoplay],
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
 
-      // If it's not initialized yet, let's set it up.
-      try {
-        const { default: Swiper } = await import("swiper");
-        const { Navigation, Pagination, Autoplay } = await import(
-          "swiper/modules"
-        );
-
-        await import("swiper/css");
-        await import("swiper/css/navigation");
-        await import("swiper/css/pagination");
-
-        new Swiper(swiperContainer, {
-          modules: [Navigation, Pagination, Autoplay],
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 30,
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
-      } catch (error) {
-        console.error("Failed to initialize Swiper:", error);
-      } finally {
-        // --- THIS IS THE KEY ---
-        // Whether it succeeded or failed, reveal the container.
-        // If it failed, users will see the static list. If it succeeded, they see the slider.
-        // This prevents the section from being permanently invisible on error.
+          swiperContainer.classList.remove("js-swiper-loading");
+        } catch (error) {
+          console.error("Failed to initialize Swiper:", error);
+          if (swiperContainer)
+            swiperContainer.classList.remove("js-swiper-loading");
+        }
+        // 👇 THIS IS THE MISSING CLOSING BRACE for the 'if (swiperContainer && ...)' block
+      } else if (swiperContainer) {
+        // This handles cases where Swiper is already initialized on a fast page navigation
         swiperContainer.classList.remove("js-swiper-loading");
       }
     }
