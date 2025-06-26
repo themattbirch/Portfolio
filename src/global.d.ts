@@ -7,11 +7,7 @@ declare global {
     initializeSkillToggles?: () => void;
     updateTheme: (theme: string) => void;
     dataLayer?: any[];
-    gtag?: {
-      (command: "js", date: Date): void;
-      (command: "config", targetId: string, config?: object): void;
-      (command: string, ...args: any[]): void;
-    };
+    gtag?: (...args: any[]) => void;
   }
 }
 declare module "*.css";
