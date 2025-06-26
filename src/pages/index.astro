@@ -48,9 +48,15 @@ const pageDescription =
 const preloadLinks = [
   {
     href: lightBackgroundImage.src,
-    as: "image", // Add the 'as' attribute
-    media: "(min-width: 641px)",
-    type: "image/webp", // Add the type attribute
+    as: "image",
+    media: "(min-width: 641px) and (prefers-color-scheme: light)",
+    type: "image/webp",
+  },
+  {
+    href: darkBackgroundImage.src,
+    as: "image",
+    media: "(min-width: 641px) and (prefers-color-scheme: dark)",
+    type: "image/webp",
   },
   {
     href: mobileBackgroundImage.src,

@@ -47,6 +47,28 @@ const finalOgImage = image
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
+    <script is:inline>
+      (() => {
+        const getInitialTheme = () => {
+          if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+            return localStorage.getItem("theme");
+          }
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+          }
+          return "light";
+        };
+        const theme = getInitialTheme();
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+
+
     <!-- Additional SEO meta tags -->
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />

@@ -1,6 +1,6 @@
 /// <reference path="../.astro/types.d.ts" />
-import 'astro/client';
-import 'vite/client';
+import "astro/client";
+import "vite/client";
 
 interface ImportMetaEnv {
   readonly PROD: boolean;
@@ -12,18 +12,12 @@ interface ImportMeta {
 }
 
 // Make sure Astro recognizes Tailwind classes
-declare module 'astro:content' {
+declare module "astro:content" {
   interface Render {
-    '.md': Promise<{
-      Content: import('astro').MarkdownInstance<{}>['Content'];
-      headings: import('astro').MarkdownHeading[];
+    ".md": Promise<{
+      Content: import("astro").MarkdownInstance<{}>["Content"];
+      headings: import("astro").MarkdownHeading[];
       remarkPluginFrontmatter: Record<string, any>;
     }>;
   }
-}
-
-// Declare Tailwind CSS module
-declare module '*.css' {
-  const styles: any;
-  export default styles;
 }

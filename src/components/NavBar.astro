@@ -107,7 +107,7 @@ const { menuItems } = Astro.props;
       </div>
 
       <!-- Mobile menu -->
-      <div class="custom-md:hidden hidden" id="mobile-menu">
+      <div class="custom-md:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1 rounded-lg mt-2">
           {
             menuItems.map((item, index) => (
@@ -127,6 +127,7 @@ const { menuItems } = Astro.props;
                     <button
                       class="mobile-dropdown-toggle w-full text-left text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium flex items-center justify-between transition-all duration-200"
                       aria-expanded="false"
+                      data-toggle="dropdown"
                     >
                       <span class="mobile-link-text">{item.title}</span>
                       <svg
@@ -143,7 +144,10 @@ const { menuItems } = Astro.props;
                         />
                       </svg>
                     </button>
-                    <div class="mobile-dropdown-menu hidden mt-2 pl-4 space-y-1">
+                    <div
+                      class="mobile-dropdown-menu mt-2 pl-4 space-y-1"
+                      data-panel="dropdown"
+                    >
                       {item.children &&
                         item.children.map((child, childIndex) => (
                           <a
@@ -170,62 +174,85 @@ const { menuItems } = Astro.props;
 
 <!-- JS for mobile menu, event listeners -->
 <script>
-  function setupMobileMenu() {
+  function setupNavbar() {
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const openIcon = document.querySelector(".astronav-open-icon");
     const closeIcon = document.querySelector(".astronav-close-icon");
 
-    if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("mobile-menu-open");
-        openIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("hidden");
-        mobileMenuButton.setAttribute(
-          "aria-expanded",
-          mobileMenu.classList.contains("mobile-menu-open") ? "true" : "false"
-        );
-      });
+    if (!mobileMenuButton || !mobileMenu || !openIcon || !closeIcon) {
+      return; // Exit if essential elements are missing
+    }
 
-      const skillsDropdownToggle = document.querySelector(
-        ".mobile-dropdown-toggle"
-      );
-      const skillsDropdownMenu = document.querySelector(
-        ".mobile-dropdown-menu"
-      );
-      if (skillsDropdownToggle && skillsDropdownMenu) {
-        skillsDropdownToggle.addEventListener("click", () => {
-          skillsDropdownMenu.classList.toggle("hidden");
-          const arrowIcon = skillsDropdownToggle.querySelector("svg");
-          if (arrowIcon) {
-            arrowIcon.classList.toggle("rotate-180");
-          }
+    // --- 1. Main Menu Toggle Logic ---
+    const toggleMainMenu = () => {
+      const isOpening = !mobileMenu.classList.contains("mobile-menu-open");
+      mobileMenu.classList.toggle("mobile-menu-open");
+      openIcon.classList.toggle("hidden", isOpening);
+      closeIcon.classList.toggle("hidden", !isOpening);
+      mobileMenuButton.setAttribute("aria-expanded", String(isOpening));
+    };
+
+    mobileMenuButton.addEventListener("click", toggleMainMenu);
+
+    // --- 2. Data-Driven Accordion Logic ---
+    const dropdownToggles = mobileMenu.querySelectorAll(
+      '[data-toggle="dropdown"]',
+    );
+
+    dropdownToggles.forEach((toggle) => {
+      const panel = toggle.nextElementSibling;
+      // Ensure the panel exists and matches our data-attribute selector
+      if (panel && panel.matches('[data-panel="dropdown"]')) {
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent the main menu from closing
+
+          // Check if the panel is currently open
+          const isOpen = panel.classList.contains("is-open");
+
+          // Toggle the 'is-open' class on both the button and the panel
+          toggle.classList.toggle("is-open", !isOpen);
+          panel.classList.toggle("is-open", !isOpen);
+
+          // Update ARIA attribute for accessibility
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+
+          // The CSS will now handle the SVG rotation automatically via the class on the toggle
         });
       }
+    });
 
-      // Event listener for window resize
-      window.addEventListener("resize", handleResize);
-    }
-  }
-
-  function handleResize() {
-    const mobileMenu = document.getElementById("mobile-menu");
-    const openIcon = document.querySelector(".astronav-open-icon");
-    const closeIcon = document.querySelector(".astronav-close-icon");
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-
-    if (mobileMenu && openIcon && closeIcon && mobileMenuButton) {
-      if (window.innerWidth >= 820) {
-        // 820px breakpoint
-        mobileMenu.classList.remove("mobile-menu-open");
-        mobileMenu.classList.add("hidden");
-        openIcon.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
+    // --- 3. Resize Handling ---
+    const handleResize = () => {
+      if (
+        window.innerWidth >= 820 &&
+        mobileMenu.classList.contains("mobile-menu-open")
+      ) {
+        // If screen is resized to desktop, close the mobile menu
+        toggleMainMenu();
       }
-    }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // --- 4. Cleanup Logic for View Transitions ---
+    // Return a function that removes all event listeners
+    return () => {
+      mobileMenuButton.removeEventListener("click", toggleMainMenu);
+      window.removeEventListener("resize", handleResize);
+      // No need to remove dropdown listeners individually as they are inside the #mobile-menu
+      // which gets replaced on navigation.
+    };
   }
 
-  document.addEventListener("DOMContentLoaded", setupMobileMenu);
-  document.addEventListener("astro:after-swap", setupMobileMenu);
+  // --- Run Setup and Manage Cleanup ---
+  let cleanupNavbar = setupNavbar();
+  document.addEventListener("astro:after-swap", () => {
+    // Before the next page's content swaps in, clean up the old listeners
+    if (typeof cleanupNavbar === "function") {
+      cleanupNavbar();
+    }
+    // Set up listeners for the new page's content
+    cleanupNavbar = setupNavbar();
+  });
 </script>

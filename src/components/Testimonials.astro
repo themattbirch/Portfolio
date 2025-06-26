@@ -82,7 +82,7 @@ const testimonials: Testimonial[] = [
 <!-- Testimonial Slider: Desktop (LG/XL) -->
 <div class="hidden lg:block py-8 sm:py-12 px-4 sm:px-6">
   <div
-    class="swiper-container relative testimonial-container swiper-no-swiping rounded-lg md:rounded-full transition-all duration-300 bg-gradient-to-r from-blue-100 to-blue-50 dark:bg-gradient-to-r dark:from-zinc-900 dark:to-zinc-800 p-4 sm:p-6 md:p-8"
+    class="swiper-container js-swiper-loading relative testimonial-container swiper-no-swiping rounded-lg md:rounded-full transition-all duration-300 bg-gradient-to-r from-blue-100 to-blue-50 dark:bg-gradient-to-r dark:from-zinc-900 dark:to-zinc-800 p-4 sm:p-6 md:p-8"
   >
     <div class="swiper-wrapper">
       {
@@ -116,64 +116,74 @@ const testimonials: Testimonial[] = [
 </div>
 
 <script>
-  import Swiper from "swiper";
-  import { Navigation, Pagination, Autoplay } from "swiper/modules";
-  import "swiper/css";
-  import "swiper/css/navigation";
-  import "swiper/css/pagination";
+  async function setupSwiper() {
+    // We only want to initialize on large screens
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+      const swiperContainer = document.querySelector(
+        ".swiper-container",
+      ) as HTMLElement | null;
 
-  let swiper: Swiper | null = null;
+      if (!swiperContainer) return; // Exit if the container isn't on the page
 
-  function handleResize() {
-    const swiperContainer = document.querySelector(
-      ".swiper-container"
-    ) as HTMLElement | null;
-
-    if (window.innerWidth <= 1023) {
-      if (swiper) {
-        swiper.destroy(true, true);
-        swiper = null;
+      // If Swiper is already running, just ensure the container is visible and exit.
+      // This handles fast client-side navigations.
+      if (swiperContainer.classList.contains("swiper-initialized")) {
+        swiperContainer.classList.remove("js-swiper-loading");
+        return;
       }
-    } else {
-      if (!swiper) {
-        initSwiper();
+
+      // If it's not initialized yet, let's set it up.
+      try {
+        const { default: Swiper } = await import("swiper");
+        const { Navigation, Pagination, Autoplay } = await import(
+          "swiper/modules"
+        );
+
+        await import("swiper/css");
+        await import("swiper/css/navigation");
+        await import("swiper/css/pagination");
+
+        new Swiper(swiperContainer, {
+          modules: [Navigation, Pagination, Autoplay],
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 30,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      } catch (error) {
+        console.error("Failed to initialize Swiper:", error);
+      } finally {
+        // --- THIS IS THE KEY ---
+        // Whether it succeeded or failed, reveal the container.
+        // If it failed, users will see the static list. If it succeeded, they see the slider.
+        // This prevents the section from being permanently invisible on error.
+        swiperContainer.classList.remove("js-swiper-loading");
       }
     }
   }
 
-  function initSwiper() {
-    const swiperContainer = document.querySelector(
-      ".swiper-container"
-    ) as HTMLElement | null;
-
-    if (swiperContainer && !swiper) {
-      swiper = new Swiper(swiperContainer, {
-        modules: [Navigation, Pagination, Autoplay],
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", handleResize);
-  document.addEventListener("astro:page-load", handleResize);
-  window.addEventListener("resize", handleResize);
+  document.addEventListener("DOMContentLoaded", setupSwiper);
+  document.addEventListener("astro:page-load", setupSwiper);
 </script>
 
 <style>
+  .js-swiper-loading {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in;
+  }
+
   .testimonial-wrapper {
     width: 100%;
   }

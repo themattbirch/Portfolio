@@ -15,7 +15,21 @@
 }
 
 #hero-background {
+  /* Set the default (desktop light) background image */
+  background-image: url("/assets/images/hero-background-light-theme-toggle.webp");
   transition: background-image 0.5s ease;
+}
+
+/* For dark mode, swap to the dark image */
+.dark #hero-background {
+  background-image: url("/assets/images/hero-background-dark-theme-toggle.webp");
+}
+
+/* On smaller screens, use the mobile background for both light and dark modes */
+@media (max-width: 640px) {
+  #hero-background {
+    background-image: url("/assets/images/hero_background_mobile.webp");
+  }
 }
 
 .hero-gradient-overlay {
