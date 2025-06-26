@@ -96,13 +96,12 @@ const { skills } = Astro.props;
     }
   }
 
-  .skill-content {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.5s ease-in-out;
-  }
-
-  .skill-content.active {
+  .skill-header {
+    min-height: 6rem;
+    cursor: pointer;
+    padding: 1.25rem 1rem;
+    display: flex;
+    align-items: center;
   }
 
   .skill-card {
@@ -116,14 +115,22 @@ const { skills } = Astro.props;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   }
 
-  .skill-header {
-    min-height: 6rem;
-    cursor: pointer;
-    padding: 1.25rem 1rem;
-    display: flex;
-    align-items: center;
+  /* 1. The default, closed state for the content panel */
+  .skill-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
+  /* 2. The open state: when the PARENT card has .is-active, open the panel */
+  .skill-card.is-active .skill-content {
+    max-height: 500px; /* A value larger than the content will ever be */
+  }
+
+  /* 3. The icon rotation: when the PARENT card has .is-active, rotate the icon */
+  .skill-card.is-active .toggle-icon {
+    transform: rotate(180deg);
+  }
   .icon-wrapper {
     display: flex;
     align-items: center;
@@ -168,10 +175,6 @@ const { skills } = Astro.props;
     height: 2.25rem;
     color: #2563eb;
     transition: transform 0.3s ease;
-  }
-
-  .skill-header[aria-expanded="true"] .toggle-icon {
-    transform: rotate(180deg);
   }
 
   :global(.dark) .skill-card {
@@ -221,58 +224,15 @@ const { skills } = Astro.props;
   }
 </style>
 
-<script>
-  function initializeSkillToggles() {
-    const skillCards = document.querySelectorAll<HTMLElement>(".skill-card");
+<script type="module" is:inline>
+  import init from '/src/scripts/skill-toggles.ts';
 
-    skillCards.forEach((card) => {
-      const header = card.querySelector<HTMLElement>(".skill-header");
-      const content = card.querySelector<HTMLElement>(".skill-content");
+  // 1 – run right now for the initial page
+  init();
 
-      if (!header || !content) return;
-
-      // Set initial state
-      header.setAttribute("aria-expanded", "false");
-      content.style.maxHeight = "0px";
-
-      header.addEventListener("click", () => {
-        const isExpanded = header.getAttribute("aria-expanded") === "true";
-
-        // Close other cards
-        const parentGrid = card.closest(".skills-grid");
-        if (parentGrid) {
-          parentGrid
-            .querySelectorAll<HTMLElement>(".skill-card")
-            .forEach((otherCard) => {
-              if (otherCard !== card) {
-                const otherHeader =
-                  otherCard.querySelector<HTMLElement>(".skill-header");
-                const otherContent =
-                  otherCard.querySelector<HTMLElement>(".skill-content");
-                if (otherHeader && otherContent) {
-                  otherHeader.setAttribute("aria-expanded", "false");
-                  otherContent.style.maxHeight = "0px";
-                  otherContent.classList.remove("active");
-                }
-              }
-            });
-        }
-
-        // Toggle current card
-        if (isExpanded) {
-          header.setAttribute("aria-expanded", "false");
-          content.style.maxHeight = "0px";
-          content.classList.remove("active");
-        } else {
-          header.setAttribute("aria-expanded", "true");
-          content.style.maxHeight = `${content.scrollHeight}px`;
-          content.classList.add("active");
-        }
-      });
-    });
-  }
-
-  document.addEventListener("astro:page-load", initializeSkillToggles);
-  window.addEventListener("themeChange", initializeSkillToggles);
-  initializeSkillToggles();
+  // 2 – run again after any Astro client-side navigation
+  document.addEventListener('astro:page-load', init);
 </script>
+
+
+

@@ -1,5 +1,6 @@
 // src/types.ts
 import type { ImageMetadata } from "astro";
+import type { ForwardRefExoticComponent, SVGProps, RefAttributes } from "react"; // 👈 Add this new import
 
 // Date handling
 export interface FormattedDate {
@@ -18,4 +19,13 @@ export interface BlogPostFrontmatter {
   alt?: string;
   updatedDate?: FormattedDate;
   ogImage?: string;
+}
+export interface Skill {
+  name: string;
+  description?: string;
+  // 👇 Change this back to the component type
+  icon?: ForwardRefExoticComponent<
+    SVGProps<SVGSVGElement> & RefAttributes<SVGSVGElement>
+  >;
+  level?: string;
 }
