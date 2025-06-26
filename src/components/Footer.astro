@@ -1,6 +1,14 @@
 ---
 const currentYear = new Date().getFullYear();
 
+// Links for the footer sitemap
+const pageLinks = [
+  { name: "About", url: "/about" },
+  { name: "Projects", url: "/projects" },
+  { name: "Blog", url: "/blog" },
+  { name: "Contact", url: "/contact" },
+];
+
 const socialLinks = [
   { name: "GitHub", url: "https://github.com/themattbirch", icon: "github" },
   {
@@ -12,39 +20,90 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-gradient-to-r from-gray-800 to-blue-950 mt-auto">
-  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-    <div
-      class="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-4 sm:mb-6"
-    >
-    </div>
-    <div
-      class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
-    >
-      <div class="p-2 sm:p-3 rounded-lg">
-        <p class="text-xs sm:text-sm text-gray-400">
-          &copy; {currentYear} Matt Birch. All rights reserved.
-        </p>
+<footer
+  class="bg-gradient-to-r from-gray-800 to-blue-950 text-gray-300 mt-auto"
+>
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    {
+      /* --- FIX: Increased gap on mobile, which reverts on medium screens --- */
+    }
+    <div class="py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      {/* Column 1 in code, but middle on desktop: Brand */}
+      <div
+        class="flex justify-center md:items-center md:text-center md:order-2"
+      >
+        <div class="max-w-xs">
+          <h3 class="text-lg font-bold text-white mb-4">Matt Birch</h3>
+          <p class="text-sm text-gray-400">
+            A Full Stack Engineer with a writer's focus on clarity and a
+            founder's mindset for building products that deliver real-world
+            value.
+          </p>
+        </div>
       </div>
-      <nav class="flex space-x-4 sm:space-x-6">
-        {
-          socialLinks.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="neumorphic-button p-2 rounded-full text-gray-400 hover:text-white transition-colors duration-200"
-              aria-label={link.name}
-            >
-              <span class="sr-only">{link.name}</span>
-              <i
-                class={`fab fa-${link.icon} text-lg sm:text-xl`}
-                aria-hidden="true"
-              />
-            </a>
-          ))
-        }
-      </nav>
+
+      {/* Column 2 in code, but first on desktop: Navigation */}
+      <div class="flex justify-center md:justify-start md:text-left md:order-1">
+        <div>
+          <h3
+            class="text-sm font-semibold tracking-wider uppercase text-gray-400 mb-4"
+          >
+            Navigate
+          </h3>
+          <ul class="space-y-3">
+            {
+              pageLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.url}
+                    class="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      {/* Column 3 in code, and last on desktop: Connect */}
+      <div class="flex justify-center md:justify-end md:text-left md:order-3">
+        <div>
+          <h3
+            class="text-sm font-semibold tracking-wider uppercase text-gray-400 mb-4"
+          >
+            Connect
+          </h3>
+          <ul class="space-y-3">
+            {
+              socialLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center text-gray-300 hover:text-white transition-colors duration-200 text-sm"
+                  >
+                    <i
+                      class={`fab fa-${link.icon} w-5 mr-2`}
+                      aria-hidden="true"
+                    />
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {/* Copyright bar remains centered */}
+    <div class="py-6 border-t border-gray-700 flex justify-center">
+      <p class="text-xs text-gray-500">
+        &copy; {currentYear} Matt Birch. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
