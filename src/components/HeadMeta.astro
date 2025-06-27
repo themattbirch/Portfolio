@@ -20,44 +20,6 @@ const resolvedDescription =
   "A blog by Matt Birch on web development and digital marketing.";
 const resolvedOgImage = ogImage || "https://mattbirch.co/default-image.jpg";
 const resolvedCanonicalURL = cleanUrl(canonicalURL || "https://mattbirch.co");
-
-// Create the JSON-LD object
-const jsonLdData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  url: resolvedCanonicalURL,
-  name: resolvedTitle,
-  description: resolvedDescription,
-  author: {
-    "@type": "Person",
-    name: "Matt Birch",
-    url: "https://mattbirch.co",
-    sameAs: [
-      "https://twitter.com/themattbirch",
-      "https://github.com/themattbirch",
-      "https://linkedin.com/in/themattbirch",
-    ],
-  },
-  publisher: {
-    "@type": "Person",
-    name: "Matt Birch",
-    image: {
-      "@type": "ImageObject",
-      url: resolvedOgImage,
-      width: 1200,
-      height: 630,
-    },
-  },
-  image: {
-    "@type": "ImageObject",
-    url: resolvedOgImage,
-    width: 1200,
-    height: 630,
-  },
-};
-
-// Stringify JSON-LD object
-const jsonLdString = JSON.stringify(jsonLdData);
 ---
 
 <title>{resolvedTitle}</title>
@@ -89,6 +51,3 @@ const jsonLdString = JSON.stringify(jsonLdData);
 <!-- Favicon & Theme -->
 <meta name="theme-color" content="#0072ff" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
-
-<!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={jsonLdString} />
