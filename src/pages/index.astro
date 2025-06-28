@@ -86,7 +86,7 @@ const preloadLinks = [
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- stack on mobile, row on md+ -->
       <div class="flex flex-col md:flex-row items-start gap-8">
-        <!-- ⬅️ copy + button -->
+        <!-- ⬅️ copy + desktop-only button -->
         <div class="flex-1">
           <h2 class="h2-text mb-6">What I Can Do for You</h2>
 
@@ -104,12 +104,12 @@ const preloadLinks = [
             genuinely engaging.
           </p>
 
-          <!-- button: centered on sm, left on md, right on lg+ -->
-          <div class="flex mt-8 justify-center md:justify-start lg:justify-end">
+          <div
+            class="hidden md:flex mt-8 justify-center md:justify-start lg:justify-end"
+          >
             <button
-              id="toggle-services"
-              class="px-6 py-3 rounded-md font-semibold bg-primary text-white hover:bg-primary-dark
-                   dark:bg-primary-dark dark:hover:bg-blue-600 transition"
+              class="toggle-services-btn px-6 py-3 rounded-md font-semibold bg-primary text-white
+                   hover:bg-primary-dark dark:bg-primary-dark dark:hover:bg-blue-600 transition"
             >
               See more services
             </button>
@@ -131,15 +131,25 @@ const preloadLinks = [
             />
           </div>
         </div>
+
+        <!-- mobile-only button (below photo) -->
+        <div class="flex w-full mt-8 justify-center md:hidden">
+          <button
+            class="toggle-services-btn px-6 py-3 rounded-md font-semibold bg-primary text-white
+                 hover:bg-primary-dark dark:bg-primary-dark dark:hover:bg-blue-600 transition"
+          >
+            See more services
+          </button>
+        </div>
       </div>
 
       <!-- USP service list -->
       <div
         id="extra-services"
         class="hidden opacity-0 translate-y-2 transition-all duration-300
-  gap-6 sm:gap-8
-  overflow-x-auto snap-x snap-mandatory
-  md:flex-nowrap"
+             gap-6 sm:gap-8
+             overflow-x-auto snap-x snap-mandatory
+             md:flex-nowrap"
       >
         {
           services.map((s) => (
@@ -153,7 +163,7 @@ const preloadLinks = [
 
     <!-- toggle logic -->
     <script is:inline type="module">
-      const btn = document.getElementById("toggle-services");
+      const buttons = document.querySelectorAll(".toggle-services-btn");
       const extra = document.getElementById("extra-services");
 
       const mobileClasses = ["flex", "md:flex-nowrap"];
@@ -164,6 +174,7 @@ const preloadLinks = [
         "lg:overflow-visible",
         "lg:snap-none",
       ];
+
       const addSwipeHint = () => {
         const first = extra.querySelector("div");
         if (first) {
@@ -176,23 +187,31 @@ const preloadLinks = [
         }
       };
 
-      if (btn && extra) {
-        btn.addEventListener("click", () => {
-          const opening = extra.classList.contains("hidden");
+      if (buttons.length && extra) {
+        const setLabel = (txt) => buttons.forEach((b) => (b.textContent = txt));
 
-          if (opening) {
-            // ---------- SHOW ----------
-            extra.classList.remove("hidden", "opacity-0");
-            extra.classList.add("mt-8", ...mobileClasses, ...desktopClasses);
-            btn.textContent = "Hide services";
-            if (window.innerWidth < 1024) addSwipeHint();
-          } else {
-            // ---------- HIDE ----------
-            extra.classList.add("hidden", "opacity-0");
-            extra.classList.remove("mt-8", ...mobileClasses, ...desktopClasses);
-            btn.textContent = "See more services";
-          }
-        });
+        buttons.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const opening = extra.classList.contains("hidden");
+
+            if (opening) {
+              // ---------- SHOW ----------
+              extra.classList.remove("hidden", "opacity-0");
+              extra.classList.add("mt-8", ...mobileClasses, ...desktopClasses);
+              setLabel("Hide services");
+              if (window.innerWidth < 1024) addSwipeHint();
+            } else {
+              // ---------- HIDE ----------
+              extra.classList.add("hidden", "opacity-0");
+              extra.classList.remove(
+                "mt-8",
+                ...mobileClasses,
+                ...desktopClasses,
+              );
+              setLabel("See more services");
+            }
+          }),
+        );
       }
     </script>
   </section>
