@@ -78,84 +78,53 @@ const preloadLinks = [
     <Hero />
   </section>
 
+  <!-- USP + Services Section -->
   <section
-    class="bg-background-secondary dark:bg-background-dark transition-colors duration-300 sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
+    class="bg-background-secondary dark:bg-background-dark transition-colors duration-300
+         sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
   >
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-stretch gap-8">
-        <!-- LEFT COLUMN: Headings, Text, Service Cards -->
-        <div class="w-full lg:w-2/3 xl:w-3/4 flex flex-col">
-          <h2 class="h2-text sm:text-center mb-6 sm:mb-8">
-            What I Can Do for You
-          </h2>
+      <!-- stack on mobile, row on md+ -->
+      <div class="flex flex-col md:flex-row items-start gap-8">
+        <!-- ⬅️ copy + button -->
+        <div class="flex-1">
+          <h2 class="h2-text mb-6">What I Can Do for You</h2>
 
-          <!-- 1) extra bottom margin on first paragraph for that blank line -->
           <p class="mb-6">
             I build high-performance web and mobile applications designed to
-            deliver tangible results. My experience ranges from complex
-            data-driven platforms to intuitive, mobile-first experiences.
+            deliver tangible results—from complex data-driven platforms to
+            intuitive, mobile-first experiences.
           </p>
 
-          <!-- 2) you can also tune this mb- value to taste, or use `<br>` above—but `mb-6` gives you a clean Tailwind spacing -->
-          <p class="mb-8">
-            This versatility is amplified by my background in media and
-            copywriting&mdash;my key differentiator. It gives me a
+          <p>
+            My background in media and copywriting gives me a
             <span class="text-blue-700 dark:text-blue-300 italic"
-              >sharp focus on the end-user,</span
-            > ensuring every product is not just technically robust and scalable,
-            but also genuinely engaging.
+              >sharp focus on the end-user</span
+            >, ensuring every product is technically robust, scalable, and
+            genuinely engaging.
           </p>
 
-          <!-- COMBINED FLEX LAYOUT FOR MOBILE/TABLET: Text, Image, and Services -->
-          <div class="lg:hidden">
-            <!-- Flex container for the text box and image -->
-            <div class="flex items-center mb-8">
-              <!-- Text Box -->
-              <div
-                class="w-1/2 bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border-0 dark:border dark:border-gray-600"
-              >
-                <p class="leading-relaxed text-gray-900 dark:text-gray-100">
-                  Here's how I can solve your business problems,
-                  <span class="text-blue-700 dark:text-blue-300 italic"
-                    >today</span
-                  >:
-                </p>
-              </div>
-
-              <!-- Image container - LARGER SIZE ACROSS ALL BREAKPOINTS -->
-              <div class="w-1/2 flex justify-end">
-                <Image
-                  src={meHeroImg}
-                  alt="Matt showcasing skills for clients"
-                  class="object-contain w-auto h-64"
-                  width={400}
-                  height={600}
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Service Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 flex-grow">
-            {
-              services.map((service) => (
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                />
-              ))
-            }
+          <!-- button: centered on sm, left on md, right on lg+ -->
+          <div class="flex mt-8 justify-center md:justify-start lg:justify-end">
+            <button
+              id="toggle-services"
+              class="px-6 py-3 rounded-md font-semibold bg-primary text-white
+                   hover:bg-primary-dark transition"
+            >
+              See more services
+            </button>
           </div>
         </div>
 
-        <!-- RIGHT COLUMN: Desktop Image - NO TEXT BOX -->
-        <div class="hidden lg:flex lg:w-1/3 xl:w-1/4 items-end">
-          <div class="w-full mb-[-16px]">
+        <!-- ➡️ photo -->
+        <div
+          class="flex justify-center md:justify-end w-full md:w-1/3 lg:w-1/4 items-start"
+        >
+          <div class="w-40 sm:w-48 md:w-56 lg:w-full mt-6 xl:-mt-20">
             <Image
               src={meHeroImg}
               alt="Matt showcasing skills for clients"
-              class="object-contain h-auto max-w-xs mx-auto"
+              class="object-contain h-auto w-full max-w-xs mx-auto"
               width={400}
               height={600}
               loading="lazy"
@@ -163,7 +132,45 @@ const preloadLinks = [
           </div>
         </div>
       </div>
+
+      <!-- 🔽 service cards (full width row) -->
+      <div
+        id="extra-services"
+        class="hidden opacity-0 transition-all duration-300 translate-y-2
+         gap-6 overflow-x-auto snap-x snap-mandatory
+         sm:gap-8"
+      >
+        {
+          services.map((s) => (
+            <div class="min-w-[80%] sm:min-w-[60%] md:min-w-[50%] snap-center">
+              <ServiceCard title={s.title} description={s.description} />
+            </div>
+          ))
+        }
+      </div>
     </div>
+
+    <!-- toggle logic -->
+    <script is:inline type="module">
+      const btn = document.getElementById("toggle-services");
+      const extra = document.getElementById("extra-services");
+
+      if (btn && extra) {
+        btn.addEventListener("click", () => {
+          const show = extra.classList.contains("hidden");
+
+          extra.classList.toggle("hidden");
+          extra.classList.toggle("opacity-0");
+          extra.classList.toggle("mt-8", show);
+
+          // give mobile swipe-row its flex wrapper only when visible
+          if (show) extra.classList.add("flex");
+          else extra.classList.remove("flex");
+
+          btn.textContent = show ? "Hide services" : "See more services";
+        });
+      }
+    </script>
   </section>
 
   <!-- Testimonials Section -->

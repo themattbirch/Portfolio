@@ -1,27 +1,44 @@
-<section class="pt-8 lg:pt-16 px-4 sm:px-6 max-w-4xl mx-auto">
-  <div
-    class="max-w-2xl mx-auto rounded-lg md:rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:rotate-1"
-  >
+<!-- src/components/CTASection.astro -->
+<section class="pt-8 lg:pt-16 px-4 sm:px-6">
+  <div class="max-w-screen-md mx-auto">
+    <!-- Card -->
     <div
-      class="backdrop-blur-sm p-1 bg-cta-backdrop dark:bg-cta-backdrop-dark transition-colors duration-300 ease-in-out"
+      class="relative isolate overflow-hidden rounded-3xl
+         ring-1 ring-gray-300 dark:ring-gray-700
+         bg-gradient-to-br
+         from-cta-gradient-from via-cta-gradient-via to-cta-gradient-to
+         dark:from-cta-gradient-dark-from dark:via-cta-gradient-dark-via dark:to-cta-gradient-dark-to
+         shadow-md transition-all duration-300 ease-out
+         hover:-translate-y-2 hover:scale-105 hover:shadow-xl"
     >
-      <div
-        class="rounded-lg md:rounded-full bg-gradient-to-r from-blue-100 to-blue-50 dark:bg-gradient-to-r dark:from-zinc-900 dark:to-zinc-800"
-      >
-        <div class="max-w-xl mx-auto px-6 py-8 md:py-10 text-center">
-          <h2 class="text-2xl font-bold text-cta-dark dark:text-gray-100 mb-4">
-            Ready to discuss your web development needs? 
-          </h2>
-          <p class="text-lg text-cta-dark dark:text-gray-300 mb-6">
-            Let's collaborate and bring your vision to life!
-          </p>
-          <a
-            href="/contact"
-            class="btn btn-primary rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Get in Touch
-          </a>
-        </div>
+      <!-- Optional subtle glow -->
+      <span
+        aria-hidden="true"
+        class="absolute inset-0 -z-10 blur-2xl opacity-20
+               bg-gradient-to-br
+               from-cta-gradient-to via-cta-gradient-via to-cta-gradient-from
+               dark:from-cta-gradient-dark-to dark:via-cta-gradient-dark-via dark:to-cta-gradient-dark-from"
+      ></span>
+
+      <div class="px-8 py-12 sm:px-12 text-center space-y-6">
+        <h2
+          class="text-2xl sm:text-3xl font-bold text-cta-dark dark:text-white"
+        >
+          Ready to discuss your web development needs?
+        </h2>
+
+        <p class="text-lg text-cta-subtext dark:text-gray-300">
+          Let&#39;s collaborate and bring your vision to life!
+        </p>
+
+        <a
+          href="/contact"
+          class="btn btn-primary rounded-full px-8 py-3 shadow
+                 transition transform hover:-translate-y-1 hover:scale-105
+                 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Get in Touch
+        </a>
       </div>
     </div>
   </div>
