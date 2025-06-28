@@ -65,24 +65,6 @@ const preloadLinks = [
     type: "image/webp",
   },
 ];
-const gridOnLg = [
-  "lg:grid",
-  "lg:grid-cols-2",
-  "lg:gap-8",
-  "lg:overflow-visible",
-  "lg:snap-none",
-];
-/* ======= layout helper ======= */
-const mobileClasses = ["flex", "md:flex-nowrap"] as const; // carousel
-const desktopClasses = [
-  // 2 × 2 grid
-  "lg:grid",
-  "lg:grid-cols-2",
-  "lg:gap-8",
-  "lg:overflow-visible",
-  "lg:snap-none",
-] as const;
-/* ============================= */
 ---
 
 <Layout
@@ -174,7 +156,6 @@ const desktopClasses = [
       const btn = document.getElementById("toggle-services");
       const extra = document.getElementById("extra-services");
 
-      /* +++++  ADD THESE 2 LINES  +++++ */
       const mobileClasses = ["flex", "md:flex-nowrap"];
       const desktopClasses = [
         "lg:grid",
@@ -183,7 +164,17 @@ const desktopClasses = [
         "lg:overflow-visible",
         "lg:snap-none",
       ];
-      /* ++++++++++++++++++++++++++++++++ */
+      const addSwipeHint = () => {
+        const first = extra.querySelector("div");
+        if (first) {
+          first.classList.add("animate-wiggle-x");
+          extra.addEventListener(
+            "scroll",
+            () => first.classList.remove("animate-wiggle-x"),
+            { once: true },
+          );
+        }
+      };
 
       if (btn && extra) {
         btn.addEventListener("click", () => {
@@ -194,6 +185,7 @@ const desktopClasses = [
             extra.classList.remove("hidden", "opacity-0");
             extra.classList.add("mt-8", ...mobileClasses, ...desktopClasses);
             btn.textContent = "Hide services";
+            if (window.innerWidth < 1024) addSwipeHint();
           } else {
             // ---------- HIDE ----------
             extra.classList.add("hidden", "opacity-0");

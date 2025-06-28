@@ -463,3 +463,23 @@
     @apply hidden sm:block;
   }
 }
+/* === swipe hint animation (X-axis wiggle) === */
+@layer utilities {
+  @keyframes wiggle-x {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-8px);
+    }
+  }
+  .animate-wiggle-x {
+    animation: wiggle-x 0.6s ease-in-out 0.6s 3 forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-wiggle-x {
+      animation: none;
+    }
+  }
+}
