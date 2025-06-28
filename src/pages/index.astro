@@ -65,6 +65,24 @@ const preloadLinks = [
     type: "image/webp",
   },
 ];
+const gridOnLg = [
+  "lg:grid",
+  "lg:grid-cols-2",
+  "lg:gap-8",
+  "lg:overflow-visible",
+  "lg:snap-none",
+];
+/* ======= layout helper ======= */
+const mobileClasses = ["flex", "md:flex-nowrap"] as const; // carousel
+const desktopClasses = [
+  // 2 × 2 grid
+  "lg:grid",
+  "lg:grid-cols-2",
+  "lg:gap-8",
+  "lg:overflow-visible",
+  "lg:snap-none",
+] as const;
+/* ============================= */
 ---
 
 <Layout
@@ -133,16 +151,17 @@ const preloadLinks = [
         </div>
       </div>
 
-      <!-- 🔽 service cards (full width row) -->
+      <!-- USP service list -->
       <div
         id="extra-services"
-        class="hidden opacity-0 transition-all duration-300 translate-y-2
-         gap-6 overflow-x-auto snap-x snap-mandatory
-         sm:gap-8"
+        class="hidden opacity-0 translate-y-2 transition-all duration-300
+  gap-6 sm:gap-8
+  overflow-x-auto snap-x snap-mandatory
+  md:flex-nowrap"
       >
         {
           services.map((s) => (
-            <div class="min-w-[80%] sm:min-w-[60%] md:min-w-[50%] snap-center">
+            <div class="min-w-[80%] sm:min-w-[60%] md:min-w-[50%] lg:min-w-0 snap-center">
               <ServiceCard title={s.title} description={s.description} />
             </div>
           ))
@@ -155,19 +174,32 @@ const preloadLinks = [
       const btn = document.getElementById("toggle-services");
       const extra = document.getElementById("extra-services");
 
+      /* +++++  ADD THESE 2 LINES  +++++ */
+      const mobileClasses = ["flex", "md:flex-nowrap"];
+      const desktopClasses = [
+        "lg:grid",
+        "lg:grid-cols-2",
+        "lg:gap-8",
+        "lg:overflow-visible",
+        "lg:snap-none",
+      ];
+      /* ++++++++++++++++++++++++++++++++ */
+
       if (btn && extra) {
         btn.addEventListener("click", () => {
-          const show = extra.classList.contains("hidden");
+          const opening = extra.classList.contains("hidden");
 
-          extra.classList.toggle("hidden");
-          extra.classList.toggle("opacity-0");
-          extra.classList.toggle("mt-8", show);
-
-          // give mobile swipe-row its flex wrapper only when visible
-          if (show) extra.classList.add("flex");
-          else extra.classList.remove("flex");
-
-          btn.textContent = show ? "Hide services" : "See more services";
+          if (opening) {
+            // ---------- SHOW ----------
+            extra.classList.remove("hidden", "opacity-0");
+            extra.classList.add("mt-8", ...mobileClasses, ...desktopClasses);
+            btn.textContent = "Hide services";
+          } else {
+            // ---------- HIDE ----------
+            extra.classList.add("hidden", "opacity-0");
+            extra.classList.remove("mt-8", ...mobileClasses, ...desktopClasses);
+            btn.textContent = "See more services";
+          }
         });
       }
     </script>
