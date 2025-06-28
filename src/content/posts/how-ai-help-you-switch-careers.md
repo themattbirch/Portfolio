@@ -3,7 +3,7 @@ author: "Matt Birch"
 categories: ["AI"]
 date: "09/28/2024"
 featured: false
-image: /assets/images/man-thinking-office.jpg
+image: /images/man-thinking-office.jpg
 title: "Transform your career with AI in 2024"
 description: "Learn how AI can support a career change by offering personalized skill development, job recommendations, and insights into emerging industries, helping you transition smoothly into a new field."
 ---
@@ -86,7 +86,7 @@ Instead, you should create a transition timeline that allows you to build skills
 
 Test your new skills through side projects or freelance work. AI can help you find opportunities and prepare proposals or portfolios.
 
-![career transition map](/assets/images/career-transition-map.jpg)
+![career transition map](/images/career-transition-map.jpg)
 
 ### Reshaping Your Career Path
 

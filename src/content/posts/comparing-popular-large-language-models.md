@@ -3,7 +3,7 @@ author: "Matt Birch"
 categories: ["AI"]
 date: "10/18/2024"
 featured: true
-image: /assets/images/ai-large-language-model.jpg
+image: /images/ai-large-language-model.jpg
 title: "Comparing popular large language models: AI race heats up"
 description: "Explore a comprehensive comparison of popular large language models, examining their capabilities, strengths, and applications to help you choose the right AI tool for your needs."
 ---
@@ -32,7 +32,7 @@ But to really understand this groundbreaking technology, let's start by looking 
 
 Here's an example of an interaction with Claude, demonstrating how modern LLMs can engage in nuanced conversation while maintaining context and providing detailed, relevant responses:
 
-![different large language models](/assets/images/claude-prompt-reply-llm-differences.jpg)
+![different large language models](/images/claude-prompt-reply-llm-differences.jpg)
 
 This exchange showcases how LLMs can process complex queries and provide structured, coherent responses while maintaining a natural conversational flow.
 

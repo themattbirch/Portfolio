@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 08/14/2024
 featured: false
-image: /assets/images/online-learning.jpg
+image: /images/online-learning.jpg
 title: "Why Gen Z is flocking to online education"
 description: "Discover why online education is becoming increasingly popular among young professionals. Learn how flexible, skill-focused courses are helping them advance their careers and stay competitive in a rapidly evolving job market."
 ---
@@ -56,7 +56,7 @@ This new approach to learning yields remarkable results: team members who active
 
 And this change in how information is processed speaks to the paradigm shift away from higher institutions. This infographic from [AcademyLMS](https://academylms.net/is-online-education-is-better-than-traditional/) does a great job of highlighting why the younger generation is favoring online learning these days.
 
-![why students prefer online education](/assets/images/why-students-prefer-online-education.jpg)
+![why students prefer online education](/images/why-students-prefer-online-education.jpg)
 
 ## Real-World Results In Real Time
 

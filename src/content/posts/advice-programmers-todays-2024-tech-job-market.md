@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["App Development"]
 date: 08/30/2024
 featured: false
-image: /assets/images/tech-job-interview.jpg
+image: /images/tech-job-interview.jpg
 title: How programmers should navigate today's tech job market
 description: Stay competitive in the 2024 tech job market with strategic insights for programmers. Learn to navigate 'ghost jobs,' adapt to extended interviews, and focus on skill-building for success in a rapidly evolving landscape.
 ---
@@ -32,7 +32,7 @@ The real insight comes from understanding why this happens. Companies strategica
 
 This knowledge changes how to approach job searching. And the mindset for how junior developers should navigate the market.
 
-![ghost job tips for job seekers](/assets/images/ghost-job-tips.jpg)
+![ghost job tips for job seekers](/images/ghost-job-tips.jpg)
 
 Understanding this reality is crucial because it should inform your application strategy. When nearly a third of job postings might be ghost jobs, you need to be selective about where you invest your time and energy.
 

@@ -13,7 +13,7 @@ export interface BlogPostFrontmatter {
   categories: string[];
   date: FormattedDate;
   featured: boolean;
-  image: ImageMetadata;
+  image: string;
   title: string;
   description: string;
   alt?: string;

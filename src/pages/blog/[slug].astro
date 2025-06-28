@@ -6,7 +6,6 @@ import Layout from "../../layouts/Layout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Share from "../../components/Share.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
-import { Image } from "astro:assets";
 import { sortPostsByDate } from "@/utils/sorters";
 
 interface Heading {
@@ -43,14 +42,13 @@ const formatDate = (date: Date) => {
     day: "numeric",
   });
 };
+const imageUrl = post.data.image;
 ---
 
 <Layout
   title={post.data.title}
   description={post.data.description}
-  ogImage={typeof post.data.image === "string"
-    ? post.data.image
-    : post.data.image.src}
+  ogImage={imageUrl}
   fullWidth={true}
 >
   <div class="horizontal-gradient-wrapper">
@@ -93,11 +91,11 @@ const formatDate = (date: Date) => {
         </header>
 
         <div class="mb-8 sm:mb-12 md:mb-16">
-          <Image
-            src={post.data.image}
-            alt={post.data.title}
-            width={1920}
-            height={1080}
+          <img
+            src={imageUrl}
+            alt={post.data.alt || post.data.title}
+            width="1920"
+            height="1080"
             class="w-full h-auto object-cover rounded-lg shadow-lg"
             loading="eager"
             itemprop="image"

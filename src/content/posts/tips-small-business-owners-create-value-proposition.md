@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 02/13/2023
 featured: false
-image: /assets/images/small-business-owner-collaboration.jpg
+image: /images/small-business-owner-collaboration.jpg
 title: "Tips for small business owners to create a value proposition"
 description: Learn essential tips for small business owners on how to craft a compelling value proposition that clearly communicates your brand’s unique benefits and sets you apart from the competition.
 ---

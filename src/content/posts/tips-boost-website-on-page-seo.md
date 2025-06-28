@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["SEO"]
 date: 04/08/2024
 featured: false
-image: /assets/images/seo-laptop.jpg
+image: /images/seo-laptop.jpg
 title: "How to boost your website's on-page SEO"
 description: Learn actionable tips to boost your website's on-page SEO, improve search engine rankings, and drive organic traffic through optimized content, meta tags, keywords, and user-friendly design
 ---
@@ -28,7 +28,7 @@ Meta title and description must be included in every post. The good news is a Wo
 
 Make sure to use the correct permalink structure. We advise everyone to stick to the "post name" URL structure on WordPress, which you can adjust in the "settings" area, as you can see in the screenshot below.
 
-![wordpress-permalink-example](/assets/images/wordpress-permalink-structure.png)
+![wordpress-permalink-example](/images/wordpress-permalink-structure.png)
 
 - Headings
 

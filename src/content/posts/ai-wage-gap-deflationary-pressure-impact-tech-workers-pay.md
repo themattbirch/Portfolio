@@ -3,7 +3,7 @@ author: "Matt Birch"
 categories: ["AI"]
 date: "11/22/2024"
 featured: true
-image: /assets/images/ai-chatgpt-logo.jpg
+image: /images/ai-chatgpt-logo.jpg
 title: "The AI wage paradox: How deflationary pressure will impact tech workers"
 description: "Explore how AI is reshaping the tech workforce. Learn why automation's deflationary pressure could lower wages for tech professionals and what it means for the industry’s future."
 ---
@@ -26,7 +26,7 @@ And the output curves in recent economic analyses suggest they're not linear– 
 
 This [graph](https://www.imf.org/en/Publications/fandd/issues/2023/12/Scenario-Planning-for-an-AGI-future-Anton-korinek) from the International Monetary Fund shows how an AGI-led future could impact wages (as well as growth), and it isn't good.
 
-![chart showing how Artificial General Intelligence hurts tech workers wages](/assets/images/agi-impact-wages.jpg)
+![chart showing how Artificial General Intelligence hurts tech workers wages](/images/agi-impact-wages.jpg)
 
 ### Two Paths Diverging
 

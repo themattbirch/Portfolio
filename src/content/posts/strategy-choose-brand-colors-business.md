@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 06/28/2024
 featured: false
-image: /assets/images/brand-colors.jpg
+image: /images/brand-colors.jpg
 title: "Strategy for choosing the right colors for your business"
 description: Learn the strategy behind choosing the right colors for your brand or business, and how color psychology can influence customer perceptions, evoke emotions, and strengthen your brand identity.
 ---

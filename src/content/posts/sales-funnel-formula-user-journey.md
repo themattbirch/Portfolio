@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 08/24/2023
 featured: false
-image: /assets/images/sales-funnel.jpg
+image: /images/sales-funnel.jpg
 title: "The perfect sales funnel formula for a defined user journey"
 description: Uncover the perfect sales funnel formula designed to guide your audience through a well-defined user journey, maximizing engagement, nurturing leads, and boosting conversions at every stage of the funnel.
 ---

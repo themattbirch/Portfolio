@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["App Development"]
 date: 02/20/2025
 featured: false
-image: /assets/images/career-challenge.jpg
+image: /images/career-challenge.jpg
 title: "Break out of your comfort zone to navigate career growth without burnout"
 description: "Discover how strategic discomfort accelerates career growth while avoiding burnout. Learn the neuroscience behind professional development, including how dopamine, norepinephrine, and BDNF respond to challenges—and why today's comfort zone becomes tomorrow's limitation. Find your optimal growth zone."
 ---
@@ -16,7 +16,7 @@ Experts believe the optimal state for sustainable growth is by leveraging manage
 
 Striking the perfect balance between comfort, learning, and occasional fast growth zones—while avoiding burnout—creates the ideal conditions for both career advancement and long-term brain health.
 
-![Career Growth Zones Chart](/assets/images/career-growth-zones.jpg)
+![Career Growth Zones Chart](/images/career-growth-zones.jpg)
 
 ## Unpacking The Growth Spectrum
 

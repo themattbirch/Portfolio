@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["AI"]
 date: 05/09/2025
 featured: false
-image: /assets/images/scoregenius-app-nba-team-rankings-ui.jpg
+image: /images/scoregenius-app-nba-team-rankings-ui.jpg
 title: "Beyond the stats: How ScoreGenius’s machine learning models empower sports fans"
 description: "Discover how ScoreGenius uses machine learning to transform NBA statistics into powerful pre-game predictions. Our lightweight PWA delivers professional-grade analytics with zero friction—no accounts, no ads, just pure basketball intelligence."
 ---
@@ -41,7 +41,7 @@ ScoreGenius distills complex basketball metrics into intuitive visualizations th
 
 See for yourself.
 
-![ScoreGenius app MLB Advanced Stats Screen UI](/assets/images/scoregenius-mlb-advanced-stats.jpg)
+![ScoreGenius app MLB Advanced Stats Screen UI](/images/scoregenius-mlb-advanced-stats.jpg)
 
 What makes ScoreGenius special is how these metrics are delivered. Fans get lightning-fast responsiveness without draining battery or data.
 

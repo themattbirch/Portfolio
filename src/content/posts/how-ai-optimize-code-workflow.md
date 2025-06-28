@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["AI"]
 date: 05/21/2024
 featured: false
-image: /assets/images/ai-models.jpg
+image: /images/ai-models.jpg
 title: "How to use Large Language Models to optimize your workflow"
 description: "Learn how to leverage large language models to streamline and enhance your workflow. Discover practical applications for automating tasks, improving productivity, and boosting efficiency in your daily operations."
 ---
@@ -66,7 +66,7 @@ While 73% of developers now use AI in their workflow, the biggest gains come fro
 
 Many developers are already using AI to help them write code. This [Medium chart](https://medium.com/@animalscholar/ai-tools-for-writing-code-ad3dd177829c) shows the percentage of them that are currently using it in their workflow compared to who isn't.
 
-![AI code writing use chart](/assets/images/ai-code-writing.jpg)
+![AI code writing use chart](/images/ai-code-writing.jpg)
 
 The results speak for themselves: our code review cycles are 40% faster, and our test coverage has improved by 25%. These aren't just numbers - they translate directly into more reliable products and happier clients.
 

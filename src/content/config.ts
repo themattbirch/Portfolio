@@ -12,7 +12,7 @@ const postsCollection = defineCollection({
         formatted: format(new Date(str), "MMMM d, yyyy"),
       })),
       featured: z.boolean().default(false),
-      image: image(),
+      image: z.string(),
       title: z.string(),
       description: z.string(),
       alt: z.string().optional(),
@@ -25,7 +25,7 @@ const postsCollection = defineCollection({
                 raw: new Date(str),
                 formatted: format(new Date(str), "MMMM d, yyyy"),
               }
-            : undefined
+            : undefined,
         ),
       ogImage: z.string().optional(),
     }),

@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["App Development"]
 date: 09/16/2024
 featured: false
-image: /assets/images/man-working-computer-focused.jpg
+image: /images/man-working-computer-focused.jpg
 title: "How developers can be more focused, productive at work"
 description: Unlock greater focus and productivity as a developer with science-backed strategies to beat digital distractions. From digital boundaries to memory techniques, learn actionable tips for a more effective workday.
 ---
@@ -28,7 +28,7 @@ The impact of this digital immersion is significant:
 
 - Reduced deep work capacity.
 
-![dopamine impact on society](/assets/images/rise-of-dopamine-culture.jpg)
+![dopamine impact on society](/images/rise-of-dopamine-culture.jpg)
 
 ## Dopamine Detox: Breaking Free From The Trap
 
@@ -58,7 +58,7 @@ Here are some practical steps for developers to implement:
 
 - Incorporate nature walks into your daily routine.
 
-![tips for how to focus while working](/assets/images/how-focus-working.jpg)
+![tips for how to focus while working](/images/how-focus-working.jpg)
 
 ## Overcoming Mental Blocks
 

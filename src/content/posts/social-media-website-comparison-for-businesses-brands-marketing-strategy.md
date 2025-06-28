@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 09/18/2022
 featured: false
-image: /assets/images/tiktok.jpg
+image: /images/tiktok.jpg
 title: "Key comparisons of major social media sites used by businesses, brands for marketing strategy"
 description: Compare the key features, demographics, and marketing potential of major social media platforms. Learn which channels best suit your business goals, audience targeting, and content strategy.
 ---
@@ -16,7 +16,7 @@ And it's interesting, because when users first began to flock to social media, t
 
 But the blame shouldn't be placed on Myspace, or Facebook, which launched the following year (as "TheFacebook."). There were some predecessors as well that enabled digital communication from a social perspective, although they don't fit the traditional social media mold as we know it today. AOL Instant Messenger (like in the screenshot below), ICQ and Yahoo! Messenger all had an effect on the world as we know it. But none of them should get the majority of the blame for social disconnect.
 
-![AOL Instant Messenger example](/assets/images/aim-message.jpg)
+![AOL Instant Messenger example](/images/aim-message.jpg)
 
 ## Social Media In The Modern Age
 

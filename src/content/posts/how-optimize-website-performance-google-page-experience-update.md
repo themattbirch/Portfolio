@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["SEO"]
 date: 06/16/2021
 featured: false
-image: /assets/images/mobile-website-optimization.webp
+image: /images/mobile-website-optimization.webp
 title: "How to optimize website performance after Google Page Experience update rollout"
 description: Google finally rolled out the Page Experience update for Core Web Vitals. Here's what marketers and bloggers can do to optimize their website performance.
 ---
@@ -34,7 +34,7 @@ The Page Experience algorithm is comprised of these five ranking signals:
 
 - Safe browsing
 
-![Google Lighthouse report](/assets/images/google-lighthouse-report.jpg)
+![Google Lighthouse report](/images/google-lighthouse-report.jpg)
 
 It’s unclear how much weight each signal will have, so it’s best to optimize for all five (displayed below). The two main themes they all share, however, is that they’re centered around being mobile responsive, and also delivering the best user experience possible. As such, any website optimization strategy should start in these areas, and then drill down to the more granular issues.
 
@@ -50,7 +50,7 @@ As such, we shouldn’t obsess too much about the numerical value given to each 
 
 Arguments can be made for both sides in terms of Page Experience’s impact, as it’s clearly not going to have a seismic effect on the tech world as a whole, such as when Apple released the original iPhone roughly 14 years ago. However, connectivity trends show mobile use has continued to grow like wildfire since that time, and 6.378 million people now [own a smartphone](https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/). Not much has changed for Apple, though, as the tech giant still holds the majority of the United States smartphone market share (chart via Counterpoint, using data from Mobile Devices Monitor).
 
-![US smartphone market share 2019-2021](/assets/images/apple-samsung-market-share.png)
+![US smartphone market share 2019-2021](/images/apple-samsung-market-share.png)
 
 Designing a mobile-friendly website gives you the best chance of surviving this update, and also for maximizing growth potential, which is why we advocate focusing a lot of attention in that area.
 
@@ -66,11 +66,11 @@ Long-tail keywords with less search volume may not see as much of a fluctuation.
 
 There are a number of tools to leverage to gauge how your website is performing, with Google’s Lighthouse and PageSpeed Insights being at the top of the list. We’re big fans of Lighthouse, which you can access in Chrome DevTools, as it tends to be more accurate than PSI. It can also help identify more technical issues dragging your website's performance down. It also does a great job of providing potential solutions to the problems it identifies. Lighthouse is a very popular tool among developers, and for good reason.
 
-![Google Lighthouse report example](/assets/images/google-lighthouse-report.jpg)
+![Google Lighthouse report example](/images/google-lighthouse-report.jpg)
 
 Both PSI and Lighthouse illustrate how your website measures up for Core Web Vitals (as you can see in the screenshots provided). And given that CWV is a signal included in the Page Experience update, we’d advocate starting there.
 
-![Google Page Speed Insights scores report](/assets/images/google-page-speed-insights-scores.jpg)
+![Google Page Speed Insights scores report](/images/google-page-speed-insights-scores.jpg)
 
 SEO tools to monitor ranking, as well as website performance monitors to identify technical issues, are great starting points to identify where your website optimization process should begin.
 
@@ -82,7 +82,7 @@ Any business owner, SEO, marketer and digital media professional already routine
 
 Google recently announced it has now included a Page Experience report in Search Console. You can see exactly what the report looks like via the screenshot below (which was [recently posted](https://developers.google.com/search/blog/2021/04/more-details-page-experience?hl=en#details)).
 
-![Google Search Console report](/assets/images/google-search-console-report.png)
+![Google Search Console report](/images/google-search-console-report.png)
 
 ## What To Do With All The New Data
 
@@ -102,7 +102,7 @@ Mobile use continues to grow like wildfire each year, and this trend isn’t slo
 
 Furthermore, it’s important to point out that many people living in third-world countries don’t have access to computers, so browsing on mobile devices is their only option. Just look at how many users operated smartphones last year in Africa and the Middle East, compared to the rest of the world (graphic via [Newzoo](https://newzoo.com/resources/trend-reports/newzoo-global-mobile-market-report-2020-free-version)).
 
-![Smartphone use around the world data](/assets/images/smartphone-use-global.png)
+![Smartphone use around the world data](/images/smartphone-use-global.png)
 
 And as far as mobile optimization is concerned, page speed and user experience are still the most important areas to prioritize.
 
@@ -152,7 +152,7 @@ This one is self-explanatory, especially if approaching from a user experience p
 
 Eliminating large images and certain elements that don’t render or display well on mobile devices is considered best practice. But try not to feel like you’re limited, from a creativity perspective. You can still display engaging elements on your pages to make your content visually appealing, like in this awesome [mobile-responsive navigation](https://admiretheweb.com/articles/20-responsive-mobile-navigation-inspiration/) mockup.
 
-![Mobile responsive navigation](/assets/images/mobile-responsive-navigation.jpg)
+![Mobile responsive navigation](/images/mobile-responsive-navigation.jpg)
 
 Here are some ideas to make your mobile website's layout pop, in a way that engages users, in case you're feeling a bit handcuffed about it.
 

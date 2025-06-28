@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["App Development"]
 date: 12/20/2022
 featured: false
-image: /assets/images/two-web-designers.jpg
+image: /images/two-web-designers.jpg
 title: "A look back at how websites have evolved using modern web design principles"
 description: Explore the evolution of websites and how modern web design principles have transformed the way brands build engaging, user-friendly digital experiences for their audiences.
 ---

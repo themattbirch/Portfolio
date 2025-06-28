@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 10/9/2024
 featured: false
-image: /assets/images/coworkers-communicating.jpg
+image: /images/coworkers-communicating.jpg
 title: "Strengthen your soft skills to unlock career success"
 description: Discover how improving your soft skills can unlock new career opportunities and lead to greater success. Learn essential interpersonal, communication, and problem-solving skills to thrive in any workplace.
 ---
@@ -62,7 +62,7 @@ Professional humility manifests as:
 
 This infographic from [Ladders](https://www.theladders.com/career-advice/soft-skills-how-are-they-applied) does an excellent job of listing soft skills you'll want to focus on in both your professional and daily life.
 
-![soft skills](/assets/images/soft-skills.jpg)
+![soft skills](/images/soft-skills.jpg)
 
 ### Communication: Quality Over Quantity
 

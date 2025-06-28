@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["AI"]
 date: 04/04/2025
 featured: false
-image: /assets/images/ai_human_interaction.webp
+image: /images/ai_human_interaction.webp
 title: "Add Google Gemini 2.5 Pro To Your AI Chatbot Stack: The Data Shows Why"
 description: Google Gemini 2.5 Pro brings game-changing reasoning abilities and a 1M token context window. See how it stacks up against competitors and whether it deserves a spot in your AI workflow.
 ---
@@ -64,21 +64,21 @@ This is where I first called Gemini out, after being stuck in a doom loop -- fed
 
 It began by addressing the potential reasons behind its shortcomings.
 
-![Gemini struggling with information overload from a file folder upload](/assets/images/issues_1.jpg)
+![Gemini struggling with information overload from a file folder upload](/images/issues_1.jpg)
 
 It then apologized, and acknowledged how it could improve in the future, like a good little boy.
 
-![Gemini acknowledging difficulties with file locations](/assets/images/issues_2.jpg)
+![Gemini acknowledging difficulties with file locations](/images/issues_2.jpg)
 
 ...So, naturally, I picked harder at the scab, trying to get it to reveal why it struggled so much, in hopes of avoiding this doom loop in the future.
 
 And then it reverted back to its old ways -- providing an answer that had absolutely nothing to do with my previous reply, as you can see.
 
-![Gemini listing ways to improve its accuracy](/assets/images/issues_3.jpg)
+![Gemini listing ways to improve its accuracy](/images/issues_3.jpg)
 
 And, sure enough, an overloaded context window was the root cause of my pain.
 
-![Gemini reflecting on its mistakes and limitations](/assets/images/issues_4.jpg)
+![Gemini reflecting on its mistakes and limitations](/images/issues_4.jpg)
 
 Any developer who's experienced using chatbots knows all about the chicken-or-the-egg context window issue.
 

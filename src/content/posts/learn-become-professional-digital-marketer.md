@@ -3,7 +3,7 @@ author: "Matt Birch"
 categories: ["Digital Marketing"]
 date: "03/11/2024"
 featured: false
-image: /assets/images/social-media.jpg
+image: /images/social-media.jpg
 title: "Learn to become a professional digital marketer"
 description: "Unlock your potential in digital marketing by learning the core skills and strategies needed to become a professional digital marketer. Gain expertise in SEO, social media, content marketing, and more."
 ---
@@ -60,7 +60,7 @@ One of the most crucial decisions in your marketing career is choosing your spec
 
 There are many different areas of digital marketing to niche down in. We recommend checking out this infographic [Reliablesoft](https://www.reliablesoft.net/start-career-digital-marketing/) produced to explore a few of them.
 
-![how to become a digital marketer infographic](/assets/images/how-become-digital-marketer.jpg)
+![how to become a digital marketer infographic](/images/how-become-digital-marketer.jpg)
 
 ### The Power of Skill Stacking
 

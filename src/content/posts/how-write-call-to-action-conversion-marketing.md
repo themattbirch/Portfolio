@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 05/12/2023
 featured: false
-image: /assets/images/write-marketing-call-to-action.jpg
+image: /images/write-marketing-call-to-action.jpg
 title: "How to write a call-to-action that optimizes conversions"
 description: Discover effective strategies for writing powerful call-to-action (CTA) phrases that optimize conversions, drive engagement, and encourage your audience to take action on your offers or services.
 ---

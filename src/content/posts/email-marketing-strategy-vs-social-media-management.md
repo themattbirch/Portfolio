@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["Digital Marketing"]
 date: 12/21/2023
 featured: false
-image: /assets/images/email-marketing.jpg
+image: /images/email-marketing.jpg
 title: "Why email marketing strategy is more effective than social media management"
 description: Discover why a well-crafted email marketing strategy can be more effective than social media management, offering higher engagement rates, personalized communication, and direct access to your audience's inbox.
 ---

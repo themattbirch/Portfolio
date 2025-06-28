@@ -3,7 +3,7 @@ author: "Matt Birch"
 categories: ["App Development"]
 date: "11/2/2024"
 featured: false
-image: /assets/images/web-developer-astro-framework.jpg
+image: /images/web-developer-astro-framework.jpg
 title: "Why Astro is the hot framework for frontend developers"
 description: "Find out why Astro is gaining popularity among frontend developers. Explore its unique features, performance benefits, and how it simplifies building fast, modern websites with ease."
 ---
@@ -60,7 +60,7 @@ For instance, when working with content like blog posts, Astro makes it straight
 
 Let's get meta! Check out a code snippet which shows how I'm handling the setup for individual blog posts in Astro, including this one.
 
-![code snippet showing Astro code fence](/assets/images/astro-code-snippet.jpg)
+![code snippet showing Astro code fence](/images/astro-code-snippet.jpg)
 
 As you can see, it constructs the canonical URL for each post using the post's slug, and sets up consistent image handling parameters. This ensures each blog post has proper URL formatting for SEO purposes, while also standardizing how images are processed with specific dimensions.
 

@@ -3,7 +3,7 @@ author: Matt Birch
 categories: ["SEO"]
 date: 01/02/2024
 featured: false
-image: /assets/images/seo-google-analytics-trends-2024.jpg
+image: /images/seo-google-analytics-trends-2024.jpg
 title: "Five SEO trends for digital marketers to follow in 2024"
 description: Stay ahead of the curve with these five essential SEO trends for digital marketers in 2024, from voice search optimization to AI-driven content strategies and enhanced user experience.
 ---
