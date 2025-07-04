@@ -10,51 +10,158 @@
   --gradient-secondary: linear-gradient(45deg, #3b82f6, #60a5fa);
 }
 
+/* Light-mode tweak – push mesh ~20 % right */
+:root:not(.dark) .mesh-gradient {
+  background-position: 40% 40%;
+}
+
+:root:not(.dark) .hero-button {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
 .hero-container {
-  @apply relative h-[66vh] lg:h-screen flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16;
+  @apply relative h-[52vh] lg:h-[80vh] flex items-center pb-0 sm:pb-8 md:pb-12 lg:pb-16 overflow-hidden;
 }
 
-#hero-background {
-  /* Set the default (desktop light) background image */
-  background-image: url("/assets/images/hero-background-light-theme-toggle.webp");
-  transition: background-image 0.5s ease;
+/* ─────────── HERO BACKDROP  —  NEW IMPLEMENTATION ─────────── */
+
+/* Mesh background that replaces the three WebP bitmaps */
+.mesh-gradient {
+  background:
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(59, 130, 246, 0.85) 0%,
+      rgba(59, 130, 246, 0) 55%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(0, 191, 255, 0.25) 0%,
+      rgba(0, 191, 255, 0) 60%
+    ),
+    radial-gradient(
+      circle at 65% 20%,
+      rgba(255, 153, 0, 0.2) 0%,
+      rgba(255, 153, 0, 0) 65%
+    );
+  background-size: 100% 100%;
+  background-color: #eef3fa;
+}
+.dark .mesh-gradient {
+  background:
+    radial-gradient(
+      circle at 42% 42%,
+      rgba(37, 99, 235, 0.7) 0%,
+      rgba(37, 99, 235, 0) 55%
+    ),
+    radial-gradient(
+      circle at 78% 78%,
+      rgba(0, 191, 255, 0.18) 0%,
+      rgba(0, 191, 255, 0) 60%
+    ),
+    radial-gradient(
+      circle at 60% 25%,
+      rgba(255, 153, 0, 0.08) 0%,
+      rgba(255, 153, 0, 0) 65%
+    );
+  background-size: 100% 100%;
+  /* slightly lighten so text stands out */
+  filter: brightness(0.9) saturate(1);
 }
 
-/* For dark mode, swap to the dark image */
-.dark #hero-background {
-  background-image: url("/assets/images/hero-background-dark-theme-toggle.webp");
+/* Slow, gentle drift */
+@keyframes mesh-drift {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.05) rotate(2deg);
+  }
 }
-
-/* On smaller screens, use the mobile background for both light and dark modes */
-@media (max-width: 640px) {
-  #hero-background {
-    background-image: url("/assets/images/hero_background_mobile.webp");
+.animate-mesh-drift {
+  animation: mesh-drift 25s ease-in-out infinite alternate;
+}
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  width: 18px;
+  height: 18px;
+  transform: translateX(-50%) rotate(45deg);
+  border-right: 2px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+  opacity: 0.35;
+  animation: cue-bob 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes cue-bob {
+  0% {
+    transform: translate(-50%, -2px) rotate(45deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-50%, 4px) rotate(45deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(-50%, -2px) rotate(45deg);
+    opacity: 0.25;
+  }
+}
+/* light vs dark stroke colour */
+.dark .scroll-cue {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+/* motion-reduced users */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue {
+    animation: none;
+  }
+}
+/* hide on very small screens if desired */
+@media (max-width: 380px) {
+  .scroll-cue {
+    display: none;
   }
 }
 
+/* Parallax dim overlay (opacity tweaked down) */
+.hero-dim-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent; /* JS sets rgba() on scroll */
+  pointer-events: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Gradient at bottom of hero — opacity softened */
 .hero-gradient-overlay {
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   height: 200px;
   background: linear-gradient(
     to bottom,
-    rgba(233, 238, 244, 0),
-    rgba(233, 238, 244, 1)
+    rgba(238, 243, 250, 0) 0%,
+    rgba(233, 238, 244, 0.9) 100%
   );
   pointer-events: none;
   transition: background 0.5s ease;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, #000 0, #000 96%, transparent 100%);
 }
-
 .dark .hero-gradient-overlay {
   background: linear-gradient(
     to bottom,
-    rgba(17, 24, 39, 0) 0%,
-    rgba(17, 24, 39, 0.5) 70%,
-    rgba(17, 24, 39, 0.8) 100%
+    rgba(14, 22, 36, 0) 0%,
+    rgba(14, 22, 36, 0.55) 70%,
+    rgba(14, 22, 36, 0.85) 100%
   );
-  filter: none;
 }
 
 .gradient-text {
@@ -65,6 +172,7 @@
 .hero-title {
   @apply font-extrabold tracking-tight text-5xl lg:text-6xl xl:text-7xl mb-2 sm:max-w-sm md:max-w-md lg:max-w-full;
   color: #60a5fa;
+  filter: hue-rotate(-6deg);
 }
 
 .hero-tagline {
@@ -123,7 +231,7 @@
 
 @media (max-width: 640px) {
   .hero-container {
-    height: 80vh;
+    padding-bottom: 3rem;
   }
 
   .hero-button {
@@ -132,5 +240,46 @@
 
   .hero-button:hover {
     background-image: var(--gradient-hover);
+  }
+}
+/* Desktop-only complementary blob in top-left */
+@media (min-width: 1024px) {
+  :root:not(.dark) .mesh-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 180, 0, 0.18) 0%,
+      /* warm amber glow */ rgba(255, 180, 0, 0) 55%
+    );
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+}
+@media (max-width: 640px) {
+  .hero-title,
+  .hero-tagline {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  }
+
+  /* tighten headline ↔ tagline gap */
+  .hero-title {
+    margin-bottom: 0.25rem;
+  }
+  .hero-tagline {
+    margin-top: 0.25rem;
+  }
+}
+@media (max-width: 640px) {
+  .mesh-gradient {
+    background-position: 85% 40%; /* shove colour farther right  */
+    filter: saturate(0.9) brightness(1.06); /* softer, cleaner backdrop    */
+  }
+}
+@media (max-width: 640px) {
+  .hero-container {
+    height: 70vh; /* was auto → gives a tighter crop */
+    padding-top: calc(env(safe-area-inset-top, 0) + 3.25rem);
   }
 }

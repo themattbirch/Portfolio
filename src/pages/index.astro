@@ -1,12 +1,10 @@
 ---
+// src/pages/index.astro
 import Layout from "../layouts/Layout.astro";
 import "../styles/indexstyles.css";
 import Hero from "../components/Hero.astro";
 import { Image } from "astro:assets";
 import meHeroImg from "/assets/images/me-black-shirt-jeans.webp";
-import lightBackgroundImage from "/assets/images/hero-background-light-theme-toggle.webp";
-import darkBackgroundImage from "/assets/images/hero-background-dark-theme-toggle.webp";
-import mobileBackgroundImage from "/assets/images/hero_background_mobile.webp";
 import Testimonials from "../components/Testimonials.astro";
 import SkillsSection from "../components/SkillsSection.jsx";
 import CTASection from "../components/CTASection.astro";
@@ -44,27 +42,6 @@ const rightQualities = qualities.slice(half);
 const pageTitle = "Matt Birch: Full Stack Software Engineer";
 const pageDescription =
   "The portfolio of a Full Stack Software Engineer who creates performant web and mobile apps with a focus on AI integration and great user experience.";
-
-const preloadLinks = [
-  {
-    href: lightBackgroundImage.src,
-    as: "image",
-    media: "(min-width: 641px) and (prefers-color-scheme: light)",
-    type: "image/webp",
-  },
-  {
-    href: darkBackgroundImage.src,
-    as: "image",
-    media: "(min-width: 641px) and (prefers-color-scheme: dark)",
-    type: "image/webp",
-  },
-  {
-    href: mobileBackgroundImage.src,
-    as: "image",
-    media: "(max-width: 640px)",
-    type: "image/webp",
-  },
-];
 ---
 
 <Layout
@@ -81,7 +58,8 @@ const preloadLinks = [
   <!-- USP + Services Section -->
   <section
     class="bg-background-secondary dark:bg-background-dark transition-colors duration-300
-         sm:pt-12 pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
+            pt-8 sm:pt-12 md:pt-20 lg:pt-24 xl:pt-32
+            pb-8 sm:pb-12 md:pb-20 lg:pb-24 xl:pb-32"
   >
     <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- stack on mobile, row on md+ -->

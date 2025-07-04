@@ -1,35 +1,85 @@
-<div class="hero-container">
-  <div id="hero-background" class="absolute inset-0 bg-cover bg-center">
+---
+// src/components/Hero.astro
+---
+
+<div class="hero-container relative isolate">
+  <!-- ─────────── MESH BACKGROUND ─────────── -->
+  <div
+    id="hero-background"
+    class="absolute inset-0 mesh-gradient animate-mesh-drift will-change-transform"
+  >
     <div class="hero-gradient-overlay"></div>
     <div class="hero-dim-overlay"></div>
   </div>
 
+  <!-- ─────────── FOREGROUND CONTENT ─────────── -->
   <div class="relative z-10 w-full">
     <div class="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-start">
-        <div class="max-w-3xl mt-8 sm:mt-16 md:mt-24 lg:mt-32">
-          <h1 class="hero-animate hero-title" style="--delay: 0s">
-            <span class="gradient-text text-transparent bg-clip-text">
-              A Full Stack Software Engineer
-            </span>
+        <div class="max-w-3xl mt-4 sm:mt-10 md:mt-16 lg:mt-24">
+          <h1 id="heroTitle" class="hero-animate hero-title" style="--delay:0s">
+            <span class="gradient-text"> A Full Stack Software Engineer </span>
           </h1>
 
           <p
             class="hero-animate hero-tagline"
-            style="--delay: 0.5s"
+            style="--delay:.5s"
             id="heroTagline"
           >
-            Who can write clean code <span
+            Who can write clean code
+            <span
               class="subtle-pulse text-blue-800 lg:text-blue-400 dark:text-blue-400 font-bold"
               >and</span
-            > copy!
+            >
+            copy!
           </p>
 
-          <div class="hero-animate hero-cta" style="--delay: 1s" id="heroCta">
-            <a href="/contact" class="btn hero-button"> Get in Touch </a>
+          <div class="hero-animate hero-cta" style="--delay:1s" id="heroCta">
+            <a href="/contact" class="btn hero-button">Get in Touch</a>
+            <span class="scroll-cue" aria-hidden="true"></span>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- ─────────── SCROLL PARALLAX / DIMMER ─────────── -->
+  <script is:inline>
+    const mesh = document.getElementById("hero-background");
+    const dimmer = mesh.querySelector(".hero-dim-overlay");
+
+    const MAX_OPACITY_LIGHT = 0.35;
+    const MAX_OPACITY_DARK = 0.7;
+    const MAX_SHIFT_LIGHT = 40; // px
+    const MAX_SHIFT_DARK = 60; // px
+
+    function applyScroll() {
+      const ratio = Math.min(window.scrollY / 600, 1);
+      const isDark = document.documentElement.classList.contains("dark");
+
+      const limit = isDark ? MAX_OPACITY_DARK : MAX_OPACITY_LIGHT;
+      const shift = isDark ? MAX_SHIFT_DARK : MAX_SHIFT_LIGHT;
+
+      dimmer.style.backgroundColor = `rgba(20,24,31,${ratio * limit})`;
+      mesh.style.transform = `translateY(${ratio * shift}px)`;
+    }
+
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.addEventListener("scroll", applyScroll, { passive: true });
+      applyScroll();
+    }
+  </script>
+  <script is:inline>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const title = document.getElementById("heroTitle");
+      const damp = 8,
+        range = 200;
+      const move = () => {
+        const r = Math.min(window.scrollY / range, 1);
+        title.style.transform = `translateY(${r * -damp}px)`;
+      };
+      window.addEventListener("scroll", move, { passive: true });
+      move();
+    }
+  </script>
 </div>
