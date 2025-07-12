@@ -20,6 +20,13 @@
   --nav-hover-text: theme("colors.white");
   --nav-hover-bg: theme("colors.cta-button-hover");
   --color-primary-button: #2563eb;
+
+  /* Modular Spacing System */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 1rem; /* 16px */
+  --space-md: 1.5rem; /* 24px */
+  --space-lg: 2rem; /* 32px */
+  --space-xl: 3rem; /* 48px */
 }
 
 .dark {
@@ -227,20 +234,41 @@
   /* Prose Styles */
   .prose {
     h1 {
-      @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
+      @apply text-3xl sm:text-4xl md:text-5xl font-bold; /* Removed mb-4 */
+      margin-bottom: var(--space-md); /* Use variable: 24px */
     }
 
     h2 {
-      @apply text-2xl sm:text-3xl md:text-4xl font-semibold mt-8 mb-4;
+      @apply text-2xl sm:text-3xl md:text-4xl font-semibold; /* Removed mt-8 mb-4 */
+      margin-top: var(--space-xl); /* Use variable: 48px */
+      margin-bottom: var(--space-sm); /* Use variable: 16px */
+    }
+
+    /* Add h3 for future use and consistency */
+    h3 {
+      @apply text-xl sm:text-2xl md:text-3xl font-semibold;
+      margin-top: var(--space-lg); /* Use variable: 32px */
+      margin-bottom: var(--space-xs); /* Use variable: 8px */
     }
 
     p {
       @apply text-base sm:text-lg md:text-xl leading-relaxed;
       color: var(--text-color);
+      margin-bottom: var(--space-md); /* Systematize paragraph spacing: 24px */
     }
 
     img {
       @apply w-full h-auto mx-auto;
+      /* Add consistent spacing for images too */
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    hr {
+      /* Add consistent spacing for horizontal rules */
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      @apply border-gray-200 dark:border-gray-700; /* Optional styling */
     }
 
     a {
