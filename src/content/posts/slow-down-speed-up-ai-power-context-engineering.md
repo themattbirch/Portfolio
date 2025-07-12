@@ -116,7 +116,7 @@ Slow down, load your context, then watch your AI sprint.
 
 ---
 
-## Final Takeaway
+## TLDR
 
 If you’re still polishing individual prompts, _you’re playing the wrong game_. Step back, engineer the context, and let the model do real work. The hype is real—just like that hammer, it only matters when you bring the nails.
 
