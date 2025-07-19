@@ -251,6 +251,11 @@
       margin-bottom: var(--space-xs); /* Use variable: 8px */
     }
 
+    ol,
+    ul {
+      @apply pl-6;
+    }
+
     p {
       @apply text-base sm:text-lg md:text-xl leading-relaxed;
       color: var(--text-color);
