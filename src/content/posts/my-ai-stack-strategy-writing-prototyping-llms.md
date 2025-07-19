@@ -74,7 +74,7 @@ Total time: under 2 hours for what used to take a full day.
 
 Ditch the tool hoarding. Focus on _why_ you’re reaching for each AI—and give it the context it needs.
 
-With o3, Claude,[Gemini](https://gemini.google.com/), and a few targeted add-ons, you’ll spend less time wrestling with interfaces and more time shipping high-quality work.
+With o3, Claude, [Gemini](https://gemini.google.com/), and a few targeted add-ons, you’ll spend less time wrestling with interfaces and more time shipping high-quality work.
 
 Take some time this week to reasses which AI tools are really moving the needle, and help with the use cases that pertain to your workflow.
 
