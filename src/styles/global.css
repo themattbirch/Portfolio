@@ -9,6 +9,9 @@
   --bg-color: theme("colors.background.light");
   --text-color: theme("colors.text.light");
   --primary-color: theme("colors.primary.DEFAULT");
+  --link-color: theme("colors.blue.700");
+  --link-hover-color: theme("colors.blue.800");
+  --link-underline-color: theme("colors.blue.400");
 
   /* Component-specific Colors */
   --skills-card-bg: theme("colors.background.light");
@@ -32,8 +35,11 @@
 .dark {
   /* Dark Theme Colors */
   --bg-color: theme("colors.background.dark");
-  --text-color: theme("colors.text.dark");
+  --text-color: theme("colors.gray.200");
   --primary-color: theme("colors.primary.dark");
+  --link-color: theme("colors.sky.300");
+  --link-hover-color: theme("colors.sky.200");
+  --link-underline-color: theme("colors.sky.400");
 
   /* Dark Component Colors */
   --skills-card-bg: theme("colors.background.dark");
@@ -277,7 +283,30 @@
     }
 
     a {
-      @apply text-blue-600 hover:underline;
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1.5px;
+      text-decoration-color: var(--link-underline-color);
+      transition:
+        color 150ms,
+        text-decoration-color 150ms;
+    }
+
+    a:hover {
+      color: var(--link-hover-color);
+      text-decoration-color: var(--link-hover-color);
+    }
+
+    a:visited {
+      /* Slightly different, still accessible in dark */
+      color: color-mix(in oklab, var(--link-color), black 10%);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--link-underline-color);
+      outline-offset: 2px;
+      border-radius: 2px; /* nicer on inline links */
     }
   }
 

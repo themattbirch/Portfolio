@@ -1,10 +1,12 @@
 ---
 // src/pages/blog/[slug].astro
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { BlogPost, PostFrontmatter } from "@/types/blog";
 import Layout from "../../layouts/Layout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Share from "../../components/Share.astro";
+import NextPost from "@/components/Next-Post.astro";
 import Breadcrumb from "../../components/BreadCrumb.astro";
 import { sortPostsByDate } from "@/utils/sorters";
 
@@ -34,6 +36,14 @@ export const prerender = true;
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 const canonicalURL = new URL(`/blog/${post.slug}`, Astro.site).toString();
+
+const allPosts = await getCollection("posts");
+const sorted = sortPostsByDate(allPosts as BlogPost[]); // newest-first
+const i = sorted.findIndex((p) => p.slug === post.slug);
+
+// Next = older post in a newest-first list
+const next: CollectionEntry<"posts"> | null =
+  i >= 0 && i < sorted.length - 1 ? sorted[i + 1] : null;
 
 const formatDate = (date: Date) => {
   return new Date(date).toLocaleDateString("en-US", {
@@ -133,6 +143,7 @@ const imageUrl = post.data.image;
 
       <div class="mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg">
         <Share post={post} />
+        <NextPost next={next} />
       </div>
     </section>
   </div>

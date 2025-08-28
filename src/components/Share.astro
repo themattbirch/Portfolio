@@ -4,133 +4,371 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   post: CollectionEntry<"posts">;
 }
-
 const { post } = Astro.props;
+
 const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const shareText = post.data.title;
 ---
 
-<div
-  class="share-container bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 sm:p-6 mt-6 sm:mt-8 text-center"
->
-  <h2
-    class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-800 dark:text-gray-200"
-  >
-    Share this post
-  </h2>
-  <div class="flex justify-center space-x-2 sm:space-x-4">
-    <a
-      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${shareUrl}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="share-button twitter"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        ><path
-          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-        ></path></svg
+<section class="share-fullbleed">
+  <!-- Full-bleed band with light/dark fades; bottom overlaps footer -->
+  <div class="share-band">
+    <div class="share-inner mx-auto max-w-prose px-4 sm:px-6 py-8 text-center">
+      <h2
+        class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100"
       >
-      <span>Twitter</span>
-    </a>
-    <a
-      href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="share-button facebook"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        ><path
-          d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-        ></path></svg
+        Share this post
+      </h2>
+
+      <!-- Mobile: 2×2; ≥sm: single row -->
+      <div
+        class="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:flex sm:flex-wrap sm:justify-center sm:gap-4"
       >
-      <span>Facebook</span>
-    </a>
-    <a
-      href={`https://www.linkedin.com/shareArticle?mini=true&url=${shareUrl}&title=${encodeURIComponent(post.data.title)}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="share-button linkedin"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        ><path
-          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-        ></path><rect x="2" y="9" width="4" height="12"></rect><circle
-          cx="4"
-          cy="4"
-          r="2"></circle></svg
+        <!-- X/Twitter -->
+        <a
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Share on X (Twitter)"
+          class="share-btn share-twitter"
+        >
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+            ></path></svg
+          >
+          <span>Twitter</span>
+        </a>
+
+        <!-- Facebook -->
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Share on Facebook"
+          class="share-btn share-facebook"
+        >
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            ></path></svg
+          >
+          <span>Facebook</span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a
+          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Share on LinkedIn"
+          class="share-btn share-linkedin"
+        >
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            ></path><rect x="2" y="9" width="4" height="12"></rect><circle
+              cx="4"
+              cy="4"
+              r="2"></circle></svg
+          >
+          <span>LinkedIn</span>
+        </a>
+
+        <!-- Copy link -->
+        <button
+          id="copy-link"
+          type="button"
+          data-share-url={shareUrl}
+          aria-label="Copy link to clipboard"
+          class="share-btn share-copy"
+        >
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path
+              d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+            ></path></svg
+          >
+          <span>Copy link</span>
+        </button>
+      </div>
+
+      <p
+        id="copy-toast"
+        role="status"
+        aria-live="polite"
+        class="mt-3 text-sm text-slate-600 dark:text-slate-300 opacity-0 transition-opacity duration-300"
       >
-      <span>LinkedIn</span>
-    </a>
+      </p>
+    </div>
   </div>
-</div>
+</section>
 
 <style>
-  .share-button {
-    display: flex;
-    align-items: center;
-    padding: 0.375rem 0.75rem;
-    border-radius: 9999px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 0.875rem;
+  /* Tunables */
+  :root {
+    /* stronger + wider light vignette */
+    --share-vignette-alpha: 0.88;
+    --share-vignette-w: 1600px;
+    --share-vignette-h: 300px;
+    --share-vignette-stop: 80%;
   }
-
-  @media (min-width: 640px) {
-    .share-button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
+  @media (max-width: 640px) {
+    :root {
+      --share-overlap: 44px;
     }
   }
 
-  .share-button span {
-    margin-left: 0.5rem;
+  /* Full-bleed wrapper, with negative margin to remove the light-mode gap */
+  .share-fullbleed {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    margin-bottom: calc(
+      var(--share-overlap) * -1
+    ); /* pulls footer up into the fade */
+    z-index: 0;
+  }
+
+  /* Band backgrounds */
+  /* LIGHT fade (force with !important to beat any stray utilities) */
+  .share-band {
+    background:
+      radial-gradient(
+        var(--share-vignette-w) var(--share-vignette-h) at 50% 52%,
+        rgba(226, 232, 240, var(--share-vignette-alpha)),
+        rgba(226, 232, 240, 0) var(--share-vignette-stop)
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(250, 250, 250, 0.98) 0%,
+        rgba(241, 245, 249, 1) 52%,
+        rgba(250, 250, 250, 0.98) 100%
+      ) !important;
+
+    /* show more of the fade by reducing the feathered mask area */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) calc(100% - var(--share-overlap)),
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 6%,
+      rgba(0, 0, 0, 1) calc(100% - var(--share-overlap)),
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  /* DARK (kept proportional to the taller padding) */
+  :global(.dark) .share-band {
+    border-block-color: rgba(255, 255, 255, 0.08);
+    background:
+      radial-gradient(
+        1400px 240px at 50% 52%,
+        rgba(2, 6, 23, 0.48),
+        rgba(2, 6, 23, 0) 70%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0),
+        rgba(2, 6, 23, 0.65),
+        rgba(2, 6, 23, 0)
+      ) !important;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      black 12%,
+      black calc(88% - var(--share-overlap) / 4),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      black 12%,
+      black calc(88% - var(--share-overlap) / 4),
+      transparent 100%
+    );
+  }
+
+  :global(.dark) .share-band h2 {
+    color: #e5e7eb; /* slate-200 */
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  /* Optional very subtle inner outline to keep crispness without heaviness */
+  .share-inner {
+    padding-top: 3rem; /* 48px */
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 640px) {
+    .share-inner {
+      padding-top: 3.5rem; /* 56px */
+      padding-bottom: 3.5rem;
+    }
+  }
+
+  .share-inner::before {
+    content: "";
+    position: absolute;
+    inset: 12px 8px;
+    border-radius: 14px;
+    pointer-events: none;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+  }
+  .dark .share-inner::before {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+  @media (max-width: 639px) {
+    .share-inner::before {
+      inset: 8px 6px;
+      border-radius: 10px;
+    }
+  }
+
+  /* Buttons */
+  .share-btn {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      background-color 0.18s ease,
+      color 0.18s ease;
+  }
+  .share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+  }
+  @media (min-width: 640px) {
+    .share-btn {
+      width: auto;
+      padding: 0.55rem 1rem;
+    }
   }
 
   .icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
-  .twitter {
-    background-color: #1da1f2;
-    color: white;
+  .share-twitter {
+    background: #1da1f2;
+    color: #fff;
+  }
+  .share-twitter:hover {
+    background: #1a8cd8;
+  }
+  .share-facebook {
+    background: #4267b2;
+    color: #fff;
+  }
+  .share-facebook:hover {
+    background: #365899;
+  }
+  .share-linkedin {
+    background: #0a66c2;
+    color: #fff;
+  }
+  .share-linkedin:hover {
+    background: #095bab;
   }
 
-  .facebook {
-    background-color: #4267b2;
-    color: white;
+  .share-copy {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+  }
+  .dark .share-copy {
+    background: #0f172a;
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .share-copy:hover {
+    background: #f8fafc;
+  }
+  .dark .share-copy:hover {
+    background: #111827;
   }
 
-  .linkedin {
-    background-color: #0077b5;
-    color: white;
-  }
-
-  .share-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Motion safety */
+  @media (prefers-reduced-motion: reduce) {
+    .share-btn {
+      transition: none;
+    }
+    .share-btn:hover {
+      transform: none;
+    }
   }
 </style>
+
+<script is:inline>
+  const btn = document.getElementById("copy-link");
+  const toast = document.getElementById("copy-toast");
+  btn?.addEventListener("click", async () => {
+    const url = btn.getAttribute("data-share-url");
+    if (!url || !navigator?.clipboard) return;
+    try {
+      await navigator.clipboard.writeText(url);
+      toast.textContent = "Link copied!";
+    } catch {
+      toast.textContent = "Copy unavailable on this browser.";
+    }
+    toast.classList.remove("opacity-0");
+    toast.classList.add("opacity-100");
+    setTimeout(() => {
+      toast.classList.add("opacity-0");
+      toast.classList.remove("opacity-100");
+      toast.textContent = "";
+    }, 1800);
+  });
+</script>
