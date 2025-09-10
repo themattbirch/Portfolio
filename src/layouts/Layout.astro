@@ -16,6 +16,10 @@ export interface Props {
   };
   fullWidth?: boolean;
   preloadLinks?: Array<{ href: string; media?: string }>;
+  /** allow noindex on 404/paginated/drafts */
+  indexable?: boolean;
+  /** optional: pass a complete JSON-LD object from a page (e.g., BlogPosting) */
+  schema?: Record<string, any>;
 }
 
 const {
@@ -25,10 +29,11 @@ const {
   image,
   fullWidth = false,
   preloadLinks = [],
+  indexable = true,
+  schema,
 } = Astro.props;
 
 function cleanUrl(pathname: string) {
-  // Remove '/index.html' at end, for SEO
   const cleanPath = pathname.replace(/\/index\.html$/, "/");
   return new URL(cleanPath, Astro.site).toString();
 }
@@ -37,6 +42,8 @@ const canonicalURL = cleanUrl(Astro.url.pathname);
 const finalOgImage = image
   ? new URL(image.src, Astro.site).toString()
   : new URL(ogImage, Astro.site).toString();
+
+const robotsMeta = indexable ? "index,follow" : "noindex,nofollow";
 ---
 
 <!doctype html>
@@ -46,11 +53,16 @@ const finalOgImage = image
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content={robotsMeta} />
+    <meta name="googlebot" content={robotsMeta} />
 
     <script is:inline>
       (() => {
         const getInitialTheme = () => {
-          if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+          ) {
             return localStorage.getItem("theme");
           }
           if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -68,10 +80,7 @@ const finalOgImage = image
       })();
     </script>
 
-
     <!-- Additional SEO meta tags -->
-    <meta name="robots" content="index,follow" />
-    <meta name="googlebot" content="index,follow" />
     <meta name="format-detection" content="telephone=no" />
 
     <!-- Security headers -->
@@ -101,53 +110,53 @@ const finalOgImage = image
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0DMM273LKZ"
     ></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
-        if (window.dataLayer) {
-          window.dataLayer.push(arguments);
-        }
+      function gtag() {
+        window.dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-0DMM273LKZ");
+      gtag("config", "G-0DMM273LKZ", { page_path: document.location.pathname });
     </script>
 
     <!-- Schema -->
-    <script type="application/ld+json">
-      {
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify(schema ?? {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "url": "https://mattbirch.co",
-        "name": "Matt Birch's Personal Blog",
-        "description": "A blog by Matt Birch on the state of software development, AI and digital marketing.",
-        "author": {
-          "@type": "Person",
-          "name": "Matt Birch",
-          "url": "https://mattbirch.co",
-          "sameAs": [
-            "https://twitter.com/themattbirch",
-            "https://github.com/themattbirch",
-            "https://linkedin.com/in/themattbirch"
-          ]
-        },
+        "name": "Matt Birch — Sports Tech & Analytics",
+        "description": "Matt Birch builds sports tech products end to end—turning complex data into usable apps. Full-stack engineering, analytics, and AI-powered workflows.",
         "publisher": {
           "@type": "Person",
           "name": "Matt Birch",
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://mattbirch.co/default-image.jpg",
-            "width": 1200,
-            "height": 630
-          }
+          "url": "https://mattbirch.co"
         },
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://mattbirch.co/default-image.jpg",
-          "width": 1200,
-          "height": 630
-        }
-      }
+        "sameAs": [
+          "https://twitter.com/themattbirch",
+          "https://github.com/themattbirch",
+          "https://www.linkedin.com/in/themattbirch"
+        ],
+        "inLanguage": "en-US"
+      })}
     </script>
+
+    <script is:inline>
+    (() => {
+      const getInitialTheme = () => {
+        try {
+          const t = localStorage.getItem("theme");
+          if (t) return t;
+        } catch {}
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+      const theme = getInitialTheme();
+      const root = document.documentElement;
+      if (theme === "dark") root.classList.add("dark"); else root.classList.remove("dark");
+      root.style.colorScheme = theme;
+    })();
+  </script>
+
 
     <!-- Preload Critical Assets -->
     {

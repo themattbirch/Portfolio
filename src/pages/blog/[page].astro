@@ -45,12 +45,12 @@ export const prerender = true;
 const { page } = Astro.props;
 const posts = page?.data ?? [];
 const categories = Array.from(
-  new Set(posts.flatMap((post) => post.data.categories))
+  new Set(posts.flatMap((post) => post.data.categories)),
 );
 
-const pageTitle = "Matt Birch's Blog: Thoughts On Web Development, AI And More";
+const pageTitle = "Matt Birch's Blog: Sports Tech, Analytics & Engineering";
 const blogDescription =
-  "Explore insightful articles about web development, digital marketing, SEO, and social media. Practical tips and professional insights for developers and marketers.";
+  "Essays and insights at the intersection of sports technology, data analytics, and full-stack engineering. Written with a founder’s perspective and a copywriter’s clarity.";
 ---
 
 <Layout

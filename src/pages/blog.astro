@@ -36,9 +36,9 @@ const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6);
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
-const pageTitle = "Articles on Software Development & AI | Matt Birch";
+const pageTitle = "Sports Tech, Data & Engineering Insights | Matt Birch";
 const blogDescription =
-  "A blog by Matt Birch. Explore articles on full-stack engineering, AI, and product strategy, written with the clarity of a copywriter and the perspective of a founder.";
+  "Articles by Matt Birch on sports analytics, full-stack development, and AI. Writing that blends hands-on engineering with product strategy and a media-honed eye for clarity.";
 ---
 
 <Layout
@@ -54,14 +54,14 @@ const blogDescription =
     >
       <header class="text-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
-          The Matt Birch Blog: Words On App Development & AI
+          The Matt Birch Blog: Software Development, AI & Data
         </h1>
         <p
           class="italic dark:text-darkModeText text-base sm:text-lg md:text-xl py-8 sm:py-6 md:py-12"
         >
-          Explore articles on full stack development, AI, and product strategy,
-          written with the clarity of a copywriter and the perspective of a
-          founder.
+          Exploring the intersection of sports technology, analytics, and modern
+          web development. Written with the clarity of a copywriter and the
+          perspective of a founder-engineer.
         </p>
       </header>
 

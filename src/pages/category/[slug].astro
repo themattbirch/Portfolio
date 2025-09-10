@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 
     return uniqueCategories.map((category) => {
       const filteredPosts = sortedAllPosts.filter((post) =>
-        post.data.categories.includes(category)
+        post.data.categories.includes(category),
       );
       return {
         params: { slug: formatCategorySlug(category) },

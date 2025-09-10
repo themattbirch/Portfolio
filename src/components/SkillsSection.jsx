@@ -52,9 +52,9 @@ const SkillsSection = () => {
   const skills = [
     {
       icon: faCode,
-      title: "Frontend Architecture",
+      title: "Frontend Engineering",
       description:
-        "Build fast, component-driven UIs with a focus on state management and performance. My expertise is in React, Next.js, and modern CSS.",
+        "Craft fast, data-rich interfaces with React, Next.js, and Astro. Focused on building dashboards, analytics views, and fan-facing applications that stay responsive under load.",
       color: {
         border: "border-blue-500",
         icon: "text-blue-500",
@@ -64,10 +64,10 @@ const SkillsSection = () => {
       extraClass: "",
     },
     {
-      icon: faRobot, // Or faServer, faDatabase if you prefer
-      title: "Backend & API Design",
+      icon: faRobot,
+      title: "APIs & Data Pipelines",
       description:
-        "Design and build secure, scalable RESTful APIs using Node.js and Express, connecting to databases like Supabase to ensure clean data flow.",
+        "Design and deploy scalable Node.js APIs and Supabase backends. Experienced in structuring pipelines that transform raw sports data into clean, reliable product features.",
       color: {
         border: "border-green-500",
         icon: "text-green-500",
@@ -78,9 +78,9 @@ const SkillsSection = () => {
     },
     {
       icon: faPenFancy,
-      title: "AI & Model Integration",
+      title: "AI & Analytics Integration",
       description:
-        "Craft prompts and integrate LLMs (like GPT-4, Gemini & Claude) via API to build intelligent features and data-driven, dynamic user experiences.",
+        "Integrate machine learning models and large language models (GPT, Claude, Gemini) to deliver predictive insights, smarter workflows, and more engaging sports analytics tools.",
       color: {
         border: "border-purple-500",
         icon: "text-purple-500",
