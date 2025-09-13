@@ -48,16 +48,21 @@ const robotsMeta = indexable ? "index,follow" : "noindex,nofollow";
 const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "url": "https://mattbirch.co",
-  "name": "Matt Birch — Sports Tech & Analytics",
-  "description": "Matt Birch builds sports tech products end to end—turning complex data into usable apps. Full-stack engineering, analytics, and AI-powered workflows.",
-  "publisher": { "@type": "Person", "name": "Matt Birch", "url": "https://mattbirch.co" },
-  "sameAs": [
+  url: "https://mattbirch.co",
+  name: "Matt Birch — Sports Tech & Analytics",
+  description:
+    "Matt Birch builds sports tech products end to end—turning complex data into usable apps. Full-stack engineering, analytics, and AI-powered workflows.",
+  publisher: {
+    "@type": "Person",
+    name: "Matt Birch",
+    url: "https://mattbirch.co",
+  },
+  sameAs: [
     "https://twitter.com/themattbirch",
     "https://github.com/themattbirch",
-    "https://www.linkedin.com/in/themattbirch"
+    "https://www.linkedin.com/in/themattbirch",
   ],
-  "inLanguage": "en-US"
+  inLanguage: "en-US",
 };
 
 // ✅ Use the string as-is; otherwise stringify the object.
@@ -139,26 +144,26 @@ const schemaJson =
     </script>
 
     <!-- Schema -->
-    <script type="application/ld+json" is:inline>
-      {schemaJson}
-    </script>
+    <script type="application/ld+json" set:html={schemaJson} />
 
     <script is:inline>
-    (() => {
-      const getInitialTheme = () => {
-        try {
-          const t = localStorage.getItem("theme");
-          if (t) return t;
-        } catch {}
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      };
-      const theme = getInitialTheme();
-      const root = document.documentElement;
-      if (theme === "dark") root.classList.add("dark"); else root.classList.remove("dark");
-      root.style.colorScheme = theme;
-    })();
-  </script>
-
+      (() => {
+        const getInitialTheme = () => {
+          try {
+            const t = localStorage.getItem("theme");
+            if (t) return t;
+          } catch {}
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
+        const theme = getInitialTheme();
+        const root = document.documentElement;
+        if (theme === "dark") root.classList.add("dark");
+        else root.classList.remove("dark");
+        root.style.colorScheme = theme;
+      })();
+    </script>
 
     <!-- Preload Critical Assets -->
     {
