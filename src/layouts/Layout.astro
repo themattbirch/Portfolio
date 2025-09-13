@@ -44,6 +44,25 @@ const finalOgImage = image
   : new URL(ogImage, Astro.site).toString();
 
 const robotsMeta = indexable ? "index,follow" : "noindex,nofollow";
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://mattbirch.co",
+  "name": "Matt Birch — Sports Tech & Analytics",
+  "description": "Matt Birch builds sports tech products end to end—turning complex data into usable apps. Full-stack engineering, analytics, and AI-powered workflows.",
+  "publisher": { "@type": "Person", "name": "Matt Birch", "url": "https://mattbirch.co" },
+  "sameAs": [
+    "https://twitter.com/themattbirch",
+    "https://github.com/themattbirch",
+    "https://www.linkedin.com/in/themattbirch"
+  ],
+  "inLanguage": "en-US"
+};
+
+// ✅ Use the string as-is; otherwise stringify the object.
+const schemaJson =
+  typeof schema === "string" ? schema : JSON.stringify(schema ?? defaultSchema);
 ---
 
 <!doctype html>
@@ -121,24 +140,7 @@ const robotsMeta = indexable ? "index,follow" : "noindex,nofollow";
 
     <!-- Schema -->
     <script type="application/ld+json" is:inline>
-      {JSON.stringify(schema ?? {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://mattbirch.co",
-        "name": "Matt Birch — Sports Tech & Analytics",
-        "description": "Matt Birch builds sports tech products end to end—turning complex data into usable apps. Full-stack engineering, analytics, and AI-powered workflows.",
-        "publisher": {
-          "@type": "Person",
-          "name": "Matt Birch",
-          "url": "https://mattbirch.co"
-        },
-        "sameAs": [
-          "https://twitter.com/themattbirch",
-          "https://github.com/themattbirch",
-          "https://www.linkedin.com/in/themattbirch"
-        ],
-        "inLanguage": "en-US"
-      })}
+      {schemaJson}
     </script>
 
     <script is:inline>
