@@ -45,6 +45,7 @@ const i = sorted.findIndex((p) => p.slug === post.slug);
 const next: CollectionEntry<"posts"> | null =
   i >= 0 && i < sorted.length - 1 ? sorted[i + 1] : null;
 
+const isoDate = new Date(post.data.date.raw).toISOString();
 const formatDate = (date: Date) => {
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -90,12 +91,24 @@ const imageUrl = post.data.image;
           <div
             class="flex justify-center items-center gap-4 text-gray-600 dark:text-gray-400"
           >
-            <span class="text-sm sm:text-base" itemprop="datePublished">
-              {formatDate(post.data.date.raw)}
+            <span class="text-sm sm:text-base">
+              <time
+                class="text-sm sm:text-base"
+                itemprop="datePublished"
+                datetime={isoDate}
+              >
+                {formatDate(post.data.date.raw)}
+              </time>
             </span>
-            <span class="text-sm sm:text-base">•</span>
-            <span class="text-sm sm:text-base" itemprop="author">
-              Written By: {post.data.author}
+            <span class="text-sm sm:text-base">
+              <span
+                itemprop="author"
+                itemscope
+                itemtype="https://schema.org/Person"
+              >
+                <span aria-hidden="true">Written By: </span>
+                <span itemprop="name">{post.data.author}</span>
+              </span>
             </span>
           </div>
         </header>
