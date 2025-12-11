@@ -52,7 +52,7 @@ const SkillsSection = () => {
   const skills = [
     {
       icon: faCode,
-      title: "Frontend Engineering",
+      title: "Frontend Development",
       description:
         "Craft fast, data-rich interfaces with React, Next.js, and Astro. Focused on building dashboards, analytics views, and fan-facing applications that stay responsive under load.",
       color: {
