@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["SEO"]
+categories: ["Content Strategy"]
 date: 11/09/2023
 featured: false
 image: /images/user-phone-review.jpg

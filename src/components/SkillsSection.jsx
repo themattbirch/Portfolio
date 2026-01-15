@@ -5,6 +5,7 @@ import {
   faRobot,
   faPenFancy,
   faChevronRight,
+  faGaugeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 
 const SkillCard = ({ icon, title, description, color, extraClass }) => {
@@ -12,7 +13,11 @@ const SkillCard = ({ icon, title, description, color, extraClass }) => {
 
   return (
     <div
-      className={`bg-gradient-to-r from-blue-100 to-blue-50 dark:from-zinc-900 dark:to-zinc-800 rounded-lg p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-lg border-t-4 ${color.border} ${extraClass} flex flex-col justify-between md:h-[320px]`}
+      className={`bg-gradient-to-r from-blue-100 to-blue-50 dark:from-zinc-900 dark:to-zinc-800
+rounded-lg p-4 sm:p-6 md:p-8
+transition-all duration-300 hover:scale-105 hover:shadow-lg
+border-t-4 ${color.border} ${extraClass}
+flex flex-col justify-between md:min-h-[360px]`}
     >
       <div className="flex flex-col items-center text-center">
         <div className="flex justify-between items-start mb-3 sm:mb-4 w-full">
@@ -26,21 +31,25 @@ const SkillCard = ({ icon, title, description, color, extraClass }) => {
             Experienced
           </div>
         </div>
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+        <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white mb-2">
           {title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 md:text-base leading-relaxed">
+          {description}
+        </p>
       </div>
       <div className="mt-4 flex justify-center">
-        <button
+        <a
+          href="/skills/technical-skills"
           className={`${color.text} flex items-center hover:underline group`}
+          aria-label={`Learn more about ${title}`}
         >
           Learn More
           <FontAwesomeIcon
             icon={faChevronRight}
             className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
           />
-        </button>
+        </a>
       </div>
     </div>
   );
@@ -52,9 +61,9 @@ const SkillsSection = () => {
   const skills = [
     {
       icon: faCode,
-      title: "Frontend Development",
+      title: "Web Experience & Frontend Execution",
       description:
-        "Craft fast, data-rich interfaces with React, Next.js, and Astro. Focused on building dashboards, analytics views, and fan-facing applications that stay responsive under load.",
+        "Implement and maintain content-driven web experiences with a focus on clarity, usability, and performance. Use modern frontend tools (React, Next.js, Astro) to support CMS workflows, page structure, and UX-focused interfaces—ensuring sites remain fast, accessible, and maintainable.",
       color: {
         border: "border-blue-500",
         icon: "text-blue-500",
@@ -65,9 +74,9 @@ const SkillsSection = () => {
     },
     {
       icon: faRobot,
-      title: "APIs & Data Pipelines",
+      title: "CMS Architecture & Platform Integrations",
       description:
-        "Design and deploy scalable Node.js APIs and Supabase backends. Experienced in structuring pipelines that transform raw sports data into clean, reliable product features.",
+        "Design and maintain the systems that support content-driven websites, including CMS data models, integrations, and backend services. Experienced working with WordPress, headless CMS patterns, and Supabase-backed platforms to ensure content is structured, reliable, and easy to manage at scale.",
       color: {
         border: "border-green-500",
         icon: "text-green-500",
@@ -77,10 +86,10 @@ const SkillsSection = () => {
       extraClass: "lg:mt-6",
     },
     {
-      icon: faPenFancy,
-      title: "AI & Analytics Integration",
+      icon: faGaugeHigh,
+      title: "Web Analytics & Optimization",
       description:
-        "Integrate machine learning models and large language models (GPT, Claude, Gemini) to deliver predictive insights, smarter workflows, and more engaging sports analytics tools.",
+        "Measure and improve website performance using analytics and experimentation. Experienced with GA4 and Google Tag Manager to track engagement, define KPIs, and surface insights that inform content strategy, UX improvements, and ongoing site optimization.",
       color: {
         border: "border-purple-500",
         icon: "text-purple-500",

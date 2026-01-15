@@ -1,6 +1,6 @@
 ---
 author: "Matt Birch"
-categories: ["AI"]
+categories: ["Content Strategy"]
 date: "2025-07-11"
 featured: true
 image: "/images/typing-code-on-laptop.webp"

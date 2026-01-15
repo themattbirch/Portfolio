@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["App Development"]
+categories: ["Web Development"]
 date: 09/16/2024
 featured: false
 image: /images/man-working-computer-focused.jpg

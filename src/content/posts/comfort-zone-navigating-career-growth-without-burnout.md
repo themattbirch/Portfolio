@@ -1,6 +1,6 @@
 ---
 author: Matt Birch
-categories: ["App Development"]
+categories: ["Web Development"]
 date: 02/20/2025
 featured: false
 image: /images/career-challenge.jpg

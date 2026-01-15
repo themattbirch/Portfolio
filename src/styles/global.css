@@ -336,12 +336,12 @@
   0%,
   100% {
     transform: scale(1);
-    color: #2563eb;
+    color: #4563eb; /* base blue */
   }
 
   50% {
-    transform: scale(1.1);
-    color: #60a5fa;
+    transform: scale(1.03);
+    color: #4f6fd8; /* muted blue */
   }
 }
 
@@ -353,18 +353,13 @@
   0%,
   100% {
     transform: scale(1);
-    color: #60a5fa;
+    color: #60a5fa; /* base blue */
   }
 
   50% {
-    transform: scale(1.1);
-    color: #93c5fd;
+    transform: scale(1.03);
+    color: #7aaefc; /* softened highlight */
   }
-}
-
-.subtle-pulse {
-  animation: subtlePulse 2s ease-in-out infinite;
-  display: inline-block;
 }
 
 /* Utility Classes */
@@ -372,6 +367,7 @@
 .subtle-pulse {
   animation: subtlePulse 2s ease-in-out infinite;
   display: inline-block;
+  padding: 0 0.1em;
 }
 
 .fade-in {

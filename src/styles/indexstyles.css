@@ -176,7 +176,7 @@
 }
 
 .hero-tagline {
-  @apply mt-4 sm:mt-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 dark:text-gray-300 max-w-2xl;
+  @apply pt-6 text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 max-w-2xl;
 }
 
 .hero-cta {

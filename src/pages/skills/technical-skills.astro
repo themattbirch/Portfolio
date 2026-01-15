@@ -15,115 +15,118 @@ import {
   PenTool,
   Search,
   Globe2,
+  Layers,
+  BarChart3,
 } from "lucide-react";
 
 // --- The 6 Pillars of Expertise ---
 const coreSkills = [
   {
-    name: "Full-Stack Development",
+    name: "Web Platform Ownership & Execution",
     description:
-      "I build full-stack applications that connect frontend interfaces with backend logic and databases — everything needed to take a product from concept to launch.",
-    icon: Code,
+      "I own and maintain content-driven web platforms end to end, ensuring frontend experiences, underlying systems, and data flows work together reliably over time.",
+    icon: Layers,
   },
   {
-    name: "Frontend Architecture",
+    name: "Web Experience & Frontend Execution",
     description:
-      "I specialize in React and Next.js, creating fast, scalable UIs with a focus on component reusability, state management, and design clarity.",
+      "I implement and maintain clear, performant user interfaces using modern frontend tools, with an emphasis on usability, accessibility, and long-term maintainability.",
     icon: Laptop,
   },
   {
-    name: "Backend & API Development",
+    name: "CMS Architecture & Platform Integrations",
     description:
-      "I design secure RESTful APIs with Node.js and Express, often powering data-heavy apps like analytics dashboards and sports pipelines.",
+      "I design and support the systems behind content-led websites, including CMS data models, integrations, and backend services that keep content structured and dependable.",
     icon: Server,
   },
   {
-    name: "AI Integration",
+    name: "Analytics, Automation & AI-Assisted Workflows",
     description:
-      "I integrate large language models (GPT-4, Claude, Gemini) into apps, enabling smarter workflows, personalized insights, and data-driven features.",
-    icon: Brain,
+      "I apply analytics, automation, and AI-assisted tools where they add value—supporting better measurement, smarter workflows, and clearer decision-making.",
+    icon: BarChart3, // 🔁 CHANGE from Brain → BarChart3 (analytics-first, AI secondary)
   },
   {
-    name: "Product-Minded Web Development",
+    name: "Content Strategy, UX & Information Architecture",
     description:
-      "With a founder’s mindset, I think about the ‘why’ behind every feature — aligning technical work with business impact.",
-    icon: Users,
+      "I translate business and editorial goals into clear site structure, intuitive navigation, and UX-focused content that supports engagement and understanding.",
+    icon: PenTool,
   },
   {
-    name: "Mobile & PWA Development",
+    name: "Responsive & Progressive Web Experiences",
     description:
-      "I deliver installable Progressive Web Apps (PWAs) that feel native, load instantly, and even work offline.",
+      "I deliver responsive, accessible web experiences across devices, including Progressive Web App patterns when appropriate, with a focus on performance and consistency.",
     icon: Smartphone,
   },
 ];
 
-// --- The Toolbox (Additional Expertise) ---
+// --- Supporting Skills & Tools ---
 const additionalSkills = [
   {
     name: "JavaScript & TypeScript",
     description:
-      "Modern, type-safe JavaScript (ES6+) and TypeScript for reliable, maintainable application logic.",
+      "Modern JavaScript (ES6+) and TypeScript used to support reliable, maintainable frontend and integration work.",
     icon: Code,
   },
   {
     name: "React & Next.js",
     description:
-      "Component-driven UIs with React and production-ready apps with Next.js, optimized for speed and SEO.",
+      "Component-driven interfaces and production-ready sites using React and Next.js, with attention to performance, accessibility, and SEO fundamentals.",
     icon: Laptop,
   },
   {
-    name: "Node.js & Express",
+    name: "Content Management Systems",
     description:
-      "Fast, scalable backend services built with Node.js and Express for APIs and core logic.",
-    icon: Server,
+      "Experience working with WordPress and headless CMS patterns, supporting structured content, editorial workflows, and long-term maintainability.",
+    icon: Globe2,
   },
   {
     name: "Databases & Supabase",
     description:
-      "Relational data design with PostgreSQL, plus Supabase for authentication, storage, and auto-generated APIs.",
+      "Relational data modeling with PostgreSQL and Supabase-backed platforms to support content, analytics, and application workflows.",
     icon: Database,
   },
   {
     name: "Astro",
     description:
-      "Lightweight, content-focused websites with Astro’s server-first, island-based architecture.",
+      "Content-focused websites built with Astro’s server-first architecture, prioritizing performance, clarity, and low overhead.",
     icon: Settings,
   },
   {
-    name: "HTML5 & CSS3",
+    name: "HTML & CSS",
     description:
-      "Expert in semantic HTML and modern CSS layouts, from Flexbox to Grid, for responsive design.",
+      "Semantic HTML and modern CSS (Flexbox, Grid) used to create accessible, responsive layouts with clear structure.",
     icon: PenTool,
-  },
-  {
-    name: "Version Control (Git)",
-    description:
-      "Efficient collaboration and codebase management using Git and GitHub.",
-    icon: GitMerge,
   },
   {
     name: "SEO & Content Strategy",
     description:
-      "Technical SEO and content strategy skills rooted in my media background, boosting organic visibility.",
+      "Technical and on-page SEO, information architecture, and content strategy informed by editorial experience and analytics.",
     icon: Search,
   },
   {
-    name: "Build Tools (Vite)",
+    name: "Web Analytics & Measurement",
     description:
-      "Fast development environments and optimized builds using Vite, with hot module replacement and bundling.",
-    icon: Settings,
+      "Experience implementing and using GA4 and Google Tag Manager to track engagement, define KPIs, and inform iterative improvements.",
+    icon: BarChart3,
   },
   {
-    name: "WordPress",
+    name: "Version Control & Collaboration",
     description:
-      "Custom WordPress solutions for legacy projects and small-business sites that need stability and ease of use.",
-    icon: Globe2,
+      "Git-based workflows that support collaboration, review, and stable long-term maintenance of web platforms.",
+    icon: GitMerge,
+  },
+  {
+    name: "Build & Tooling",
+    description:
+      "Modern build tools such as Vite used to support fast development cycles and efficient production builds.",
+    icon: Settings,
   },
 ];
 
-const pageTitle = "Technical Skills | Matt Birch – Full Stack Web Developer";
+const pageTitle = "Technical Toolkit | Matt Birch – Digital Content Strategist";
+
 const pageDescription =
-  "A deep dive into my technical toolkit: React, Next.js, Node.js, Supabase, and AI integrations. Explore how I design, build, and scale full-stack web applications with a product-focused mindset.";
+  "An overview of the technical tools and platforms I use to support content-led web experiences, including CMS architecture, frontend execution, analytics, SEO, and modern web frameworks.";
 ---
 
 <Layout
@@ -140,9 +143,9 @@ const pageDescription =
         <p
           class="mt-6 max-w-2xl mx-auto text-lg text-gray-700 dark:text-gray-300"
         >
-          I design and build products end-to-end — from frontend interfaces and
-          APIs to data pipelines and AI integrations. These are the skills I
-          rely on most to bring ideas to life.
+          I focus on owning and evolving content-led web platforms—bringing
+          together UX clarity, structured systems, and analytics to turn complex
+          requirements into reliable, usable experiences.
         </p>
       </div>
     </section>
