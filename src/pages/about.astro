@@ -185,12 +185,7 @@ From there, I focus on sustainable execution: clear structure, maintainable syst
       :global(.dark) .horizontal-gradient-wrapper-2 {
         background: linear-gradient(to bottom, #1f2937, #45617c);
       }
-      /* Text gradient overlay + glowing button shadow */
-      .text-gradient {
-        background: linear-gradient(to right, #00c6ff, #0072ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+
       .button-glow {
         box-shadow:
           0 0 15px rgba(0, 114, 255, 0.8),
@@ -214,13 +209,12 @@ From there, I focus on sustainable execution: clear structure, maintainable syst
         height: 60vh;
         min-height: 300px;
       }
-
       .text-gradient {
-        background: linear-gradient(to right, #00c6ff, #0072ff);
+        background: linear-gradient(to right, #f5f7fa, #dfe3e8);
         -webkit-background-clip: text;
         background-clip: text;
-        color: #0072ff; /* Fallback color */
         -webkit-text-fill-color: transparent;
+        color: #f5f7fa; /* fallback */
         display: inline-block;
       }
 
