@@ -68,7 +68,7 @@ const pageDescription =
 >
   <div class="horizontal-gradient-wrapper">
     <section
-      class="max-w-screen-2xl mx-auto py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8"
+      class="max-w-screen-2xl mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-24 pb-0 px-4 sm:px-6 lg:px-8"
     >
       <article
         class="relative"
@@ -162,60 +162,58 @@ const pageDescription =
       <div class="mt-8 sm:mt-12 md:mt-16 text-base sm:text-lg">
         <Share post={post} />
       </div>
-      <div class="mt-10 sm:mt-14 md:mt-16">
-        <NextPost next={next} />
-      </div>
+      <NextPost next={next} />
     </section>
   </div>
+</Layout>
 
-  <style>
-    .horizontal-gradient-wrapper {
-      @apply bg-gradient-to-b from-white via-blue-50 to-white dark:from-[#45617c] dark:via-gray-800 dark:to-[#45617c];
+<style>
+  .horizontal-gradient-wrapper {
+    @apply bg-gradient-to-b from-white via-blue-50 to-white dark:from-[#45617c] dark:via-gray-800 dark:to-[#45617c];
+  }
+
+  .toc-wrapper {
+    @apply max-w-[90%] mx-auto w-full;
+  }
+
+  .toc-wrapper :global(a) {
+    @apply inline-block text-blue-700 no-underline transition-all duration-300 ease-in-out text-xl;
+  }
+
+  .toc-wrapper :global(a:hover) {
+    @apply text-blue-500 translate-x-1;
+  }
+
+  :global(.dark) .toc-wrapper :global(a) {
+    @apply text-blue-300 hover:text-blue-400;
+  }
+
+  /* Responsive  */
+  @media (max-width: 1179px) {
+    .toc-wrapper {
+      @apply text-sm max-w-[90%] mx-auto;
     }
 
-    .toc-wrapper {
-      @apply max-w-[90%] mx-auto w-full;
+    .toc-wrapper :global(h2) {
+      @apply text-2xl;
+    }
+
+    .toc-wrapper :global(ul) {
+      @apply pl-4;
     }
 
     .toc-wrapper :global(a) {
-      @apply inline-block text-blue-700 no-underline transition-all duration-300 ease-in-out text-xl;
+      @apply text-base;
+    }
+  }
+
+  @media (min-width: 1180px) {
+    .toc-wrapper {
+      @apply w-full max-w-none ml-auto mr-0;
     }
 
-    .toc-wrapper :global(a:hover) {
-      @apply text-blue-500 translate-x-1;
+    .lg\:w-3\/4 {
+      width: calc(75% - 2rem);
     }
-
-    :global(.dark) .toc-wrapper :global(a) {
-      @apply text-blue-300 hover:text-blue-400;
-    }
-
-    /* Responsive  */
-    @media (max-width: 1179px) {
-      .toc-wrapper {
-        @apply text-sm max-w-[90%] mx-auto;
-      }
-
-      .toc-wrapper :global(h2) {
-        @apply text-2xl;
-      }
-
-      .toc-wrapper :global(ul) {
-        @apply pl-4;
-      }
-
-      .toc-wrapper :global(a) {
-        @apply text-base;
-      }
-    }
-
-    @media (min-width: 1180px) {
-      .toc-wrapper {
-        @apply w-full max-w-none ml-auto mr-0;
-      }
-
-      .lg\:w-3\/4 {
-        width: calc(75% - 2rem);
-      }
-    }
-  </style>
-</Layout>
+  }
+</style>

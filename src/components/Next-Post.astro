@@ -80,7 +80,7 @@ const excerpt = next
   :root {
     --next-vignette-w: 1400px;
     --next-vignette-h: 180px;
-    --next-vignette-alpha: 0.72;
+    --next-vignette-alpha: 0.68;
   }
 
   .next-fullbleed {
@@ -101,7 +101,7 @@ const excerpt = next
     border-block: 1px solid rgba(226, 232, 240, 0.6); /* slate-200/60 */
     background:
       radial-gradient(
-        var(--next-vignette-w) var(--next-vignette-h) at 50% 47%,
+        var(--next-vignette-w) var(--next-vignette-h) at 50% 46%,
         rgba(226, 232, 240, var(--next-vignette-alpha)),
         rgba(226, 232, 240, 0) 72%
       ),
@@ -114,19 +114,14 @@ const excerpt = next
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0,
-      black 10%,
+      black 0%,
       black 100%
     );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0,
-      black 10%,
-      black 100%
-    );
+    mask-image: linear-gradient(to bottom, transparent 0, black 0%, black 100%);
 
     /* section rhythm */
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   /* DARK: remove band effects → transparent container */
@@ -139,8 +134,8 @@ const excerpt = next
 
   @media (min-width: 768px) {
     .next-band {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
     }
   }
 
