@@ -12,7 +12,11 @@ Today marked a wild day in the financial markets.
 
 Gold prices plummeted, and silver followed, causing the loss of trillions of dollars in market value. Gold fell about 12% on the day, from near $5,600 to just under $5,000, ending around $4,907. The decline was much larger for silver, which fell by as much as 36%, from above $121 to near $75, before ending the day near $85.
 
-This represents losses of roughly $3–$5 trillion in gold’s market value and roughly $1–$2 trillion in silver’s. Including secondary effects, total losses are estimated at $7–$10 trillion in this event alone, about 25% of U.S. gross domestic product (GDP), estimated at $30 trillion.
+The speed and scale of the sell-off caught many investors off guard, especially after weeks of one-way momentum and growing confidence in the trade.
+
+This represents losses of roughly $3–$5 trillion in gold’s market value and $1–$2 trillion in silver’s. Including secondary effects, total losses are estimated at $7–$10 trillion in this event alone, about 25% of U.S. gross domestic product (GDP), estimated at $30 trillion.
+
+To understand just how unusual this move was, it helps to break it down.
 
 ## Was This Really a 10 Sigma Event?
 
@@ -43,7 +47,9 @@ Retail investors holding silver ETFs like SLV took the largest hit. Sentiment in
 
 Right now, this feels more like a positioning reset than the end of the bull market, as fundamentals still look solid. Central banks continue to hoard gold, industrial demand for silver remains strong, driven by solar and electric vehicles, and global debt (now estimated at roughly $111 trillion) has increased demand for hard assets as a hedge.
 
-However, the move also exposed cracks. Stocks dipped, with the S&P 500 closing down 0.43% and the Nasdaq down 0.94%. Bitcoin fell as much as 7% before eventually rebounding. It served as a wake-up call for just how interconnected these markets have become.
+However, the move also exposed cracks in market structure.
+
+Stocks dipped, with the S&P 500 closing down 0.43% and the Nasdaq down 0.94%. Bitcoin fell as much as 7% before eventually rebounding. It served as a wake-up call for just how interconnected these markets have become.
 
 | Asset  | Jan 30 Close | % Change (Close-to-Close) | Intraday Low % Drop | Est. Sigma Level | Value Wiped (Trillions USD) |
 | ------ | ------------ | ------------------------- | ------------------- | ---------------- | --------------------------- |
@@ -104,7 +110,9 @@ _Long-term chart showing the parabolic rise in gold price before today's reversa
 
 Silver is the wild card. It's very volatile and also carries a high level of momentum, so be cautious when trading it.
 
-More than most years, diversification will be critical in 2026. When investing in commodities, stick to unleveraged exposure. If you do decide to trade commodities such as copper or uranium, use historical data and technical analysis to determine how large to make your trades. Also, be sure the commodity you are considering trading is liquid.
+That level of volatility is a reminder that risk management matters just as much as conviction in today's markets.
+
+More than most years, diversification is critical in 2026. When investing in commodities, stick to unleveraged exposure. If you do decide to trade commodities such as copper or uranium, use historical data and technical analysis to determine how large to make your trades. Also, be sure the commodity you are considering trading is liquid.
 
 | Scenario                                | Gold Outlook                | Silver Outlook                               | Key Investing Trend                              |
 | --------------------------------------- | --------------------------- | -------------------------------------------- | ------------------------------------------------ |
