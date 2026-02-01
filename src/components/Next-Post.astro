@@ -31,7 +31,7 @@ const excerpt = next
 
 <section class="next-fullbleed">
   <div class="next-band">
-    <div class="mx-auto max-w-prose px-4 sm:px-6 pt-6 md:pt-24">
+    <div class="mx-auto max-w-prose px-4 sm:px-6">
       <div class="next-card">
         <p class="next-kicker">Up next</p>
 
@@ -79,8 +79,8 @@ const excerpt = next
      ---------------------------------------------------- */
   :root {
     --next-vignette-w: 1400px;
-    --next-vignette-h: 220px;
-    --next-vignette-alpha: 0.82;
+    --next-vignette-h: 180px;
+    --next-vignette-alpha: 0.72;
   }
 
   .next-fullbleed {
@@ -101,7 +101,7 @@ const excerpt = next
     border-block: 1px solid rgba(226, 232, 240, 0.6); /* slate-200/60 */
     background:
       radial-gradient(
-        var(--next-vignette-w) var(--next-vignette-h) at 50% 52%,
+        var(--next-vignette-w) var(--next-vignette-h) at 50% 47%,
         rgba(226, 232, 240, var(--next-vignette-alpha)),
         rgba(226, 232, 240, 0) 72%
       ),
@@ -114,17 +114,19 @@ const excerpt = next
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0,
-      black 8%,
-      black 92%,
-      transparent 100%
+      black 10%,
+      black 100%
     );
     mask-image: linear-gradient(
       to bottom,
       transparent 0,
-      black 8%,
-      black 92%,
-      transparent 100%
+      black 10%,
+      black 100%
     );
+
+    /* section rhythm */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   /* DARK: remove band effects → transparent container */
@@ -133,6 +135,13 @@ const excerpt = next
     border-block: none !important;
     -webkit-mask-image: none !important;
     mask-image: none !important;
+  }
+
+  @media (min-width: 768px) {
+    .next-band {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 
   /* ----------------------------------------------------
