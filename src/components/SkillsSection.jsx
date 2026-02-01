@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCode,
   faRobot,
-  faPenFancy,
+  faPen,
   faChevronRight,
   faGaugeHigh,
 } from "@fortawesome/free-solid-svg-icons";
@@ -60,10 +60,10 @@ const SkillsSection = () => {
 
   const skills = [
     {
-      icon: faCode,
-      title: "Web Experience & Frontend Execution",
+      icon: faPen,
+      title: "Content-Led Web Experience & Execution",
       description:
-        "Implement and maintain content-driven web experiences with a focus on clarity, usability, and performance. Use modern frontend tools (React, Next.js, Astro) to support CMS workflows, page structure, and UX-focused interfaces—ensuring sites remain fast, accessible, and maintainable.",
+        "Build and maintain content-led web experiences with a focus on clarity, usability, and performance. Execute production-ready pages and interfaces that support publishing workflows, UX writing, and responsive behavior—keeping sites fast, accessible, and easy to iterate over time.",
       color: {
         border: "border-blue-500",
         icon: "text-blue-500",
@@ -74,9 +74,9 @@ const SkillsSection = () => {
     },
     {
       icon: faRobot,
-      title: "CMS Architecture & Platform Integrations",
+      title: "CMS Architecture, Governance & Integrations",
       description:
-        "Design and maintain the systems that support content-driven websites, including CMS data models, integrations, and backend services. Experienced working with WordPress, headless CMS patterns, and Supabase-backed platforms to ensure content is structured, reliable, and easy to manage at scale.",
+        "Design the CMS foundations that make content easy to create, govern, and publish at scale—structured models, reusable templates, and reliable integrations. Experienced with WordPress and headless patterns to keep content organized, maintainable, and ready for ongoing production.",
       color: {
         border: "border-green-500",
         icon: "text-green-500",
@@ -87,9 +87,9 @@ const SkillsSection = () => {
     },
     {
       icon: faGaugeHigh,
-      title: "Web Analytics & Optimization",
+      title: "Analytics-Driven Content & UX Optimization",
       description:
-        "Measure and improve website performance using analytics and experimentation. Experienced with GA4 and Google Tag Manager to track engagement, define KPIs, and surface insights that inform content strategy, UX improvements, and ongoing site optimization.",
+        "Measure and improve site performance using analytics and practical experimentation. Use GA4 and Tag Manager to track engagement, define KPIs, and turn insights into content and UX updates—improving discoverability, usability, and long-term site health.",
       color: {
         border: "border-purple-500",
         icon: "text-purple-500",

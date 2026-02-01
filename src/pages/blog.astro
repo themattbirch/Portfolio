@@ -36,11 +36,10 @@ const posts = sortedPosts.filter((post) => post !== featuredPost).slice(0, 6);
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 
-const pageTitle =
-  "AI, Web Development & Content Strategy | Insights by Matt Birch";
+const pageTitle = "The Matt Birch Blog | Digital Strategy, Markets & Systems";
 
 const blogDescription =
-  "Articles by Matt Birch exploring AI, web development, and content strategy—drawing on hands-on implementation, analytics, and a media background to examine how modern websites are built, structured, and optimized.";
+  "Articles by Matt Birch exploring digital platforms, content strategy, markets, and emerging systems.";
 ---
 
 <Layout
@@ -56,14 +55,15 @@ const blogDescription =
     >
       <header class="text-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
-          The Matt Birch Blog: AI, Web Development & Content Strategy
+          The Matt Birch Blog: Insights on Digital Strategy, Markets & the
+          Systems Behind Them
         </h1>
         <p
           class="italic dark:text-darkModeText text-base sm:text-lg md:text-xl py-8 sm:py-6 md:py-12"
         >
-          Exploring AI, analytics, and modern web development through the lens
-          of content strategy, UX clarity, and real-world implementation—written
-          with editorial discipline and hands-on technical experience.
+          Exploring digital platforms, markets, and emerging systems through the
+          lens of content strategy, UX clarity, and real-world execution—written
+          with editorial discipline and hands-on experience.
         </p>
       </header>
 
