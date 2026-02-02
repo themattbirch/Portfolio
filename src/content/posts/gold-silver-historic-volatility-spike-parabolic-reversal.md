@@ -119,4 +119,4 @@ The recent volatility is a reminder that risk management matters just as much as
 
 In this environment, outcomes are often shaped less by forecasts and more by positioning and discipline.
 
-Events like this serve as a reminder that market structure and positioning can matter as much as fundamentals, especially during periods of elevated volatility. The durability of the gold and silver rally will become clearer as volatility subsides and positioning normalizes, providing a clearer signal of the market’s underlying strength.
+Events like this serve as a reminder that market structure and positioning can matter as much as fundamentals. The durability of the gold and silver rally will become clearer as positioning normalizes and price discovery resumes.
