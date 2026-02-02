@@ -31,11 +31,11 @@ Whether framed in statistical terms or simple historical comparison, the takeawa
 The chart below ([via SeekingAlpha](https://seekingalpha.com/article/4864161-silver-gold-copper-outlook-metals-flashing-red-after-record-runs)) highlights just how far prices moved relative to recent history.
 
 ![Precious metals performance in 2026 leading up to the crash](/images/precious_metals_performance_2026.webp)
-_Multi-asset chart showing the rally and key events before today's reversal_
+_Multi-asset chart showing the rally and key events leading into the reversal_
 
 ## What Triggered the Sell-Off
 
-This was neither a supply surplus nor a sudden drop in demand. It was a reversal after an enormous rally in gold (up 29%) and silver (up 68%), driven by geopolitics, de-dollarization fears, and safe-haven buying.
+This was neither a supply surplus nor a sudden drop in demand. It followed an enormous rally in gold (up 29%) and silver (up 68%), driven by geopolitics, de-dollarization fears, and safe-haven buying.
 
 The shift in expectations came fast. When President Trump named Kevin Warsh as his pick for the next Federal Reserve Chair, markets read it as a more hawkish signal. The U.S. dollar rose roughly 0.5–1%.
 
@@ -83,7 +83,7 @@ A lot of people are looking for context on how this event stacks up historically
 
 Across all of these, the common thread is leverage and the speed at which sentiment flips when positioning gets crowded. This episode is sector-specific (metals), and it’s unfolding during a period of meaningful policy shifts.
 
-This comparison ([via Fortune](https://fortune.com/2026/01/30/bitcoin-price-today-ethereum-gold-silver-platinum-copper/)) makes clear how the sell-off spread beyond precious metals.
+This comparison ([via Fortune](https://fortune.com/2026/01/30/bitcoin-price-today-ethereum-gold-silver-platinum-copper/)) shows how the sell-off extended beyond precious metals.
 
 ![Comparative line chart of Bitcoin, gold, and silver recent performance](/images/bitcoin_gold_silver_comparative_chart_2026.webp)
 _Line chart highlighting silver's outsized drop relative to gold and bitcoin_
@@ -106,10 +106,10 @@ Liquidity risk remains high and could drive further deleveraging. A stronger dol
 
 A deeper correction of 5–20% to roughly $3,360–$3,990 is also possible if the U.S. enters a reflationary period. Should silver break below a key support level, a substantial bear phase could be on the table.
 
-Given the parabolic nature of the prior move, downside risk remains elevated. Gold’s price trajectory over the past three years ([via Yahoo Finance](https://finance.yahoo.com/news/why-gold-rally-continue-2026-213000355.html)) highlights how sharp and accelerated the rally was prior to the reversal.
+Given the parabolic nature of the prior move, downside risk remains elevated. Gold’s price trajectory over the past three years ([via Yahoo Finance](https://finance.yahoo.com/news/why-gold-rally-continue-2026-213000355.html)) highlights how sharp and accelerated the rally was ahead of the reversal.
 
 ![Longer-term gold spot price chart from 2020 onward](/images/long_term_gold_spot_price_chart.webp)
-_Long-term chart showing the parabolic rise in gold price before today's reversal_
+_Long-term chart showing the parabolic rise in gold prices prior to the sell-off_
 
 Volatility aside, the good news is that gold will often trade sideways for several weeks (or even months), and then may suddenly experience a large price increase of 8–20%. The floor remains intact due to continuous purchasing by central banks.
 
