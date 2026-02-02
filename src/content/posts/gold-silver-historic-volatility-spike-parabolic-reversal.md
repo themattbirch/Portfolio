@@ -100,7 +100,7 @@ However, this market downturn may also signal a transition toward a multipolar w
 
 ## Market Outlook for 2026
 
-The evidence for a bearish outlook is strong.
+The evidence points to a bearish tilt in market sentiment.
 
 Liquidity risk remains high and could drive further deleveraging. A stronger dollar and rising interest rates will likely continue to weigh on non-yielding assets like precious metals. If the trend continues, gold could retest its recent low near $4,180.
 
@@ -119,4 +119,4 @@ The recent volatility is a reminder that risk management matters just as much as
 
 In this environment, outcomes are often shaped less by forecasts and more by positioning and discipline.
 
-Events like this serve as a reminder that market structure and positioning can matter as much as fundamentals, especially during periods of elevated volatility. The durability of the gold and silver rally will become clearer as volatility subsides and positioning normalizes.
+Events like this serve as a reminder that market structure and positioning can matter as much as fundamentals, especially during periods of elevated volatility. The durability of the gold and silver rally will become clearer as volatility subsides and positioning normalizes, providing a clearer signal of the market’s underlying strength.
