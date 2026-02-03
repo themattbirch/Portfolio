@@ -16,7 +16,7 @@ What stood out was not only the size of the move, but the speed with which it un
 
 That sell-off translates to losses of roughly $3–$5 trillion in gold’s market value and $1–$2 trillion in silver’s, before accounting for the knock-on effects that spilled into other risk assets.
 
-To understand just how unusual this move was, it helps to break it down.
+To understand just how unusual this decline was, it helps to break it down.
 
 ## Was This an Extreme Move?
 
