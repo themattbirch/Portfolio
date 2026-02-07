@@ -87,9 +87,9 @@ const SkillsSection = () => {
     },
     {
       icon: faGaugeHigh,
-      title: "Analytics-Driven Content & UX Optimization",
+      title: "SEO & Analytics-Driven Content Optimization",
       description:
-        "Measure and improve site performance using analytics and practical experimentation. Use GA4 and Tag Manager to track engagement, define KPIs, and turn insights into content and UX updates—improving discoverability, usability, and long-term site health.",
+        "Measure and improve site performance using SEO, analytics, and practical experimentation. Use GA4 and Tag Manager to track engagement, define KPIs, and turn insights into content and UX updates—improving discoverability, usability, and long-term site health.",
       color: {
         border: "border-purple-500",
         icon: "text-purple-500",
